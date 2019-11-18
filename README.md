@@ -1,2 +1,2 @@
 # ml
-mahcine learning 
+machine learning 
