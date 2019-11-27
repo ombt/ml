@@ -89,3 +89,7 @@ plot(x = iris$Petal.Length, y = iris$Petal.Width,
 
 # look at the confusion matrix
 table(iris.kmeans3$cluster, iris$Species)
+
+# tree-based models
+
+
