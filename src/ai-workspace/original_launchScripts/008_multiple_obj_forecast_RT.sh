@@ -1,16 +1,11 @@
 #!/bin/bash
 
-# HOME_FOLDER=/home/s
-HOME_FOLDER=/root/sandbox/ml/src/
-
+HOME_FOLDER=/home/s
 SRC_FOLDER=$HOME_FOLDER/ai-workspace/experiments/NCS2/src
 DATA_FOLDER=$HOME_FOLDER/ai-workspace/experiments/NCS2/data
 
-# INTEL_MODELS=/opt/intel/computer_vision_sdk/deployment_tools/intel_models
-# PRE_TRAINED_MODELS=/opt/intel/computer_vision_sdk/deployment_tools/model_downloader
-
-INTEL_MODELS=/opt/intel/openvino/deployment_tools/intel_models
-PRE_TRAINED_MODELS=/opt/intel/openvino/deployment_tools/model_downloader
+INTEL_MODELS=/opt/intel/computer_vision_sdk/deployment_tools/intel_models
+PRE_TRAINED_MODELS=/opt/intel/computer_vision_sdk/deployment_tools/model_downloader
 
 MODELS_FOLDER=$HOME_FOLDER/ai-workspace/experiments/NCS2/videos
 

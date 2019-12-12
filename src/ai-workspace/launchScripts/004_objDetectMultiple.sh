@@ -4,12 +4,18 @@
 redis-server &
 sleep 2
 
-source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+# source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+source /opt/intel/openvino/bin/setupvars.sh
 
-SRC_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/src
-DATA_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/data
-MODELS_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/models
-VIDEOS_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/videos
+# SRC_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/src
+# DATA_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/data
+# MODELS_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/models
+# VIDEOS_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/videos
+
+SRC_FOLDER=/root/sandbox/ml/src/ai-workspace/experiments/NCS2/src
+DATA_FOLDER=/root/sandbox/ml/src/ai-workspace/experiments/NCS2/data
+MODELS_FOLDER=/root/sandbox/ml/src/ai-workspace/experiments/NCS2/models
+VIDEOS_FOLDER=/root/sandbox/ml/src/ai-workspace/experiments/NCS2/videos
 
 
 # Launch the dashboard

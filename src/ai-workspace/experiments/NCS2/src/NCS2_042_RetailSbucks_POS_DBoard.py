@@ -17,7 +17,8 @@ plt.style.use('seaborn')
 prod_weights = {}
 
 pershiable_list = [16,1,12,4,3,21,12,20]
-mappingfile = open('/home/s/ai-workspace/experiments/NCS2/data/instakart/s1_products.csv','r')
+# mappingfile = open('/home/s/ai-workspace/experiments/NCS2/data/instakart/s1_products.csv','r')
+mappingfile = open('/root/sandbox/ml/src/ai-workspace/experiments/NCS2/data/instakart/s1_products.csv','r')
 names_mapping = csv.reader(mappingfile, delimiter=',')
 
 node_labels = {}
@@ -38,7 +39,8 @@ for rows in names_mapping:
 mappingfile.close()
 
 
-csvfile = open('/home/s/ai-workspace/experiments/NCS2/data/instakart/order_products__prior.csv','r')
+# csvfile = open('/home/s/ai-workspace/experiments/NCS2/data/instakart/order_products__prior.csv','r')
+csvfile = open('/root/sandbox/ml/src/ai-workspace/experiments/NCS2/data/instakart/order_products__prior.csv','r')
 order_products =csv.reader(csvfile, delimiter=',')
 # Create the meta table with weights
 # Simple to beginn with.
