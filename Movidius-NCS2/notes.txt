@@ -492,3 +492,8 @@ https://redis.io/topics/quickstart
 https://www.dlology.com/blog/how-to-run-keras-model-on-movidius-neural-compute-stick/
 
 
+18) install ipython and ipython3 interpreters:
+
+	apt-get install ipython
+	apt-get install ipython3
+
