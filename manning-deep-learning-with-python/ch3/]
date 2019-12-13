@@ -102,13 +102,7 @@ history = model.fit(partial_x_train,
 #
 history_dict = history.history
 #
-print(history_dict.keys())
-#
-# dict_keys(['val_loss', 'val_accuracy', 'loss', 'accuracy'])
-#
-# plot loss
-#
-acc             = history_dict['accuracy']
+acc             = history.history['acc']
 loss_values     = history_dict['loss']
 val_loss_values = history_dict['val_loss']
 epochs          = range(1, len(acc) + 1)
@@ -122,27 +116,6 @@ plt.plot(epochs,
          'b', 
          label='Validation loss')
 plt.title('Training and validation loss')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-#
-plt.show()
-#
-# Plotting the training and validation accuracy
-plt.clf()
-#
-acc_values = history_dict['accuracy']
-val_acc_values = history_dict['val_accuracy']
-#
-plt.plot(epochs, 
-         acc_values, 
-         'bo', 
-         label='Training acc')
-plt.plot(epochs, 
-         val_acc_values, 
-         'b', 
-          label='Validation acc')
-plt.title('Training and validation accuracy')
 plt.xlabel('Epochs')
 plt.ylabel('Loss')
 plt.legend()
