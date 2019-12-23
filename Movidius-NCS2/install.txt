@@ -1,0 +1,199 @@
+1) Create Ubuntu 18.04 USB boot disk (Live Disk).
+
+2) Boot laptop on USB stick. Power up and Esc, then F9 or F12. Choose 
+booting off USB stick.
+
+Keyboard layout: English/English/continue
+
+Connect to WIFI: choose SYSID
+
+Updates and other software: Normal Installation and Download updates
+while installing Ubuntu. Click continue.
+
+Installation type: Erase disk and install Ubuntu, click install now.
+
+Write the changes to disk? continue
+
+Where are you? Chicago and click continue
+
+Who are you? 
+Your name: sogetiai2
+Your computer name: sogetiai
+Pick a username: sogetiai
+Choose a password: sogetiai
+Confirm your passwors: sogetiai
+Require my password to login: click
+Click continue
+
+Let installation start and wait for completion:
+
+Choose restart.
+
+Remove USB boot disk and restart (hit enter).
+
+3) Logon: sogetiai/sogetiai
+
+Choose to install any latest 18.04 updates: sogetiai/sogetiai and
+choose authenticate.
+
+4) Choose icon on lower LHS, enter term on the search entry.
+Choose xterm. Right-click xterm on the taskbar. Select to lock 
+on favorites.
+
+start up an xterm:
+
+5) in the xterm, do:
+
+	$ sudo passwd root
+	[sudo] password for sogetai: sogetiai
+	Enter new UNIX password: sogetiai
+	Retype new UNIX password: sogetiai
+
+	$ su - root
+	Password: sogetiai
+
+	$ apt-get update
+	$ apt install synaptic
+	...
+	Do you want to continue? y
+	...
+	$ apt get net-tools
+	...
+
+If you want to login as root to the Ubuntu 18.04 desktop, you need to 
+perform a couple of additional steps after enabling the root user:
+
+Open /etc/gdm3/custom.conf and add AllowRoot=true under the 
+[security] block:
+
+[security]
+AllowRoot=true
+
+Next, open the /etc/pam.d/gdm-password and locate the following line:
+
+auth	required	pam_succeed_if.so user != root quiet_success
+
+And comment out the line (put # in front):
+
+#auth	required	pam_succeed_if.so user != root quiet_success
+
+After that restart your computer, when you come back to the login 
+screen, click on the "not listed?".
+
+6) You now have Ubuntu Desktop 18.04 LTS installed as requested by the Intel NCS2 site.
+
+7) Do this from the new lpatop. Login as root in the GUI login.
+
+Select correct version of OpenVino software:
+
+https://software.intel.com/en-us/openvino-toolkit/choose-download
+
+choose Linux:
+
+Minimum System Requirements
+
+For hardware that supports the Intel® Distribution of OpenVINO™ toolkit 
+on Linux, see System Requirements.
+
+Register to download OpenVino software:
+
+download latest version: 2019 R3.1
+choose: full package to download
+
+either download directly to new laptop or to a Windows machine and 
+xfer the file to the new laptop.
+
+8) Software Requirements
+
+A Linux build environment needs these components:
+
+OpenCV 3.4 or higher
+GNU Compiler Collection (GCC)* 3.4 or higher
+CMake* 2.8 or higher
+Python* 3.5 or higher
+
+Use synaptic to install the above packages or as follows:
+
+	$ apt install gcc
+	$ apt install python3
+	$ apt install cmake
+	$ apt install libopencv-dev
+
+9) Install the following:
+
+	$ apt install python
+	$ apt install python3
+	$ apt install python-pip
+	$ apt install python3-pip
+	$ apt install git
+	$ apt install git-gui
+	$ apt install gitk
+	$ apt install git-doc
+	$ apt install vim-gui-common
+
+10) run these as root:
+
+	# cd to where tar file is at. untar the file
+	$ cd /path/to/tarfile
+	$ tar xvf l_openvino_toolkit_<VERSION>.tgz
+	$ cd l_openvino_toolkit_<VERSION>
+	$ ./install_openvino_dependencies.sh 
+	$ ./install_GUI.sh	
+
+11) next step is to run this ...
+
+	$ source /opt/intel/openvino/bin/setupvars.sh
+	$ cd /opt/intel/openvino/install_dependencies
+	$ ./install_NCS_udev_rules.sh
+
+12) add setenv script to .bashrc so the NCS2 shell vars are automatically
+defined at login. add the following line at the end of the .bashrc.
+
+	source /opt/intel/openvino/bin/setupvars.sh
+
+13) test ...
+
+	$ cd /opt/intel/openvino/deployment_tools/model_optimizer/install_prerequisites/
+	$ ./install_prerequisites.sh
+	$ cd /opt/intel/openvino/deployment_tools/demo
+	$ ./demo_squeezenet_download_convert_run.sh -d MYRIAD
+	$ ./demo_security_barrier_camera.sh -d MYRIAD
+
+
+14) under root, check out the "zoo" examples ...
+
+	$ mkdir sandbox
+	$ git clone https://github.com/movidius/ncappzoo.git
+
+raad the instruction on the gitgub page (see next) and run the test cases.
+
+	https://github.com/movidius/ncappzoo
+
+15)  run ai-source applications -
+
+	$ pip3 install scipy
+	$ pip3 install matplotlib
+	$ pip3 install plainbox
+	$ pip3 install imutils
+	$ pip3 install redis
+	$ pip3 install statsmodels
+	$ pip3 install dask
+	$ pip3 install toolz
+	$ apt install redis-server
+
+15.1) installing and starting redis server -
+
+https://redis.io/topics/quickstart
+
+16) run AI source scripts
+
+17) can run keras scripts in NCS2. check this site:
+
+https://www.dlology.com/blog/how-to-run-keras-model-on-movidius-neural-compute-stick/
+
+
+18) install ipython and ipython3 interpreters:
+
+	apt-get install ipython
+	apt-get install ipython3
+
