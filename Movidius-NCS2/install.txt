@@ -77,6 +77,8 @@ And comment out the line (put # in front):
 
 #auth	required	pam_succeed_if.so user != root quiet_success
 
+VI the file /root/.profile and remove the line 'mesg n || true' (comment out with a '#')
+
 After that restart your computer, when you come back to the login 
 screen, click on the "not listed?".
 
@@ -169,7 +171,16 @@ raad the instruction on the gitgub page (see next) and run the test cases.
 
 	https://github.com/movidius/ncappzoo
 
-15)  run ai-source applications -
+	# test emotions recognition using camera
+	$ cd /root/sandbox/ncappzoo/networks/emotions_recognition_retail_0003
+	$ make run
+
+You can run other test cases by changing directory to a test directory and running make:
+
+	$ cd <test-directory>
+	$ make run
+
+15)  to run ai-source applications, install ai-source and run the following:
 
 	$ pip3 install scipy
 	$ pip3 install matplotlib
@@ -185,12 +196,43 @@ raad the instruction on the gitgub page (see next) and run the test cases.
 
 https://redis.io/topics/quickstart
 
-16) run AI source scripts
+16) run AI source script.
+
+Change directory to /root/ai-workspace/launchScripts and edit the file:
+
+	$ cd /root/ai-workspace/launchScripts
+	$ vi 001_personDetection.sh
+
+The file should look like this (saving the old code):
+
+	#!/bin/bash
+
+	# source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+
+	# SRC_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/src
+	# MODELS_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/models
+	# VIDEOS_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/videos
+
+	source /opt/intel/openvino/bin/setupvars.sh
+
+	SRC_FOLDER=/root/ai-workspace/experiments/NCS2/src
+	MODELS_FOLDER=/root/ai-workspace/experiments/NCS2/models
+	VIDEOS_FOLDER=/root/ai-workspace/experiments/NCS2/videos
+
+	python3 ...
+
+Save the file after you edit the file. Now run these commands.
+
+	$ cd /root/ai-workspace/launchScripts
+	$ chmod 755 *.sh
+	$ ./001_personDetection.sh
+
+The above process needs to be repeated to get the other scripts to run. You will have to edit the
+python script if it has hard-coded paths.
 
 17) can run keras scripts in NCS2. check this site:
 
 https://www.dlology.com/blog/how-to-run-keras-model-on-movidius-neural-compute-stick/
-
 
 18) install ipython and ipython3 interpreters:
 
