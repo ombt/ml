@@ -1,0 +1,23 @@
+
+Attaching package: 'curl'
+
+The following object is masked from 'package:httr':
+
+    handle_reset
+
+Loading required package: proto
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:plyr':
+
+    arrange, count, desc, failwith, id, mutate, rename, summarise,
+    summarize
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+log4j:WARN No appenders could be found for logger (com.simba.athena.amazonaws.AmazonWebServiceClient).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.

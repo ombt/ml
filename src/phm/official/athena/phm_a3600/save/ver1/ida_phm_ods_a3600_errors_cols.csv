@@ -1,0 +1,17 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"BATCH_NUM",1,,"2","N","VARCHAR2 (15 Byte)",,"Frequency",6,0,0,,,,False
+"COMPLETIONDATE",11,,"2","N","DATE",,"Height Balanced",3129512,0,0,,,,False
+"ERROR_ID",6,,,"N","INTEGER",,"None",30436608,0,0,,,,False
+"ERRORCODE",12,,"1","Y","VARCHAR2 (10 Byte)",,"Height Balanced",1261,0,0,,,,False
+"FILEID",4,,,"N","NUMBER",,"None",8573,0,0.00012,,,,False
+"FILENAME",5,,,"Y","VARCHAR2 (400 Byte)",,"None",3558,0,0.00028,,,,False
+"INSTANCEID",10,,,"Y","NUMBER",,"Frequency",26,0,0,,,,False
+"LAYOUT_NODES_ID",7,,"1, 1","N","INTEGER",,"Height Balanced",2629,0,0,,,,False
+"LOADDATE",16,,,"N","DATE",,"None",7500,0,0.00013,,,,False
+"MOREINFO",14,,,"Y","VARCHAR2 (256 Byte)",,"None",17516,0,6E-5,,,,False
+"NODEID",8,,"3","Y","NUMBER",,"Frequency",82,0,0,,,,False
+"NODETYPE",9,,"2","Y","VARCHAR2 (5 Byte)",,"Frequency",45,0,0,,,,False
+"OFF_LINE",15,,,"Y","VARCHAR2 (5 Byte)",,"None",2,0,0.5,,,,False
+"RUN_DATE",2,,"1","N","DATE",,"Frequency",38,0,0,,,,False
+"SAMPLEID",13,,,"Y","VARCHAR2 (4000 Byte)",,"None",1240836,21287978,0,,,,False
+"ZIPID",3,,,"N","NUMBER",,"None",4692,0,0.00021,,,,False

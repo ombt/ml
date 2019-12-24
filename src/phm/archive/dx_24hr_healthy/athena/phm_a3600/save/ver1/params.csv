@@ -1,0 +1,57 @@
+"ALGORITHM_NAME","PHM_PATTERNS_SK","PARAMETER_NAME","PARAMETER_VALUE","PHM_PATTERNS_SK_DUP"
+"Low Temperature CM 0665",81,"MODULE","CM",81
+"Low Temperature CM 0665",81,"ERROR_CODE_VALUE","0665",81
+"Low Temperature CM 0665",81,"IHN_LEVEL3_DESC","Low Temperature CM 0665",81
+"Low Temperature CM 0665",81,"ALGORITHM_TYPE","ERROR_COUNT",81
+"Low Temperature CM 0665",81,"ERROR_COUNT","3",81
+"Low Temperature CM 0665",81,"THRESHOLD_DESCRIPTION","3/day for 2 consecutive days",81
+"Low Temperature CM 0665",81,"THRESHOLDS_DAYS","2",81
+"Low Temperature CM 0665",81,"THRESHOLD_DATA_DAYS","2",81
+"Heater Error SM 909B",82,"MODULE","SM",82
+"Heater Error SM 909B",82,"ERROR_CODE_VALUE","909B",82
+"Heater Error SM 909B",82,"IHN_LEVEL3_DESC","Heater Error SM 909B",82
+"Heater Error SM 909B",82,"ALGORITHM_TYPE","ERROR_COUNT",82
+"Heater Error SM 909B",82,"ERROR_COUNT","1",82
+"Heater Error SM 909B",82,"THRESHOLD_DESCRIPTION","1/day for 2 consecutive days",82
+"Heater Error SM 909B",82,"THRESHOLDS_DAYS","2",82
+"Heater Error SM 909B",82,"THRESHOLD_DATA_DAYS","2",82
+"Carrier Runaway From Load Gate IOM 04E2",83,"MODULE","IOM",83
+"Carrier Runaway From Load Gate IOM 04E2",83,"ERROR_CODE_VALUE","04E2",83
+"Carrier Runaway From Load Gate IOM 04E2",83,"IHN_LEVEL3_DESC","Carrier Runaway From Load Gate IOM 04E2",83
+"Carrier Runaway From Load Gate IOM 04E2",83,"ALGORITHM_TYPE","ERROR_COUNT",83
+"Carrier Runaway From Load Gate IOM 04E2",83,"ERROR_COUNT","10",83
+"Carrier Runaway From Load Gate IOM 04E2",83,"THRESHOLD_DESCRIPTION","10/day for 2 consecutive days",83
+"Carrier Runaway From Load Gate IOM 04E2",83,"THRESHOLDS_DAYS","2",83
+"Carrier Runaway From Load Gate IOM 04E2",83,"THRESHOLD_DATA_DAYS","2",83
+"Carrier At STAT Input Gate in Incorrect Status ISR 5012",84,"MODULE","ISR",84
+"Carrier At STAT Input Gate in Incorrect Status ISR 5012",84,"ERROR_CODE_VALUE","5012",84
+"Carrier At STAT Input Gate in Incorrect Status ISR 5012",84,"IHN_LEVEL3_DESC","Carrier At STAT Input Gate in Incorrect Status ISR 5012",84
+"Carrier At STAT Input Gate in Incorrect Status ISR 5012",84,"ALGORITHM_TYPE","ERROR_COUNT",84
+"Carrier At STAT Input Gate in Incorrect Status ISR 5012",84,"ERROR_COUNT","2",84
+"Carrier At STAT Input Gate in Incorrect Status ISR 5012",84,"THRESHOLD_DESCRIPTION","2/day for 2 consecutive days",84
+"Carrier At STAT Input Gate in Incorrect Status ISR 5012",84,"THRESHOLDS_DAYS","2",84
+"Carrier At STAT Input Gate in Incorrect Status ISR 5012",84,"THRESHOLD_DATA_DAYS","2",84
+"Carrier Not Arrived at Barcode Reader Gate from Prepare Gate ISR 501E",85,"MODULE","ISR",85
+"Carrier Not Arrived at Barcode Reader Gate from Prepare Gate ISR 501E",85,"ERROR_CODE_VALUE","501E",85
+"Carrier Not Arrived at Barcode Reader Gate from Prepare Gate ISR 501E",85,"IHN_LEVEL3_DESC","Carrier Not Arrived at Barcode Reader Gate from Prepare Gate ISR 501E",85
+"Carrier Not Arrived at Barcode Reader Gate from Prepare Gate ISR 501E",85,"ALGORITHM_TYPE","ERROR_COUNT",85
+"Carrier Not Arrived at Barcode Reader Gate from Prepare Gate ISR 501E",85,"ERROR_COUNT","2",85
+"Carrier Not Arrived at Barcode Reader Gate from Prepare Gate ISR 501E",85,"THRESHOLD_DESCRIPTION","2/day for 2 consecutive days",85
+"Carrier Not Arrived at Barcode Reader Gate from Prepare Gate ISR 501E",85,"THRESHOLDS_DAYS","2",85
+"Carrier Not Arrived at Barcode Reader Gate from Prepare Gate ISR 501E",85,"THRESHOLD_DATA_DAYS","2",85
+"Carrier Not Arrived at Barcode Reader Gate from Priority Input Gate ISR 5020",86,"MODULE","ISR",86
+"Carrier Not Arrived at Barcode Reader Gate from Priority Input Gate ISR 5020",86,"ERROR_CODE_VALUE","5020",86
+"Carrier Not Arrived at Barcode Reader Gate from Priority Input Gate ISR 5020",86,"IHN_LEVEL3_DESC","Carrier Not Arrived at Barcode Reader Gate from Priority Input Gate ISR 5020",86
+"Carrier Not Arrived at Barcode Reader Gate from Priority Input Gate ISR 5020",86,"ALGORITHM_TYPE","ERROR_COUNT",86
+"Carrier Not Arrived at Barcode Reader Gate from Priority Input Gate ISR 5020",86,"ERROR_COUNT","2",86
+"Carrier Not Arrived at Barcode Reader Gate from Priority Input Gate ISR 5020",86,"THRESHOLD_DESCRIPTION","2/day for 2 consecutive days",86
+"Not Arrived at Barcode Reader Gate from Priority Input Gate ISR 5020",86,"THRESHOLDS_DAYS","2",86
+"Carrier Not Arrived at Barcode Reader Gate from Priority Input Gate ISR 5020",86,"THRESHOLD_DATA_DAYS","2",86
+"Carrier Not Arrived at Barcode Reader Gate from Return Gate ISR 501F",87,"MODULE","ISR",87
+"Carrier Not Arrived at Barcode Reader Gate from Return Gate ISR 501F",87,"ERROR_CODE_VALUE","501F",87
+"Carrier Not Arrived at Barcode Reader Gate from Return Gate ISR 501F",87,"IHN_LEVEL3_DESC","Carrier Not Arrived at Barcode Reader Gate from Return Gate ISR 501F",87
+"Carrier Not Arrived at Barcode Reader Gate from Return Gate ISR 501F",87,"ALGORITHM_TYPE","ERROR_COUNT",87
+"Carrier Not Arrived at Barcode Reader Gate from Return Gate ISR 501F",87,"ERROR_COUNT","2",87
+"Carrier Not Arrived at Barcode Reader Gate from Return Gate ISR 501F",87,"THRESHOLD_DESCRIPTION","2/day for 2 consecutive days",87
+"Carrier Not Arrived at Barcode Reader Gate from Return Gate ISR 501F",87,"THRESHOLDS_DAYS","2",87
+"Carrier Not Arrived at Barcode Reader Gate from Return Gate ISR 501F",87,"THRESHOLD_DATA_DAYS","2",87

@@ -1,0 +1,24 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"BATCH_NUM",17,,"3, 3, 1","Y","VARCHAR2 (25 Byte)",,"Height Balanced",359,0,0,,,,False
+"CITY",6,,,"Y","VARCHAR2 (30 Byte)",,"None",23,0,0.04348,,,,False
+"COUNTRY",5,,,"Y","VARCHAR2 (30 Byte)",,"None",118,0,0.00847,,,,False
+"CREATED_BY",14,,"7","Y","VARCHAR2 (200 Byte)",,"Frequency",206,0,0,,,,False
+"CUSTOMER",1,,,"Y","VARCHAR2 (150 Byte)",,"None",12622,357,8E-5,,,,False
+"CUSTOMER_NUMBER",2,,,"Y","VARCHAR2 (100 Byte)",,"None",12461,0,8E-5,,,,False
+"DATE_CREATED",15,,,"N","DATE",,"Height Balanced",391912,0,0.00011,,,,False
+"DEVICE_ID",3,,,"Y","VARCHAR2 (15 Byte)",,"None",20375,20214341,5E-5,,,,False
+"DEVICE_VALUE",10,,,"Y","NUMBER (15,5)",,"None",103780,53115,1E-5,,,,False
+"EXPERIENCE_CODE",22,,,"Y","VARCHAR2 (5 Char)",,"None",132,22806300,0.00758,,,,False
+"FLAG_DATE",9,,,"Y","DATE",,"None",263144,0,0,,,,False
+"FLAG_YN",11,,"1, 1","Y","VARCHAR2 (5 Byte)",,"Frequency",2,0,0,,,,False
+"IHN_LEVEL3_DESC",12,,,"Y","VARCHAR2 (150 Byte)",,"Height Balanced",307,22806300,0.00294,,,,False
+"IS_MANUAL_EXEC",23,,,"Y","VARCHAR2 (1 Char)","'N'","Frequency",2,0,0,,,,False
+"PHM_ALGORITHM_DEFINITIONS_SK",7,,"2, 2","N","INTEGER",,"Frequency",52,0,0,,,,False
+"PHM_PATTERNS_SK",18,,,"Y","INTEGER",,"Height Balanced",493,0,0.00641,,,,False
+"PHM_PRODUCT_LINE_CODE",21,,,"Y","NUMBER (38)",,"None",25,22806300,0.04,,,,False
+"PHM_THRESHOLDS_SK",8,,"6, 4","N","INTEGER",,"Height Balanced",299,0,0,,,,False
+"PROCESSID",20,,,"Y","NUMBER (10)",,"None",23925,0,4E-5,,,,False
+"PRODUCT_FAMILY",16,,,"Y","VARCHAR2 (25 Byte)",,"None",2,22806300,0.5,,,,False
+"REMARKS",13,,,"Y","VARCHAR2 (200 Byte)",,"None",180,22806300,0.00556,,,,False
+"RUN_DATE",19,,"2","Y","DATE",,"Frequency",189,0,0,,,,False
+"SN",4,,"4, 3","Y","VARCHAR2 (30 Byte)",,"Height Balanced",30856,0,0,,,,False

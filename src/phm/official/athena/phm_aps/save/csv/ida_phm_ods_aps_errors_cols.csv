@@ -1,0 +1,18 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"BATCH_NUM",1,,"2, 2","N","VARCHAR2 (15 Byte)",,"Frequency",1,0,0,,,,False
+"DEVICE_ID",7,,,"Y","NUMBER (10)",,"None",74,0,0.01351,,,,False
+"FILEID",5,,,"Y","NUMBER",,"None",25798,0,4E-5,,,,False
+"FILENAME",4,,,"Y","VARCHAR2 (400 Byte)",,"None",22194,0,5E-5,,,,False
+"LOAD_DATE",13,,,"N","DATE",,"None",25798,0,4E-5,,,,False
+"MESSAGE",11,,"3, 2, 1","N","VARCHAR2 (256 Byte)",,"Height Balanced",1377776,0,0,,,,False
+"MESSAGE_ID",6,,,"Y","NUMBER",,"None",1844,0,0.00054,,,,False
+"MESSAGE_TYPE",12,,,"N","CHAR (1 Byte)",,"None",2,0,0.5,,,,False
+"PHM_ODS_CREATE_DATE",15,,,"N","DATE",,"None",6674,0,0.00015,,,,False
+"PHM_ODS_CREATE_USER",14,,,"N","VARCHAR2 (20 Byte)",,"None",1,0,1,,,,False
+"PHM_ODS_MODIFY_DATE",17,,,"N","DATE",,"None",6674,0,0.00015,,,,False
+"PHM_ODS_MODIFY_USER",16,,,"N","VARCHAR2 (20 Byte)",,"None",1,0,1,,,,False
+"PL",8,,,"Y","VARCHAR2 (5 Byte)",,"None",1,0,1,,,,False
+"RUN_DATE",2,,"1, 1","N","DATE",,"Frequency",37,0,0,,,,False
+"SN",9,,"2, 1","Y","VARCHAR2 (30 Byte)",,"Frequency",56,0,0,,,,False
+"TIMESTAMP",10,,"1, 3, 2","Y","DATE",,"Height Balanced",2275352,0,0,,,,False
+"ZIPID",3,,,"N","NUMBER",,"None",3022,0,0.00033,,,,False

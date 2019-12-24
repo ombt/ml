@@ -1,0 +1,676 @@
+[1] "DX TBL ... dx_205_assayactivity"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_assayactivity"
+                  max_day
+1 2018-11-09 23:40:17.680
+[1] "DX TBL ... dx_205_assayactivitycc"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_assayactivitycc"
+                  max_day
+1 2018-09-24 17:17:29.057
+[1] "DX TBL ... dx_205_calcurve"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_calcurve"
+                  max_day
+1 2019-02-13 10:04:20.187
+[1] "DX TBL ... dx_205_calibrationresultcompletion"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_calibrationresultcompletion"
+                  max_day
+1 2019-02-13 10:59:21.193
+[1] "DX TBL ... dx_205_ccaspirationpm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccaspirationpm"
+                  max_day
+1 2018-09-07 14:26:25.000
+[1] "DX TBL ... dx_205_ccbulksolutionconsumeddata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccbulksolutionconsumeddata"
+                  max_day
+1 2018-09-14 21:21:00.100
+[1] "DX TBL ... dx_205_cccuvettewashwatervolumedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_cccuvettewashwatervolumedata"
+                  max_day
+1 2018-09-14 21:21:20.023
+[1] "DX TBL ... dx_205_ccdispensepm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccdispensepm"
+                  max_day
+1 2018-09-07 14:47:56.000
+[1] "DX TBL ... dx_205_ccphotodata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccphotodata"
+                  max_day
+1 2018-08-23 13:42:23.000
+[1] "DX TBL ... dx_205_ccpipettorpmrawdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccpipettorpmrawdata"
+                  max_day
+1 2018-10-03 15:57:08.390
+[1] "DX TBL ... dx_205_ccreagentaspirationotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccreagentaspirationotherdata"
+                  max_day
+1 2018-10-03 15:50:50.177
+[1] "DX TBL ... dx_205_ccreagentaspirationpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccreagentaspirationpcidata"
+                  max_day
+1 2018-10-03 15:50:50.177
+[1] "DX TBL ... dx_205_ccreagentcarouselcoolertemperaturedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccreagentcarouselcoolertemperaturedata"
+                  max_day
+1 2018-09-14 21:21:21.097
+[1] "DX TBL ... dx_205_ccreagentcarouselteknicmotordata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccreagentcarouselteknicmotordata"
+                  max_day
+1 2018-09-14 21:21:21.090
+[1] "DX TBL ... dx_205_ccreagentdispenseotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccreagentdispenseotherdata"
+                  max_day
+1 2018-10-03 15:50:51.610
+[1] "DX TBL ... dx_205_ccreagentdispensepcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccreagentdispensepcidata"
+                  max_day
+1 2018-10-03 15:50:51.610
+[1] "DX TBL ... dx_205_ccreagentwashotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccreagentwashotherdata"
+                  max_day
+1 2018-10-03 15:57:04.900
+[1] "DX TBL ... dx_205_ccreagentwashpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccreagentwashpcidata"
+                  max_day
+1 2018-10-03 15:57:04.900
+[1] "DX TBL ... dx_205_ccsampleaspirationotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccsampleaspirationotherdata"
+                  max_day
+1 2018-10-03 15:45:56.903
+[1] "DX TBL ... dx_205_ccsampleaspirationpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccsampleaspirationpcidata"
+                  max_day
+1 2018-10-03 15:45:56.903
+[1] "DX TBL ... dx_205_ccsampledispenseotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccsampledispenseotherdata"
+                  max_day
+1 2018-10-03 15:45:57.783
+[1] "DX TBL ... dx_205_ccsampledispensepcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccsampledispensepcidata"
+                  max_day
+1 2018-07-10 14:14:33.387
+[1] "DX TBL ... dx_205_ccsamplewashotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccsamplewashotherdata"
+                  max_day
+1 2018-10-03 15:56:22.587
+[1] "DX TBL ... dx_205_ccsamplewashpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccsamplewashpcidata"
+                  max_day
+1 2018-10-03 15:56:22.583
+[1] "DX TBL ... dx_205_ccwashpm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_ccwashpm"
+                max_day
+1 2018-09-07 14:35:51.0
+[1] "DX TBL ... dx_205_constituentdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_constituentdata"
+                  max_day
+1 2019-02-13 09:09:56.897
+[1] "DX TBL ... dx_205_experimentprocessing"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_experimentprocessing"
+                  max_day
+1 2019-02-13 07:23:39.923
+[1] "DX TBL ... dx_205_heaterdutycycledata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_heaterdutycycledata"
+                  max_day
+1 2019-02-13 10:54:02.477
+[1] "DX TBL ... dx_205_iarm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_iarm"
+                  max_day
+1 2019-02-13 10:54:05.100
+[1] "DX TBL ... dx_205_icbmotormove"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_icbmotormove"
+                  max_day
+1 2019-02-13 10:59:59.517
+[1] "DX TBL ... dx_205_inductionheaterrunprofileresponsedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_inductionheaterrunprofileresponsedata"
+                  max_day
+1 2019-02-13 08:44:47.797
+[1] "DX TBL ... dx_205_inductionheaterwaveformdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_inductionheaterwaveformdata"
+                  max_day
+1 2019-02-13 08:44:51.980
+[1] "DX TBL ... dx_205_instrumentactivity"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_instrumentactivity"
+                  max_day
+1 2019-02-13 10:59:34.677
+[1] "DX TBL ... dx_205_itvdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_itvdata"
+                  max_day
+1 2019-02-13 10:59:58.727
+[1] "DX TBL ... dx_205_lld"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_lld"
+                  max_day
+1 2019-03-10 07:00:40.220
+[1] "DX TBL ... dx_205_lldcc"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_lldcc"
+                  max_day
+1 2018-08-23 13:42:48.000
+[1] "DX TBL ... dx_205_lldnoise"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_lldnoise"
+                  max_day
+1 2018-11-10 00:36:17.737
+[1] "DX TBL ... dx_205_lldnoisedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_lldnoisedata"
+                  max_day
+1 2019-03-10 07:00:40.107
+[1] "DX TBL ... dx_205_mndhistory"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_mndhistory"
+                  max_day
+1 2019-02-13 10:00:17.207
+[1] "DX TBL ... dx_205_mndrecorddata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_mndrecorddata"
+                  max_day
+1 2019-02-13 08:52:17.223
+[1] "DX TBL ... dx_205_navigateservicedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_navigateservicedata"
+                  max_day
+1 2018-09-22 16:27:01.150
+[1] "DX TBL ... dx_205_opticsrawdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_opticsrawdata"
+                  max_day
+1 2019-02-13 10:59:21.063
+[1] "DX TBL ... dx_205_oshealthmonitoringdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_oshealthmonitoringdata"
+                  max_day
+1 2018-10-16 18:10:14.637
+[1] "DX TBL ... dx_205_pipettorsyringebacklashdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_pipettorsyringebacklashdata"
+                  max_day
+1 2019-02-13 10:20:55.427
+[1] "DX TBL ... dx_205_pmrawdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_pmrawdata"
+                  max_day
+1 2019-02-13 10:59:42.287
+[1] "DX TBL ... dx_205_reagentcoolerdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_reagentcoolerdata"
+                  max_day
+1 2019-02-13 10:19:38.650
+[1] "DX TBL ... dx_205_reagentoperation"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_reagentoperation"
+                  max_day
+1 2019-02-13 10:59:36.127
+[1] "DX TBL ... dx_205_scripting"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_scripting"
+                  max_day
+1 2019-02-13 08:59:59.323
+[1] "DX TBL ... dx_205_teknicmotor"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_teknicmotor"
+                  max_day
+1 2019-02-13 10:59:59.983
+[1] "DX TBL ... dx_205_temperaturedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_temperaturedata"
+                  max_day
+1 2019-02-13 10:59:49.420
+[1] "DX TBL ... dx_205_vacuumpressuredata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_vacuumpressuredata"
+                  max_day
+1 2019-02-13 10:59:53.607
+[1] "DX TBL ... dx_205_wambulkdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_wambulkdata"
+                  max_day
+1 2019-02-13 10:33:43.057
+[1] "DX TBL ... dx_205_wamdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_wamdata"
+                  max_day
+1 2019-03-10 07:06:36.080
+[1] "DX TBL ... dx_210_assayactivity"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_assayactivity"
+                  max_day
+1 2018-02-14 13:48:19.000
+[1] "DX TBL ... dx_210_assayactivitycc"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_assayactivitycc"
+                  max_day
+1 2019-02-13 10:59:59.567
+[1] "DX TBL ... dx_210_calcurve"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_calcurve"
+                  max_day
+1 2019-02-13 10:33:52.873
+[1] "DX TBL ... dx_210_calibrationresultcompletion"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_calibrationresultcompletion"
+                  max_day
+1 2019-02-13 10:33:52.927
+[1] "DX TBL ... dx_210_ccaspirationpm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccaspirationpm"
+                  max_day
+1 2019-02-13 10:59:58.007
+[1] "DX TBL ... dx_210_ccbulksolutionconsumeddata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccbulksolutionconsumeddata"
+                  max_day
+1 2019-02-13 10:59:59.813
+[1] "DX TBL ... dx_210_ccbulksolutionmonitordata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccbulksolutionmonitordata"
+                  max_day
+1 2019-02-13 08:18:46.237
+[1] "DX TBL ... dx_210_ccbulksolutionusagestatusdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccbulksolutionusagestatusdata"
+                  max_day
+1 2019-02-13 10:54:48.617
+[1] "DX TBL ... dx_210_cccuvettewashwatervolumedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_cccuvettewashwatervolumedata"
+                  max_day
+1 2019-02-13 09:46:38.367
+[1] "DX TBL ... dx_210_ccdispensepm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccdispensepm"
+                  max_day
+1 2019-03-10 06:57:32.040
+[1] "DX TBL ... dx_210_cclampmonitordata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_cclampmonitordata"
+                  max_day
+1 2019-02-13 10:59:59.560
+[1] "DX TBL ... dx_210_ccopticsadjusttriggersensordata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccopticsadjusttriggersensordata"
+                  max_day
+1 2019-02-13 10:21:16.197
+[1] "DX TBL ... dx_210_ccphotodata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccphotodata"
+                  max_day
+1 2019-02-13 10:59:59.760
+[1] "DX TBL ... dx_210_ccpipettorpmrawdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccpipettorpmrawdata"
+                  max_day
+1 2018-11-08 11:39:11.723
+[1] "DX TBL ... dx_210_ccreagentaspirationotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccreagentaspirationotherdata"
+                  max_day
+1 2018-11-08 11:39:12.900
+[1] "DX TBL ... dx_210_ccreagentaspirationpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccreagentaspirationpcidata"
+                  max_day
+1 2018-11-08 11:39:12.900
+[1] "DX TBL ... dx_210_ccreagentcarouselcoolertemperaturedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccreagentcarouselcoolertemperaturedata"
+                  max_day
+1 2019-02-13 10:53:45.077
+[1] "DX TBL ... dx_210_ccreagentcarouselteknicmotordata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccreagentcarouselteknicmotordata"
+                  max_day
+1 2019-02-13 10:53:45.077
+[1] "DX TBL ... dx_210_ccreagentdispenseotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccreagentdispenseotherdata"
+                  max_day
+1 2018-11-08 11:39:12.567
+[1] "DX TBL ... dx_210_ccreagentdispensepcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccreagentdispensepcidata"
+                  max_day
+1 2018-11-08 11:39:12.567
+[1] "DX TBL ... dx_210_ccreagentwashotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccreagentwashotherdata"
+                  max_day
+1 2018-11-08 11:39:13.877
+[1] "DX TBL ... dx_210_ccreagentwashpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccreagentwashpcidata"
+                  max_day
+1 2018-11-08 11:39:13.877
+[1] "DX TBL ... dx_210_ccsampleaspirationotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccsampleaspirationotherdata"
+                  max_day
+1 2018-11-08 11:39:11.583
+[1] "DX TBL ... dx_210_ccsampleaspirationpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccsampleaspirationpcidata"
+                  max_day
+1 2018-11-08 11:39:11.583
+[1] "DX TBL ... dx_210_ccsampledispenseotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccsampledispenseotherdata"
+                  max_day
+1 2018-11-08 11:39:12.843
+[1] "DX TBL ... dx_210_ccsampledispensepcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccsampledispensepcidata"
+                  max_day
+1 2018-02-21 10:20:27.660
+[1] "DX TBL ... dx_210_ccsamplewashotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccsamplewashotherdata"
+                  max_day
+1 2018-11-08 11:38:57.660
+[1] "DX TBL ... dx_210_ccsamplewashpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccsamplewashpcidata"
+                  max_day
+1 2018-11-08 11:38:57.657
+[1] "DX TBL ... dx_210_ccwashpm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccwashpm"
+                  max_day
+1 2019-02-13T10:59:59.503
+[1] "DX TBL ... dx_210_ccwaterbathrefilldata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_ccwaterbathrefilldata"
+                  max_day
+1 2019-02-13 09:43:50.643
+[1] "DX TBL ... dx_210_constituentdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_constituentdata"
+                  max_day
+1 2019-02-13 04:53:33.590
+[1] "DX TBL ... dx_210_experimentprocessing"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_experimentprocessing"
+                  max_day
+1 2019-02-12 22:15:09.423
+[1] "DX TBL ... dx_210_heaterdutycycledata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_heaterdutycycledata"
+                  max_day
+1 2018-08-31 09:33:39.360
+[1] "DX TBL ... dx_210_iarm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_iarm"
+                  max_day
+1 2018-07-24 18:41:02.470
+[1] "DX TBL ... dx_210_icbmotormove"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_icbmotormove"
+                  max_day
+1 2018-12-31 10:23:36.090
+[1] "DX TBL ... dx_210_instrumentactivity"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_instrumentactivity"
+                  max_day
+1 2019-02-13 10:59:59.077
+[1] "DX TBL ... dx_210_itvdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_itvdata"
+                  max_day
+1 2018-07-25 09:09:48.430
+[1] "DX TBL ... dx_210_lld"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_lld"
+                  max_day
+1 2018-07-23 15:46:44.000
+[1] "DX TBL ... dx_210_lldcc"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_lldcc"
+                  max_day
+1 2019-02-13 10:59:59.990
+[1] "DX TBL ... dx_210_messagehistory"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_messagehistory"
+                  max_day
+1 2019-03-10 03:47:52.287
+[1] "DX TBL ... dx_210_mndhistory"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_mndhistory"
+                  max_day
+1 2019-02-13 10:54:11.090
+[1] "DX TBL ... dx_210_mndrecorddata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_mndrecorddata"
+                  max_day
+1 2019-02-13 10:00:15.257
+[1] "DX TBL ... dx_210_navigateservicedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_navigateservicedata"
+                  max_day
+1 2018-10-16 13:02:19.420
+[1] "DX TBL ... dx_210_opticsrawdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_opticsrawdata"
+                  max_day
+1 2018-07-25 09:11:14.087
+[1] "DX TBL ... dx_210_oshealthmonitoringdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_oshealthmonitoringdata"
+                  max_day
+1 2018-10-16 12:59:55.927
+[1] "DX TBL ... dx_210_pmevent"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_pmevent"
+                  max_day
+1 2018-07-24 18:32:42.840
+[1] "DX TBL ... dx_210_pmrawdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_pmrawdata"
+                  max_day
+1 2018-07-25 02:40:19.090
+[1] "DX TBL ... dx_210_reagentcoolerdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_reagentcoolerdata"
+  max_day
+1    <NA>
+[1] "DX TBL ... dx_210_reagentoperation"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_reagentoperation"
+                  max_day
+1 2018-10-24 15:12:56.190
+[1] "DX TBL ... dx_210_scripting"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_scripting"
+                  max_day
+1 2019-02-13 10:59:55.363
+[1] "DX TBL ... dx_210_teknicmotor"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_teknicmotor"
+                  max_day
+1 2018-10-24 10:05:49.833
+[1] "DX TBL ... dx_210_temperaturedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_temperaturedata"
+                  max_day
+1 2018-10-16 08:04:28.182
+[1] "DX TBL ... dx_210_vacuumpressuredata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_vacuumpressuredata"
+                  max_day
+1 2018-07-25 09:11:29.287
+[1] "DX TBL ... dx_210_wambulkdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_wambulkdata"
+                  max_day
+1 2018-04-20 09:55:38.780
+[1] "DX TBL ... dx_210_wamdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_wamdata"
+                  max_day
+1 2017-09-30 13:21:01.473
+[1] "DX TBL ... dx_214_assayactivity"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_assayactivity"
+                  max_day
+1 2018-07-04 11:15:36.137
+[1] "DX TBL ... dx_214_assayactivitycc"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_assayactivitycc"
+                  max_day
+1 2018-09-13 18:59:00.277
+[1] "DX TBL ... dx_214_calcurve"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_calcurve"
+                  max_day
+1 2018-07-16 08:44:34.863
+[1] "DX TBL ... dx_214_calibrationresultcompletion"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_calibrationresultcompletion"
+                  max_day
+1 2018-07-16 08:44:34.980
+[1] "DX TBL ... dx_214_ccaspirationpm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccaspirationpm"
+                  max_day
+1 2018-07-10 02:02:56.397
+[1] "DX TBL ... dx_214_ccbulksolutionconsumeddata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccbulksolutionconsumeddata"
+                  max_day
+1 2018-07-10 02:05:06.170
+[1] "DX TBL ... dx_214_ccbulksolutionmonitordata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccbulksolutionmonitordata"
+                  max_day
+1 2018-07-09 12:57:00.857
+[1] "DX TBL ... dx_214_cccuvettewashwatervolumedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_cccuvettewashwatervolumedata"
+                  max_day
+1 2018-07-01 09:19:41.383
+[1] "DX TBL ... dx_214_ccdispensepm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccdispensepm"
+                  max_day
+1 2018-07-12 11:19:19.050
+[1] "DX TBL ... dx_214_cclampmonitordata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_cclampmonitordata"
+                  max_day
+1 2018-07-10 02:05:06.127
+[1] "DX TBL ... dx_214_ccopticsadjusttriggersensordata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccopticsadjusttriggersensordata"
+                  max_day
+1 2018-07-10 01:49:29.650
+[1] "DX TBL ... dx_214_ccphotodata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccphotodata"
+                  max_day
+1 2018-07-14 16:41:57.930
+[1] "DX TBL ... dx_214_ccpipettorpmrawdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccpipettorpmrawdata"
+                  max_day
+1 2019-03-10 06:57:33.533
+[1] "DX TBL ... dx_214_ccreagentaspirationotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccreagentaspirationotherdata"
+                  max_day
+1 2019-02-22 00:40:03.087
+[1] "DX TBL ... dx_214_ccreagentaspirationpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccreagentaspirationpcidata"
+                  max_day
+1 2019-03-10 06:53:50.417
+[1] "DX TBL ... dx_214_ccreagentcarouselcoolertemperaturedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccreagentcarouselcoolertemperaturedata"
+                  max_day
+1 2018-07-10 01:51:25.567
+[1] "DX TBL ... dx_214_ccreagentcarouselteknicmotordata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccreagentcarouselteknicmotordata"
+                  max_day
+1 2018-07-10 01:51:25.563
+[1] "DX TBL ... dx_214_ccreagentdispenseotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccreagentdispenseotherdata"
+                  max_day
+1 2019-02-22 00:40:04.520
+[1] "DX TBL ... dx_214_ccreagentdispensepcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccreagentdispensepcidata"
+                  max_day
+1 2019-03-10 06:53:51.977
+[1] "DX TBL ... dx_214_ccreagentwashotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccreagentwashotherdata"
+                  max_day
+1 2019-02-22 00:46:17.783
+[1] "DX TBL ... dx_214_ccreagentwashpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccreagentwashpcidata"
+                  max_day
+1 2019-03-10 06:57:33.197
+[1] "DX TBL ... dx_214_ccsampleaspirationotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccsampleaspirationotherdata"
+                  max_day
+1 2019-02-22 00:35:09.740
+[1] "DX TBL ... dx_214_ccsampleaspirationpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccsampleaspirationpcidata"
+                  max_day
+1 2019-03-10 06:53:47.193
+[1] "DX TBL ... dx_214_ccsampledispenseotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccsampledispenseotherdata"
+                  max_day
+1 2019-02-22 00:35:10.673
+[1] "DX TBL ... dx_214_ccsampledispensepcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccsampledispensepcidata"
+                  max_day
+1 2019-03-10 06:53:48.127
+[1] "DX TBL ... dx_214_ccsamplewashotherdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccsamplewashotherdata"
+                  max_day
+1 2019-02-28 10:59:40.897
+[1] "DX TBL ... dx_214_ccsamplewashpcidata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccsamplewashpcidata"
+                  max_day
+1 2019-03-10 06:53:49.003
+[1] "DX TBL ... dx_214_ccwashpm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccwashpm"
+                  max_day
+1 2018-07-10 02:05:07.207
+[1] "DX TBL ... dx_214_ccwaterbathrefilldata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_ccwaterbathrefilldata"
+                  max_day
+1 2018-07-09 18:12:02.877
+[1] "DX TBL ... dx_214_constituentdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_constituentdata"
+                  max_day
+1 2019-03-10 00:33:49.350
+[1] "DX TBL ... dx_214_experimentprocessing"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_experimentprocessing"
+                  max_day
+1 2019-03-10 00:59:46.897
+[1] "DX TBL ... dx_214_heaterdutycycledata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_heaterdutycycledata"
+                  max_day
+1 2018-10-23 15:46:10.913
+[1] "DX TBL ... dx_214_iarm"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_iarm"
+                  max_day
+1 2018-09-20 10:29:18.233
+[1] "DX TBL ... dx_214_icbmotormove"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_icbmotormove"
+                  max_day
+1 2019-03-10 06:53:38.563
+[1] "DX TBL ... dx_214_instrumentactivity"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_instrumentactivity"
+                  max_day
+1 2019-03-10 06:53:29.583
+[1] "DX TBL ... dx_214_itvdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_itvdata"
+                  max_day
+1 2018-09-20 11:47:53.960
+[1] "DX TBL ... dx_214_lld"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_lld"
+                  max_day
+1 2018-09-20 15:01:06.000
+[1] "DX TBL ... dx_214_lldcc"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_lldcc"
+                  max_day
+1 2018-07-10 02:02:57.497
+[1] "DX TBL ... dx_214_lldnoise"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_lldnoise"
+                  max_day
+1 2018-09-20 10:54:13.243
+[1] "DX TBL ... dx_214_messagehistory"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_messagehistory"
+                  max_day
+1 2019-03-10 10:59:44.667
+[1] "DX TBL ... dx_214_mndhistory"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_mndhistory"
+                  max_day
+1 2019-03-10 00:18:07.247
+[1] "DX TBL ... dx_214_mndrecorddata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_mndrecorddata"
+                  max_day
+1 2018-09-20 10:17:13.590
+[1] "DX TBL ... dx_214_navigateservicedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_navigateservicedata"
+                  max_day
+1 2019-02-25 11:19:43.127
+[1] "DX TBL ... dx_214_opticsrawdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_opticsrawdata"
+                  max_day
+1 2018-09-20 11:50:49.003
+[1] "DX TBL ... dx_214_oshealthmonitoringdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_oshealthmonitoringdata"
+                  max_day
+1 2019-02-25 11:22:44.587
+[1] "DX TBL ... dx_214_pipettorsyringebacklashdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_pipettorsyringebacklashdata"
+                  max_day
+1 2018-09-20 11:49:04.650
+[1] "DX TBL ... dx_214_pmrawdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_pmrawdata"
+                  max_day
+1 2018-09-20 11:50:33.210
+[1] "DX TBL ... dx_214_reagentcoolerdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_reagentcoolerdata"
+                  max_day
+1 2018-09-20 11:47:50.440
+[1] "DX TBL ... dx_214_reagentoperation"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_reagentoperation"
+                  max_day
+1 2019-03-10 05:53:49.020
+[1] "DX TBL ... dx_214_result"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_result"
+                  max_day
+1 2019-03-10 00:33:45.833
+[1] "DX TBL ... dx_214_scripting"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_scripting"
+                  max_day
+1 2018-09-20 10:27:54.357
+[1] "DX TBL ... dx_214_teknicmotor"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_teknicmotor"
+                  max_day
+1 2019-03-10 03:11:40.630
+[1] "DX TBL ... dx_214_temperaturedata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_temperaturedata"
+                  max_day
+1 2018-10-23 20:47:06.439
+[1] "DX TBL ... dx_214_vacuumpressuredata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_vacuumpressuredata"
+                  max_day
+1 2018-09-20 11:50:56.620
+[1] "DX TBL ... dx_214_wambulkdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_wambulkdata"
+                  max_day
+1 2018-09-20 10:13:03.167
+[1] "DX TBL ... dx_214_wamdata"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_wamdata"
+                  max_day
+1 2018-09-20 11:00:09.240
+[1] "DX TBL ... dx_205_messagehistory"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_messagehistory"
+                  max_day
+1 2019-03-10 04:59:23.010
+[1] "DX TBL ... dx_205_pmevent"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_pmevent"
+                  max_day
+1 2019-03-10 07:00:41.173
+[1] "DX TBL ... dx_205_result"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_205_result"
+                  max_day
+1 2019-03-10 04:58:04.140
+[1] "DX TBL ... dx_210_result"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_210_result"
+                  max_day
+1 2019-03-10 03:40:30.403
+[1] "DX TBL ... dx_214_pmevent"
+[1] "DX TBL QUERY ... select max(datetimestamplocal) as max_day from dx.dx_214_pmevent"
+                  max_day
+1 2018-09-20 11:50:26.797

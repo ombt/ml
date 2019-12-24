@@ -1,0 +1,28 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"ALE_INSTALL_DATE",25,,,"Y","DATE",,"None",0,180,0,,,,False
+"ALE_UNINSTALL_DATE",26,,,"Y","DATE",,"None",0,180,0,,,,False
+"CREATEDATE",12,,,"Y","TIMESTAMP(6)","systimestamp","None",180,0,0.00556,,,,False
+"CURRENT_ROW",19,,,"Y","CHAR (1 Char)",,"Frequency",2,0,0.00278,,,,False
+"CUSTOMERINFOID",6,,,"N","NUMBER",,"Frequency",135,0,0.00278,,,,False
+"DEVICE_LAST_PROCESSED_DATE",27,,,"Y","DATE",,"None",0,180,0,,,,False
+"DEVICEID",2,,,"N","NUMBER",,"Frequency",143,0,0.00278,,,,False
+"EFFECTIVEFROMDATE",7,,,"N","DATE",,"None",180,0,0.00556,,,,False
+"EFFECTIVETODATE",8,,,"N","DATE",,"Height Balanced",180,0,0.00278,,,,False
+"FAMILY",17,,,"Y","VARCHAR2 (50 Byte)",,"None",1,0,1,,,,False
+"INSTR_TECHNOLOGY",18,,,"Y","VARCHAR2 (50 Byte)",,"None",1,0,1,,,,False
+"LAYOUT_FILE_CHECKSUM_VALUE",23,,,"Y","VARCHAR2 (100 Byte)",,"None",158,0,0.00633,,,,False
+"MODIFIEDOPTICS",20,,,"Y","VARCHAR2 (20 Byte)",,"None",0,180,0,,,,False
+"MODULESNREF",15,,,"Y","VARCHAR2 (100 Byte)",,"None",0,180,0,,,,False
+"PENDING_CONFIGURATN_CHANGE_DT",24,,,"Y","DATE",,"None",10,170,0.1,,,,False
+"PREMIUMSOFTWAREKEY",21,,,"Y","VARCHAR2 (20 Byte)",,"None",0,180,0,,,,False
+"PROCESSCODE",14,,,"Y","VARCHAR2 (10 Byte)",,"None",0,180,0,,,,False
+"PRODUCTLINEREF",16,,,"Y","VARCHAR2 (100 Byte)",,"None",1,0,1,,,,False
+"REGION",9,,,"N","VARCHAR2 (100 Byte)",,"None",36,0,0.02778,,,,False
+"SCC_SN",22,,,"Y","VARCHAR2 (50 Byte)",,"None",0,180,0,,,,False
+"SOFTWAREUPDATE",11,,,"Y","VARCHAR2 (50 Byte)",,"None",0,180,0,,,,False
+"SOFTWAREVERSION",10,,,"Y","VARCHAR2 (100 Byte)",,"None",9,1,0.11111,,,,False
+"SYSTEMINFOID",1,1,"1","N","NUMBER",,"Height Balanced",237,0,0.00211,,,,False
+"SYSTEMNAME",3,,"1","N","VARCHAR2 (500 Byte)",,"Frequency",195,0,0.00211,,,,False
+"SYSTEMSN",4,,"1","N","VARCHAR2 (500 Byte)",,"Frequency",195,0,0.00211,,,,False
+"SYSTEMTYPE",5,,,"Y","VARCHAR2 (100 Byte)",,"None",1,0,1,,,,False
+"UPDATEDATE",13,,,"Y","TIMESTAMP(6)","systimestamp","None",180,0,0.00556,,,,False

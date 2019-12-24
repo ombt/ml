@@ -1,0 +1,49 @@
+ALGORITHM_NAME,PHM_PATTERNS_SK,PARAMETER_NAME,PARAMETER_VALUE
+Alinity IA Washzone1 P1 Aspiration,11111,IHN_LEVEL3_DESC,Alinity IA Washzone1 P1 Aspiration
+Alinity IA Washzone1 P1 Aspiration,11111,I_WZASP_THRESHOLD_NUMDISPTCTT,500
+Alinity IA Washzone1 P1 Aspiration,11111,I_WZASP_THRESHOLD_NUMTOTALDISP,60
+Alinity IA Washzone1 P1 Aspiration,11111,I_WZASP_THRESHOLD_POS,1
+Alinity IA Washzone1 P1 Aspiration,11111,I_WZASP_THRESHOLD_RATIODISPTL,0.1
+Alinity IA Washzone1 P1 Aspiration,11111,I_WZASP_THRESHOLD_WZ,1
+Alinity IA Washzone1 P1 Aspiration,11111,THRESHOLDS_COUNT,1
+Alinity IA Washzone1 P1 Aspiration,11111,THRESHOLD_DESCRIPTION,Alinity IA Washzone1 P1 Aspiration
+Alinity IA Washzone1 P2 Aspiration,11112,IHN_LEVEL3_DESC,Alinity IA Washzone1 P2 Aspiration
+Alinity IA Washzone1 P2 Aspiration,11112,I_WZASP_THRESHOLD_NUMDISPTCTT,500
+Alinity IA Washzone1 P2 Aspiration,11112,I_WZASP_THRESHOLD_NUMTOTALDISP,60
+Alinity IA Washzone1 P2 Aspiration,11112,I_WZASP_THRESHOLD_POS,2
+Alinity IA Washzone1 P2 Aspiration,11112,I_WZASP_THRESHOLD_RATIODISPTL,0.1
+Alinity IA Washzone1 P2 Aspiration,11112,I_WZASP_THRESHOLD_WZ,1
+Alinity IA Washzone1 P2 Aspiration,11112,THRESHOLDS_COUNT,1
+Alinity IA Washzone1 P2 Aspiration,11112,THRESHOLD_DESCRIPTION,Alinity IA Washzone1 P2 Aspiration
+Alinity IA Washzone1 P3 Aspiration,11113,IHN_LEVEL3_DESC,Alinity IA Washzone1 P3 Aspiration
+Alinity IA Washzone1 P3 Aspiration,11113,I_WZASP_THRESHOLD_NUMDISPTCTT,500
+Alinity IA Washzone1 P3 Aspiration,11113,I_WZASP_THRESHOLD_NUMTOTALDISP,60
+Alinity IA Washzone1 P3 Aspiration,11113,I_WZASP_THRESHOLD_POS,3
+Alinity IA Washzone1 P3 Aspiration,11113,I_WZASP_THRESHOLD_RATIODISPTL,0.1
+Alinity IA Washzone1 P3 Aspiration,11113,I_WZASP_THRESHOLD_WZ,1
+Alinity IA Washzone1 P3 Aspiration,11113,THRESHOLDS_COUNT,1
+Alinity IA Washzone1 P3 Aspiration,11113,THRESHOLD_DESCRIPTION,Alinity IA Washzone1 P3 Aspiration
+Alinity IA Washzone2 P1 Aspiration,11114,IHN_LEVEL3_DESC,Alinity IA Washzone2 P1 Aspiration
+Alinity IA Washzone2 P1 Aspiration,11114,I_WZASP_THRESHOLD_NUMDISPTCTT,500
+Alinity IA Washzone2 P1 Aspiration,11114,I_WZASP_THRESHOLD_NUMTOTALDISP,60
+Alinity IA Washzone2 P1 Aspiration,11114,I_WZASP_THRESHOLD_POS,1
+Alinity IA Washzone2 P1 Aspiration,11114,I_WZASP_THRESHOLD_RATIODISPTL,0.1
+Alinity IA Washzone2 P1 Aspiration,11114,I_WZASP_THRESHOLD_WZ,2
+Alinity IA Washzone2 P1 Aspiration,11114,THRESHOLDS_COUNT,1
+Alinity IA Washzone2 P1 Aspiration,11114,THRESHOLD_DESCRIPTION,Alinity IA Washzone2 P1 Aspiration
+Alinity IA Washzone2 P2 Aspiration,11115,IHN_LEVEL3_DESC,Alinity IA Washzone2 P2 Aspiration
+Alinity IA Washzone2 P2 Aspiration,11115,I_WZASP_THRESHOLD_NUMDISPTCTT,500
+Alinity IA Washzone2 P2 Aspiration,11115,I_WZASP_THRESHOLD_NUMTOTALDISP,60
+Alinity IA Washzone2 P2 Aspiration,11115,I_WZASP_THRESHOLD_POS,2
+Alinity IA Washzone2 P2 Aspiration,11115,I_WZASP_THRESHOLD_RATIODISPTL,0.1
+Alinity IA Washzone2 P2 Aspiration,11115,I_WZASP_THRESHOLD_WZ,2
+Alinity IA Washzone2 P2 Aspiration,11115,THRESHOLDS_COUNT,1
+Alinity IA Washzone2 P2 Aspiration,11115,THRESHOLD_DESCRIPTION,Alinity IA Washzone2 P2 Aspiration
+Alinity IA Washzone2 P3 Aspiration,11116,IHN_LEVEL3_DESC,Alinity IA Washzone2 P3 Aspiration
+Alinity IA Washzone2 P3 Aspiration,11116,I_WZASP_THRESHOLD_NUMDISPTCTT,500
+Alinity IA Washzone2 P3 Aspiration,11116,I_WZASP_THRESHOLD_NUMTOTALDISP,60
+Alinity IA Washzone2 P3 Aspiration,11116,I_WZASP_THRESHOLD_POS,3
+Alinity IA Washzone2 P3 Aspiration,11116,I_WZASP_THRESHOLD_RATIODISPTL,0.1
+Alinity IA Washzone2 P3 Aspiration,11116,I_WZASP_THRESHOLD_WZ,2
+Alinity IA Washzone2 P3 Aspiration,11116,THRESHOLDS_COUNT,1
+Alinity IA Washzone2 P3 Aspiration,11116,THRESHOLD_DESCRIPTION,Alinity IA Washzone2 P3 Aspiration

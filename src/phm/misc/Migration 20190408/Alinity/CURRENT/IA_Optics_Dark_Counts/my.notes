@@ -1,0 +1,4 @@
+
+Alinity	- IA Optics Dark Counts	
+
+select * from IDAQOWNER.ICQ_RESULTS where rownum < 20 order by rownum;

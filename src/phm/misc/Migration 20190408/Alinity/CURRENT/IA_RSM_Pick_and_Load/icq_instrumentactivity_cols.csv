@@ -1,0 +1,19 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"ACTIVITY",15,,,"Y","VARCHAR2 (1024 Byte)",,"Height Balanced",9510272,0,0.00065,,,,False
+"COMPONENT",14,,,"Y","VARCHAR2 (1024 Byte)",,"Frequency",40,0,0,,,,False
+"CUSTOMERINFOID",2,,,"N","INTEGER",,"None",784,0,0.00128,,,,False
+"CUSTOMERNUMBER",5,,,"N","VARCHAR2 (250 Char)",,"None",577,0,0.00173,,,,False
+"DEVICEID",8,,"2","N","NUMBER",,"Height Balanced",1906,0,0,,,,False
+"ID",1,,,"N","INTEGER",,"Height Balanced",79794944,0,0,,,,False
+"INSTRUMENTID",13,,,"Y","NUMBER",,"None",72,0,0.01389,,,,False
+"LOADDATE",18,,,"Y","TIMESTAMP(6)",,"None",5085344,0,0,,,,False
+"LOGDATE_LOCAL",10,,"1","Y","TIMESTAMP(6)",,"Height Balanced",1070648320,0,0,,,,False
+"LOGDATE_UTC",11,,,"Y","TIMESTAMP(6)",,"None",76352256,0,0,,,,False
+"LOGDETAIL_ID",9,,,"N","INTEGER",,"None",166294,0,1E-5,,,,False
+"MODULE",16,,,"Y","INTEGER",,"Frequency",5,0,0,,,,False
+"MODULEINFOID",4,,,"N","INTEGER",,"None",2901,0,0.00034,,,,False
+"MODULENAME",17,,,"Y","VARCHAR2 (40 Byte)",,"None",5,0,0.2,,,,False
+"MODULESN",7,,,"N","VARCHAR2 (500 Byte)",,"Height Balanced",819,0,0.00302,,,,False
+"PRIMARYKEY_ODR",12,,"3","Y","NUMBER",,"Height Balanced",9624064,0,0,,,,False
+"SYSTEMINFOID",3,,,"N","INTEGER",,"None",1091,0,0.00092,,,,False
+"SYSTEMSN",6,,,"N","VARCHAR2 (500 Byte)",,"Height Balanced",516,0,0.00338,,,,False

@@ -1,0 +1,143 @@
+SQL Statement which produced this data:
+  -- -- 
+  -- -- batch_num
+  -- -- city
+  -- -- country
+  -- -- created_by
+  -- -- customer
+  -- -- customer_number
+  -- -- date_created
+  -- -- device_id
+  -- -- device_value
+  -- -- experience_code
+  -- -- flag_date
+  -- -- flag_yn
+  -- -- ihn_level3_desc
+  -- -- is_manual_exec
+  -- -- phm_algorithm_definitions_sk
+  -- -- phm_patterns_sk
+  -- -- phm_product_line_code
+  -- -- phm_thresholds_sk
+  -- -- processid
+  -- -- product_family
+  -- -- remarks
+  -- -- run_date
+  -- -- sn
+  -- 
+  -- select 
+  --     batch_num,
+  --     city,
+  --     country,
+  --     created_by,
+  --     customer,
+  --     customer_number,
+  --     date_created,
+  --     device_id,
+  --     device_value,
+  --     experience_code,
+  --     flag_date,
+  --     flag_yn,
+  --     ihn_level3_desc,
+  --     is_manual_exec,
+  --     phm_algorithm_definitions_sk,
+  --     phm_patterns_sk,
+  --     phm_product_line_code,
+  --     phm_thresholds_sk,
+  --     processid,
+  --     product_family,
+  --     remarks,
+  --     run_date,
+  --     sn,
+  --     null as dummy
+  -- from
+  --     svc_phm_owner.phm_alg_output
+  -- where
+  --     flag_yn = 'YES'
+  -- and
+  --     created_by like '%5756%'
+  -- order by 
+  --     flag_date desc
+  -- 
+  --     -- phm_algorithm_definitions_sk in ( 1003 )
+  --     -- phm_algorithm_definitions_sk in ( 1064 )
+  --     -- phm_algorithm_definitions_sk in ( 20190, 20191 )
+  --     -- phm_algorithm_definitions_sk in ( 20142, 20143, 20144, 20145, 20146, 20147, 20148 )
+  -- order by 
+  --     -- run_date desc
+  -- 
+  -- -- SELECT 
+  --    -- ROWID, CUSTOMER, CUSTOMER_NUMBER, DEVICE_ID, 
+  --    -- SN, COUNTRY, CITY, 
+  --    -- PHM_ALGORITHM_DEFINITIONS_SK, PHM_THRESHOLDS_SK, FLAG_DATE, 
+  --    -- DEVICE_VALUE, FLAG_YN, IHN_LEVEL3_DESC, 
+  --    -- REMARKS, CREATED_BY, DATE_CREATED, 
+  --    -- PRODUCT_FAMILY, BATCH_NUM, PHM_PATTERNS_SK, 
+  --    -- RUN_DATE, PROCESSID, PHM_PRODUCT_LINE_CODE, 
+  --    -- EXPERIENCE_CODE, IS_MANUAL_EXEC
+  -- -- FROM SVC_PHM_OWNER.PHM_ALG_OUTPUT
+  -- -- Where
+  --              -- FLAG_DATE > TRUNC(SYSDATE)-3      
+  --              -- and FLAG_DATE < TRUNC(SYSDATE)
+  --                    
+  -- -- and (CREATED_BY like '%5756%')
+  -- -- and FLAG_YN='YES' 
+  
+  select 
+      batch_num,
+      city,
+      country,
+      created_by,
+      customer,
+      customer_number,
+      date_created,
+      device_id,
+      device_value,
+      experience_code,
+      flag_date,
+      flag_yn,
+      ihn_level3_desc,
+      is_manual_exec,
+      phm_algorithm_definitions_sk,
+      phm_patterns_sk,
+      phm_product_line_code,
+      phm_thresholds_sk,
+      processid,
+      product_family,
+      remarks,
+      run_date,
+      sn,
+      null as dummy
+  from
+      svc_phm_owner.phm_alg_output
+  where
+      flag_yn = 'YES'
+  --and
+     -- run_date between (sysdate-14) and sysdate
+  and
+      -- phm_patterns_sk between 10000 and 10331
+      phm_patterns_sk in ( 10329, 10330, 10331 )
+  order by 
+      flag_date desc;
+
+BATCH_NUM,CITY,COUNTRY,CREATED_BY,CUSTOMER,CUSTOMER_NUMBER,DATE_CREATED,DEVICE_ID,DEVICE_VALUE,EXPERIENCE_CODE,FLAG_DATE,FLAG_YN,IHN_LEVEL3_DESC,IS_MANUAL_EXEC,PHM_ALGORITHM_DEFINITIONS_SK,PHM_PATTERNS_SK,PHM_PRODUCT_LINE_CODE,PHM_THRESHOLDS_SK,PROCESSID,PRODUCT_FAMILY,REMARKS,RUN_DATE,SN,DUMMY
+"BTH0600","North America","USA","APS Algorithm","PALOS COMMUNITY HOSPITAL","0050235407",11/7/2019 6:28:23 AM,"117034",1.0978,"C791",11/6/2019 5:22:19 PM,"YES","Unreadable Sample ID (BCR 1)","N",1002,10329,740,631,5573670,"APS",,11/7/2019,"ABT153",
+"BTH0600","North America","USA","APS Algorithm","TUFTS MEDICAL CENTER","0050057439",11/7/2019 6:28:40 AM,"118182",1.51975,"C7B1",11/5/2019 9:40:23 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,5573670,"APS",,11/7/2019,"ABT149CCM01",
+"BTH1400","North America","USA","APS Algorithm","MISSION HOSPITALS INC","0056634227",10/19/2019 2:29:19 PM,"125815",1.71232,"C7B1",10/18/2019 10:56:47 AM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,5344653,"APS",,10/19/2019,"ABT156CCM01",
+"BTH1400","North America","USA","APS Algorithm","MISSION HOSPITALS INC","0056634227",10/19/2019 2:29:18 PM,"125815",3.44827,"C7B1",10/17/2019 12:25:37 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,5344653,"APS",,10/19/2019,"ABT156CCM01",
+"BTH1000","North America","USA","APS Algorithm","INOVA HEALTH SYSTEM LAB","0056105612",9/28/2019 10:29:05 AM,"5857",4.79704,"C7B1",9/27/2019 11:44:14 PM,"YES","Unreadable Sample ID (BCR 3)","N",1002,10331,750,633,5127449,"APS",,9/28/2019,"ABT063CMS02",
+"BTH1000","North America","USA","APS Algorithm","LYNCHBURG GENERAL HOSPITAL","0050130335",9/28/2019 10:28:58 AM,"5160",2.53807,"C7B1",9/27/2019 8:55:57 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,750,632,5127449,"APS",,9/28/2019,"ABT050CMS01",
+"BTH1000","North America","USA","APS Algorithm","VANDERBILT UNIVERSITY MEDICAL","0050116128",9/28/2019 10:28:14 AM,"103896",2.16296,"C791",9/27/2019 8:40:27 PM,"YES","Unreadable Sample ID (BCR 1)","N",1002,10329,740,631,5127449,"APS",,9/28/2019,"ABT140",
+"BTH1000","North America","USA","APS Algorithm","TUFTS MEDICAL CENTER","0050057439",9/28/2019 10:28:37 AM,"118182",3.02066,"C7B1",9/27/2019 4:30:08 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,5127449,"APS",,9/28/2019,"ABT149CCM01",
+"BTH1000","North America","USA","APS Algorithm","MISSION HOSPITALS INC","0056634227",9/28/2019 10:28:50 AM,"125815",3.66492,"C7B1",9/27/2019 3:58:19 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,5127449,"APS",,9/28/2019,"ABT156CCM01",
+"BTH1000","North America","USA","APS Algorithm","INOVA HEALTH SYSTEM LAB","0056105612",9/28/2019 10:29:04 AM,"5857",2.11864,"C7B1",9/26/2019 10:14:38 PM,"YES","Unreadable Sample ID (BCR 3)","N",1002,10331,750,633,5127449,"APS",,9/28/2019,"ABT063CMS02",
+"BTH1000","North America","USA","APS Algorithm","TUFTS MEDICAL CENTER","0050057439",9/28/2019 10:28:36 AM,"118182",2.0166,"C7B1",9/26/2019 1:32:30 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,5127449,"APS",,9/28/2019,"ABT149CCM01",
+"BTH1000","North America","USA","APS Algorithm","MISSION HOSPITALS INC","0056634227",9/28/2019 10:28:49 AM,"125815",3.73134,"C7B1",9/26/2019 10:24:09 AM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,5127449,"APS",,9/28/2019,"ABT156CCM01",
+"BTH1000","North America","USA","APS Algorithm","ABINGTON MEMORIAL HOSPITAL","0050340777",9/28/2019 10:28:29 AM,"76414",1.53846,"C7B1",9/26/2019 10:09:42 AM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,5127449,"APS",,9/28/2019,"ABT114CCM01",
+"BTH1200","North America","USA","APS Algorithm","LYNCHBURG GENERAL HOSPITAL","0050130335",5/5/2019 12:20:44 PM,"5160",3.7037,"C7B1",5/4/2019 2:51:33 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,750,632,3434325,"APS",,5/5/2019,"ABT050CMS01",
+"BTH1200","North America","USA","APS Algorithm","MISSION HOSPITALS INC","0056634227",5/5/2019 12:20:38 PM,"125815",2.48447,"C7B1",5/4/2019 2:24:13 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,3434325,"APS",,5/5/2019,"ABT156CCM01",
+"BTH1200","North America","USA","APS Algorithm","TUFTS MEDICAL CENTER","0050057439",5/5/2019 12:20:32 PM,"118182",6.3492,"C7B1",5/4/2019 12:40:01 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,3434325,"APS",,5/5/2019,"ABT149CCM01",
+"BTH1200","North America","USA","APS Algorithm","INOVA HEALTH SYSTEM LAB","0056105612",5/5/2019 12:20:49 PM,"5857",2.53164,"C7B1",5/3/2019 11:57:07 PM,"YES","Unreadable Sample ID (BCR 3)","N",1002,10331,750,633,3434325,"APS",,5/5/2019,"ABT063CMS02",
+"BTH1200","Europe","DENMARK","APS Algorithm","HOLSTEBRO REG.HOSPITAL(KBA-CC)","4020301-0",5/5/2019 12:20:33 PM,"76109",1.93704,"C7B1",5/3/2019 6:46:11 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,3434325,"APS",,5/5/2019,"ABT119CCM01",
+"BTH1200","North America","USA","APS Algorithm","MISSION HOSPITALS INC","0056634227",5/5/2019 12:20:37 PM,"125815",8.57142,"C7B1",5/3/2019 6:02:13 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,3434325,"APS",,5/5/2019,"ABT156CCM01",
+"BTH1200","North America","USA","APS Algorithm","RUSH UNIVERSITY MEDICAL CENTER","0050036136",5/5/2019 12:20:27 PM,"87734",4.53821,"C7B1",5/3/2019 5:39:04 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,3434325,"APS",,5/5/2019,"ABT128CCM01",
+"BTH1200","North America","USA","APS Algorithm","TUFTS MEDICAL CENTER","0050057439",5/5/2019 12:20:31 PM,"118182",2.18658,"C7B1",5/3/2019 2:23:35 PM,"YES","Unreadable Sample ID (BCR 2)","N",1002,10330,751,632,3434325,"APS",,5/5/2019,"ABT149CCM01",

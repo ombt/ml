@@ -1,0 +1,13 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"COMPRESSED_FILE_ID",12,,,"Y","INTEGER",,"None",56884,0,2E-5,,,,False
+"DEVICE_ID",2,,,"N","NUMBER",,"None",151,0,0.00662,,,,False
+"ERROR_DESCRIPTION",5,,,"Y","VARCHAR2 (200 Byte)",,"None",5,43903,0.2,,,,False
+"LOG_FILE_DATE",10,,,"Y","DATE",,"None",50132,0,2E-5,,,,False
+"LOG_ZIP_NAME",3,,,"Y","VARCHAR2 (30 Byte)",,"None",56752,0,2E-5,,,,False
+"PL",9,,,"Y","VARCHAR2 (5 Byte)",,"None",1,0,1,,,,False
+"PROCESS_END_DATE",7,,,"Y","DATE",,"Height Balanced",50220,0,3E-5,,,,False
+"PROCESS_START_DATE",6,,,"N","DATE",,"Height Balanced",2425,0,0.00088,,,,False
+"PROCESSCODE",4,,,"N","CHAR (1 Byte)",,"Frequency",2,0,1E-5,,,,False
+"SCM_SHARE_PATH_FILE_LOCATION",11,,,"Y","VARCHAR2 (2000 Byte)",,"None",57391,0,2E-5,,,,False
+"SN",8,,,"Y","VARCHAR2 (30 Byte)",,"None",151,0,0.00662,,,,False
+"ZIPID",1,1,"1","N","NUMBER",,"Height Balanced",126603,0,1E-5,,,,False

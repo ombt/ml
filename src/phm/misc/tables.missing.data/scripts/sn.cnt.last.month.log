@@ -1,0 +1,57 @@
+[1] "DX TBL ... dx_architect_assay"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_assay where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1               21375               16824 2019-08-21
+[1] "DX TBL ... dx_architect_assayparams"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_assayparams where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1                   0               17137 2019-08-14
+[1] "DX TBL ... dx_architect_cal"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_cal where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1               16243               12749 2019-09-04
+[1] "DX TBL ... dx_architect_history"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_history where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1               43688               16859 2019-09-04
+[1] "DX TBL ... dx_architect_lls"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_lls where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1               21335               16803 2019-09-04
+[1] "DX TBL ... dx_architect_maint"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_maint where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1               21551               16603 2019-09-04
+[1] "DX TBL ... dx_architect_optics"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_optics where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1                6137                6140 2019-09-04
+[1] "DX TBL ... dx_architect_pm"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_pm where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1               21061               16637 2019-09-04
+[1] "DX TBL ... dx_architect_post"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_post where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1                2307                1419 2019-09-04
+[1] "DX TBL ... dx_architect_qc"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_qc where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1               10978                7595 2019-09-04
+[1] "DX TBL ... dx_architect_releasedqc"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_releasedqc where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1               16216               12643 2019-09-04
+[1] "DX TBL ... dx_architect_results"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_results where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1               25129               16685 2019-09-04
+[1] "DX TBL ... dx_architect_sample"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_sample where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1               18534               14005 2019-09-04
+[1] "DX TBL ... dx_architect_wam"
+[1] "DX TBL QUERY ... select count(distinct architect_moduleserial) as distinct_mod_sn_cnt, count(distinct architect_deviceserial) as distinct_dev_sn_cnt, max(transaction_date) as max_day from dx.dx_architect_wam where '2019-08-05' <= transaction_date and transaction_date <= '2019-09-04'"
+  distinct_mod_sn_cnt distinct_dev_sn_cnt    max_day
+1               14649               13905 2019-08-15
+[1] TRUE

@@ -1,0 +1,13 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"COMPLETIONDATE",6,,,"N","DATE",,"None",34700688,0,0,,,,False
+"CONTROL_ID",1,,,"N","INTEGER",,"None",7525111808,0,0,,,,False
+"CONTROL_TYPE",10,,,"Y","VARCHAR2 (50 Byte)",,"None",1,0,1,,,,False
+"FILENAME",12,,,"Y","VARCHAR2 (400 Byte)",,"None",920527,0,0,,,,False
+"INSTANCEID",5,,,"Y","NUMBER",,"None",29,0,0.03448,,,,False
+"LAYOUT_NODES_ID",2,,"1","N","INTEGER",,"Height Balanced",4384,0,0,,,,False
+"LOADDATE",11,,,"N","DATE",,"Height Balanced",179123,0,0,,,,False
+"MESSAGE",9,,,"Y","VARCHAR2 (1000 Byte)",,"None",993242112,0,0,,,,False
+"NODEID",3,,"3","Y","NUMBER",,"Frequency",91,0,0,,,,False
+"NODETYPE",4,,"2","Y","VARCHAR2 (5 Byte)",,"Frequency",45,0,0,,,,False
+"RECEIVER",8,,,"Y","VARCHAR2 (50 Byte)",,"None",2,0,0.5,,,,False
+"SENDER",7,,,"Y","VARCHAR2 (50 Byte)",,"None",4,0,0.25,,,,False

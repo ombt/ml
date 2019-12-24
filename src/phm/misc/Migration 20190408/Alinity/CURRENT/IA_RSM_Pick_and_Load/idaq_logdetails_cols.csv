@@ -1,0 +1,13 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"DATATYPE",5,,,"Y","VARCHAR2 (4000 Byte)",,"Frequency",87,6290257,0,,,,False
+"DEVICEID",3,,"2","N","NUMBER",,"Height Balanced",2390,0,0,,,,False
+"ERRORCODE",7,,,"Y","VARCHAR2 (4000 Byte)",,"Height Balanced",1273,5473028,0.00219,,,,False
+"FILEID",2,,"1","N","INTEGER",,"Height Balanced",2840968,0,0,,,,False
+"FILENAME",4,,,"Y","VARCHAR2 (4000 Byte)",,"Height Balanced",10263056,0,0.00059,,,,False
+"LINESREAD",11,,,"Y","NUMBER",,"Height Balanced",10896,0,0.00095,,,,False
+"LOADENDTIME",9,,,"Y","TIMESTAMP(6)",,"Height Balanced",11567248,0,0,,,,False
+"LOADSECONDS",10,,,"Y","NUMBER",,"Height Balanced",197295,0,0.00101,,,,False
+"LOADSTARTTIME",8,,"3","Y","TIMESTAMP(6)",,"Height Balanced",121739904,0,0,,,,False
+"LOGDETAIL_ID",1,1,"1","N","INTEGER",,"Height Balanced",124532533,0,0,,,,False
+"PROCESSCODE",6,,,"Y","VARCHAR2 (10 Byte)",,"Frequency",2,0,0,,,,False
+"RECORDSCREATED",12,,,"Y","INTEGER",,"Height Balanced",7732,0,0.00116,,,,False

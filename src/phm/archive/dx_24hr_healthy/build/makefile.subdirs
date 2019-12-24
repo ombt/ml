@@ -1,0 +1,33 @@
+
+ifndef ROOT
+$(error ROOT is not set)
+endif
+
+ifndef SUB_DIRS
+$(error SUB_DIRS is not set)
+endif
+
+all:
+	for SUB_DIR in $(SUB_DIRS); do \
+		echo "make $$SUB_DIR"; \
+		(cd $$SUB_DIR; make; ) ; \
+	done
+
+install:
+	for SUB_DIR in $(SUB_DIRS); do \
+		echo "make $$SUB_DIR"; \
+		(cd $$SUB_DIR; make install; ) ; \
+	done
+
+test:
+	for SUB_DIR in $(SUB_DIRS); do \
+		echo "make $$SUB_DIR"; \
+		(cd $$SUB_DIR; make test; ) ; \
+	done
+
+clean:
+	for SUB_DIR in $(SUB_DIRS); do \
+		echo "make $$SUB_DIR"; \
+		(cd $$SUB_DIR; make clean; ) ; \
+	done
+

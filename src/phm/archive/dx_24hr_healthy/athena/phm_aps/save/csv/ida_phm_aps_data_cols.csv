@@ -1,0 +1,17 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"ADDED_BY",15,,,"Y","VARCHAR2 (64 Byte)",,"None",1,0,1,,,,False
+"ALGORITHM_TYPE",10,,,"Y","VARCHAR2 (100 Byte)",,"None",11,0,0.09091,,,,False
+"BATCH_NUM",3,,"2","N","VARCHAR2 (15 Byte)",,"Frequency",8,0,2E-5,,,,False
+"DATE_CREATED",16,,,"N","DATE",,"None",1567,0,0.00064,,,,False
+"DEVICE_ID",5,,,"N","NUMBER (10)",,"None",75,0,0.01333,,,,False
+"ERRORCOUNT",12,,,"Y","NUMBER (10)",,"None",409,0,0.00244,,,,False
+"ERRORPCT",13,,,"Y","NUMBER (10,5)",,"None",4440,0,0.00023,,,,False
+"IOM_SN",6,,,"N","VARCHAR2 (30 Byte)",,"None",75,0,0.01333,,,,False
+"PHM_ALGORITHM_DEFINITIONS_SK",1,,,"N","INTEGER",,"None",1,0,1,,,,False
+"PHM_PATTERNS_SK",2,,"1, 4","N","INTEGER",,"Height Balanced",282,0,0.00258,,,,False
+"PL",7,,,"Y","VARCHAR2 (5 Byte)",,"None",10,0,0.1,,,,False
+"RUN_DATE",4,,"3","Y","DATE",,"Frequency",8,0,2E-5,,,,False
+"SN",8,,"2, 1","Y","VARCHAR2 (30 Byte)",,"Height Balanced",599,0,0.00156,,,,False
+"TESTCOUNT",11,,,"Y","NUMBER (10)",,"Height Balanced",2907,0,0.00031,,,,False
+"TIMESTAMP",9,,"3","Y","DATE",,"Height Balanced",24220,0,5E-5,,,,False
+"TIMESTAMP_MS",14,,,"Y","INTEGER",,"None",1,0,1,,,,False

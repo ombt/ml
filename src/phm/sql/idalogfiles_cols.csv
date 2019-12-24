@@ -1,0 +1,12 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"DEVICEID",3,,"2","Y","NUMBER",,"Height Balanced",30466,346147,9E-5,,,,False
+"EPOCHDATE",11,,,"Y","TIMESTAMP(6)",,"None",32139264,649029,0,,,,False
+"EPOCHDATEVALUE",10,,,"Y","VARCHAR2 (100 Byte)",,"None",31760384,649029,0,,,,False
+"ERRORCODE",8,,,"Y","VARCHAR2 (4000 Byte)",,"Height Balanced",2986,32037398,0.00306,,,,False
+"FILEID",1,,"1","N","NUMBER",,"Height Balanced",44497675,0,0,,,,False
+"FILENAME",2,,,"Y","VARCHAR2 (4000 Byte)",,"Height Balanced",32669696,0,0.00011,,,,False
+"FILESOURCEDATE",9,,,"Y","TIMESTAMP(6)","systimestamp","None",32754119,0,0,,,,False
+"LOADENDTIME",6,,,"Y","DATE",,"None",23648256,290023,0,,,,False
+"LOADSECONDS",7,,,"Y","NUMBER",,"None",590784,290023,0,,,,False
+"LOADSTARTTIME",5,,,"Y","DATE",,"None",19851264,290023,0,,,,False
+"PROCESSFLAG",4,,"1","N","VARCHAR2 (1 Byte)","'U'","Frequency",5,0,0,,,,False

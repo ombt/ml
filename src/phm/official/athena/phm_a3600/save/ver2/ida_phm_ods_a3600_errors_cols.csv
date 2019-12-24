@@ -1,0 +1,18 @@
+"BATCH_NUM"		"VARCHAR2 (15 Byte)"	"Frequency"
+"COMPLETIONDATE"	"DATE"			"Height Balanced"
+"ERROR_ID"		"INTEGER"		"None"
+"ERRORCODE"		"VARCHAR2 (10 Byte)"	"Height Balanced"
+"FILEID"		"NUMBER"		"None"
+"FILENAME"		"VARCHAR2 (400 Byte)"	"None"
+"INSTANCEID"		"NUMBER"		"Frequency"
+"LAYOUT_NODES_ID"	"INTEGER"		"Height Balanced"
+"LOADDATE"		"DATE"			"None"
+"MOREINFO"		"VARCHAR2 (256 Byte)"	"None"
+"NODEID"		"NUMBER"		"Frequency"
+"NODETYPE"		"VARCHAR2 (5 Byte)"	"Frequency"
+"OFF_LINE"		"VARCHAR2 (5 Byte)"	"None"
+"RUN_DATE"		"DATE"			"Frequency"
+"SAMPLEID"		"VARCHAR2 (4000 Byte)"	"None"
+"ZIPID"			"NUMBER"		"None"
+
+

@@ -1,0 +1,89 @@
+ALGORITHM_NAME,PHM_PATTERNS_SK,PARAMETER_NAME,PARAMETER_VALUE
+# "LAS1: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10140,ALGORITHM_TYPE,LAS_205
+# "LAS1: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10140,ERROR_CODE_REG_EXPR,LAS1
+# "LAS1: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10140,ERROR_COUNT,1.5
+# "LAS1: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10140,IHN_LEVEL3_DESC,"LAS1: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????"""
+# "LAS1: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10140,THRESHOLD_DATA_DAYS,
+# "LAS1: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10140,THRESHOLD_DESCRIPTION,1.5% BCR Error/day - 2 consecutive days
+# "LAS1: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10140,THRESHOLDS_DAYS,2
+# "LAS1: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10140,THRESHOLD_TYPE,CONSECUTIVE
+# "LAS2: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10154,ALGORITHM_TYPE,LAS_205
+# "LAS2: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10154,ERROR_CODE_REG_EXPR,LAS2
+# "LAS2: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10154,ERROR_COUNT,1.5
+# "LAS2: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10154,IHN_LEVEL3_DESC,"LAS2: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????"""
+# "LAS2: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10154,THRESHOLD_DATA_DAYS,
+# "LAS2: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10154,THRESHOLD_DESCRIPTION,1.5% BCR Error/day - 2 consecutive days
+# "LAS2: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10154,THRESHOLDS_DAYS,2
+# "LAS2: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10154,THRESHOLD_TYPE,CONSECUTIVE
+# "LAS3: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10168,ALGORITHM_TYPE,LAS_205
+# "LAS3: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10168,ERROR_CODE_REG_EXPR,LAS3
+# "LAS3: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10168,ERROR_COUNT,1.5
+# "LAS3: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10168,IHN_LEVEL3_DESC,"LAS3: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????"""
+# "LAS3: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10168,THRESHOLD_DATA_DAYS,
+# "LAS3: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10168,THRESHOLD_DESCRIPTION,1.5% BCR Error/day - 2 consecutive days
+# "LAS3: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10168,THRESHOLDS_DAYS,2
+# "LAS3: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10168,THRESHOLD_TYPE,CONSECUTIVE
+# "LAS4: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10182,ALGORITHM_TYPE,LAS_205
+# "LAS4: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10182,ERROR_CODE_REG_EXPR,LAS4
+# "LAS4: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10182,ERROR_COUNT,1.5
+# "LAS4: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10182,IHN_LEVEL3_DESC,"LAS4: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????"""
+# "LAS4: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10182,THRESHOLD_DATA_DAYS,
+# "LAS4: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10182,THRESHOLD_DESCRIPTION,1.5% BCR Error/day - 2 consecutive days
+# "LAS4: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10182,THRESHOLDS_DAYS,2
+# "LAS4: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10182,THRESHOLD_TYPE,CONSECUTIVE
+# "LAS5: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10196,ALGORITHM_TYPE,LAS_205
+# "LAS5: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10196,ERROR_CODE_REG_EXPR,LAS5
+# "LAS5: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10196,ERROR_COUNT,1.5
+# "LAS5: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10196,IHN_LEVEL3_DESC,"LAS5: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????"""
+# "LAS5: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10196,THRESHOLD_DATA_DAYS,
+# "LAS5: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10196,THRESHOLD_DESCRIPTION,1.5% BCR Error/day - 2 consecutive days
+# "LAS5: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10196,THRESHOLDS_DAYS,2
+# "LAS5: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10196,THRESHOLD_TYPE,CONSECUTIVE
+# "LAS6: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10210,ALGORITHM_TYPE,LAS_205
+# "LAS6: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10210,ERROR_CODE_REG_EXPR,LAS6
+# "LAS6: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10210,ERROR_COUNT,1.5
+# "LAS6: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10210,IHN_LEVEL3_DESC,"LAS6: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????"""
+# "LAS6: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10210,THRESHOLD_DATA_DAYS,
+# "LAS6: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10210,THRESHOLD_DESCRIPTION,1.5% BCR Error/day - 2 consecutive days
+# "LAS6: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10210,THRESHOLDS_DAYS,2
+# "LAS6: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10210,THRESHOLD_TYPE,CONSECUTIVE
+# "LAS7: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10224,ALGORITHM_TYPE,LAS_205
+# "LAS7: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10224,ERROR_CODE_REG_EXPR,LAS7
+# "LAS7: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10224,ERROR_COUNT,1.5
+# "LAS7: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10224,IHN_LEVEL3_DESC,"LAS7: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????"""
+# "LAS7: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10224,THRESHOLD_DATA_DAYS,
+# "LAS7: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10224,THRESHOLD_DESCRIPTION,1.5% BCR Error/day - 2 consecutive days
+# "LAS7: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10224,THRESHOLDS_DAYS,2
+# "LAS7: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10224,THRESHOLD_TYPE,CONSECUTIVE
+# "LAS8: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10238,ALGORITHM_TYPE,LAS_205
+# "LAS8: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10238,ERROR_CODE_REG_EXPR,LAS8
+# "LAS8: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10238,ERROR_COUNT,1.5
+# "LAS8: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10238,IHN_LEVEL3_DESC,"LAS8: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????"""
+# "LAS8: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10238,THRESHOLD_DATA_DAYS,
+# "LAS8: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10238,THRESHOLD_DESCRIPTION,1.5% BCR Error/day - 2 consecutive days
+# "LAS8: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10238,THRESHOLDS_DAYS,2
+# "LAS8: Error 205: Unreadable Barcode and ""Interface Module Unreadable Barcode - ??????""",10238,THRESHOLD_TYPE,CONSECUTIVE
+Unreadable Sample ID (BCR 1),10329,ALGORITHM_TYPE,BCR_1
+Unreadable Sample ID (BCR 1),10329,ERROR_CODE_REG_EXPR,Unreadable Sample ID (BCR 1)
+Unreadable Sample ID (BCR 1),10329,ERROR_COUNT,1.5
+Unreadable Sample ID (BCR 1),10329,IHN_LEVEL3_DESC,Unreadable Sample ID (BCR 1)
+Unreadable Sample ID (BCR 1),10329,THRESHOLD_DATA_DAYS,30
+Unreadable Sample ID (BCR 1),10329,THRESHOLD_DESCRIPTION,% Error greater than 1.5 SD for 2 consecutive high volume days
+Unreadable Sample ID (BCR 1),10329,THRESHOLDS_DAYS,2
+Unreadable Sample ID (BCR 1),10329,THRESHOLD_TYPE,CONSECUTIVE
+Unreadable Sample ID (BCR 2),10330,ALGORITHM_TYPE,BCR_2/3
+Unreadable Sample ID (BCR 2),10330,ERROR_CODE_REG_EXPR,Unreadable Sample ID (BCR 2)
+Unreadable Sample ID (BCR 2),10330,ERROR_COUNT,1.5
+Unreadable Sample ID (BCR 2),10330,IHN_LEVEL3_DESC,Unreadable Sample ID (BCR 2)
+Unreadable Sample ID (BCR 2),10330,THRESHOLD_DATA_DAYS,
+Unreadable Sample ID (BCR 2),10330,THRESHOLD_DESCRIPTION,1.5%/day for 2 consecutive days
+Unreadable Sample ID (BCR 2),10330,THRESHOLDS_DAYS,2
+Unreadable Sample ID (BCR 2),10330,THRESHOLD_TYPE,CONSECUTIVE
+Unreadable Sample ID (BCR 3),10331,ALGORITHM_TYPE,BCR_2/3
+Unreadable Sample ID (BCR 3),10331,ERROR_CODE_REG_EXPR,Unreadable Sample ID (BCR 3)
+Unreadable Sample ID (BCR 3),10331,ERROR_COUNT,1.5
+Unreadable Sample ID (BCR 3),10331,IHN_LEVEL3_DESC,Unreadable Sample ID (BCR 3)
+Unreadable Sample ID (BCR 3),10331,THRESHOLD_DATA_DAYS,
+Unreadable Sample ID (BCR 3),10331,THRESHOLD_DESCRIPTION,1.5%/day for 2 consecutive days
+Unreadable Sample ID (BCR 3),10331,THRESHOLDS_DAYS,2
+Unreadable Sample ID (BCR 3),10331,THRESHOLD_TYPE,CONSECUTIVE

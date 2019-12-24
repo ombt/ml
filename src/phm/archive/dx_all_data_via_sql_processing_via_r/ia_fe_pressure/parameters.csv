@@ -1,0 +1,25 @@
+ALGORITHM_NAME,PHM_PATTERNS_SK,PARAMETER_NAME,PARAMETER_VALUE
+Alinity IA Pipettor R1 FE Pressure,11111,ASPS,10
+Alinity IA Pipettor R1 FE Pressure,11111,IHN_LEVEL3_DESC,Alinity IA Pipettor R1 FE Pressure
+Alinity IA Pipettor R1 FE Pressure,11111,MAX_VALUE,27000
+Alinity IA Pipettor R1 FE Pressure,11111,MIN_VALUE,21000
+Alinity IA Pipettor R1 FE Pressure,11111,PCTASPS,0.02
+Alinity IA Pipettor R1 FE Pressure,11111,PIPMECHNAME,Reagent1PipettorMechanism
+Alinity IA Pipettor R1 FE Pressure,11111,THRESHOLDS_COUNT,1
+Alinity IA Pipettor R1 FE Pressure,11111,THRESHOLDS_DESCRIPTION,Alinity IA Pipettor R1 FE Pressure
+Alinity IA Pipettor R1 FE Pressure,11112,ASPS,10
+Alinity IA Pipettor R1 FE Pressure,11112,IHN_LEVEL3_DESC,Alinity IA Pipettor R2 FE Pressure
+Alinity IA Pipettor R1 FE Pressure,11112,MAX_VALUE,27000
+Alinity IA Pipettor R1 FE Pressure,11112,MIN_VALUE,21000
+Alinity IA Pipettor R1 FE Pressure,11112,PCTASPS,0.02
+Alinity IA Pipettor R1 FE Pressure,11112,PIPMECHNAME,Reagent2PipettorMechanism
+Alinity IA Pipettor R1 FE Pressure,11112,THRESHOLDS_COUNT,1
+Alinity IA Pipettor R1 FE Pressure,11112,THRESHOLDS_DESCRIPTION,Alinity IA Pipettor R2 FE Pressure
+Alinity IA Pipettor R1 FE Pressure,11113,ASPS,10
+Alinity IA Pipettor R1 FE Pressure,11113,IHN_LEVEL3_DESC,Alinity IA Pipettor Sample FE Pressure
+Alinity IA Pipettor R1 FE Pressure,11113,MAX_VALUE,27000
+Alinity IA Pipettor R1 FE Pressure,11113,MIN_VALUE,21000
+Alinity IA Pipettor R1 FE Pressure,11113,PCTASPS,0.02
+Alinity IA Pipettor R1 FE Pressure,11113,PIPMECHNAME,SamplePipettorMechanism
+Alinity IA Pipettor R1 FE Pressure,11113,THRESHOLDS_COUNT,1
+Alinity IA Pipettor R1 FE Pressure,11113,THRESHOLDS_DESCRIPTION,Alinity IA Pipettor Sample FE Pressure

@@ -1,0 +1,9 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"DESCRIPTION",6,,"3","Y","VARCHAR2 (50 Byte)",,"Frequency",3,0,0,,,,False
+"DEVICE_ID",1,,,"N","NUMBER",,"None",90,0,0.01111,,,,False
+"DURATION",5,,"2","Y","VARCHAR2 (10 Byte)",,"Frequency",1,0,0,,,,False
+"ID",4,,"1","Y","VARCHAR2 (20 Byte)",,"Frequency",11,0,0,,,,False
+"MAX_VALUE",8,,,"Y","NUMBER",,"None",141424,0,1E-5,,,,False
+"MIN_VALUE",7,,,"Y","NUMBER",,"None",140704,0,1E-5,,,,False
+"SN",2,,"4","Y","VARCHAR2 (30 Byte)",,"Frequency",91,0,0,,,,False
+"TIMESTAMP",3,,"5","Y","DATE",,"Height Balanced",1069,0,0.00114,,,,False

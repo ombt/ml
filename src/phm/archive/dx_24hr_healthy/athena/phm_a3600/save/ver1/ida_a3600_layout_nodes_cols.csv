@@ -1,0 +1,27 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"BUFFERQLENGTH",14,,,"Y","VARCHAR2 (10 Byte)",,"None",79,3861,0.01266,,,,False
+"BUFFERQRESERVEDFORSTAT",16,,,"Y","NUMBER (10)",,"None",9,0,0.11111,,,,False
+"CANADDR",4,,,"N","NUMBER (10)",,"None",98,0,0.0102,,,,False
+"CANID",3,,"2","Y","NUMBER (10)",,"Frequency",98,0,8E-5,,,,False
+"CARRIEROVERLOAD",13,,,"Y","VARCHAR2 (10 Byte)",,"None",8,4748,0.125,,,,False
+"DESCRIPTION",6,,,"Y","VARCHAR2 (50 Byte)",,"None",75,1090,0.01333,,,,False
+"DISABLERELEASE",23,,,"Y","VARCHAR2 (10 Byte)",,"None",14,3979,0.07143,,,,False
+"EMPTYBUFFERQLENGTH",15,,,"Y","VARCHAR2 (10 Byte)",,"None",21,4677,0.04762,,,,False
+"EQUIVALENTNODES",12,,,"Y","VARCHAR2 (100 Byte)",,"None",337,3616,0.00297,,,,False
+"FILENAME",26,,,"Y","VARCHAR2 (400 Byte)",,"Frequency",863,0,0.0001,,,,False
+"INITIALIZE",7,,,"Y","VARCHAR2 (10 Byte)",,"None",7,1088,0.14286,,,,False
+"JUMPNODEID",9,,,"Y","NUMBER (10)",,"None",40,0,0.025,,,,False
+"LAYOUT_INSTANCE",11,,,"Y","NUMBER (10)",,"None",29,0,0.03448,,,,False
+"LAYOUT_NODES_ID",1,,,"N","INTEGER",,"None",4767,0,0.00021,,,,False
+"NEXTNODEID",8,,,"Y","NUMBER (10)",,"None",64,0,0.01563,,,,False
+"NODEPATH",10,,,"Y","VARCHAR2 (3500 Byte)",,"None",166,4552,0.00602,,,,False
+"NODETYPE",5,,"1","Y","VARCHAR2 (5 Byte)",,"Frequency",48,0,8E-5,,,,False
+"PASSINGCARRIERTIMEOUT",22,,,"Y","NUMBER (10)",,"None",1,0,1,,,,False
+"PHYSICALLENGTH",24,,,"Y","VARCHAR2 (10 Byte)",,"None",1385,2430,0.00072,,,,False
+"SYSTEMINFOID",2,,,"N","NUMBER",,"Frequency",178,0,0.0001,,,,False
+"TRACKQANTIDEADLOCKTIMEOUT",20,,,"Y","NUMBER (10)",,"None",1,0,1,,,,False
+"TRACKQHYSTERESIS",18,,,"Y","NUMBER (10)",,"None",34,0,0.02941,,,,False
+"TRACKQJAMTIMEOUT",21,,,"Y","NUMBER (10)",,"None",1,0,1,,,,False
+"TRACKQLENGTH",17,,,"Y","NUMBER (10)",,"None",200,0,0.005,,,,False
+"TRACKQSHORT",19,,,"Y","NUMBER (10)",,"None",2,0,0.5,,,,False
+"WAITINGLIST",25,,,"Y","VARCHAR2 (10 Byte)",,"None",73,4489,0.0137,,,,False

@@ -1,0 +1,28 @@
+﻿ALGORITHM_NAME,PHM_PATTERNS_SK,PARAMETER_NAME,PARAMETER_VALUE
+Alinity CC Cuvette Integrity Segment 1,20313,THRESHOLDS_COUNT,1
+Alinity CC Cuvette Integrity Segment 1,20313,CUVETTEINTEGRITY_DISBEGAVG_MIN,20000
+Alinity CC Cuvette Integrity Segment 1,20313,CUVETTEINTEGRITY_SEGMENT1,1
+Alinity CC Cuvette Integrity Segment 1,20313,CUVETTEINTEGRITY_SEGMENT2,11
+Alinity CC Cuvette Integrity Segment 1,20313,CUVETTEINTEGRITY_NUMCUVETTES_MAX,8
+Alinity CC Cuvette Integrity Segment 1,20313,CUVETTEINTEGRITY_PERCSAMPEVENTS_MIN,0.2
+Alinity CC Cuvette Integrity Segment 1,20313,CUVETTEINTEGRITY_SAMPEVENTS_MIN,20
+Alinity CC Cuvette Integrity Segment 1,20313,THRESHOLD_DESCRIPTION,Alinity CC Cuvette Integrity Segment 1
+Alinity CC Cuvette Integrity Segment 1,20313,IHN_LEVEL3_DESC,Alinity CC Cuvette Integrity Segment 1
+Alinity CC Cuvette Integrity Segment 2,20314,THRESHOLDS_COUNT,1
+Alinity CC Cuvette Integrity Segment 2,20314,CUVETTEINTEGRITY_DISBEGAVG_MIN,20000
+Alinity CC Cuvette Integrity Segment 2,20314,CUVETTEINTEGRITY_SEGMENT1,12
+Alinity CC Cuvette Integrity Segment 2,20314,CUVETTEINTEGRITY_SEGMENT2,22
+Alinity CC Cuvette Integrity Segment 2,20314,CUVETTEINTEGRITY_NUMCUVETTES_MAX,8
+Alinity CC Cuvette Integrity Segment 2,20314,CUVETTEINTEGRITY_PERCSAMPEVENTS_MIN,0.2
+Alinity CC Cuvette Integrity Segment 2,20314,CUVETTEINTEGRITY_SAMPEVENTS_MIN,20
+Alinity CC Cuvette Integrity Segment 2,20314,THRESHOLD_DESCRIPTION,Alinity CC Cuvette Integrity Segment 2
+Alinity CC Cuvette Integrity Segment 2,20314,IHN_LEVEL3_DESC,Alinity CC Cuvette Integrity Segment 2
+Alinity CC Cuvette Integrity Segment 3,20315,THRESHOLDS_COUNT,1
+Alinity CC Cuvette Integrity Segment 3,20315,CUVETTEINTEGRITY_DISBEGAVG_MIN,20000
+Alinity CC Cuvette Integrity Segment 3,20315,CUVETTEINTEGRITY_SEGMENT1,23
+Alinity CC Cuvette Integrity Segment 3,20315,CUVETTEINTEGRITY_SEGMENT2,33
+Alinity CC Cuvette Integrity Segment 3,20315,CUVETTEINTEGRITY_NUMCUVETTES_MAX,8
+Alinity CC Cuvette Integrity Segment 3,20315,CUVETTEINTEGRITY_PERCSAMPEVENTS_MIN,0.2
+Alinity CC Cuvette Integrity Segment 3,20315,CUVETTEINTEGRITY_SAMPEVENTS_MIN,20
+Alinity CC Cuvette Integrity Segment 3,20315,THRESHOLD_DESCRIPTION,Alinity CC Cuvette Integrity Segment 3
+Alinity CC Cuvette Integrity Segment 3,20315,IHN_LEVEL3_DESC,Alinity CC Cuvette Integrity Segment 3

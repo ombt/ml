@@ -1,0 +1,17 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"DEVICEID",1,,"3","N","NUMBER",,"Height Balanced",19021,0,0,,,,False
+"EVENTDATE",3,,"1","N","DATE",,"Height Balanced",34686728,0,0,,,,False
+"FILEID",15,,,"Y","NUMBER",,"None",4572942,0,0,,,,False
+"LOADDATE",16,,,"Y","DATE",,"Height Balanced",4248370,0,0,,,,False
+"MAXTEMPPOSITION1",7,,,"Y","NUMBER",,"Height Balanced",35172,0,0.00037,,,,False
+"MAXTEMPPOSITION2",10,,,"Y","NUMBER",,"Height Balanced",34972,0,0.00045,,,,False
+"MAXTEMPPOSITION3",13,,,"Y","NUMBER",,"Height Balanced",35162,0,0.00029,,,,False
+"MODULEID",2,,"2","N","NUMBER",,"Frequency",4,0,0,,,,False
+"MODULESNDRM",4,,,"N","VARCHAR2 (500 Byte)",,"Height Balanced",19308,0,0.00016,,,,False
+"POSITION1",6,,,"Y","NUMBER",,"Height Balanced",20413184,0,0,,,,False
+"POSITION2",9,,,"Y","NUMBER",,"Height Balanced",20413440,0,0,,,,False
+"POSITION3",12,,,"Y","NUMBER",,"Height Balanced",20413568,0,0,,,,False
+"TEMPDELTAPOSITION1",8,,,"Y","NUMBER",,"Height Balanced",23760,0,0.00025,,,,False
+"TEMPDELTAPOSITION2",11,,,"Y","NUMBER",,"Height Balanced",24608,0,0.00023,,,,False
+"TEMPDELTAPOSITION3",14,,,"Y","NUMBER",,"Height Balanced",25396,0,0.00016,,,,False
+"WASHZONEID",5,,,"Y","NUMBER",,"Frequency",2,0,0,,,,False

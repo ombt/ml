@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+if [[ $(basename $PWD) != "dx" ]]
+then
+    echo "Must be in phm/dx directory to run this script."
+    exit 2
+fi
+#
+for algorithm in cc_cuvette_integrity cc_cuvette_wash ia_dark_counts ia_fe_pressure ia_itv ia_pipettor_sample_syringe_backlash ia_process_jams_5756 ia_process_jams_5758 ia_vacuum_leak ia_vacuum_pump ia_vacuum_sensor ia_washzone_aspiration
+do
+    echo "Testing: $algorithm ..."
+    #
+    cd $algorithm
+    #
+    # for script in main.R one_main.R
+    for script in one_main.R
+    do
+        if [[ -r $script ]]
+        then
+            echo "Running $script ..."
+            Rscript $script -T 2>&1
+        fi
+    done
+    #
+    cd ..
+done 2>&1 |
+tee test.dx.out
+#
+egrep '(main|Running|Testing|"|^ *[0-9][0-9]*\.)' test.dx.out  > /tmp/timing.test.dx.out
+#
+exit 0

@@ -1,0 +1,91 @@
+SQL Statement which produced this data:
+  SELECT 
+                          DEVICE_ID, 
+                          MAX(PSM.IOM_SN) IOM_SN, 
+                          PSM.PL, 
+                          PSM.SN MODULE_SN, 
+                          TRUNC(TIMESTAMP) FLAG_DATE, 
+                          COUNT(FILEID) ERRORCOUNT, 
+                          max(timestamp) MS_TIME
+                      FROM 
+                          SVC_PHM_ODS.PHM_ODS_APS_ERRORS AE, 
+                          SVC_GSR_OWNER.APS_MESSAGES_PL_SN_MAP PSM
+                      WHERE 
+                          TIMESTAMP BETWEEN (
+                              SELECT  
+                                  -- MIN (TRUNC(TIMESTAMP)) - TH.THRESHOLDS_DAYS 
+                                  MIN (TRUNC(TIMESTAMP)) - 2
+                              FROM 
+                                  SVC_PHM_ODS.PHM_ODS_APS_ERRORS 
+                              WHERE 
+                                  -- RUN_DATE = V_RUN_DATE 
+                                  RUN_DATE = TO_DATE('30-OCT-2019')
+                              AND 
+                                  -- BATCH_NUM = V_BATCH_NUM 
+                                  BATCH_NUM = 'BTH0600'
+                              AND 
+                                  SN = AE.SN) 
+                          AND (
+                              SELECT  
+                                  MAX (TIMESTAMP) 
+                              FROM 
+                                  SVC_PHM_ODS.PHM_ODS_APS_ERRORS 
+                              WHERE 
+                                  -- RUN_DATE = V_RUN_DATE 
+                                  RUN_DATE = TO_DATE('30-OCT-2019')
+                              AND 
+                                  -- BATCH_NUM = V_BATCH_NUM 
+                                  BATCH_NUM = 'BTH0600'
+                              AND 
+                                  SN = AE.SN 
+                              and 
+                                  TRUNC(TIMESTAMP) <> TRUNC(SYSDATE)
+                              )
+                      AND 
+                          -- AE.MESSAGE LIKE '%' || TH.PATTERN_TEXT  || '%' AND PSM.MESSAGE LIKE '%' || TH.PATTERN_TEXT  || '%' 
+                          AE.MESSAGE LIKE '%' || 'Carrier Routing Error - Decapper Gate' || '%' 
+                      AND 
+                          PSM.MESSAGE LIKE '%' || 'Carrier Routing Error - Decapper Gate' || '%' 
+  
+                      and 
+                          AE.SN = PSM.IOM_SN 
+                      GROUP BY 
+                          DEVICE_ID, 
+                          PSM.PL, 
+                          PSM.SN, 
+                          TRUNC(TIMESTAMP) 
+                      ORDER BY 
+                          IOM_SN, 
+                          MODULE_SN, 
+                          FLAG_DATE;
+
+DEVICE_ID,IOM_SN,PL,MODULE_SN,FLAG_DATE,ERRORCOUNT,MS_TIME
+5335,"ABT018","752","ABT018IDEC01",10/27/2019,3446,10/27/2019 6:35:12 PM
+5335,"ABT018","752","ABT018IDEC01",10/28/2019,12996,10/28/2019 11:04:05 PM
+5335,"ABT018","752","ABT018IDEC01",10/29/2019,14570,10/29/2019 10:45:23 PM
+5160,"ABT050","752","ABT050DEC01",10/27/2019,25,10/27/2019 10:09:24 PM
+5160,"ABT050","752","ABT050DEC01",10/28/2019,51,10/28/2019 11:52:56 PM
+5160,"ABT050","752","ABT050DEC01",10/29/2019,20,10/29/2019 10:38:27 PM
+144552,"ABT054","752","ABT054DEC01",10/27/2019,4,10/27/2019 5:48:57 PM
+144552,"ABT054","752","ABT054DEC01",10/28/2019,65,10/28/2019 9:38:09 PM
+144552,"ABT054","752","ABT054DEC01",10/29/2019,52,10/29/2019 4:11:38 PM
+131979,"ABT059","752","ABT059DEC01",10/27/2019,2,10/27/2019 4:14:18 PM
+131979,"ABT059","752","ABT059DEC01",10/28/2019,33,10/28/2019 6:34:17 PM
+131979,"ABT059","752","ABT059DEC01",10/29/2019,42,10/29/2019 3:43:51 PM
+5913,"ABT068","752","ABT068DEC01",10/28/2019,1,10/28/2019 7:41:42 AM
+84916,"ABT123","752","ABT123DEC01",10/27/2019,4,10/27/2019 6:09:46 PM
+84916,"ABT123","752","ABT123DEC01",10/28/2019,8,10/28/2019 9:37:15 PM
+84916,"ABT123","752","ABT123DEC01",10/29/2019,7,10/29/2019 7:43:11 PM
+85841,"ABT124","752","ABT124DEC01",10/27/2019,1,10/27/2019 10:31:04 PM
+85841,"ABT124","752","ABT124DEC01",10/29/2019,1,10/29/2019 1:27:41 PM
+78887,"ABT125","752","ABT125DEC01",10/29/2019,21,10/29/2019 10:53:04 PM
+87734,"ABT128","752","ABT128DEC01",10/27/2019,4,10/27/2019 9:00:00 PM
+96038,"ABT129","752","ABT129DEC01",10/28/2019,2,10/28/2019 4:30:55 PM
+87298,"ABT133","752","ABT133DEC01",10/28/2019,9,10/28/2019 10:52:58 PM
+87298,"ABT133","752","ABT133DEC01",10/29/2019,332,10/29/2019 10:34:30 PM
+109876,"ABT138","752","ABT138DEC01",10/29/2019,1,10/29/2019 12:27:39 AM
+111594,"ABT139","752","ABT139DEC01",10/29/2019,1,10/29/2019 8:51:54 AM
+124451,"ABT157","752","ABT157DEC01",10/29/2019,1,10/29/2019 2:46:44 PM
+136346,"ABT159","752","ABT159DEC01",10/27/2019,83,10/27/2019 11:56:50 PM
+136346,"ABT159","752","ABT159DEC01",10/28/2019,83,10/28/2019 8:55:33 PM
+136346,"ABT159","752","ABT159DEC01",10/29/2019,34,10/29/2019 4:15:44 PM

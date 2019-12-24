@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+> /tmp/xxx.$$
+#
+cat /mnt/c/Users/rumormx/Documents/.aws/credentials |
+egrep '(aws_access_key_id|aws_secret_access_key|aws_session_token)' |
+sed 's/ //g' |
+while read line
+do
+	echo "export $line" >> /tmp/xxx.$$
+done
+#
+source /tmp/xxx.$$
+#
+echo
+echo "aws_access_key_id     = $aws_access_key_id"
+echo "aws_secret_access_key = $aws_secret_access_key"
+echo "aws_session_token     = $aws_session_token"
+echo
+#
+egrep -v '^(DB_USER|DB_PASSWORD|ATHENA_DB_USER|ATHENA_DB_PASSWORD|ATHENA_AWS_SESSION_TOKEN),' /mnt/c/Users/rumormx/Documents/sandbox/phm/config/dx/config.csv > /tmp/xxx.$$
+#
+cat >> /tmp/xxx.$$ <<EOF
+ATHENA_DB_USER,$aws_access_key_id
+ATHENA_DB_PASSWORD,$aws_secret_access_key
+ATHENA_AWS_SESSION_TOKEN,$aws_session_token
+EOF
+#
+mv /tmp/xxx.$$ /mnt/c/Users/rumormx/Documents/sandbox/phm/config/dx/config.csv
+#
+egrep -v '^(DB_USER|DB_PASSWORD|ATHENA_DB_USER|ATHENA_DB_PASSWORD|ATHENA_AWS_SESSION_TOKEN),' /home/mrumore/sandbox/phm/config/dx/config.csv > /tmp/xxx.$$
+#
+cat >> /tmp/xxx.$$ <<EOF
+ATHENA_DB_USER,$aws_access_key_id
+ATHENA_DB_PASSWORD,$aws_secret_access_key
+ATHENA_AWS_SESSION_TOKEN,$aws_session_token
+EOF
+#
+mv /tmp/xxx.$$ /home/mrumore/sandbox/phm/config/dx/config.csv
+#
+egrep -v '^(DB_USER|DB_PASSWORD|ATHENA_DB_USER|ATHENA_DB_PASSWORD|ATHENA_AWS_SESSION_TOKEN),' /mnt/c/Users/rumormx/Documents/sandbox/phm/config/spark/config.csv > /tmp/xxx.$$
+#
+cat >> /tmp/xxx.$$ <<EOF
+ATHENA_DB_USER,$aws_access_key_id
+ATHENA_DB_PASSWORD,$aws_secret_access_key
+ATHENA_AWS_SESSION_TOKEN,$aws_session_token
+EOF
+#
+mv /tmp/xxx.$$ /mnt/c/Users/rumormx/Documents/sandbox/phm/config/spark/config.csv
+#
+egrep -v '^(DB_USER|DB_PASSWORD|ATHENA_DB_USER|ATHENA_DB_PASSWORD|ATHENA_AWS_SESSION_TOKEN),' /home/mrumore/sandbox/phm/config/spark/config.csv > /tmp/xxx.$$
+#
+cat >> /tmp/xxx.$$ <<EOF
+ATHENA_DB_USER,$aws_access_key_id
+ATHENA_DB_PASSWORD,$aws_secret_access_key
+ATHENA_AWS_SESSION_TOKEN,$aws_session_token
+EOF
+#
+mv /tmp/xxx.$$ /home/mrumore/sandbox/phm/config/spark/config.csv
+#
+exit 0

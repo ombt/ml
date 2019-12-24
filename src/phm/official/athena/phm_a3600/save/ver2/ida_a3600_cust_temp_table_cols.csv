@@ -1,0 +1,14 @@
+ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
+"AREA",8,,,"Y","VARCHAR2 (500 Byte)",,"None",0,0,0,,,,False
+"AREAREGION",9,,,"Y","VARCHAR2 (500 Byte)",,"None",0,0,0,,,,False
+"CITY",5,,,"Y","VARCHAR2 (500 Byte)",,"None",0,0,0,,,,False
+"COUNTRYCODE",6,,,"Y","VARCHAR2 (500 Byte)",,"None",0,0,0,,,,False
+"COUNTRYNAME",7,,,"Y","VARCHAR2 (500 Byte)",,"None",0,0,0,,,,False
+"CUSTOMERNAME",4,,,"Y","VARCHAR2 (500 Byte)",,"None",0,0,0,,,,False
+"CUSTOMERNUMBER",3,,,"Y","VARCHAR2 (250 Char)",,"None",0,0,0,,,,False
+"DOWNLOADDATE",11,,,"Y","DATE",,"None",0,0,0,,,,False
+"INSTALLDATECUSTOMER",13,,,"Y","DATE",,"None",0,0,0,,,,False
+"IS_CUSTOMER",10,,,"Y","CHAR (1 Char)",,"None",0,0,0,,,,False
+"PRODUCTLINEREF",2,,,"N","VARCHAR2 (100 Byte)",,"None",0,0,0,,,,False
+"SEASCODE",12,,,"Y","VARCHAR2 (50 Byte)",,"None",0,0,0,,,,False
+"SYSTEMSN",1,,,"N","VARCHAR2 (500 Byte)",,"None",0,0,0,,,,False

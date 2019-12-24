@@ -1,0 +1,97 @@
+[1] "DX TBL ... dx_architect_assay"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_assay where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-08-21
+[1] "DX TBL ... dx_architect_assayparams"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_assayparams where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-08-14
+[1] "DX TBL ... dx_architect_cal"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_cal where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-09-04
+[1] "DX TBL ... dx_architect_history"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_history where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-09-04
+[1] "DX TBL ... dx_architect_lls"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_lls where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-09-04
+[1] "DX TBL ... dx_architect_maint"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_maint where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-09-04
+[1] "DX TBL ... dx_architect_optics"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_optics where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-09-04
+[1] "DX TBL ... dx_architect_pm"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_pm where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-09-04
+[1] "DX TBL ... dx_architect_post"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_post where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-09-04
+[1] "DX TBL ... dx_architect_qc"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_qc where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-09-04
+[1] "DX TBL ... dx_architect_releasedqc"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_releasedqc where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-09-04
+[1] "DX TBL ... dx_architect_results"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_results where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-09-04
+[1] "DX TBL ... dx_architect_sample"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_sample where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-09-04
+[1] "DX TBL ... dx_architect_wam"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_architect_wam where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-08-15
+[1] "DX TBL ... dx_a3600_control"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_a3600_control where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-07-17
+[1] "DX TBL ... dx_a3600_counter"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_a3600_counter where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-07-17
+[1] "DX TBL ... dx_a3600_dream"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_a3600_dream where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-07-17
+[1] "DX TBL ... dx_a3600_error"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_a3600_error where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-07-17
+[1] "DX TBL ... dx_a3600_lis"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_a3600_lis where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-07-17
+[1] "DX TBL ... dx_a3600_pass"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_a3600_pass where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-07-17
+[1] "DX TBL ... dx_a3600_process"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_a3600_process where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-07-17
+[1] "DX TBL ... dx_a3600_uif"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_a3600_uif where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-07-17
+[1] "DX TBL ... dx_aps_counter"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_aps_counter where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-07-17
+[1] "DX TBL ... dx_aps_error"
+[1] "DX TBL QUERY ... select max(transaction_date) as max_day from dx.dx_aps_error where transaction_date <= '2019-09-04'"
+     max_day
+1 2019-07-12
+[1] TRUE

@@ -1,0 +1,24 @@
+ALGORITHM_NAME,PHM_PATTERNS_SK,PARAMETER_NAME,PARAMETER_VALUE
+CC Cuvette Status Check - Broken Cuvette,11113,IHN_LEVEL3_DESC,Cuvette Status Check
+CC Cuvette Status Check - Broken Cuvette,11113,LOGFIELD24_PCT,10
+CC Cuvette Status Check - Broken Cuvette,11113,LOGFIELD24_THRESHOLD,15000
+CC Cuvette Status Check - Broken Cuvette,11113,LOGFIELD25_PCT,20
+CC Cuvette Status Check - Broken Cuvette,11113,LOGFIELD25_THRESHOLD,20000
+CC Cuvette Status Check - Broken Cuvette,11113,THRESHOLDS_COUNT,1
+CC Cuvette Status Check - Broken Cuvette,11113,THRESHOLD_DESCRIPTION,Cuvette Status Check
+
+CC Cuvette Wash Subassembly,11114,IHN_LEVEL3_DESC,Cuvette Wash Subassembly
+CC Cuvette Wash Subassembly,11114,LOGFIELD24_PCT,10
+CC Cuvette Wash Subassembly,11114,LOGFIELD24_THRESHOLD,15000
+CC Cuvette Wash Subassembly,11114,LOGFIELD25_PCT,20
+CC Cuvette Wash Subassembly,11114,LOGFIELD25_THRESHOLD,20000
+CC Cuvette Wash Subassembly,11114,THRESHOLDS_COUNT,1
+CC Cuvette Wash Subassembly,11114,THRESHOLD_DESCRIPTION,Cuvette Wash Subassembly
+
+CC Cuvette LLS Board,11115,IHN_LEVEL3_DESC,Cuvette LLS Board
+CC Cuvette LLS Board,11115,LOGFIELD24_PCT,10
+CC Cuvette LLS Board,11115,LOGFIELD24_THRESHOLD,15000
+CC Cuvette LLS Board,11115,LOGFIELD25_PCT,20
+CC Cuvette LLS Board,11115,LOGFIELD25_THRESHOLD,20000
+CC Cuvette LLS Board,11115,THRESHOLDS_COUNT,1
+CC Cuvette LLS Board,11115,THRESHOLD_DESCRIPTION,Cuvette LLS Board

@@ -1,0 +1,6 @@
+ALGORITHM_NAME,PHM_PATTERNS_SK,PARAMETER_NAME,PARAMETER_VALUE
+Architect Dark Count Average and SD Exceeded,11111,MAX_AVG,250
+Architect Dark Count Average and SD Exceeded,11111,MAX_SD,100
+Architect Dark Count Average and SD Exceeded,11111,MAX_DAYS,2
+Architect Dark Count Average and SD Exceeded,11111,IHN_LEVEL3_DESC,Dark Count Average and SD Exceeded
+Architect Dark Count Average and SD Exceeded,11111,THRESHOLD_DESCRIPTION,Dark Count Average and SD Exceeded
