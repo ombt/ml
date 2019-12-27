@@ -26,7 +26,7 @@ def animate(i):
     #global xp_forecast, yp_forecast, xv_forecast, yv_forecast
     
     # csvfile = open('/home/s/ai-workspace/experiments/NCS2/data/object_data_file.csv','r')
-    csvfile = open('/root/sandbox/ml/src/ai-workspace/experiments/NCS2/data/object_data_file.csv','r')
+    csvfile = open('/root/ai-workspace/experiments/NCS2/data/object_data_file.csv','r')
     plots = csv.reader(csvfile, delimiter=',')
     xp = []
     yp = []
@@ -239,7 +239,8 @@ def animate(i):
     global pObjCtr 
     global vObjCtr 
     
-    csvfile = open('/home/s/ai-workspace/experiments/NCS2/data/object_data_file.csv','r')
+    # csvfile = open('/home/s/ai-workspace/experiments/NCS2/data/object_data_file.csv','r')
+    csvfile = open('/root/ai-workspace/experiments/NCS2/data/object_data_file.csv','r')
     plots = csv.reader(csvfile, delimiter=',')
     
     yprops = dict(rotation=90,

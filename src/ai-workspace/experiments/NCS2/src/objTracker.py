@@ -334,7 +334,8 @@ class ObjectTracker(object):
             if self._id == 0:
                 self.cv2.imshow("Vehicle Detection Results", frame)
             else :
-                res = self.cv2.resize(frame, (960,540))
+                # res = self.cv2.resize(frame, (960,540))
+                res = self.cv2.resize(frame, (480,270))
                 self.cv2.imshow("Person Detection Results", res)
                 
             render_end = time.time()

@@ -191,6 +191,7 @@ You can run other test cases by changing directory to a test directory and runni
 	$ pip3 install dask
 	$ pip3 install toolz
 	$ pip3 install graphviz
+	$ pip3 install tensorflow
 
 15.1) installing and starting redis server -
 

@@ -16,8 +16,7 @@ args = vars(ap.parse_args())
 
 # grab a pointer to the video stream and initialize the FPS counter
 print("[INFO] sampling frames from webcam...")
-# stream = cv2.VideoCapture("/home/s/ai-workspace/experiments/NCS2/videos/P1033715_SD.mp4")
-stream = cv2.VideoCapture("/root/sandbox/ml/src/ai-workspace/experiments/NCS2/videos/P1033715_SD.mp4")
+stream = cv2.VideoCapture("/home/s/ai-workspace/experiments/NCS2/videos/P1033715_SD.mp4")
 fps = FPS().start()
  
 # loop over some frames
@@ -47,7 +46,7 @@ cv2.destroyAllWindows()
 # created a *threaded* video stream, allow the camera sensor to warmup,
 # and start the FPS counter
 print("[INFO] sampling THREADED frames from webcam...")
-vs = WebcamVideoStream("/root/sandbox/ml/src/ai-workspace/experiments/NCS2/videos/P1033715_SD.mp4").start()
+vs = WebcamVideoStream("/home/s/ai-workspace/experiments/NCS2/videos/P1033715_SD.mp4").start()
 fps = FPS().start()
  
 # loop over some frames...this time using the threaded stream

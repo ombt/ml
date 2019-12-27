@@ -1,22 +1,22 @@
 #!/bin/bash
 
 # Launch redis-server for queues
-redis-server &
-sleep 2
+# redis-server &
+# sleep 2
 
 # source /opt/intel/computer_vision_sdk/bin/setupvars.sh
-source /opt/intel/openvino/bin/setupvars.sh
 
 # SRC_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/src
 # DATA_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/data
 # MODELS_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/models
 # VIDEOS_FOLDER=/home/aiuser/ai-workspace/experiments/NCS2/videos
 
-SRC_FOLDER=/root/sandbox/ml/src/ai-workspace/experiments/NCS2/src
-DATA_FOLDER=/root/sandbox/ml/src/ai-workspace/experiments/NCS2/data
-MODELS_FOLDER=/root/sandbox/ml/src/ai-workspace/experiments/NCS2/models
-VIDEOS_FOLDER=/root/sandbox/ml/src/ai-workspace/experiments/NCS2/videos
+source /opt/intel/openvino/bin/setupvars.sh
 
+SRC_FOLDER=/root/ai-workspace/experiments/NCS2/src
+DATA_FOLDER=/root/ai-workspace/experiments/NCS2/data
+MODELS_FOLDER=/root/ai-workspace/experiments/NCS2/models
+VIDEOS_FOLDER=/root/ai-workspace/experiments/NCS2/videos
 
 # Launch the dashboard
 python3 $SRC_FOLDER/NCS2_020_Q_AnimateGraph.py &

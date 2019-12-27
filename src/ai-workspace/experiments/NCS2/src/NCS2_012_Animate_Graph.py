@@ -18,8 +18,7 @@ ax2 = fig.add_subplot(2,4,(6,8))
 
 
 def animate(i):
-    # csvfile = open('/home/s/ai-workspace/experiments/NCS2/data/object_data_file.csv','r')
-    csvfile = open('/root/sandbox/ml/src/ai-workspace/experiments/NCS2/data/object_data_file.csv','r')
+    csvfile = open('/home/s/ai-workspace/experiments/NCS2/data/object_data_file.csv','r')
     plots = csv.reader(csvfile, delimiter=',')
     xp = []
     yp = []
