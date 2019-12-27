@@ -203,6 +203,19 @@ You can run other test cases by changing directory to a test directory and runni
 
 https://redis.io/topics/quickstart
 
+15.2) install AI source - 
+
+	remember that you must join these files:
+
+	Under /root/sandbox/ml/src/ai-workspace/experiments/NCS2/videos:
+
+	join xaa xab xac xad to re-create the file: wb.mp4
+
+	Under /root/sandbox/ml/src/ai-workspace/experiments/NCS2/data:
+
+	join xaa xab xac xad xae to create the file: instakart.tar.gz
+	extract instakart.tar.gz to create the directory: instakart
+
 16) run AI source script.
 
 Change directory to /root/ai-workspace/launchScripts and edit the file:
