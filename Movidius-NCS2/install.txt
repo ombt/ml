@@ -190,9 +190,11 @@ You can run other test cases by changing directory to a test directory and runni
 	$ pip3 install statsmodels
 	$ pip3 install dask
 	$ pip3 install toolz
-	$ apt install redis-server
+	$ pip3 install graphviz
 
 15.1) installing and starting redis server -
+
+	$ apt install redis-server
 
 https://redis.io/topics/quickstart
 

@@ -1,0 +1,1235 @@
+run  ... 1 
+target = MYRIAD
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 http://us.archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Fetched 252 kB in 1s (274 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+233 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Run sudo -E apt -y install build-essential python3-pip virtualenv cmake libcairo2-dev libpango1.0-dev libglib2.0-dev libgtk2.0-dev libswscale-dev libavcodec-dev libavformat-dev libgstreamer1.0-0 gstreamer1.0-plugins-base
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.4ubuntu1).
+libgtk2.0-dev is already the newest version (2.24.32-1ubuntu1).
+virtualenv is already the newest version (15.1.0+ds-1.1).
+cmake is already the newest version (3.10.2-1ubuntu2.18.04.1).
+gstreamer1.0-plugins-base is already the newest version (1.14.5-0ubuntu1~18.04.1).
+libcairo2-dev is already the newest version (1.15.10-2ubuntu0.1).
+libglib2.0-dev is already the newest version (2.56.4-0ubuntu0.18.04.4).
+libgstreamer1.0-0 is already the newest version (1.14.5-0ubuntu1~18.04.1).
+libpango1.0-dev is already the newest version (1.40.14-1ubuntu0.1).
+libavcodec-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+libavformat-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+libswscale-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+python3-pip is already the newest version (9.0.1-2.3~ubuntu1.18.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 233 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libpng-dev is already the newest version (1.6.34-1ubuntu0.18.04.2).
+0 upgraded, 0 newly installed, 0 to remove and 233 not upgraded.
+Requirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (from -r /opt/intel/openvino/deployment_tools/demo/../open_model_zoo/tools/downloader/requirements.in (line 1))
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from -r /opt/intel/openvino/deployment_tools/demo/../open_model_zoo/tools/downloader/requirements.in (line 2))
+[setupvars.sh] OpenVINO environment initialized
+
+
+###################################################
+
+Downloading Intel models
+
+target_precision = FP16
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-license-plate-detection-barrier-0106 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/INT8/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/INT8/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+################|| Post-processing ||################
+
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name license-plate-recognition-barrier-0001 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/INT8/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/INT8/license-plate-recognition-barrier-0001.bin from the cache
+
+################|| Post-processing ||################
+
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-attributes-recognition-barrier-0039 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/INT8/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/INT8/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+################|| Post-processing ||################
+
+
+
+###################################################
+
+Build Inference Engine demos
+
+-- The C compiler identification is GNU 7.4.0
+-- The CXX compiler identification is GNU 7.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for C++ include unistd.h
+-- Looking for C++ include unistd.h - found
+-- Looking for C++ include stdint.h
+-- Looking for C++ include stdint.h - found
+-- Looking for C++ include sys/types.h
+-- Looking for C++ include sys/types.h - found
+-- Looking for C++ include fnmatch.h
+-- Looking for C++ include fnmatch.h - found
+-- Looking for C++ include stddef.h
+-- Looking for C++ include stddef.h - found
+-- Check size of uint32_t
+-- Check size of uint32_t - done
+-- Looking for strtoll
+-- Looking for strtoll - found
+-- Found InferenceEngine: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/lib/intel64/libinference_engine.so (Required is at least version "2.0") 
+-- Performing Test HAVE_CPUID_INFO
+-- Performing Test HAVE_CPUID_INFO - Success
+-- Host CPU features:
+--   3DNOW not supported
+--   3DNOWEXT not supported
+--   ABM not supported
+--   ADX supported
+--   AES supported
+--   AVX supported
+--   AVX2 supported
+--   AVX512CD supported
+--   AVX512F supported
+--   AVX512ER not supported
+--   AVX512PF not supported
+--   BMI1 supported
+--   BMI2 supported
+--   CLFSH supported
+--   CMPXCHG16B supported
+--   CX8 supported
+--   ERMS supported
+--   F16C supported
+--   FMA supported
+--   FSGSBASE supported
+--   FXSR supported
+--   HLE supported
+--   INVPCID supported
+--   LAHF supported
+--   LZCNT supported
+--   MMX supported
+--   MMXEXT not supported
+--   MONITOR supported
+--   MOVBE supported
+--   MSR supported
+--   OSXSAVE supported
+--   PCLMULQDQ supported
+--   POPCNT supported
+--   PREFETCHWT1 not supported
+--   RDRAND supported
+--   RDSEED supported
+--   RDTSCP supported
+--   RTM supported
+--   SEP supported
+--   SHA not supported
+--   SSE supported
+--   SSE2 supported
+--   SSE3 supported
+--   SSE4.1 supported
+--   SSE4.2 supported
+--   SSE4a not supported
+--   SSSE3 supported
+--   SYSCALL supported
+--   TBM not supported
+--   XOP not supported
+--   XSAVE supported
+-- TBB include: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/include
+-- TBB Release lib: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/lib/libtbb.so
+-- TBB Debug lib: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/lib/libtbb_debug.so
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/inference_engine_demos_build
+[  7%] Built target gflags_nothreads_static
+[ 95%] Built target ie_cpu_extension
+[100%] Built target security_barrier_camera_demo
+
+
+###################################################
+
+Run Inference Engine security_barrier_camera demo
+
+Run ./security_barrier_camera_demo -d MYRIAD -d_va MYRIAD -d_lpr MYRIAD -i /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml -m_lpr /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml -m_va /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml
+
+[ INFO ] InferenceEngine: 
+	API version ............ 2.1
+	Build .................. custom_releases/2019/R3_ac8584cb714a697a12f1f30b7a3b78a5b9ac5e05
+	Description ....... API
+[ INFO ] Files were added: 1
+[ INFO ]     /opt/intel/openvino/deployment_tools/demo/car_1.bmp
+[ INFO ] Loading device MYRIAD
+	MYRIAD
+	myriadPlugin version ......... 2.1
+	Build ........... 32974
+
+[ INFO ] Loading detection model to the MYRIAD plugin
+[ INFO ] Loading Vehicle Attribs model to the MYRIAD plugin
+[ INFO ] Loading Licence Plate Recognition (LPR) model to the MYRIAD plugin
+[ INFO ] Number of InferRequests: 1 (detection), 3 (classification), 3 (recognition)
+[ INFO ] Display resolution: 1920x1080
+[ INFO ] Number of allocated frames: 3
+[ INFO ] Resizable input with support of ROI crop and auto resize is disabled
+0.3FPS for (1 / 1) frames
+Detection InferRequests usage: 100.0%
+[ INFO ] Execution successful
+
+
+###################################################
+
+Demo completed successfully.
+
+run  ... 2 
+target = MYRIAD
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 http://us.archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://us.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:3 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Fetched 252 kB in 1s (267 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+233 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Run sudo -E apt -y install build-essential python3-pip virtualenv cmake libcairo2-dev libpango1.0-dev libglib2.0-dev libgtk2.0-dev libswscale-dev libavcodec-dev libavformat-dev libgstreamer1.0-0 gstreamer1.0-plugins-base
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.4ubuntu1).
+libgtk2.0-dev is already the newest version (2.24.32-1ubuntu1).
+virtualenv is already the newest version (15.1.0+ds-1.1).
+cmake is already the newest version (3.10.2-1ubuntu2.18.04.1).
+gstreamer1.0-plugins-base is already the newest version (1.14.5-0ubuntu1~18.04.1).
+libcairo2-dev is already the newest version (1.15.10-2ubuntu0.1).
+libglib2.0-dev is already the newest version (2.56.4-0ubuntu0.18.04.4).
+libgstreamer1.0-0 is already the newest version (1.14.5-0ubuntu1~18.04.1).
+libpango1.0-dev is already the newest version (1.40.14-1ubuntu0.1).
+libavcodec-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+libavformat-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+libswscale-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+python3-pip is already the newest version (9.0.1-2.3~ubuntu1.18.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 233 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libpng-dev is already the newest version (1.6.34-1ubuntu0.18.04.2).
+0 upgraded, 0 newly installed, 0 to remove and 233 not upgraded.
+Requirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (from -r /opt/intel/openvino/deployment_tools/demo/../open_model_zoo/tools/downloader/requirements.in (line 1))
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from -r /opt/intel/openvino/deployment_tools/demo/../open_model_zoo/tools/downloader/requirements.in (line 2))
+[setupvars.sh] OpenVINO environment initialized
+
+
+###################################################
+
+Downloading Intel models
+
+target_precision = FP16
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-license-plate-detection-barrier-0106 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/INT8/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/INT8/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+################|| Post-processing ||################
+
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name license-plate-recognition-barrier-0001 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/INT8/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/INT8/license-plate-recognition-barrier-0001.bin from the cache
+
+################|| Post-processing ||################
+
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-attributes-recognition-barrier-0039 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/INT8/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/INT8/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+################|| Post-processing ||################
+
+
+
+###################################################
+
+Build Inference Engine demos
+
+-- The C compiler identification is GNU 7.4.0
+-- The CXX compiler identification is GNU 7.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for C++ include unistd.h
+-- Looking for C++ include unistd.h - found
+-- Looking for C++ include stdint.h
+-- Looking for C++ include stdint.h - found
+-- Looking for C++ include sys/types.h
+-- Looking for C++ include sys/types.h - found
+-- Looking for C++ include fnmatch.h
+-- Looking for C++ include fnmatch.h - found
+-- Looking for C++ include stddef.h
+-- Looking for C++ include stddef.h - found
+-- Check size of uint32_t
+-- Check size of uint32_t - done
+-- Looking for strtoll
+-- Looking for strtoll - found
+-- Found InferenceEngine: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/lib/intel64/libinference_engine.so (Required is at least version "2.0") 
+-- Performing Test HAVE_CPUID_INFO
+-- Performing Test HAVE_CPUID_INFO - Success
+-- Host CPU features:
+--   3DNOW not supported
+--   3DNOWEXT not supported
+--   ABM not supported
+--   ADX supported
+--   AES supported
+--   AVX supported
+--   AVX2 supported
+--   AVX512CD supported
+--   AVX512F supported
+--   AVX512ER not supported
+--   AVX512PF not supported
+--   BMI1 supported
+--   BMI2 supported
+--   CLFSH supported
+--   CMPXCHG16B supported
+--   CX8 supported
+--   ERMS supported
+--   F16C supported
+--   FMA supported
+--   FSGSBASE supported
+--   FXSR supported
+--   HLE supported
+--   INVPCID supported
+--   LAHF supported
+--   LZCNT supported
+--   MMX supported
+--   MMXEXT not supported
+--   MONITOR supported
+--   MOVBE supported
+--   MSR supported
+--   OSXSAVE supported
+--   PCLMULQDQ supported
+--   POPCNT supported
+--   PREFETCHWT1 not supported
+--   RDRAND supported
+--   RDSEED supported
+--   RDTSCP supported
+--   RTM supported
+--   SEP supported
+--   SHA not supported
+--   SSE supported
+--   SSE2 supported
+--   SSE3 supported
+--   SSE4.1 supported
+--   SSE4.2 supported
+--   SSE4a not supported
+--   SSSE3 supported
+--   SYSCALL supported
+--   TBM not supported
+--   XOP not supported
+--   XSAVE supported
+-- TBB include: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/include
+-- TBB Release lib: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/lib/libtbb.so
+-- TBB Debug lib: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/lib/libtbb_debug.so
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/inference_engine_demos_build
+[  7%] Built target gflags_nothreads_static
+[ 95%] Built target ie_cpu_extension
+[100%] Built target security_barrier_camera_demo
+
+
+###################################################
+
+Run Inference Engine security_barrier_camera demo
+
+Run ./security_barrier_camera_demo -d MYRIAD -d_va MYRIAD -d_lpr MYRIAD -i /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml -m_lpr /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml -m_va /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml
+
+[ INFO ] InferenceEngine: 
+	API version ............ 2.1
+	Build .................. custom_releases/2019/R3_ac8584cb714a697a12f1f30b7a3b78a5b9ac5e05
+	Description ....... API
+[ INFO ] Files were added: 1
+[ INFO ]     /opt/intel/openvino/deployment_tools/demo/car_1.bmp
+[ INFO ] Loading device MYRIAD
+	MYRIAD
+	myriadPlugin version ......... 2.1
+	Build ........... 32974
+
+[ INFO ] Loading detection model to the MYRIAD plugin
+[ INFO ] Loading Vehicle Attribs model to the MYRIAD plugin
+[ INFO ] Loading Licence Plate Recognition (LPR) model to the MYRIAD plugin
+[ INFO ] Number of InferRequests: 1 (detection), 3 (classification), 3 (recognition)
+[ INFO ] Display resolution: 1920x1080
+[ INFO ] Number of allocated frames: 3
+[ INFO ] Resizable input with support of ROI crop and auto resize is disabled
+0.3FPS for (1 / 1) frames
+Detection InferRequests usage: 100.0%
+[ INFO ] Execution successful
+
+
+###################################################
+
+Demo completed successfully.
+
+run  ... 3 
+target = MYRIAD
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 http://us.archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Fetched 252 kB in 1s (266 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+233 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Run sudo -E apt -y install build-essential python3-pip virtualenv cmake libcairo2-dev libpango1.0-dev libglib2.0-dev libgtk2.0-dev libswscale-dev libavcodec-dev libavformat-dev libgstreamer1.0-0 gstreamer1.0-plugins-base
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.4ubuntu1).
+libgtk2.0-dev is already the newest version (2.24.32-1ubuntu1).
+virtualenv is already the newest version (15.1.0+ds-1.1).
+cmake is already the newest version (3.10.2-1ubuntu2.18.04.1).
+gstreamer1.0-plugins-base is already the newest version (1.14.5-0ubuntu1~18.04.1).
+libcairo2-dev is already the newest version (1.15.10-2ubuntu0.1).
+libglib2.0-dev is already the newest version (2.56.4-0ubuntu0.18.04.4).
+libgstreamer1.0-0 is already the newest version (1.14.5-0ubuntu1~18.04.1).
+libpango1.0-dev is already the newest version (1.40.14-1ubuntu0.1).
+libavcodec-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+libavformat-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+libswscale-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+python3-pip is already the newest version (9.0.1-2.3~ubuntu1.18.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 233 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libpng-dev is already the newest version (1.6.34-1ubuntu0.18.04.2).
+0 upgraded, 0 newly installed, 0 to remove and 233 not upgraded.
+Requirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (from -r /opt/intel/openvino/deployment_tools/demo/../open_model_zoo/tools/downloader/requirements.in (line 1))
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from -r /opt/intel/openvino/deployment_tools/demo/../open_model_zoo/tools/downloader/requirements.in (line 2))
+[setupvars.sh] OpenVINO environment initialized
+
+
+###################################################
+
+Downloading Intel models
+
+target_precision = FP16
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-license-plate-detection-barrier-0106 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/INT8/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/INT8/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+################|| Post-processing ||################
+
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name license-plate-recognition-barrier-0001 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/INT8/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/INT8/license-plate-recognition-barrier-0001.bin from the cache
+
+################|| Post-processing ||################
+
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-attributes-recognition-barrier-0039 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/INT8/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/INT8/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+################|| Post-processing ||################
+
+
+
+###################################################
+
+Build Inference Engine demos
+
+-- The C compiler identification is GNU 7.4.0
+-- The CXX compiler identification is GNU 7.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for C++ include unistd.h
+-- Looking for C++ include unistd.h - found
+-- Looking for C++ include stdint.h
+-- Looking for C++ include stdint.h - found
+-- Looking for C++ include sys/types.h
+-- Looking for C++ include sys/types.h - found
+-- Looking for C++ include fnmatch.h
+-- Looking for C++ include fnmatch.h - found
+-- Looking for C++ include stddef.h
+-- Looking for C++ include stddef.h - found
+-- Check size of uint32_t
+-- Check size of uint32_t - done
+-- Looking for strtoll
+-- Looking for strtoll - found
+-- Found InferenceEngine: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/lib/intel64/libinference_engine.so (Required is at least version "2.0") 
+-- Performing Test HAVE_CPUID_INFO
+-- Performing Test HAVE_CPUID_INFO - Success
+-- Host CPU features:
+--   3DNOW not supported
+--   3DNOWEXT not supported
+--   ABM not supported
+--   ADX supported
+--   AES supported
+--   AVX supported
+--   AVX2 supported
+--   AVX512CD supported
+--   AVX512F supported
+--   AVX512ER not supported
+--   AVX512PF not supported
+--   BMI1 supported
+--   BMI2 supported
+--   CLFSH supported
+--   CMPXCHG16B supported
+--   CX8 supported
+--   ERMS supported
+--   F16C supported
+--   FMA supported
+--   FSGSBASE supported
+--   FXSR supported
+--   HLE supported
+--   INVPCID supported
+--   LAHF supported
+--   LZCNT supported
+--   MMX supported
+--   MMXEXT not supported
+--   MONITOR supported
+--   MOVBE supported
+--   MSR supported
+--   OSXSAVE supported
+--   PCLMULQDQ supported
+--   POPCNT supported
+--   PREFETCHWT1 not supported
+--   RDRAND supported
+--   RDSEED supported
+--   RDTSCP supported
+--   RTM supported
+--   SEP supported
+--   SHA not supported
+--   SSE supported
+--   SSE2 supported
+--   SSE3 supported
+--   SSE4.1 supported
+--   SSE4.2 supported
+--   SSE4a not supported
+--   SSSE3 supported
+--   SYSCALL supported
+--   TBM not supported
+--   XOP not supported
+--   XSAVE supported
+-- TBB include: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/include
+-- TBB Release lib: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/lib/libtbb.so
+-- TBB Debug lib: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/lib/libtbb_debug.so
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/inference_engine_demos_build
+[  7%] Built target gflags_nothreads_static
+[ 95%] Built target ie_cpu_extension
+[100%] Built target security_barrier_camera_demo
+
+
+###################################################
+
+Run Inference Engine security_barrier_camera demo
+
+Run ./security_barrier_camera_demo -d MYRIAD -d_va MYRIAD -d_lpr MYRIAD -i /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml -m_lpr /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml -m_va /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml
+
+[ INFO ] InferenceEngine: 
+	API version ............ 2.1
+	Build .................. custom_releases/2019/R3_ac8584cb714a697a12f1f30b7a3b78a5b9ac5e05
+	Description ....... API
+[ INFO ] Files were added: 1
+[ INFO ]     /opt/intel/openvino/deployment_tools/demo/car_1.bmp
+[ INFO ] Loading device MYRIAD
+	MYRIAD
+	myriadPlugin version ......... 2.1
+	Build ........... 32974
+
+[ INFO ] Loading detection model to the MYRIAD plugin
+[ INFO ] Loading Vehicle Attribs model to the MYRIAD plugin
+[ INFO ] Loading Licence Plate Recognition (LPR) model to the MYRIAD plugin
+[ INFO ] Number of InferRequests: 1 (detection), 3 (classification), 3 (recognition)
+[ INFO ] Display resolution: 1920x1080
+[ INFO ] Number of allocated frames: 3
+[ INFO ] Resizable input with support of ROI crop and auto resize is disabled
+0.7FPS for (1 / 1) frames
+Detection InferRequests usage: 100.0%
+[ INFO ] Execution successful
+
+
+###################################################
+
+Demo completed successfully.
+
+run  ... 4 
+target = MYRIAD
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 http://us.archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Fetched 252 kB in 1s (282 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+233 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Run sudo -E apt -y install build-essential python3-pip virtualenv cmake libcairo2-dev libpango1.0-dev libglib2.0-dev libgtk2.0-dev libswscale-dev libavcodec-dev libavformat-dev libgstreamer1.0-0 gstreamer1.0-plugins-base
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.4ubuntu1).
+libgtk2.0-dev is already the newest version (2.24.32-1ubuntu1).
+virtualenv is already the newest version (15.1.0+ds-1.1).
+cmake is already the newest version (3.10.2-1ubuntu2.18.04.1).
+gstreamer1.0-plugins-base is already the newest version (1.14.5-0ubuntu1~18.04.1).
+libcairo2-dev is already the newest version (1.15.10-2ubuntu0.1).
+libglib2.0-dev is already the newest version (2.56.4-0ubuntu0.18.04.4).
+libgstreamer1.0-0 is already the newest version (1.14.5-0ubuntu1~18.04.1).
+libpango1.0-dev is already the newest version (1.40.14-1ubuntu0.1).
+libavcodec-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+libavformat-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+libswscale-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+python3-pip is already the newest version (9.0.1-2.3~ubuntu1.18.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 233 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libpng-dev is already the newest version (1.6.34-1ubuntu0.18.04.2).
+0 upgraded, 0 newly installed, 0 to remove and 233 not upgraded.
+Requirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (from -r /opt/intel/openvino/deployment_tools/demo/../open_model_zoo/tools/downloader/requirements.in (line 1))
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from -r /opt/intel/openvino/deployment_tools/demo/../open_model_zoo/tools/downloader/requirements.in (line 2))
+[setupvars.sh] OpenVINO environment initialized
+
+
+###################################################
+
+Downloading Intel models
+
+target_precision = FP16
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-license-plate-detection-barrier-0106 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/INT8/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/INT8/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+################|| Post-processing ||################
+
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name license-plate-recognition-barrier-0001 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/INT8/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/INT8/license-plate-recognition-barrier-0001.bin from the cache
+
+################|| Post-processing ||################
+
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-attributes-recognition-barrier-0039 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/INT8/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/INT8/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+################|| Post-processing ||################
+
+
+
+###################################################
+
+Build Inference Engine demos
+
+-- The C compiler identification is GNU 7.4.0
+-- The CXX compiler identification is GNU 7.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for C++ include unistd.h
+-- Looking for C++ include unistd.h - found
+-- Looking for C++ include stdint.h
+-- Looking for C++ include stdint.h - found
+-- Looking for C++ include sys/types.h
+-- Looking for C++ include sys/types.h - found
+-- Looking for C++ include fnmatch.h
+-- Looking for C++ include fnmatch.h - found
+-- Looking for C++ include stddef.h
+-- Looking for C++ include stddef.h - found
+-- Check size of uint32_t
+-- Check size of uint32_t - done
+-- Looking for strtoll
+-- Looking for strtoll - found
+-- Found InferenceEngine: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/lib/intel64/libinference_engine.so (Required is at least version "2.0") 
+-- Performing Test HAVE_CPUID_INFO
+-- Performing Test HAVE_CPUID_INFO - Success
+-- Host CPU features:
+--   3DNOW not supported
+--   3DNOWEXT not supported
+--   ABM not supported
+--   ADX supported
+--   AES supported
+--   AVX supported
+--   AVX2 supported
+--   AVX512CD supported
+--   AVX512F supported
+--   AVX512ER not supported
+--   AVX512PF not supported
+--   BMI1 supported
+--   BMI2 supported
+--   CLFSH supported
+--   CMPXCHG16B supported
+--   CX8 supported
+--   ERMS supported
+--   F16C supported
+--   FMA supported
+--   FSGSBASE supported
+--   FXSR supported
+--   HLE supported
+--   INVPCID supported
+--   LAHF supported
+--   LZCNT supported
+--   MMX supported
+--   MMXEXT not supported
+--   MONITOR supported
+--   MOVBE supported
+--   MSR supported
+--   OSXSAVE supported
+--   PCLMULQDQ supported
+--   POPCNT supported
+--   PREFETCHWT1 not supported
+--   RDRAND supported
+--   RDSEED supported
+--   RDTSCP supported
+--   RTM supported
+--   SEP supported
+--   SHA not supported
+--   SSE supported
+--   SSE2 supported
+--   SSE3 supported
+--   SSE4.1 supported
+--   SSE4.2 supported
+--   SSE4a not supported
+--   SSSE3 supported
+--   SYSCALL supported
+--   TBM not supported
+--   XOP not supported
+--   XSAVE supported
+-- TBB include: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/include
+-- TBB Release lib: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/lib/libtbb.so
+-- TBB Debug lib: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/lib/libtbb_debug.so
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/inference_engine_demos_build
+[  7%] Built target gflags_nothreads_static
+[ 95%] Built target ie_cpu_extension
+[100%] Built target security_barrier_camera_demo
+
+
+###################################################
+
+Run Inference Engine security_barrier_camera demo
+
+Run ./security_barrier_camera_demo -d MYRIAD -d_va MYRIAD -d_lpr MYRIAD -i /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml -m_lpr /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml -m_va /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml
+
+[ INFO ] InferenceEngine: 
+	API version ............ 2.1
+	Build .................. custom_releases/2019/R3_ac8584cb714a697a12f1f30b7a3b78a5b9ac5e05
+	Description ....... API
+[ INFO ] Files were added: 1
+[ INFO ]     /opt/intel/openvino/deployment_tools/demo/car_1.bmp
+[ INFO ] Loading device MYRIAD
+	MYRIAD
+	myriadPlugin version ......... 2.1
+	Build ........... 32974
+
+[ INFO ] Loading detection model to the MYRIAD plugin
+[ INFO ] Loading Vehicle Attribs model to the MYRIAD plugin
+[ INFO ] Loading Licence Plate Recognition (LPR) model to the MYRIAD plugin
+[ INFO ] Number of InferRequests: 1 (detection), 3 (classification), 3 (recognition)
+[ INFO ] Display resolution: 1920x1080
+[ INFO ] Number of allocated frames: 3
+[ INFO ] Resizable input with support of ROI crop and auto resize is disabled
+0.5FPS for (1 / 1) frames
+Detection InferRequests usage: 100.0%
+[ INFO ] Execution successful
+
+
+###################################################
+
+Demo completed successfully.
+
+run  ... 5 
+target = MYRIAD
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Hit:2 http://us.archive.ubuntu.com/ubuntu bionic InRelease
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Fetched 252 kB in 1s (260 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+233 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Run sudo -E apt -y install build-essential python3-pip virtualenv cmake libcairo2-dev libpango1.0-dev libglib2.0-dev libgtk2.0-dev libswscale-dev libavcodec-dev libavformat-dev libgstreamer1.0-0 gstreamer1.0-plugins-base
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.4ubuntu1).
+libgtk2.0-dev is already the newest version (2.24.32-1ubuntu1).
+virtualenv is already the newest version (15.1.0+ds-1.1).
+cmake is already the newest version (3.10.2-1ubuntu2.18.04.1).
+gstreamer1.0-plugins-base is already the newest version (1.14.5-0ubuntu1~18.04.1).
+libcairo2-dev is already the newest version (1.15.10-2ubuntu0.1).
+libglib2.0-dev is already the newest version (2.56.4-0ubuntu0.18.04.4).
+libgstreamer1.0-0 is already the newest version (1.14.5-0ubuntu1~18.04.1).
+libpango1.0-dev is already the newest version (1.40.14-1ubuntu0.1).
+libavcodec-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+libavformat-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+libswscale-dev is already the newest version (7:3.4.6-0ubuntu0.18.04.1).
+python3-pip is already the newest version (9.0.1-2.3~ubuntu1.18.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 233 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libpng-dev is already the newest version (1.6.34-1ubuntu0.18.04.2).
+0 upgraded, 0 newly installed, 0 to remove and 233 not upgraded.
+Requirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (from -r /opt/intel/openvino/deployment_tools/demo/../open_model_zoo/tools/downloader/requirements.in (line 1))
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from -r /opt/intel/openvino/deployment_tools/demo/../open_model_zoo/tools/downloader/requirements.in (line 2))
+[setupvars.sh] OpenVINO environment initialized
+
+
+###################################################
+
+Downloading Intel models
+
+target_precision = FP16
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-license-plate-detection-barrier-0106 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/INT8/vehicle-license-plate-detection-barrier-0106.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/INT8/vehicle-license-plate-detection-barrier-0106.bin from the cache
+
+################|| Post-processing ||################
+
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name license-plate-recognition-barrier-0001 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP32/license-plate-recognition-barrier-0001.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/INT8/license-plate-recognition-barrier-0001.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/INT8/license-plate-recognition-barrier-0001.bin from the cache
+
+################|| Post-processing ||################
+
+Run python3 /opt/intel/openvino_2019.3.376/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-attributes-recognition-barrier-0039 --output_dir /root/openvino_models/ir --cache_dir /root/openvino_models/cache
+
+################|| Downloading models ||################
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/INT8/vehicle-attributes-recognition-barrier-0039.xml from the cache
+
+========== Retrieving /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/INT8/vehicle-attributes-recognition-barrier-0039.bin from the cache
+
+################|| Post-processing ||################
+
+
+
+###################################################
+
+Build Inference Engine demos
+
+-- The C compiler identification is GNU 7.4.0
+-- The CXX compiler identification is GNU 7.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for C++ include unistd.h
+-- Looking for C++ include unistd.h - found
+-- Looking for C++ include stdint.h
+-- Looking for C++ include stdint.h - found
+-- Looking for C++ include sys/types.h
+-- Looking for C++ include sys/types.h - found
+-- Looking for C++ include fnmatch.h
+-- Looking for C++ include fnmatch.h - found
+-- Looking for C++ include stddef.h
+-- Looking for C++ include stddef.h - found
+-- Check size of uint32_t
+-- Check size of uint32_t - done
+-- Looking for strtoll
+-- Looking for strtoll - found
+-- Found InferenceEngine: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/lib/intel64/libinference_engine.so (Required is at least version "2.0") 
+-- Performing Test HAVE_CPUID_INFO
+-- Performing Test HAVE_CPUID_INFO - Success
+-- Host CPU features:
+--   3DNOW not supported
+--   3DNOWEXT not supported
+--   ABM not supported
+--   ADX supported
+--   AES supported
+--   AVX supported
+--   AVX2 supported
+--   AVX512CD supported
+--   AVX512F supported
+--   AVX512ER not supported
+--   AVX512PF not supported
+--   BMI1 supported
+--   BMI2 supported
+--   CLFSH supported
+--   CMPXCHG16B supported
+--   CX8 supported
+--   ERMS supported
+--   F16C supported
+--   FMA supported
+--   FSGSBASE supported
+--   FXSR supported
+--   HLE supported
+--   INVPCID supported
+--   LAHF supported
+--   LZCNT supported
+--   MMX supported
+--   MMXEXT not supported
+--   MONITOR supported
+--   MOVBE supported
+--   MSR supported
+--   OSXSAVE supported
+--   PCLMULQDQ supported
+--   POPCNT supported
+--   PREFETCHWT1 not supported
+--   RDRAND supported
+--   RDSEED supported
+--   RDTSCP supported
+--   RTM supported
+--   SEP supported
+--   SHA not supported
+--   SSE supported
+--   SSE2 supported
+--   SSE3 supported
+--   SSE4.1 supported
+--   SSE4.2 supported
+--   SSE4a not supported
+--   SSSE3 supported
+--   SYSCALL supported
+--   TBM not supported
+--   XOP not supported
+--   XSAVE supported
+-- TBB include: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/include
+-- TBB Release lib: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/lib/libtbb.so
+-- TBB Debug lib: /opt/intel/openvino_2019.3.376/deployment_tools/inference_engine/external/tbb/lib/libtbb_debug.so
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/inference_engine_demos_build
+[  7%] Built target gflags_nothreads_static
+[ 95%] Built target ie_cpu_extension
+[100%] Built target security_barrier_camera_demo
+
+
+###################################################
+
+Run Inference Engine security_barrier_camera demo
+
+Run ./security_barrier_camera_demo -d MYRIAD -d_va MYRIAD -d_lpr MYRIAD -i /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m /root/openvino_models/ir/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml -m_lpr /root/openvino_models/ir/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml -m_va /root/openvino_models/ir/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml
+
+[ INFO ] InferenceEngine: 
+	API version ............ 2.1
+	Build .................. custom_releases/2019/R3_ac8584cb714a697a12f1f30b7a3b78a5b9ac5e05
+	Description ....... API
+[ INFO ] Files were added: 1
+[ INFO ]     /opt/intel/openvino/deployment_tools/demo/car_1.bmp
+[ INFO ] Loading device MYRIAD
+	MYRIAD
+	myriadPlugin version ......... 2.1
+	Build ........... 32974
+
+[ INFO ] Loading detection model to the MYRIAD plugin
+[ INFO ] Loading Vehicle Attribs model to the MYRIAD plugin
+[ INFO ] Loading Licence Plate Recognition (LPR) model to the MYRIAD plugin
+[ INFO ] Number of InferRequests: 1 (detection), 3 (classification), 3 (recognition)
+[ INFO ] Display resolution: 1920x1080
+[ INFO ] Number of allocated frames: 3
+[ INFO ] Resizable input with support of ROI crop and auto resize is disabled
+0.4FPS for (1 / 1) frames
+Detection InferRequests usage: 100.0%
+[ INFO ] Execution successful
+
+
+###################################################
+
+Demo completed successfully.
+
