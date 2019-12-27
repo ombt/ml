@@ -20,6 +20,9 @@ PRE_TRAINED_MODELS=/opt/intel/openvino/deployment_tools/model_downloader
 
 MODELS_FOLDER=$HOME_FOLDER/ai-workspace/experiments/NCS2/videos
 
+FACE_MODEL_DIR=/opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/intel/face-detection-adas-0001
+EMOTION_MODEL_DIR=/opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/intel/emotions-recognition-retail-0003
+
 ps -ef | grep NCS2_033 | grep -v grep | awk '{print $2}' | xargs kill 2>/dev/null
 ps -ef | grep NCS2_042 | grep -v grep | awk '{print $2}' | xargs kill 2>/dev/null
 sleep 1
@@ -30,7 +33,9 @@ sleep 2
 python3 $SRC_FOLDER/NCS2_042_RetailSbucks_POS_DBoard.py &
 sleep 2
 
-python3 $SRC_FOLDER/NCS2_023_ThreadedFaceEmotionDriver.py -m_fd $PRE_TRAINED_MODELS/Transportation/object_detection/face/pruned_mobilenet_reduced_ssd_shared_weights/dldt/face-detection-adas-0001-fp16.xml -m_er $INTEL_MODELS/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -pt_er 0.75 -pt_fd 0.75 -i $MODELS_FOLDER/Starbucks_SD_1.mp4
+# python3 $SRC_FOLDER/NCS2_023_ThreadedFaceEmotionDriver.py -m_fd $PRE_TRAINED_MODELS/Transportation/object_detection/face/pruned_mobilenet_reduced_ssd_shared_weights/dldt/face-detection-adas-0001-fp16.xml -m_er $INTEL_MODELS/emotions-recognition-retail-0003/FP16/emotions-recognition-retail-0003.xml -pt_er 0.75 -pt_fd 0.75 -i $MODELS_FOLDER/Starbucks_SD_1.mp4
+
+python3 $SRC_FOLDER/NCS2_023_ThreadedFaceEmotionDriver.py -m_fd $FACE_MODEL_DIR/FP16/face-detection-adas-0001.xml -m_er $EMOTION_MODEL_DIR/FP16/emotions-recognition-retail-0003.xml -pt_er 0.6 -pt_fd 0.6 -i $MODELS_FOLDER/wb.mp4
 
 ps -ef | grep NCS2_033 | grep -v grep | awk '{print $2}' | xargs kill 2>/dev/null
 ps -ef | grep NCS2_042 | grep -v grep | awk '{print $2}' | xargs kill 2>/dev/null

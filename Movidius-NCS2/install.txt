@@ -153,6 +153,10 @@ defined at login. add the following line at the end of the .bashrc.
 
 	source /opt/intel/openvino/bin/setupvars.sh
 
+12.1) get the latest models. run this as root. it makes take an hour or more to run.
+
+	$ /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/downloader.py --all
+
 13) test ...
 
 	$ cd /opt/intel/openvino/deployment_tools/model_optimizer/install_prerequisites/

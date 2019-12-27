@@ -162,7 +162,7 @@ def main():
             # Draw only objects when probability more than specified threshold    
                 
             # Draw performance stats
-            emotion_message = "Emption Found: {}".format(labels_map[index])
+            emotion_message = "Emotion Found: {}".format(labels_map[index])
             inf_time_message = "Inference time: {:.3f} ms".format(det_time * 1000)
             render_time_message = "OpenCV rendering time: {:.3f} ms".format(render_time * 1000)
             

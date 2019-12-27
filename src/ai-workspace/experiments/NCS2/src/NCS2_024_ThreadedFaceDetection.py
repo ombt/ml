@@ -65,6 +65,7 @@ class FaceDetection(object):
         # Step 2: Initialize the Plugin ( MYRIAD )
         # This will initialize the myriad device..
         self.plugin = IEPlugin("MYRIAD", plugin_dirs="")
+        # self.plugin = IEPlugin("CPU", plugin_dirs="")
         
         # Step 3: Initialiaze the network model.     
         self.net = IENetwork(model=model_xml, weights=model_bin)    
@@ -205,7 +206,8 @@ class FaceDetection(object):
                 render_start = time.time()
                
                 if self._id == 0:
-                    res = self.cv2.resize(frame, (960,540))
+                    # res = self.cv2.resize(frame, (960,540))
+                    res = self.cv2.resize(frame, (720,405))
                     self.cv2.imshow("Face Detection Results", res)
                     
                 render_end = time.time()

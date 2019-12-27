@@ -39,7 +39,7 @@ class EmotionRecognition(object):
         self.exec_net = 1
         self.plugin = 1
         
-        self.obj_type = "Emption"
+        self.obj_type = "Emotion"
         self.cv2 = cv
         self.input_stream = args.input
         self.prob_threshold = args.prob_threshold_fd
@@ -57,6 +57,7 @@ class EmotionRecognition(object):
         # Step 2: Initialize the Plugin ( MYRIAD )
         # This will initialize the myriad device..
         self.plugin = IEPlugin("MYRIAD", plugin_dirs="")
+        # self.plugin = IEPlugin("CPU", plugin_dirs="")
         
         # Step 3: Initialiaze the network model.     
         self.net = IENetwork(model=model_xml, weights=model_bin)    
