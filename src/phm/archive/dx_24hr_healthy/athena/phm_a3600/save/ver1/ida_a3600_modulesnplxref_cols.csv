@@ -1,5 +1,0 @@
-ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
-"COMMENTS",4,,,"Y","VARCHAR2 (4000 Byte)",,"Height Balanced",1,0,0.5,,,,False
-"MODULESNPREFIX",2,,,"N","VARCHAR2 (100 Byte)",,"Height Balanced",1,0,0.5,,,,False
-"PROCESSORDER",1,,"1","N","NUMBER",,"Height Balanced",1,0,0.5,,,,False
-"PRODUCTLINE",3,,,"N","VARCHAR2 (10 Byte)",,"Height Balanced",1,0,0.5,,,,False

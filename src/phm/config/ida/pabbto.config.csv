@@ -1,9 +1,0 @@
-NAME,VALUE
-IDA_DB_NAME,pabbto
-IDA_DB_HOST,ux00147p-scan.oneabbott.com
-IDA_DB_PORT,1521
-IDA_DB_USER,SVC_PHM_CONNECT
-IDA_DB_PASSWORD,svc_phmc_0771
-IDA_JDBC_CLASSPATH,C:/Users/rumormx/Documents/sandbox/phm/jlib/OJDBC-Full/ojdbc6.jar
-IDA_JDBC_DSN_FORMAT,jdbc:oracle:thin:@//%s:%s/%s
-IDA_JDBC_DRIVER_CLASS,oracle.jdbc.OracleDriver

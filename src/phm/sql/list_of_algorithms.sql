@@ -1,1 +1,0 @@
-select * from svc_phm_owner.phm_algorithm_routines where routine_name like '%Dark%'

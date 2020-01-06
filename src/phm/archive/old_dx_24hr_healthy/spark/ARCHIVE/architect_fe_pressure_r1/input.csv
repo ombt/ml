@@ -1,5 +1,0 @@
-ALGORITHM_NAME,PHM_PATTERNS_SK,PARAMETER_NAME,PARAMETER_VALUE
-Architect Dark Count R1 Average Exceeded,11111,THRESHOLD_NUMBER,27000
-Architect Dark Count R1 Average Exceeded,11111,THRESHOLD_NUMBER_UNIT,5
-Architect Dark Count R1 Average Exceeded,11111,IHN_LEVEL3_DESC,Dark Count R1 Average Exceeded
-Architect Dark Count R1 Average Exceeded,11111,THRESHOLD_DESCRIPTION,Dark Count R1 Average Exceeded

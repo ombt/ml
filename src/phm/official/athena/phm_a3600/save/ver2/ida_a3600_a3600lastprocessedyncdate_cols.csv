@@ -1,2 +1,0 @@
-ColumnName,ColID,PK,IndexPos,Null,DataType,Default,Histogram,NumDistinct,NumNulls,Density,EncryptionAlg,Salt,Trigger,Virtual
-"LASTPROCESSEDYNCDATE",1,,,"Y","DATE",,"None",673,0,0.00149,,,,False
