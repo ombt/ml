@@ -134,6 +134,7 @@ model.add(layers.Flatten())
 #
 model.add(layers.Dense(512, 
                        activation='relu'))
+
 model.add(layers.Dense(1, 
                        activation='sigmoid'))
 #
@@ -160,7 +161,7 @@ validation_generator = test_datagen.flow_from_directory(validation_dir,
 #
 history = model.fit_generator(train_generator,
                               steps_per_epoch=100,
-                              epochs=30,
+                              epochs=10, # was 60
                               validation_data=validation_generator,
                               validation_steps=50)
 #
