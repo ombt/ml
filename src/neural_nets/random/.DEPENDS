@@ -1,0 +1,6 @@
+
+obj/Random.o: \
+		src/Random.cpp \
+		$(INCLUDEDIR)/atomic/BaseObject.h \
+		hdr/Random.h \
+		$(INCLUDEDIR)/system/Returns.h
