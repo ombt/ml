@@ -1,0 +1,160 @@
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Errata: October 16, 2018
+Unless otherwise noted, all corrections have been made to the pbook and are pending in mobile and livebook versions.
+Thank you for purchasing Deep Learning with Python. Please post any errors, other than those listed below, in the book's Author Online Forum. We'll compile a comprehensive list and publish it here for everyone's convenience. Thank you! 
+
+
+
+Copyright Page:
+The Development Editor for this book is Christina Taylor, not Toni Arritola, as listed.
+
+Page 6:
+In the last line of section 1.1.3, RG should be RGB.
+
+Page 31:
+Replace the first three lines of the snippet at the beginning of section 2.2.2 with the following:
+>>> x = np.array([12, 3, 6, 14, 7])
+>>> x
+array([12,3,6,14,7])
+
+Page 33:
+In the next to the last line of the first paragraph, the simple expression 28 x 8 integers should be 28 x 28.
+
+Page 42:
+In the second line following figure 2.5, replace and with of.
+Because the rows of x and the columns of y...
+
+Page 51:
+There's a type in the Nesterov momentum example; the + sigm should be a minus sign:
+velocity = past_velocity * momentum + learning_rate * gradient
+
+Page 74, listing 3.9:
+Change the fifth line of code to the following: 
+epochs = range(1, len(loss_values) + 1)
+
+Page 75, listing 3.10:
+Replace the second and third lines of code with the following: 
+acc = history_dict['acc']
+val_acc = history_dict['val_acc']
+In line 8, replace Loss with Accuracy:
+plt.ylabel('Accuracy')
+
+Page 75, figure 3.8:
+The Loss legend should read Accuracy.
+
+Page 81, listing 3.20:
+Change the eighth line of code to the following:
+plt.ylabel('Accuracy')
+
+Page 82, figure 3.10:
+The Loss legend should read Accuracy.
+
+Page 84:
+In the last line of section 3.5.7, replace eight with four.
+The network is able to cram most of the necessaray information into these four dimensional...
+
+Page 87, figure 3.11:
+The label for Folds 2 and 3 in the first partition should read Training, not Validation.
+
+Page 99, figure 4.2:
+The label for Folds 2 and 3 in the first partition should read Training, not Validation.
+
+Page 100:
+The last line of the first paragraph is missing the word be.
+...which can be very expensive.
+
+Page 134:
+In the note at the top of the page, the simple expression 148 x 148 to 7 x 7 should be 150 x 150 to 7 x 7.
+
+Page 143:
+In the third line of the second paragraph, the word it is missing.
+... you can expect it to perform... 
+
+Page 161, listing 5.25
+Line 8, <1>Its shape is (1, 150, 150, 3), is an annotation that didn't render correctly; that annotation goes with the line immediately following.
+
+Page 173:
+In line four of the paragraph following listing 5.40, the simple expression 224 x 244 should be 224 x 224.
+
+Page 178:
+In line two of the first paragraph, word should be plural.
+...sequences of words or sequences...
+
+Page 187, listing 6.7:
+Line 2 is missing the term Embedding:
+from keras.layers import Flatten, Dense, Embedding
+
+Page 203:
+Line 7 is missing the word and:
+...via an activation function and a multiplication operation...
+
+Page 207:
+In the first line of paragraph two in section 6.3.1, the word as is missing.
+...(such as air temperature, ...
+
+Page 209, listing 6.30:
+In line 2, <1> temperature (in degrees Celsius) is an annotation that didn't render correctly.
+
+Page 212, listing 6.34:
+Add // batch_size to the last two lines:
+val_stseps = (300000 - 200001 - lookback) // batch_size
+tes_steps = (len(float_data) - 300001 - lookback) // batch_size
+
+Page 227:
+In line four of the first paragraph following listing 6.46, the word eight should be four.
+...for the right number of epochs (four) and run it...
+
+Page 249:
+In line two of the second paragraph in section 7.2.1, the word in should be is.
+...that the validation loss is no longer...
+
+Page 261:
+In line two of the Batch renormalization sidebar, the word clears should be clear. 
+It offers clear benefits...
+
+Page 279:
+In the second line of the first bullet point, the word tokens() should be token(s).
+...to predict the next token(s)...
+
+Page 296:
+In line four of section 8.4, the word implementations shold not be plural.
+...alongside implementation details relative to...
+
+Page 297:
+In line five of the first paragraph in section 8.4.2, the word vector is singular.
+...there may be a smile vector, such that...
+
+In the fourth line from the bottom, the word as should be a.
+...turning a male face into a female face, ..
+
+Page 299:
+In line five of paragraph two, the word accounting should be account.
+...process should be taken into account during encoding...
+
+Page 312:
+In the second line of the first bullet point, the word differentiate is misspelled.
+In line four of the first bullet point, the word nevers should be never.
+...the generator never sees images...
+In the caption for figure 8.18, the word row should be column.
+...in each column, two images...
+© 2018 Manning Publications Co. All rights reserved. 
