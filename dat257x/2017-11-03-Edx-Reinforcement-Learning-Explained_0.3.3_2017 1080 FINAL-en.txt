@@ -1,0 +1,7 @@
+Okay, so that's it for this module course overview.
+What we talked about, some of the reinforcement learning
+applications, what you will learn in the course.
+We did an overview of the modules that make up the course
+and the labs that match each module.
+We talked about the course book.
+And then finally we talked about how to install the Lab software.
