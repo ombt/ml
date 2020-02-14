@@ -134,6 +134,8 @@ def policy_iteration_core_test(eval_func, name, passcode_index):
     #print("riv=", riv)
 
     # 4. check value of elements of v
+    print("v=",v)
+    print("vexpect=",vexpect)
     diffs, first_diff_index = find_rounded_diffs(v, vexpect)
 
     if diffs > 0:

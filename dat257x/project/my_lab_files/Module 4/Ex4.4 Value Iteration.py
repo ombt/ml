@@ -47,6 +47,66 @@ def value_iteration(state_count, gamma, theta, get_available_actions, get_transi
         pi[s] = avail_actions[0]
         
     # insert code here to iterate using policy evaluation and policy improvement (see Policy Iteration algorithm)
+
+    while True:
+        delta = 0
+
+        for state in range(state_count):
+            old_v = V[state]
+
+            state_actions = get_available_actions(state)
+            action_vs = dict()
+        
+            for action in state_actions:
+                action_v = 0
+                for next_state, reward, prob in get_transitions(state, action):
+                    action_v += prob*(reward+gamma*V[next_state])
+                action_vs[action] = action_v
+
+            max_v = -1
+            max_v_action = ""
+
+            for iaction in range(len(state_actions)):
+                action = state_actions[iaction]
+                if (iaction == 0):
+                    max_v = action_vs[action]
+                    max_v_action = action
+                elif (action_vs[action] > max_v):
+                    max_v = action_vs[action]
+                    max_v_action = action
+
+            V[state] = max_v
+
+            delta = max(delta, abs(old_v-max_v))
+
+        if (delta < theta):
+            break
+
+    for state in range(state_count):
+        old_action = pi[state]
+        state_actions = get_available_actions(state)
+        action_vs = dict()
+        
+        for action in state_actions:
+            action_v = 0
+            for next_state, reward, prob in get_transitions(state, action):
+                action_v += prob*(reward+gamma*V[next_state])
+            action_vs[action] = action_v
+
+        max_v = -1
+        max_v_action = ""
+
+        for iaction in range(len(state_actions)):
+            action = state_actions[iaction]
+            if (iaction == 0):
+                max_v = action_vs[action]
+                max_v_action = action
+            elif (action_vs[action] > max_v):
+                max_v = action_vs[action]
+                max_v_action = action
+
+        pi[state] = max_v_action
+
     return (V, pi)        # return both the final value function and the final policy
 
 

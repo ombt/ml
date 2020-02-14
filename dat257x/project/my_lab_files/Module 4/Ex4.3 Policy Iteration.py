@@ -60,6 +60,7 @@ def policy_iteration(state_count, gamma, theta, get_available_actions, get_trans
             for state in range(state_count):
                 v = V[state]
                 new_v = 0
+                # print("pi[s],s ==>>", pi[state], state)
                 for next_state, reward, prob in get_transitions(state, pi[state]):
                     new_v += prob*(reward+gamma*V[next_state])
                 V[state] = new_v
@@ -71,7 +72,31 @@ def policy_iteration(state_count, gamma, theta, get_available_actions, get_trans
 
         for state in range(state_count):
             old_action = pi[state]
+            state_actions = get_available_actions(state)
+            action_vs = dict()
             
+            for action in state_actions:
+                action_v = 0
+                for next_state, reward, prob in get_transitions(state, action):
+                    action_v += prob*(reward+gamma*V[next_state])
+                action_vs[action] = action_v
+
+            max_v = -1
+            max_v_action = ""
+
+            for iaction in range(len(state_actions)):
+                action = state_actions[iaction]
+                if (iaction == 0):
+                    max_v = action_vs[action]
+                    max_v_action = action
+                elif (action_vs[action] > max_v):
+                    max_v = action_vs[action]
+                    max_v_action = action
+
+            pi[state] = max_v_action
+
+            if (pi[state] != old_action):
+                policy_stable = False
 
         if policy_stable:
             break
