@@ -24,6 +24,56 @@ from lib.simulation import Experiment
 
 # In[ ]:
 
+class QActionValue:
+    def __init__(self):
+        self.data = dict()
+
+    def insert(self, data, key1, key2=None):
+        if (key2 == None):
+            self.data[key1] = dict(data)
+        else:
+            self.data[key1][key2] = data
+        return True
+
+    def remove(self, key1, key2=None):
+        if (key1 in self.data):
+            if (key2 == None):
+                try:
+                    del self.data[key1]
+                except:
+                    pass
+            else:
+                try:
+                    del self.data[key1][key2]
+                except:
+                    pass
+        return True
+
+    def read(self, key1, key2=None):
+        if (key1 in self.data):
+            if (key2 == None):
+                return self.data[key1]
+            elif (key2 in self.data[key1]):
+                return self.data[key1][key2]
+            else:
+                return 0.0
+        else:
+            return 0.0
+
+    def update(self, data, key1, key2=None):
+        if (key2 == None):
+            self.data[key1] = dict(data)
+        else:
+            self.data[key1][key2] = data
+        return True
+
+    def keys(self, key1=None):
+        if (key1 == None):
+            return self.data.keys()
+        elif (key1 in self.data):
+            return self.data[key1].keys()
+        else:
+            return dict()
 
 class Agent(object):  
         
@@ -47,14 +97,18 @@ class SarsaAgent(Agent):
         ## Initialize empty dictionary here
         ## In addition, initialize the value of epsilon, alpha and gamma
 
-        self.Q = dict()
+        if (epsilon is None) or (epsilon < 0) or (epsilon > 1):
+            print("Invalid epsilon:", epsilon)
+            sys.exit(2)
 
-        self.actions = list(actions)
+        self.Q = QActionValue()
+
         self.epsilon = epsilon
         self.alpha = alpha
         self.gamma = gamma
         
     def stateToString(self, state):
+        print("stateToString(state)", state)
         mystring = ""
         if np.isscalar(state):
             mystring = str(state)
@@ -69,7 +123,10 @@ class SarsaAgent(Agent):
         
         ## TODO 2
         ## Implement epsilon greedy policy here
-        
+
+        # if (np.random.binomial(1, self.epsilon) == 1):
+            # return action
+        # else:
         return action
 
     def learn(self, state1, action1, reward, state2, action2):
@@ -89,16 +146,18 @@ class SarsaAgent(Agent):
         """
 
         # Q(s,a) <- Q(s,a) + alpha * (reward + gamma * Q(s',a') - Q(s,a))
-        key1 = (state1Str, action1)
-        key2 = (state2Str, action2)
-        self.Q[key1] <- self.Q[key1] + self.alpha * (reward + self.gamma * self.Q[key2] - self.Q[key1])
 
+        Qsa = self.Q.read(state1Str, action1)
+        Qspap = self.Q.read(state2Str, action2)
+        Qsa = Qsa + self.alpha * (reward + self.gamma * Qspap - Qsa)
+        print("state1Str,action1:", state1Str, action1)
+        self.Q.update(Qsa, state1Str, action1)
 
 # In[ ]:
 
 
 interactive = True
-get_ipython().magic('matplotlib nbagg')
+# get_ipython().magic('matplotlib nbagg')
 env = SimpleRoomsEnv()
 agent = SarsaAgent(range(env.action_space.n))
 experiment = Experiment(env, agent)
@@ -109,7 +168,7 @@ experiment.run_sarsa(10, interactive)
 
 
 interactive = False
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 env = SimpleRoomsEnv()
 agent = SarsaAgent(range(env.action_space.n))
 experiment = Experiment(env, agent)
@@ -120,7 +179,7 @@ experiment.run_sarsa(50, interactive)
 
 
 interactive = True
-get_ipython().magic('matplotlib nbagg')
+# get_ipython().magic('matplotlib nbagg')
 env = CliffWalkingEnv()
 agent = SarsaAgent(range(env.action_space.n))
 experiment = Experiment(env, agent)
@@ -131,7 +190,7 @@ experiment.run_sarsa(10, interactive)
 
 
 interactive = False
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 env = CliffWalkingEnv()
 agent = SarsaAgent(range(env.action_space.n))
 experiment = Experiment(env, agent)
@@ -142,7 +201,7 @@ experiment.run_sarsa(100, interactive)
 
 
 interactive = False
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 env = WindyGridworldEnv()
 agent = SarsaAgent(range(env.action_space.n))
 experiment = Experiment(env, agent)
