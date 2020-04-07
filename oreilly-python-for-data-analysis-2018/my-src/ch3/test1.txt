@@ -1,0 +1,100 @@
+#
+# you can use the library itertools
+#
+import itertools
+first_letter = lambda x: x[o]
+names = [ 'Alan','Adam','Wes','Will','Albert','Steven' ]
+for letter, names in itertools.groupby(names, first_letter):
+    print(letter, list(names))
+    
+first_letter = lambda x: x[0]
+for letter, names in itertools.groupby(names, first_letter):
+    print(letter, list(names))
+    
+names
+#[Out]# <itertools._grouper at 0x7fcb7dab98d0>
+list(names)
+#[Out]# []
+names = [ 'Alan','Adam','Wes','Will','Albert','Steven' ]
+names
+#[Out]# ['Alan', 'Adam', 'Wes', 'Will', 'Albert', 'Steven']
+for letter, names_iter in itertools.groupby(names, first_letter):
+    print(letter, list(names))
+    
+for letter, names_iter in itertools.groupby(names, first_letter):
+    print(letter, list(names_iter))
+    
+# other useful functions in itertools: combinations, permutations,
+# grouby and product.
+#
+# errors and exception handling
+#
+#
+floar('me')
+float('me')
+def attempt_float(x):
+    try:
+        return float(x)
+    except:
+        return x
+        
+attempt_float('xx
+')
+attempt_float('xxx')
+#[Out]# 'xxx'
+# catch a specific exception and not all as the example shown above
+#
+#
+def attempt_float2(x):
+    try:
+        return float(x)
+    except ValueError:
+        return x
+        
+attempt_float((1,2))
+#[Out]# (1, 2)
+attempt_float2((1,2))
+# can force a block of code to always run or only runs if the 
+# try block succeeds.
+#
+#
+# catch more than one type of exceptions
+#
+def attempt_float3(x):
+    try:
+        return float(x)
+    except (TypeError, ValueError):
+        return x
+        
+attempt_float3('a')
+#[Out]# 'a'
+attempt_float3([])
+#[Out]# []
+#
+# f = open(x)
+# try:
+#     write_to_file(f)
+# finally:
+#     f.close()
+#
+# in the above example the finally-clause works like 
+# a destructor.
+#
+# the whole kit-and-kaboodle
+#
+# f = open(path, 'w')
+#
+# try:
+#     write_to_file(f)
+# except:
+#     print('failed')
+# else:
+#     print('succeeded')
+# finally:
+#     f.close()
+#
+# files and the OS
+#
+# read in a file and strip newline characters
+#
+#

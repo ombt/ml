@@ -1,0 +1,1143 @@
+exit()
+# chapter 3 on data structures, functions and files.
+# tuple = fixed length immutable sequnce of python objects
+tup = 4,5,6
+tupe
+tup
+#[Out]# (4, 5, 6)
+nested_tup = (4,5,6),(7,8)
+nested_tup
+#[Out]# ((4, 5, 6), (7, 8))
+tuple([4,0,2])
+#[Out]# (4, 0, 2)
+tup = tuple('string')
+tup
+#[Out]# ('s', 't', 'r', 'i', 'n', 'g')
+list(tup)
+#[Out]# ['s', 't', 'r', 'i', 'n', 'g']
+len(tup)
+#[Out]# 6
+len(list(tup))
+#[Out]# 6
+list(tup).?
+list(tup)%%file
+list(tup).count('s')
+#[Out]# 1
+list(tup).length()
+list(tup).len()
+tup[0]
+#[Out]# 's'
+tup
+#[Out]# ('s', 't', 'r', 'i', 'n', 'g')
+tup[1]=True
+tup = (1,2,3),[4,5,6],7,8
+tup
+#[Out]# ((1, 2, 3), [4, 5, 6], 7, 8)
+tup[1].append(8)
+tup
+#[Out]# ((1, 2, 3), [4, 5, 6, 8], 7, 8)
+# if item in a tuple is mutable, the it can be changed, but the tuple
+# itself cannot be changed.
+# concatenating by multiplcation and adding.
+a=('foo','bar')
+a*5
+#[Out]# ('foo', 'bar', 'foo', 'bar', 'foo', 'bar', 'foo', 'bar', 'foo', 'bar')
+b=a*5
+b
+#[Out]# ('foo', 'bar', 'foo', 'bar', 'foo', 'bar', 'foo', 'bar', 'foo', 'bar')
+length(a)
+len(a)
+#[Out]# 2
+len(b)
+#[Out]# 10
+a+a
+#[Out]# ('foo', 'bar', 'foo', 'bar')
+tup=(4,5,6)
+a,b,c=tup
+a
+#[Out]# 4
+b
+#[Out]# 5
+c
+#[Out]# 6
+x,y=tup
+x,y=tup[0:1]
+tup[1;1]
+tup[0:1]
+#[Out]# (4,)
+tup
+#[Out]# (4, 5, 6)
+x,y=tup[0:2]
+x,y
+#[Out]# (4, 5)
+x
+#[Out]# 4
+y
+#[Out]# 5
+x,y=tup[0:2]
+tup
+#[Out]# (4, 5, 6)
+# but ....
+tup[0:2]
+#[Out]# (4, 5)
+# in python the upper limit of the range is one-less than the 
+# right-end index. so [0:2} really mean index 0 and 1.
+a=1,b=2
+a=1;b=2;
+a
+#[Out]# 1
+b
+#[Out]# 2
+a,b=b,a
+a
+#[Out]# 2
+b
+#[Out]# 1
+# switched the values ...
+# variable unpacking using sequences
+seq = [(1,2,3),(4,5,6),(7,8,9)]
+seq
+#[Out]# [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
+for a,b,c in seq:
+    print("a={0}, b={1}, c={2}".format(a,b,c))
+    
+# assign the first few values and absorb remaining variables
+# in on variable.
+values = 1,2,4,5,6,7,8
+a,b,*rest=values
+a
+#[Out]# 1
+b
+#[Out]# 2
+c
+#[Out]# 9
+rest
+#[Out]# [4, 5, 6, 7, 8]
+# rest absorbed all remaining variables.
+# want to read first fields and throw out the rest, try this.
+values
+#[Out]# (1, 2, 4, 5, 6, 7, 8)
+a,b,*_=values
+a
+#[Out]# 1
+b
+#[Out]# 2
+_
+#[Out]# [4, 5, 6, 7, 8]
+# _ is by convention the names of a dummy variable which is never used.
+_.count()
+_.count(5)
+#[Out]# 1
+_
+#[Out]# [4, 5, 6, 7, 8]
+# lists ...
+a_list = [2,3,7,None]
+tup=('foo','bar','baz')
+b_list=list(tup)
+b_list
+#[Out]# ['foo', 'bar', 'baz']
+b_list[1]='peekaboo'
+b_list
+#[Out]# ['foo', 'peekaboo', 'baz']
+# adding and removing elements from a list
+b_list.append('dwarf')
+b_list
+#[Out]# ['foo', 'peekaboo', 'baz', 'dwarf']
+b_list.insert(1,"red")
+b_list
+#[Out]# ['foo', 'red', 'peekaboo', 'baz', 'dwarf']
+b_list.pop(2)
+#[Out]# 'peekaboo'
+b_list
+#[Out]# ['foo', 'red', 'baz', 'dwarf']
+b_list.append('foo')
+b_list
+#[Out]# ['foo', 'red', 'baz', 'dwarf', 'foo']
+b_list.remove('foo')
+b_list
+#[Out]# ['red', 'baz', 'dwarf', 'foo']
+'dwarf' in b_list
+#[Out]# True
+'dwarf' not in b_list
+#[Out]# False
+# concatenating and combining lists
+[1,2,4] + ['a','b']
+#[Out]# [1, 2, 4, 'a', 'b']
+x=[4,None,'two']
+x.extend([7,8,(2,3)])
+x
+#[Out]# [4, None, 'two', 7, 8, (2, 3)]
+list_of_lists=[[1,2,3],['a','b','c'],[4,5,6],[[1,2,3]]]
+everything=[]
+for chunk in list_of_lists:
+    everything.extend(chunk)
+    
+everything
+#[Out]# [1, 2, 3, 'a', 'b', 'c', 4, 5, 6, [1, 2, 3]]
+# the above way is faster than this ...
+everything
+#[Out]# [1, 2, 3, 'a', 'b', 'c', 4, 5, 6, [1, 2, 3]]
+everything=[]
+for chunk in list_of_lists:
+    everything += chunk
+    
+everything
+#[Out]# [1, 2, 3, 'a', 'b', 'c', 4, 5, 6, [1, 2, 3]]
+everything.sort()
+a=[7,2,5,1,3]
+a.sort()
+a
+#[Out]# [1, 2, 3, 5, 7]
+# can pass in function to sort which determine the sorting order
+b=['saw','small','He','foxes','six']
+b.sort(key=len)
+b
+#[Out]# ['He', 'saw', 'six', 'small', 'foxes']
+# sorted by length of string ... and stable
+# binary search and maintaining a sorted list
+import bisect
+c [ 1,2,2,2,3,4,7]
+c = [ 1,2,2,2,3,4,7]
+bisect.btsect(c,2)
+bisect.bisect(c,2)
+#[Out]# 4
+bisect.bisect(c,5)
+#[Out]# 6
+bisect.insort(c,5)
+c
+#[Out]# [1, 2, 2, 2, 3, 4, 5, 7]
+# bisect.bisect returns where the new element would go in the 
+# sorted list. 'insort' actually places the element into the list.
+# slicing
+seq=[1,2,3,7,5,6,0,1]
+seq[1:5]
+#[Out]# [2, 3, 7, 5]
+seq[3:4]=[6,3]
+seq
+#[Out]# [1, 2, 3, 6, 3, 5, 6, 0, 1]
+# While the element at the start index is included, the stop index is not included, so
+# the number of elements in the result is stop-start.
+seq[;5]
+seq[:5]
+#[Out]# [1, 2, 3, 6, 3]
+seq
+#[Out]# [1, 2, 3, 6, 3, 5, 6, 0, 1]
+seq[0]=7
+seq[:5]
+#[Out]# [7, 2, 3, 6, 3]
+seq[-4:]
+#[Out]# [5, 6, 0, 1]
+seq
+#[Out]# [7, 2, 3, 6, 3, 5, 6, 0, 1]
+seq[-6:-2]
+#[Out]# [6, 3, 5, 6]
+seq
+#[Out]# [7, 2, 3, 6, 3, 5, 6, 0, 1]
+# stride can also be given
+seq[::2]
+#[Out]# [7, 3, 3, 6, 1]
+seq
+#[Out]# [7, 2, 3, 6, 3, 5, 6, 0, 1]
+seq[::-1]
+#[Out]# [1, 0, 6, 5, 3, 6, 3, 2, 7]
+seq
+#[Out]# [7, 2, 3, 6, 3, 5, 6, 0, 1]
+# list in reverse shown abovbe
+# built-in sequence functions
+# enumerate
+"""
+for i,value in enumerate(collection):
+# do something
+"""
+#[Out]# '\nfor i,value in enumerate(collection):\n# do something\n'
+some_list=['foo','bar],'baz']
+some_list=['foo','bar','baz']
+mapping={}
+for i,v in enumerate(some_list):
+    mapping[v]=i
+    
+mapping
+#[Out]# {'foo': 0, 'bar': 1, 'baz': 2}
+mapping={}
+for i,v in enumerate(some_list):
+    mapping[i]=v
+    
+    
+mapping
+#[Out]# {0: 'foo', 1: 'bar', 2: 'baz'}
+# two ways to map - ;-)
+# sorted function returns sorted list from any sequence
+sorted([7,1,2,6,0,3,2])
+#[Out]# [0, 1, 2, 2, 3, 6, 7]
+sorted('horse race')
+#[Out]# [' ', 'a', 'c', 'e', 'e', 'h', 'o', 'r', 'r', 's']
+# zip to combine two lists into one list of pairs, one from each list.
+seq1=['foo','bar','baz']
+seq2=['one','two','three']
+zipped=zip(seq1,seq2)
+zipped
+#[Out]# <zip at 0x7fcb7db3c050>
+list(zipped)
+#[Out]# [('foo', 'one'), ('bar', 'two'), ('baz', 'three')]
+# if more than one list in zip, then shortest list determines the 
+# final length of the combined sequence
+seq3=[False,True]
+list(zip(seq1,seq2,seq2))
+#[Out]# [('foo', 'one', 'one'), ('bar', 'two', 'two'), ('baz', 'three', 'three')]
+list(zip(seq1,seq2,seq3))
+#[Out]# [('foo', 'one', False), ('bar', 'two', True)]
+# only twp elements in seq3
+# one use
+for i,(a,b) in enumerate(zip(seq1,seq2)):
+    print('{0}: {1}, {2}'.format(i,a,b)
+    
+    )
+    
+# use unzip to convert list of rows into list of columns
+pitchers=[('nolan','ryan'),('roger','clemens'),('schilling','curt')]
+pitchers
+#[Out]# [('nolan', 'ryan'), ('roger', 'clemens'), ('schilling', 'curt')]
+zip(pitchers)
+#[Out]# <zip at 0x7fcb7ea87690>
+zip(*pitchers)
+#[Out]# <zip at 0x7fcb7eacfa00>
+first_name,last_name=zip(*pitchers)
+first_name
+#[Out]# ('nolan', 'roger', 'schilling')
+last_name
+#[Out]# ('ryan', 'clemens', 'curt')
+pitchers
+#[Out]# [('nolan', 'ryan'), ('roger', 'clemens'), ('schilling', 'curt')]
+*pitchers
+# revered - iterate over a list in reverse order
+list(reverse(range(10)))
+list(reversed(range(10)))
+#[Out]# [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+list((range(10))[::-1]
+
+)
+#[Out]# [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+list(range(10))
+#[Out]# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+list(range(10))[::-1]
+#[Out]# [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+# no need for reversed if you use stride [::-1]
+list(reversed(range(10)))
+#[Out]# [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+list(range(10))[::-1]
+#[Out]# [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+# dict - dictionary is also a hash-map or associate array.
+empty_dict={}
+empty_dict
+#[Out]# {}
+d1={'a' : 'some value', 'b' : [1,2,3,4] }
+d1
+#[Out]# {'a': 'some value', 'b': [1, 2, 3, 4]}
+d1[7] = 'an integer'
+d1
+#[Out]# {'a': 'some value', 'b': [1, 2, 3, 4], 7: 'an integer'}
+d1['b']
+#[Out]# [1, 2, 3, 4]
+# check if a key exists in the dict
+'b' in d1
+#[Out]# True
+'barf' in d1
+#[Out]# False
+d1
+#[Out]# {'a': 'some value', 'b': [1, 2, 3, 4], 7: 'an integer'}
+d1[5] = 'some value'
+d1
+#[Out]# {'a': 'some value', 'b': [1, 2, 3, 4], 7: 'an integer', 5: 'some value'}
+del d1[5]
+d1
+#[Out]# {'a': 'some value', 'b': [1, 2, 3, 4], 7: 'an integer'}
+d1
+#[Out]# {'a': 'some value', 'b': [1, 2, 3, 4], 7: 'an integer'}
+ret = d1.pop()
+d1['dummy'] = 'donald trump'
+d1
+#[Out]# {'a': 'some value',
+#[Out]#  'b': [1, 2, 3, 4],
+#[Out]#  7: 'an integer',
+#[Out]#  'dummy': 'donald trump'}
+ret = d1.pop('dummy')
+ret
+#[Out]# 'donald trump'
+d1.keys()
+#[Out]# dict_keys(['a', 'b', 7])
+list(d1.keys())
+#[Out]# ['a', 'b', 7]
+tuple(d1.keys())
+#[Out]# ('a', 'b', 7)
+tuple(d1.keys())
+#[Out]# ('a', 'b', 7)
+tuple(d1.values())
+#[Out]# ('some value', [1, 2, 3, 4], 'an integer')
+list(d1.values())
+#[Out]# ['some value', [1, 2, 3, 4], 'an integer']
+# create dicts from sequences
+mapping = {}
+keys = range(10)
+values range(10)^2
+values= range(10)^2
+values= range(10)**2
+values= pow(range(10),2)
+values= range(10)*range(10)
+values= range(11:20)
+values= range(11,20)
+len(values, keys)
+len(values)
+#[Out]# 9
+len(keys)
+#[Out]# 10
+keys = keys[:-1]
+len(keys)
+#[Out]# 9
+# naive way to construct a map/dict
+mapping = {}
+for k,v in zip(keys,values):
+    mapping[k]=v
+    
+mapping
+#[Out]# {0: 11, 1: 12, 2: 13, 3: 14, 4: 15, 5: 16, 6: 17, 7: 18, 8: 19}
+# better way and more concise
+mapping = dict(zip(keys,values))
+mapping
+#[Out]# {0: 11, 1: 12, 2: 13, 3: 14, 4: 15, 5: 16, 6: 17, 7: 18, 8: 19}
+# when reading a dict, if value is not there, then return a default value
+value = mapping.get(20, -1)
+value
+#[Out]# -1
+# classifying by first letter. two ways to do it.
+words = ['apple','bat','bar','atom','book']
+by_letter = {}
+for word in words:
+    letter = word[0]
+    if letter no in by_letter:
+        by_letter[letter] = [word]
+    else:
+        by_letter[letter].append(word)
+
+    
+for word in words:
+    letter = word[0]
+    if letter not in by_letter:
+        by_letter[letter] = [word]
+    else:
+        by_letter[letter].append(word)
+
+    
+by_letter
+#[Out]# {'a': ['apple', 'atom'], 'b': ['bat', 'bar', 'book']}
+# faster way to do it
+by_letter = {}
+for word in words:
+    letter = word[0]
+    by_letter.setdefault(letter, []).append(word)
+    
+by_letter
+#[Out]# {'a': ['apple', 'atom'], 'b': ['bat', 'bar', 'book']}
+# dict key type must be immutable so the hash value does not change.
+ha('string')
+hash('string')
+#[Out]# 6547761133589671659
+hash((1,2,(2,3)))
+#[Out]# 1097636502276347782
+# strings and tuples are immutable. they work. let try this.
+x=((1,2),[4,5])
+x
+#[Out]# ((1, 2), [4, 5])
+hash(x)
+# lists like [4,5] are not hashable.
+# to use a list as a key, convert to a tuple
+x=((1,2),tuple([4,5]))
+has(x)
+hash(x)
+#[Out]# 7089015499268805051
+# sets - unordered collection of unique elements
+# can be used as dicts, but they only contain keys and no values.
+set([2,2,2,1,3,3])
+#[Out]# {1, 2, 3}
+# elements are unique
+a = {1,2,2,3,4,5}
+a
+#[Out]# {1, 2, 3, 4, 5}
+b={3,4,5,6,7,8}
+a.union(b)
+#[Out]# {1, 2, 3, 4, 5, 6, 7, 8}
+a|b
+#[Out]# {1, 2, 3, 4, 5, 6, 7, 8}
+a.intersection(b)
+#[Out]# {3, 4, 5}
+a&b
+#[Out]# {3, 4, 5}
+"""
+python set operations
+Function Alternative
+syntax
+Description
+a.add(x) N/A Add element x to the set a
+a.clear() N/A Reset the set a to an empty state, discarding all of
+its elements
+a.remove(x) N/A Remove element x from the set a
+a.pop() N/A Remove an arbitrary element from the set a, raising
+KeyError if the set is empty
+a.union(b) a | b All of the unique elements in a and b
+a.update(b) a |= b Set the contents of a to be the union of the
+elements in a and b
+a.intersection(b) a & b All of the elements in both a and b
+a.intersection_update(b) a &= b Set the contents of a to be the intersection of the
+elements in a and b
+a.difference(b) a - b The elements in a that are not in b
+a.difference_update(b) a -= b Set a to the elements in a that are not in b
+a.symmetric_difference(b) a ^ b All of the elements in either a or b but not both
+a.symmetric_difference_update(b) a ^= b Set a to contain the elements in either a or b but
+not both
+a.issubset(b) N/A True if the elements of a are all contained in b
+a.issuperset(b) N/A True if the elements of b are all contained in a
+a.isdisjoint(b) N/A True if a and b have no elements in common
+"""
+#[Out]# '\npython set operations\nFunction Alternative\nsyntax\nDescription\na.add(x) N/A Add element x to the set a\na.clear() N/A Reset the set a to an empty state, discarding all of\nits elements\na.remove(x) N/A Remove element x from the set a\na.pop() N/A Remove an arbitrary element from the set a, raising\nKeyError if the set is empty\na.union(b) a | b All of the unique elements in a and b\na.update(b) a |= b Set the contents of a to be the union of the\nelements in a and b\na.intersection(b) a & b All of the elements in both a and b\na.intersection_update(b) a &= b Set the contents of a to be the intersection of the\nelements in a and b\na.difference(b) a - b The elements in a that are not in b\na.difference_update(b) a -= b Set a to the elements in a that are not in b\na.symmetric_difference(b) a ^ b All of the elements in either a or b but not both\na.symmetric_difference_update(b) a ^= b Set a to contain the elements in either a or b but\nnot both\na.issubset(b) N/A True if the elements of a are all contained in b\na.issuperset(b) N/A True if the elements of b are all contained in a\na.isdisjoint(b) N/A True if a and b have no elements in common\n'
+c
+#[Out]# [1, 2, 2, 2, 3, 4, 5, 7]
+a
+#[Out]# {1, 2, 3, 4, 5}
+b
+#[Out]# {3, 4, 5, 6, 7, 8}
+a
+#[Out]# {1, 2, 3, 4, 5}
+c = a.copy()
+c
+#[Out]# {1, 2, 3, 4, 5}
+c |= b
+c
+#[Out]# {1, 2, 3, 4, 5, 6, 7, 8}
+d = d.copy(_)
+d = a.copy(_)
+d = a.copy()
+a
+#[Out]# {1, 2, 3, 4, 5}
+d
+#[Out]# {1, 2, 3, 4, 5}
+d &= b
+d
+#[Out]# {3, 4, 5}
+my_data = [1,2,3,3]
+my_set = {tuple(my_data)}
+my_set
+#[Out]# {(1, 2, 3, 3)}
+len(my_set)
+#[Out]# 1
+a_set ={1,2,3,4,5}
+{1,2,3}.issubset(a_set)
+#[Out]# True
+a_set.issuperset({1,2,3})
+#[Out]# True
+{1,2,3} == {3,2,1}
+#[Out]# True
+# list, set and dict comprehension
+# format
+# [ expr for val in collection if condition ]
+# similar to this loop
+# result = []
+# for val in collection:
+#     if condition:
+#         result.append(expr)
+#
+#
+strings = [ 'a', 'as', 'bat', 'car', 'dove', 'python' ]
+[ x.upper for x in strings if len(x) > 2 ]
+#[Out]# [<function str.upper()>,
+#[Out]#  <function str.upper()>,
+#[Out]#  <function str.upper()>,
+#[Out]#  <function str.upper()>]
+[ x.upper() for x in strings if len(x) > 2 ]
+#[Out]# ['BAT', 'CAR', 'DOVE', 'PYTHON']
+# dict comprehension 
+#
+# dict_comp = { key-expr : value-expr for value in collection if condtion }
+#
+# set comprehension is similar but no value-expr is given
+# set_comp = { expr for value in collection if condtion }
+#
+unique_lengths = { len(x) for x in string }
+unique_lengths = { len(x) for x in strings }
+unique_lengths
+#[Out]# {1, 2, 3, 4, 6}
+# can use map function
+#
+set(map(len,strings))
+#[Out]# {1, 2, 3, 4, 6}
+loc_mapping = { val: index for index, val in enumerated(strings)}
+loc_mapping = { val: index for index, val in enumerate(strings)}
+loc_mapping
+#[Out]# {'a': 0, 'as': 1, 'bat': 2, 'car': 3, 'dove': 4, 'python': 5}
+# 
+# functions
+#
+a=[]
+def func():
+    for i in range(5):
+        a.append(i)
+        
+a
+#[Out]# []
+func()
+a
+#[Out]# [0, 1, 2, 3, 4]
+b=1
+def func2():
+    b=2
+    
+b
+#[Out]# 1
+func2()
+b
+#[Out]# 1
+# did not change global !!!
+def func2():
+    global b
+    b=2
+    
+b=1
+func2()
+b
+#[Out]# 2
+# it changed this time !
+# 
+# fcuntions are objects
+#
+states = ['   Alabama ', 'Georgia!', 'Georgia', 'georgia', 'FlOrida', 'south   carolinie##', 'West virginia?' ]
+# import re
+def clean_string(strings):
+    results = []
+    result=[]
+    for value in strings:
+        value = value.strip()
+        value = re.sub('[!#?]','',value)
+        value = value.title()
+        result.append(value)
+    return result
+    
+clean_strings(states)
+clean_string(states)
+import re
+clean_string(states)
+#[Out]# ['Alabama',
+#[Out]#  'Georgia',
+#[Out]#  'Georgia',
+#[Out]#  'Georgia',
+#[Out]#  'Florida',
+#[Out]#  'South   Carolinie',
+#[Out]#  'West Virginia']
+# make a list of operations to apply
+s='a bc de '
+s.title()
+#[Out]# 'A Bc De '
+# string title function convert to uppercase the first letter of 
+# evrery world ... like a title.
+#
+def remove_punctuation(value):
+    return re.sub('[!#?]','',value)
+    
+clean_ops = [ str.strip, remove_punctuation, str.title ]
+def clean_ops(strings, ops):
+    result = []
+    for value in strings:
+        for op in ops:
+            value = op(value)
+        result.append(value)
+        
+def clean_ops(strings, ops):
+    result = []
+    for value in strings:
+        for op in ops:
+            value = op(value)
+        result.append(value)
+    return result
+    
+clean_string(states, clean_ops)
+clean_ops(states, clean_ops)
+clean_ops = [ str.strip, remove_punctuation, str.title ]
+def apply_ops(strings, ops):
+    result = []
+    for value in strings:
+        for op in ops:
+            value = op(value)
+        result.append(value)
+    return result
+    
+apply_ops(states, clean_ops)
+#[Out]# ['Alabama',
+#[Out]#  'Georgia',
+#[Out]#  'Georgia',
+#[Out]#  'Georgia',
+#[Out]#  'Florida',
+#[Out]#  'South   Carolinie',
+#[Out]#  'West Virginia']
+# function treated as an object and called for each string.
+for x in map(remove_punctuation, states):
+    print(x)
+    
+states
+#[Out]# ['   Alabama ',
+#[Out]#  'Georgia!',
+#[Out]#  'Georgia',
+#[Out]#  'georgia',
+#[Out]#  'FlOrida',
+#[Out]#  'south   carolinie##',
+#[Out]#  'West virginia?']
+get_ipython().run_line_magic('pinfo', 'map')
+# anonymous (lambda) functions
+def short_func(x):
+    return x*2
+   
+equiv_anon = lambda x: x*2
+def apply_to_list(a_list, f):
+    return [ f(x) for x in a_list]
+    
+ints = [ 4,0,1,5,6 ]
+apply_to_lists(ints, lambda x: x*2)
+apply_to_list(ints, lambda x: x*2)
+#[Out]# [8, 0, 2, 10, 12]
+# another lambda example
+strings = [ 'foo', 'card', 'bar', 
+'aaaa', 'abab' ]
+strings.sort(key=lambda x: len(set(list(x))))
+strings
+#[Out]# ['aaaa', 'foo', 'abab', 'bar', 'card']
+list(strings)
+#[Out]# ['aaaa', 'foo', 'abab', 'bar', 'card']
+get_ipython().run_line_magic('pinfo', 's.sort')
+get_ipython().run_line_magic('pinfo', 'strings.sort')
+#
+# generators
+3
+#[Out]# 3
+#
+some_dict = { 'a':1, 'b':2, 'c':3 }
+for key in some_dict:
+    print(key)
+    
+# try this way now
+dict_iter = iter(some_dict)
+dict_iter
+#[Out]# <dict_keyiterator at 0x7fcb7d873770>
+*dict_iter
+list(dict_iter)
+#[Out]# ['a', 'b', 'c']
+# generator is way to construct a new iterable object
+#
+# generators return using the keyword "yield" rather than 'return'
+#
+def squares(n=10):
+    print("Generating squares from 1 to {0}".format(n**2))
+    for i in range(1,n+1):
+        yield i**2
+        
+gen = squares()
+gen
+#[Out]# <generator object squares at 0x7fcb7dbf4cd0>
+for x in gen:
+    print(x, end=' ')
+    
+for x in gen(20):
+    print(x, end=' ')
+    
+gen=squares(20)
+for x in gen:
+    print(x, end=' ')
+    
+# 
+# can also create generators using a generator expression
+#
+gen = ( x**2 for x in range(100))
+gen
+#[Out]# <generator object <genexpr> at 0x7fcb7dbd5dd0>
+# the above is the same as below
+#
+#
+def _make_gen():
+    for x in range(100):
+        yield x**2
+        
+gen = _make_gen()
+gen
+#[Out]# <generator object _make_gen at 0x7fcb7db43050>
+#
+# can use generators instead of list comprehensions as 
+# function arguments. this can be more efficient in space usage.
+#
+sum(x**2 for x in range(100))
+#[Out]# 328350
+# instead of this
+sum([x**2 for x in range(100)])
+#[Out]# 328350
+#
+# can also use in creating dictionaries.
+#
+dict((i,i**2) for i in range(5))
+#[Out]# {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+#
+#
+# you can use the library itertools
+#
+import itertools
+first_letter = lambda x: x[o]
+names = [ 'Alan','Adam','Wes','Will','Albert','Steven' ]
+for letter, names in itertools.groupby(names, first_letter):
+    print(letter, list(names))
+    
+first_letter = lambda x: x[0]
+for letter, names in itertools.groupby(names, first_letter):
+    print(letter, list(names))
+    
+names
+#[Out]# <itertools._grouper at 0x7fcb7dab98d0>
+list(names)
+#[Out]# []
+names = [ 'Alan','Adam','Wes','Will','Albert','Steven' ]
+names
+#[Out]# ['Alan', 'Adam', 'Wes', 'Will', 'Albert', 'Steven']
+for letter, names_iter in itertools.groupby(names, first_letter):
+    print(letter, list(names))
+    
+for letter, names_iter in itertools.groupby(names, first_letter):
+    print(letter, list(names_iter))
+    
+# other useful functions in itertools: combinations, permutations,
+# grouby and product.
+#
+# errors and exception handling
+#
+#
+floar('me')
+float('me')
+def attempt_float(x):
+    try:
+        return float(x)
+    except:
+        return x
+        
+attempt_float('xx
+')
+attempt_float('xxx')
+#[Out]# 'xxx'
+# catch a specific exception and not all as the example shown above
+#
+#
+def attempt_float2(x):
+    try:
+        return float(x)
+    except ValueError:
+        return x
+        
+attempt_float((1,2))
+#[Out]# (1, 2)
+attempt_float2((1,2))
+# can force a block of code to always run or only runs if the 
+# try block succeeds.
+#
+#
+# catch more than one type of exceptions
+#
+def attempt_float3(x):
+    try:
+        return float(x)
+    except (TypeError, ValueError):
+        return x
+        
+attempt_float3('a')
+#[Out]# 'a'
+attempt_float3([])
+#[Out]# []
+#
+# f = open(x)
+# try:
+#     write_to_file(f)
+# finally:
+#     f.close()
+#
+# in the above example the finally-clause works like 
+# a destructor.
+#
+# the whole kit-and-kaboodle
+#
+# f = open(path, 'w')
+#
+# try:
+#     write_to_file(f)
+# except:
+#     print('failed')
+# else:
+#     print('succeeded')
+# finally:
+#     f.close()
+#
+# files and the OS
+#
+# read in a file and strip newline characters
+#
+#
+path="test1.txt"
+f=open(path)
+for line in f:
+    pass
+    
+for line in f:
+    pass
+    
+    
+for line in f:
+    print(line)
+    
+    
+    
+f.rewind()
+f.seek(0)
+#[Out]# 0
+for line in f:
+    print(line)
+    
+    
+    
+f.seek(0)
+#[Out]# 0
+lines = [ x.rstrip() for x in f]
+lines
+#[Out]# ['#',
+#[Out]#  '# you can use the library itertools',
+#[Out]#  '#',
+#[Out]#  'import itertools',
+#[Out]#  'first_letter = lambda x: x[o]',
+#[Out]#  "names = [ 'Alan','Adam','Wes','Will','Albert','Steven' ]",
+#[Out]#  'for letter, names in itertools.groupby(names, first_letter):',
+#[Out]#  '    print(letter, list(names))',
+#[Out]#  '',
+#[Out]#  'first_letter = lambda x: x[0]',
+#[Out]#  'for letter, names in itertools.groupby(names, first_letter):',
+#[Out]#  '    print(letter, list(names))',
+#[Out]#  '',
+#[Out]#  'names',
+#[Out]#  '#[Out]# <itertools._grouper at 0x7fcb7dab98d0>',
+#[Out]#  'list(names)',
+#[Out]#  '#[Out]# []',
+#[Out]#  "names = [ 'Alan','Adam','Wes','Will','Albert','Steven' ]",
+#[Out]#  'names',
+#[Out]#  "#[Out]# ['Alan', 'Adam', 'Wes', 'Will', 'Albert', 'Steven']",
+#[Out]#  'for letter, names_iter in itertools.groupby(names, first_letter):',
+#[Out]#  '    print(letter, list(names))',
+#[Out]#  '',
+#[Out]#  'for letter, names_iter in itertools.groupby(names, first_letter):',
+#[Out]#  '    print(letter, list(names_iter))',
+#[Out]#  '',
+#[Out]#  '# other useful functions in itertools: combinations, permutations,',
+#[Out]#  '# grouby and product.',
+#[Out]#  '#',
+#[Out]#  '# errors and exception handling',
+#[Out]#  '#',
+#[Out]#  '#',
+#[Out]#  "floar('me')",
+#[Out]#  "float('me')",
+#[Out]#  'def attempt_float(x):',
+#[Out]#  '    try:',
+#[Out]#  '        return float(x)',
+#[Out]#  '    except:',
+#[Out]#  '        return x',
+#[Out]#  '',
+#[Out]#  "attempt_float('xx",
+#[Out]#  "')",
+#[Out]#  "attempt_float('xxx')",
+#[Out]#  "#[Out]# 'xxx'",
+#[Out]#  '# catch a specific exception and not all as the example shown above',
+#[Out]#  '#',
+#[Out]#  '#',
+#[Out]#  'def attempt_float2(x):',
+#[Out]#  '    try:',
+#[Out]#  '        return float(x)',
+#[Out]#  '    except ValueError:',
+#[Out]#  '        return x',
+#[Out]#  '',
+#[Out]#  'attempt_float((1,2))',
+#[Out]#  '#[Out]# (1, 2)',
+#[Out]#  'attempt_float2((1,2))',
+#[Out]#  '# can force a block of code to always run or only runs if the',
+#[Out]#  '# try block succeeds.',
+#[Out]#  '#',
+#[Out]#  '#',
+#[Out]#  '# catch more than one type of exceptions',
+#[Out]#  '#',
+#[Out]#  'def attempt_float3(x):',
+#[Out]#  '    try:',
+#[Out]#  '        return float(x)',
+#[Out]#  '    except (TypeError, ValueError):',
+#[Out]#  '        return x',
+#[Out]#  '',
+#[Out]#  "attempt_float3('a')",
+#[Out]#  "#[Out]# 'a'",
+#[Out]#  'attempt_float3([])',
+#[Out]#  '#[Out]# []',
+#[Out]#  '#',
+#[Out]#  '# f = open(x)',
+#[Out]#  '# try:',
+#[Out]#  '#     write_to_file(f)',
+#[Out]#  '# finally:',
+#[Out]#  '#     f.close()',
+#[Out]#  '#',
+#[Out]#  '# in the above example the finally-clause works like',
+#[Out]#  '# a destructor.',
+#[Out]#  '#',
+#[Out]#  '# the whole kit-and-kaboodle',
+#[Out]#  '#',
+#[Out]#  "# f = open(path, 'w')",
+#[Out]#  '#',
+#[Out]#  '# try:',
+#[Out]#  '#     write_to_file(f)',
+#[Out]#  '# except:',
+#[Out]#  "#     print('failed')",
+#[Out]#  '# else:',
+#[Out]#  "#     print('succeeded')",
+#[Out]#  '# finally:',
+#[Out]#  '#     f.close()',
+#[Out]#  '#',
+#[Out]#  '# files and the OS',
+#[Out]#  '#',
+#[Out]#  '# read in a file and strip newline characters',
+#[Out]#  '#',
+#[Out]#  '#']
+# no newlines in the data now.
+f.close()
+#
+# want to open and close when done ... automatically.
+#
+with open(path) as f:
+    lines = [x.rstrip() for x in f]
+    
+lines
+#[Out]# ['#',
+#[Out]#  '# you can use the library itertools',
+#[Out]#  '#',
+#[Out]#  'import itertools',
+#[Out]#  'first_letter = lambda x: x[o]',
+#[Out]#  "names = [ 'Alan','Adam','Wes','Will','Albert','Steven' ]",
+#[Out]#  'for letter, names in itertools.groupby(names, first_letter):',
+#[Out]#  '    print(letter, list(names))',
+#[Out]#  '',
+#[Out]#  'first_letter = lambda x: x[0]',
+#[Out]#  'for letter, names in itertools.groupby(names, first_letter):',
+#[Out]#  '    print(letter, list(names))',
+#[Out]#  '',
+#[Out]#  'names',
+#[Out]#  '#[Out]# <itertools._grouper at 0x7fcb7dab98d0>',
+#[Out]#  'list(names)',
+#[Out]#  '#[Out]# []',
+#[Out]#  "names = [ 'Alan','Adam','Wes','Will','Albert','Steven' ]",
+#[Out]#  'names',
+#[Out]#  "#[Out]# ['Alan', 'Adam', 'Wes', 'Will', 'Albert', 'Steven']",
+#[Out]#  'for letter, names_iter in itertools.groupby(names, first_letter):',
+#[Out]#  '    print(letter, list(names))',
+#[Out]#  '',
+#[Out]#  'for letter, names_iter in itertools.groupby(names, first_letter):',
+#[Out]#  '    print(letter, list(names_iter))',
+#[Out]#  '',
+#[Out]#  '# other useful functions in itertools: combinations, permutations,',
+#[Out]#  '# grouby and product.',
+#[Out]#  '#',
+#[Out]#  '# errors and exception handling',
+#[Out]#  '#',
+#[Out]#  '#',
+#[Out]#  "floar('me')",
+#[Out]#  "float('me')",
+#[Out]#  'def attempt_float(x):',
+#[Out]#  '    try:',
+#[Out]#  '        return float(x)',
+#[Out]#  '    except:',
+#[Out]#  '        return x',
+#[Out]#  '',
+#[Out]#  "attempt_float('xx",
+#[Out]#  "')",
+#[Out]#  "attempt_float('xxx')",
+#[Out]#  "#[Out]# 'xxx'",
+#[Out]#  '# catch a specific exception and not all as the example shown above',
+#[Out]#  '#',
+#[Out]#  '#',
+#[Out]#  'def attempt_float2(x):',
+#[Out]#  '    try:',
+#[Out]#  '        return float(x)',
+#[Out]#  '    except ValueError:',
+#[Out]#  '        return x',
+#[Out]#  '',
+#[Out]#  'attempt_float((1,2))',
+#[Out]#  '#[Out]# (1, 2)',
+#[Out]#  'attempt_float2((1,2))',
+#[Out]#  '# can force a block of code to always run or only runs if the',
+#[Out]#  '# try block succeeds.',
+#[Out]#  '#',
+#[Out]#  '#',
+#[Out]#  '# catch more than one type of exceptions',
+#[Out]#  '#',
+#[Out]#  'def attempt_float3(x):',
+#[Out]#  '    try:',
+#[Out]#  '        return float(x)',
+#[Out]#  '    except (TypeError, ValueError):',
+#[Out]#  '        return x',
+#[Out]#  '',
+#[Out]#  "attempt_float3('a')",
+#[Out]#  "#[Out]# 'a'",
+#[Out]#  'attempt_float3([])',
+#[Out]#  '#[Out]# []',
+#[Out]#  '#',
+#[Out]#  '# f = open(x)',
+#[Out]#  '# try:',
+#[Out]#  '#     write_to_file(f)',
+#[Out]#  '# finally:',
+#[Out]#  '#     f.close()',
+#[Out]#  '#',
+#[Out]#  '# in the above example the finally-clause works like',
+#[Out]#  '# a destructor.',
+#[Out]#  '#',
+#[Out]#  '# the whole kit-and-kaboodle',
+#[Out]#  '#',
+#[Out]#  "# f = open(path, 'w')",
+#[Out]#  '#',
+#[Out]#  '# try:',
+#[Out]#  '#     write_to_file(f)',
+#[Out]#  '# except:',
+#[Out]#  "#     print('failed')",
+#[Out]#  '# else:',
+#[Out]#  "#     print('succeeded')",
+#[Out]#  '# finally:',
+#[Out]#  '#     f.close()',
+#[Out]#  '#',
+#[Out]#  '# files and the OS',
+#[Out]#  '#',
+#[Out]#  '# read in a file and strip newline characters',
+#[Out]#  '#',
+#[Out]#  '#']
+#
+# get default encodong
+#
+import sys
+sys.getdefaultencoding()
+#[Out]# 'utf-8'
+#
+# python file modes: r, w, x, a, r+, b, t
+#
+# common functions for a file pointer: read, readlines, write
+#
+#
+# and flush, close, writelines, seek, tell, closed
+#
+f.closed()
+f.closed
+#[Out]# True
+#
+# opening a file with different encdoding
+#
+# with open(path, encoding=
+# 'iso-8859-1') as f:
+#     print(f.read(10))
+#
+exit(0
+)
+exit()

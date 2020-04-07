@@ -1,0 +1,451 @@
+exit()%pwd#[Out]# '/mnt/d/sandbox/ml/oreilly-python-for-data-analysis-2018/my-src/ch1'
+exit()exit()ls();s lsexit()%pwd#[Out]# '/mnt/d/sandbox/ml/oreilly-python-for-data-analysis-2018/my-src/ch1'
+d=5d#[Out]# 5
+print(d)exit()get_ipython().run_line_magic('ls', '')
+a=4
+exit()
+ttt=4
+ttt
+#[Out]# 4
+print(ttt)
+exit()
+from numpy.random import randn
+data = { 1 : randn() for i in range(9) }
+daa
+data
+#[Out]# {1: 1.1839284187356518}
+data = { i : randn() for i in range(9) }
+data
+#[Out]# {0: -0.6278239950756087,
+#[Out]#  1: 3.0075466809886704,
+#[Out]#  2: 1.5368811816013543,
+#[Out]#  3: 0.8488410351609283,
+#[Out]#  4: 1.158949174182766,
+#[Out]#  5: -1.8552910496801334,
+#[Out]#  6: 1.2436947488791346,
+#[Out]#  7: -0.3090914162641132,
+#[Out]#  8: -0.6563606694898029}
+data = { i : randn() for i in range(1:9) }
+data = { i : randn() for i in 4:11 }
+data = { i : randn() for i in ( 4:11 ) }
+data = { i : randn() for i in range(9) }
+data
+#[Out]# {0: -1.0223726579653756,
+#[Out]#  1: 0.9304008151447346,
+#[Out]#  2: -0.3607386880835003,
+#[Out]#  3: 0.3916764690706863,
+#[Out]#  4: 0.4396917177815489,
+#[Out]#  5: -0.044153382454052814,
+#[Out]#  6: 0.04995108608765403,
+#[Out]#  7: 0.016640400704886878,
+#[Out]#  8: -0.6546315355380493}
+:?
+get_ipython().run_line_magic('pinfo', ':')
+an_apple=5
+an_example=45
+an_example
+#[Out]# 45
+b=[1,2,3]
+b.count
+#[Out]# <function list.count(value, /)>
+b.count()
+b.count
+#[Out]# <function list.count(value, /)>
+b.count()
+b.count(2)
+#[Out]# 1
+get_ipython().run_line_magic('ls', '')
+b = [1,2,3]
+get_ipython().run_line_magic('pinfo', 'b')
+get_ipython().run_line_magic('psearch', '*')
+get_ipython().run_line_magic('run', 'test1.py')
+result
+#[Out]# 1.4666666666666666
+a
+#[Out]# 5
+b
+#[Out]# 6
+c
+#[Out]# 7.5
+result=10
+get_ipython().run_line_magic('run', 'test1.py')
+result
+#[Out]# 1.4666666666666666
+a = np.random.randn(100,100)
+import numpy as np
+a = np.random.randn(100,100)
+get_ipython().run_line_magic('timeit', 'np.dot(a,a)')
+get_ipython().run_line_magic('pwd', '')
+#[Out]# '/mnt/d/sandbox/ml/oreilly-python-for-data-analysis-2018/my-src/ch1'
+foo=get_ipython().run_line_magic('pwd', '')
+foo
+#[Out]# '/mnt/d/sandbox/ml/oreilly-python-for-data-analysis-2018/my-src/ch1'
+get_ipython().run_line_magic('matplotlib', '')
+get_ipython().run_line_magic('matplotlib', 'inline')
+import matplotlib.pyplot as plt
+plt.plot(np.random.randn(50).cumsum())
+#[Out]# [<matplotlib.lines.Line2D at 0x7f9326220790>]
+plt.show()
+exit()
+import numpy as np
+import matplotlib.pyplot as plt
+exit()
+import matplotlib.pyplot as plt
+get_ipython().run_line_magic('matplotlib', 'inline')
+import matplotlib.pyplot as plt
+import numpy as np
+plt.plot(np.random.randn(50).cumsum())
+#[Out]# [<matplotlib.lines.Line2D at 0x7f7c5be30cd0>]
+plt.show()
+os.environ
+import os
+os.environ
+#[Out]# environ{'CONDA_SHLVL': '1',
+#[Out]#         'LIBVA_DRIVER_NAME': 'iHD',
+#[Out]#         'CONDA_EXE': '/mnt/d/anaconda3/bin/conda',
+#[Out]#         'HOSTTYPE': 'x86_64',
+#[Out]#         'LIBVA_DRIVERS_PATH': '/opt/intel/mediasdk/lib64',
+#[Out]#         'LANG': 'C.UTF-8',
+#[Out]#         'DISPLAY': 'localhost:0.0',
+#[Out]#         'OLDPWD': '/mnt/d/sandbox/ml/oreilly-python-for-data-analysis-2018/my-src',
+#[Out]#         'WSL_DISTRO_NAME': 'Ubuntu-18.04',
+#[Out]#         'CONDA_PREFIX': '/mnt/d/anaconda3',
+#[Out]#         'S_COLORS': 'auto',
+#[Out]#         '_CE_M': '',
+#[Out]#         'USER': 'rumore',
+#[Out]#         'PWD': '/mnt/d/sandbox/ml/oreilly-python-for-data-analysis-2018/my-src/ch1',
+#[Out]#         'HOME': '/home/rumore',
+#[Out]#         'CONDA_PYTHON_EXE': '/mnt/d/anaconda3/bin/python',
+#[Out]#         'NAME': 'BIG-DUCK-ML-MACH',
+#[Out]#         'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop',
+#[Out]#         '_CE_CONDA': '',
+#[Out]#         'CONDA_PROMPT_MODIFIER': '(base) ',
+#[Out]#         'MFX_HOME': '/opt/intel/mediasdk',
+#[Out]#         'SHELL': '/bin/bash',
+#[Out]#         'TERM': 'xterm-256color',
+#[Out]#         'SHLVL': '1',
+#[Out]#         'LOGNAME': 'rumore',
+#[Out]#         'PATH': '/home/rumore/.local/bin:/mnt/d/anaconda3/bin:/mnt/d/anaconda3/condabin:/usr/lib/postgresql/10/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu18.04onWindows_2020.1804.7.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/bin:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/libnvvp:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Python36/Scripts:/mnt/c/Program Files/Python36:/mnt/c/Program Files/Python38/Scripts:/mnt/c/Program Files/Python38:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/mnt/c/Program Files/Microsoft VS Code/bin:/mnt/c/Anaconda3:/mnt/c/Anaconda3/Scripts:/mnt/c/Anaconda3/Library/bin:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Users/mikea/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/mikea/AppData/Local/GitHubDesktop/bin:/snap/bin',
+#[Out]#         'PS1': '(base) ${PWD##*/}> ',
+#[Out]#         'CONDA_DEFAULT_ENV': 'base',
+#[Out]#         'WSLENV': '',
+#[Out]#         '_': '/mnt/d/anaconda3/bin/ipython3',
+#[Out]#         'MPLCONFIGDIR': '/tmp/matplotlib-h5oi28cw'}
+os.environ['DISPLAY']
+#[Out]# 'localhost:0.0'
+exit()
+def append_elem(a_list, new_elem):
+    a_list.append(new_elem)
+    
+data = [1,2,3]
+data
+#[Out]# [1, 2, 3]
+append_elem(data, 4)
+data
+#[Out]# [1, 2, 3, 4]
+a=5
+type(a)
+#[Out]# int
+a='ddd'
+type(a)
+#[Out]# str
+'5'+5
+a=4.5
+b=4
+print("a is {0}, b is {1}".format(type(a), type(b))
+)
+x=print("a is {0}, b is {1}".format(type(a), type(b))
+)
+x
+a=5
+a
+#[Out]# 5
+isinstance(a,int)
+#[Out]# True
+b=[1,2,3]
+isinstance(b,list)
+#[Out]# True
+isinstance(b,int)
+#[Out]# False
+isinstance(b,record)
+a='foo'
+# to list attributes
+a.
+getattr(a,'split')
+#[Out]# <function str.split(sep=None, maxsplit=-1)>
+# check if an object is an iterable
+#
+def is_iterable(obj):
+    try:
+        iter(obj)
+        return True
+        
+        
+    except TypeError:
+        return False
+        
+is_iterable([1,2,3])
+#[Out]# True
+is_iterable('dddd')
+#[Out]# True
+is_iterable(range(3))
+#[Out]# True
+is_iterable(1:4)
+map = { 1:'fff', 2:'ggg', 3:'hhh' }
+map
+#[Out]# {1: 'fff', 2: 'ggg', 3: 'hhh'}
+is_iterable(map)
+#[Out]# True
+is_iterable(enumerate(map))
+#[Out]# True
+a = [1,2,3]
+b=a
+c=list(a)
+a is b
+#[Out]# True
+a is c
+#[Out]# False
+c
+#[Out]# [1, 2, 3]
+a
+#[Out]# [1, 2, 3]
+a == b
+#[Out]# True
+a == c
+#[Out]# True
+# using is and == are different. 'is' checks if it is the same
+# variable, but with an alias. '==' check if the elements in the 
+# list are the same.
+# lists are mutable, but tuples and strings are not mutable.
+a_list = [ 'foo', 2, [4,5]]
+a_list
+#[Out]# ['foo', 2, [4, 5]]
+a_list[2] = (3,4)
+a_list
+#[Out]# ['foo', 2, (3, 4)]
+a_tuple = (3,5,(4,5))
+a_tuple
+#[Out]# (3, 5, (4, 5))
+a_tuple[3] = 4
+exit()
+# standard python scalar types (primitives)
+# None = python 'null'
+# str = string type (unicode utf-8 encoding)
+# bytes - ascii bytes
+# float = double-precision (64-bits) floating-point number
+# bool = True or False
+# int - arbitrary-precision signed integer
+3/4
+#[Out]# 0.75
+int(2)/4
+#[Out]# 0.5
+int(2/4)
+#[Out]# 0
+5/2
+#[Out]# 2.5
+# but if we use // instead of /, then we get ...
+5//2
+#[Out]# 2
+5%2
+#[Out]# 1
+# modulo is %, // for integer division.
+-5//2
+#[Out]# -3
+5//2
+#[Out]# 2
+-5/2
+#[Out]# -2.5
+5/2
+#[Out]# 2.5
+# // rounds down ...
+c="""donald trump blows
+horse pork."""
+c.count('\n')
+#[Out]# 1
+c="""
+donald trump blows
+horse pork.
+
+"""
+c.count('\n')
+#[Out]# 4
+# return in the string """ ... """ is included as a new-line char.
+# strings are lists of characters
+s='python'
+list(s)
+#[Out]# ['p', 'y', 't', 'h', 'o', 'n']
+s[:3]
+#[Out]# 'pyt'
+# for no interperation of \ char, use r' format
+s = r'\this\has\no\special\characters'
+s
+#[Out]# '\\this\\has\\no\\special\\characters'
+a = "pre"
+b = "fix"
+a+b
+#[Out]# 'prefix'
+# format strings to build strings
+template = '{0:.2f} {1;s} are worth US${2:d}'
+template
+#[Out]# '{0:.2f} {1;s} are worth US${2:d}'
+template.format(4.5560, "Argentine Pesos", 1)
+template = '{0:.2f} {1:s} are worth US${2:d}'
+template.format(4.5560, "Argentine Pesos", 1)
+#[Out]# '4.56 Argentine Pesos are worth US$1'
+# type casting
+s='3.141592657'
+fval=float(s)
+fval
+#[Out]# 3.141592657
+type(fval)
+#[Out]# float
+int(fval)
+#[Out]# 3
+bool(fval)
+#[Out]# True
+bool(0)
+#[Out]# False
+# None is the Python null value type.
+a = None
+a
+a is None
+#[Out]# True
+b=5
+b is not none
+b is not None
+#[Out]# True
+b is None
+#[Out]# False
+# None is a reserved type and unique instance of type NoneType
+type(None)
+#[Out]# NoneType
+# dates and times
+exit()
+# date-time mechanics
+from datetime import datetime, date, time
+dt = datetime(2011,10,29,20,30,21)
+dt.day
+#[Out]# 29
+dt.minute
+#[Out]# 30
+dt.time()
+#[Out]# datetime.time(20, 30, 21)
+dt.strftime('%m/%d/%Y %H:%M')
+#[Out]# '10/29/2011 20:30'
+datetime.strptime('20091031', "%Y%m%d")
+#[Out]# datetime.datetime(2009, 10, 31, 0, 0)
+dt.replace(minute=0,second=0)
+#[Out]# datetime.datetime(2011, 10, 29, 20, 0)
+dt2 = datetime(2011,11,15,22,30)
+dt2
+#[Out]# datetime.datetime(2011, 11, 15, 22, 30)
+delta = dt2-dt
+delta
+#[Out]# datetime.timedelta(days=17, seconds=7179)
+type(delta)
+#[Out]# datetime.timedelta
+dt
+#[Out]# datetime.datetime(2011, 10, 29, 20, 30, 21)
+dt+delta
+#[Out]# datetime.datetime(2011, 11, 15, 22, 30)
+dt=dt+delta
+dt == dt2
+#[Out]# True
+# flow control: if, elif, else
+# for loops
+sequence = [1,2,None,4,None,5]
+total=0
+for value in sequence:
+    if (value is None):
+        continue
+        
+for value in sequence:
+    if (value is None):
+        continue
+    total =+ value
+    
+total
+#[Out]# 5
+total=0
+sequence
+#[Out]# [1, 2, None, 4, None, 5]
+for value in sequence:
+    if (value is None):
+        continue
+    total =+ value
+    
+value
+#[Out]# 5
+for value in sequence:
+    if (value is None):
+        continue
+    total += value
+    
+value
+#[Out]# 5
+total
+#[Out]# 17
+total=0
+for value in sequence:
+    if (value is None):
+        continue
+    total += value
+    
+total
+#[Out]# 12
+# break to exit a loop (only inner-most loop is exited)
+for i in range(4):
+    for j in range(5):
+        if (j>i):
+            break
+        print((i,j))
+        (i,j)
+        
+for i in range(4):
+    for j in range(5):
+        if (j>i):
+            break
+        print((i,j))
+        x=(i,j)
+        x
+        
+        
+x
+#[Out]# (3, 3)
+s='abcd'
+ss='abce'
+for s in ss:
+    s
+    
+for s in ss:
+    print(s)
+    
+    
+# ss is an iterable
+# range returns an iterable
+range(4,10)
+#[Out]# range(4, 10)
+range(10)
+#[Out]# range(0, 10)
+list(range(10))
+#[Out]# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+tuple()
+#[Out]# ()
+tuple(range(10))
+#[Out]# (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+sum=0
+for i in range(100000):
+    # % is modulo function
+    if (i%3==0) or (i%5==0):
+        sum+=i
+        
+i
+#[Out]# 99999
+sum
+#[Out]# 2333316668
+# python version for ?: operator
+x=5
+'non-negative' if x>= 0 else 'negatove
+'non-negative' if x>= 0 else 'negative'
+#[Out]# 'non-negative'
+exit()

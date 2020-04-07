@@ -1,0 +1,257 @@
+# chapter 5 - getting started with pandas.
+#
+import pandas as pd
+from pandas import Series, DataFrame
+#
+# series is an array-like object containing a sequence of values
+# and an associated arrays of data labels, called its index.
+#
+obj = pd.Series([3,7,-1,3])
+obj
+#[Out]# 0    3
+#[Out]# 1    7
+#[Out]# 2   -1
+#[Out]# 3    3
+#[Out]# dtype: int64
+obj.values
+#[Out]# array([ 3,  7, -1,  3])
+obj.index
+#[Out]# RangeIndex(start=0, stop=4, step=1)
+#
+# can assign our labels instead of the default ones.
+#
+obj2 = pd.Series([4,7,-5,2], index=['d','b','a','c'])
+obj2
+#[Out]# d    4
+#[Out]# b    7
+#[Out]# a   -5
+#[Out]# c    2
+#[Out]# dtype: int64
+obj.values
+#[Out]# array([ 3,  7, -1,  3])
+obj2.values
+#[Out]# array([ 4,  7, -5,  2])
+obj2.index
+#[Out]# Index(['d', 'b', 'a', 'c'], dtype='object')
+obj2['a']
+#[Out]# -5
+obj2[['a','d']]
+#[Out]# a   -5
+#[Out]# d    4
+#[Out]# dtype: int64
+obj2[obj2>0]
+#[Out]# d    4
+#[Out]# b    7
+#[Out]# c    2
+#[Out]# dtype: int64
+obj2*2
+#[Out]# d     8
+#[Out]# b    14
+#[Out]# a   -10
+#[Out]# c     4
+#[Out]# dtype: int64
+np.exp(obj2)
+import numpy as np
+np.exp(obj2)
+#[Out]# d      54.598150
+#[Out]# b    1096.633158
+#[Out]# a       0.006738
+#[Out]# c       7.389056
+#[Out]# dtype: float64
+'b' in obj2
+#[Out]# True
+obj2
+#[Out]# d    4
+#[Out]# b    7
+#[Out]# a   -5
+#[Out]# c    2
+#[Out]# dtype: int64
+'e' in obj2
+#[Out]# False
+1 in obj2
+#[Out]# False
+#
+# create a Series from the pythomn dict
+#
+sdata = { 'Ohio':35000,'Texas':71000,'Oregon':16000,'Utah':5000}
+obj3 = pd.Series(sdata)
+obj3
+#[Out]# Ohio      35000
+#[Out]# Texas     71000
+#[Out]# Oregon    16000
+#[Out]# Utah       5000
+#[Out]# dtype: int64
+states = ['California','Ohio','Oregon','Texas']
+obj4 = ps.Series(sdata, index=states)
+obj4 = pd.Series(sdata, index=states)
+obj4
+#[Out]# California        NaN
+#[Out]# Ohio          35000.0
+#[Out]# Oregon        16000.0
+#[Out]# Texas         71000.0
+#[Out]# dtype: float64
+pd.isnull(obj4)
+#[Out]# California     True
+#[Out]# Ohio          False
+#[Out]# Oregon        False
+#[Out]# Texas         False
+#[Out]# dtype: bool
+pd.notnull(obj4)
+#[Out]# California    False
+#[Out]# Ohio           True
+#[Out]# Oregon         True
+#[Out]# Texas          True
+#[Out]# dtype: bool
+#
+# when using two series, the values are aligned by index value.
+# nice.
+#
+obj3
+#[Out]# Ohio      35000
+#[Out]# Texas     71000
+#[Out]# Oregon    16000
+#[Out]# Utah       5000
+#[Out]# dtype: int64
+obj4
+#[Out]# California        NaN
+#[Out]# Ohio          35000.0
+#[Out]# Oregon        16000.0
+#[Out]# Texas         71000.0
+#[Out]# dtype: float64
+obj3*obj4
+#[Out]# California             NaN
+#[Out]# Ohio          1.225000e+09
+#[Out]# Oregon        2.560000e+08
+#[Out]# Texas         5.041000e+09
+#[Out]# Utah                   NaN
+#[Out]# dtype: float64
+obj4.names = 'population'
+obj4.name = 'population'
+obj4.names
+#[Out]# 'population'
+obj4.index.name = 'state'
+obj4
+#[Out]# state
+#[Out]# California        NaN
+#[Out]# Ohio          35000.0
+#[Out]# Oregon        16000.0
+#[Out]# Texas         71000.0
+#[Out]# Name: population, dtype: float64
+obj
+#[Out]# 0    3
+#[Out]# 1    7
+#[Out]# 2   -1
+#[Out]# 3    3
+#[Out]# dtype: int64
+obj.index = ['Bob','Steve','jeff','Ryan']
+obj
+#[Out]# Bob      3
+#[Out]# Steve    7
+#[Out]# jeff    -1
+#[Out]# Ryan     3
+#[Out]# dtype: int64
+#
+# dataframe
+#
+# A DataFrame represents a rectangular table of data and contains an ordered collection
+of columns, each of which can be a different value type (numeric, string,
+boolean, etc.). The DataFrame has both a row and column index; it can be thought of
+as a dict of Series all sharing the same index
+"""
+A DataFrame represents a rectangular table of data and contains an ordered collection
+of columns, each of which can be a different value type (numeric, string,
+boolean, etc.). The DataFrame has both a row and column index; it can be thought of
+as a dict of Series all sharing the same index
+"""
+#[Out]# '\nA DataFrame represents a rectangular table of data and contains an ordered collection\nof columns, each of which can be a different value type (numeric, string,\nboolean, etc.). The DataFrame has both a row and column index; it can be thought of\nas a dict of Series all sharing the same index\n'
+#
+# common way to contruct a DataFrame
+#
+data = { 'state':[ 'Ohio','Ohio','Ohio','Nevada','Nevada','Nevada'],
+         'year':[2000,2001,2002,2001,2002,2003],
+         'pop':[1.5,1.7.3.6,2.4,2.9,3.2])
+data = { 'state':[ 'Ohio','Ohio','Ohio','Nevada','Nevada','Nevada'],
+         'year':[2000,2001,2002,2001,2002,2003],
+         'pop':[1.5,1.7,3.6,2.4,2.9,3.2])
+data = { 'state':[ 'Ohio','Ohio','Ohio','Nevada','Nevada','Nevada'],
+         'year':[2000,2001,2002,2001,2002,2003],
+         'pop':[1.5,1.7,3.6,2.4,2.9,3.2]}
+data
+#[Out]# {'state': ['Ohio', 'Ohio', 'Ohio', 'Nevada', 'Nevada', 'Nevada'],
+#[Out]#  'year': [2000, 2001, 2002, 2001, 2002, 2003],
+#[Out]#  'pop': [1.5, 1.7, 3.6, 2.4, 2.9, 3.2]}
+frame = pd.DataFrame(data)
+frame
+#[Out]#     state  year  pop
+#[Out]# 0    Ohio  2000  1.5
+#[Out]# 1    Ohio  2001  1.7
+#[Out]# 2    Ohio  2002  3.6
+#[Out]# 3  Nevada  2001  2.4
+#[Out]# 4  Nevada  2002  2.9
+#[Out]# 5  Nevada  2003  3.2
+frame.head
+#[Out]# <bound method NDFrame.head of     state  year  pop
+#[Out]# 0    Ohio  2000  1.5
+#[Out]# 1    Ohio  2001  1.7
+#[Out]# 2    Ohio  2002  3.6
+#[Out]# 3  Nevada  2001  2.4
+#[Out]# 4  Nevada  2002  2.9
+#[Out]# 5  Nevada  2003  3.2>
+pd.DataFrame(data,columns=['year','state','pop'])
+#[Out]#    year   state  pop
+#[Out]# 0  2000    Ohio  1.5
+#[Out]# 1  2001    Ohio  1.7
+#[Out]# 2  2002    Ohio  3.6
+#[Out]# 3  2001  Nevada  2.4
+#[Out]# 4  2002  Nevada  2.9
+#[Out]# 5  2003  Nevada  3.2
+# above controlled the order the columns were listed.
+#
+# pass a column with no data and it appears with NaN.
+#
+frame2=pd.DataFrame(data,columns=['year','state','pop','debt'],
+index=['one','two','three','four','five','six'])
+frame2
+#[Out]#        year   state  pop debt
+#[Out]# one    2000    Ohio  1.5  NaN
+#[Out]# two    2001    Ohio  1.7  NaN
+#[Out]# three  2002    Ohio  3.6  NaN
+#[Out]# four   2001  Nevada  2.4  NaN
+#[Out]# five   2002  Nevada  2.9  NaN
+#[Out]# six    2003  Nevada  3.2  NaN
+frame2.columns
+#[Out]# Index(['year', 'state', 'pop', 'debt'], dtype='object')
+frame2.year
+#[Out]# one      2000
+#[Out]# two      2001
+#[Out]# three    2002
+#[Out]# four     2001
+#[Out]# five     2002
+#[Out]# six      2003
+#[Out]# Name: year, dtype: int64
+frame2.loc['three']
+#[Out]# year     2002
+#[Out]# state    Ohio
+#[Out]# pop       3.6
+#[Out]# debt      NaN
+#[Out]# Name: three, dtype: object
+frame2['debt'] = 16.5
+frame2
+#[Out]#        year   state  pop  debt
+#[Out]# one    2000    Ohio  1.5  16.5
+#[Out]# two    2001    Ohio  1.7  16.5
+#[Out]# three  2002    Ohio  3.6  16.5
+#[Out]# four   2001  Nevada  2.4  16.5
+#[Out]# five   2002  Nevada  2.9  16.5
+#[Out]# six    2003  Nevada  3.2  16.5
+frame2['debt'] = np.arange(6.)
+frame2['debt']
+#[Out]# one      0.0
+#[Out]# two      1.0
+#[Out]# three    2.0
+#[Out]# four     3.0
+#[Out]# five     4.0
+#[Out]# six      5.0
+#[Out]# Name: debt, dtype: float64
+exit()
+exit()
