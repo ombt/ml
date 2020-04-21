@@ -255,3 +255,1368 @@ frame2['debt']
 #[Out]# Name: debt, dtype: float64
 exit()
 exit()
+get_ipython().run_line_magic('ls', '()')
+get_ipython().run_line_magic('ls', '')
+# dataframe
+data = { 'state':[ 'Ohio','Ohio','Ohio','Nevada','Nevada','Nevada'],
+         'year':[2000,2001,2002,2001,2002,2003],
+         'pop':[1.5,1.7,3.6,2.4,2.9,3.2]}
+frame = pd.DataFrame(data)
+import pandas as pd
+import numpy as np
+frame = pd.DataFrame(data)
+frame
+#[Out]#     state  year  pop
+#[Out]# 0    Ohio  2000  1.5
+#[Out]# 1    Ohio  2001  1.7
+#[Out]# 2    Ohio  2002  3.6
+#[Out]# 3  Nevada  2001  2.4
+#[Out]# 4  Nevada  2002  2.9
+#[Out]# 5  Nevada  2003  3.2
+frame2=pd.DataFrame(data,columns=['year','state','pop','debt'],
+index=['one','two','three','four','five','six'])
+frame2
+#[Out]#        year   state  pop debt
+#[Out]# one    2000    Ohio  1.5  NaN
+#[Out]# two    2001    Ohio  1.7  NaN
+#[Out]# three  2002    Ohio  3.6  NaN
+#[Out]# four   2001  Nevada  2.4  NaN
+#[Out]# five   2002  Nevada  2.9  NaN
+#[Out]# six    2003  Nevada  3.2  NaN
+frame2['debt'] = 16.5
+frame2
+#[Out]#        year   state  pop  debt
+#[Out]# one    2000    Ohio  1.5  16.5
+#[Out]# two    2001    Ohio  1.7  16.5
+#[Out]# three  2002    Ohio  3.6  16.5
+#[Out]# four   2001  Nevada  2.4  16.5
+#[Out]# five   2002  Nevada  2.9  16.5
+#[Out]# six    2003  Nevada  3.2  16.5
+val = pd.Series([-1.2,-1.5,-1.7], index=['two','four','five'])
+frame2['debt'] = val
+frame2
+#[Out]#        year   state  pop  debt
+#[Out]# one    2000    Ohio  1.5   NaN
+#[Out]# two    2001    Ohio  1.7  -1.2
+#[Out]# three  2002    Ohio  3.6   NaN
+#[Out]# four   2001  Nevada  2.4  -1.5
+#[Out]# five   2002  Nevada  2.9  -1.7
+#[Out]# six    2003  Nevada  3.2   NaN
+frame2['eastern'] = frame2.state == 'Ohio'
+frame2
+#[Out]#        year   state  pop  debt  eastern
+#[Out]# one    2000    Ohio  1.5   NaN     True
+#[Out]# two    2001    Ohio  1.7  -1.2     True
+#[Out]# three  2002    Ohio  3.6   NaN     True
+#[Out]# four   2001  Nevada  2.4  -1.5    False
+#[Out]# five   2002  Nevada  2.9  -1.7    False
+#[Out]# six    2003  Nevada  3.2   NaN    False
+#
+# to delete a column, use del.
+3
+#[Out]# 3
+#
+del frame2['eastern']
+farme2
+frame2
+#[Out]#        year   state  pop  debt
+#[Out]# one    2000    Ohio  1.5   NaN
+#[Out]# two    2001    Ohio  1.7  -1.2
+#[Out]# three  2002    Ohio  3.6   NaN
+#[Out]# four   2001  Nevada  2.4  -1.5
+#[Out]# five   2002  Nevada  2.9  -1.7
+#[Out]# six    2003  Nevada  3.2   NaN
+#
+# data returned from indexing a data frame is a reference to 
+# real data. so any changes made to the view (reference) also
+# affects the original data frame.
+#
+#
+# another way to initialize data frames is with dict of dicts.
+#
+pop = { 'Nevada' : { 2001: 2.4, 2002: 2.9}.
+        'Ohio' : { 2000: 1.5, 2001: 1.7, 2002: 3.6 } } 
+pop = { 'Nevada' : { 2001: 2.4, 2002: 2.9},
+        'Ohio' : { 2000: 1.5, 2001: 1.7, 2002: 3.6 } } 
+pop
+#[Out]# {'Nevada': {2001: 2.4, 2002: 2.9}, 'Ohio': {2000: 1.5, 2001: 1.7, 2002: 3.6}}
+frame3 = pd.DataFrame(pop)
+frame3
+#[Out]#       Nevada  Ohio
+#[Out]# 2001     2.4   1.7
+#[Out]# 2002     2.9   3.6
+#[Out]# 2000     NaN   1.5
+#
+# in the above nested dict, the outer dict keys are interpreted as
+# keys for columns and the inner keys as the row indices.
+#
+# can transpose the data frame
+#
+frame3.T
+#[Out]#         2001  2002  2000
+#[Out]# Nevada   2.4   2.9   NaN
+#[Out]# Ohio     1.7   3.6   1.5
+#
+# pass in a dict for the index.
+#
+pd.DataFrame(pop, index=[2001,2002,2003])
+#[Out]#       Nevada  Ohio
+#[Out]# 2001     2.4   1.7
+#[Out]# 2002     2.9   3.6
+#[Out]# 2003     NaN   NaN
+#
+# dict of series are ....
+#
+pdata = { 'Ohio': frame3['Ohio'][:-1],
+'Nevada': frame3['Nevada'][:2]}
+pdata
+#[Out]# {'Ohio': 2001    1.7
+#[Out]#  2002    3.6
+#[Out]#  Name: Ohio, dtype: float64,
+#[Out]#  'Nevada': 2001    2.4
+#[Out]#  2002    2.9
+#[Out]#  Name: Nevada, dtype: float64}
+frame3.values
+#[Out]# array([[2.4, 1.7],
+#[Out]#        [2.9, 3.6],
+#[Out]#        [nan, 1.5]])
+frame2.values
+#[Out]# array([[2000, 'Ohio', 1.5, nan],
+#[Out]#        [2001, 'Ohio', 1.7, -1.2],
+#[Out]#        [2002, 'Ohio', 3.6, nan],
+#[Out]#        [2001, 'Nevada', 2.4, -1.5],
+#[Out]#        [2002, 'Nevada', 2.9, -1.7],
+#[Out]#        [2003, 'Nevada', 3.2, nan]], dtype=object)
+#
+# possible inputs to a DataFrame ctor.
+#
+# 2d ndarray, dict of arrays, lists, or tuples, NumPy strctured/
+# record array, dict of Series, dict of dicts, list of dicts or
+# Series, list of lists or tuples, another DataFrame, and
+# a NumPy MaskedArray.
+#
+# index objects for data frames
+#
+obj = pd.Series(range(3), index=['a','b','c'])
+pobj
+obj
+#[Out]# a    0
+#[Out]# b    1
+#[Out]# c    2
+#[Out]# dtype: int64
+index[1;]
+index[1:]
+index = obj.index
+index
+#[Out]# Index(['a', 'b', 'c'], dtype='object')
+index[1;]
+index[1:]
+#[Out]# Index(['b', 'c'], dtype='object')
+#
+# index objects are immutable, cannot be changed.
+#
+index[1] = 'd'
+#
+# can share index objects between data structuires.
+#
+labels = pd.Index(np.arange(3))
+labels
+#[Out]# Int64Index([0, 1, 2], dtype='int64')
+obj2 = ps.Series([1.5,-2.5, 0], index=labels)
+obj2 = pd.Series([1.5,-2.5, 0], index=labels)
+obj2
+#[Out]# 0    1.5
+#[Out]# 1   -2.5
+#[Out]# 2    0.0
+#[Out]# dtype: float64
+obj2.index is labels
+#[Out]# True
+obj2.index
+#[Out]# Int64Index([0, 1, 2], dtype='int64')
+frame3
+#[Out]#       Nevada  Ohio
+#[Out]# 2001     2.4   1.7
+#[Out]# 2002     2.9   3.6
+#[Out]# 2000     NaN   1.5
+frame3.sort()
+frame3.columns
+#[Out]# Index(['Nevada', 'Ohio'], dtype='object')
+'Ohio' in frame3.columns
+#[Out]# True
+2003 in frame3.index
+#[Out]# False
+#
+# unlike Python sets, pandas Index can contain duplicate labels.
+#
+# operations for Index
+#
+# append, difference, intersectionm
+# union, isin, delete, drop, insert, is_monotonic,
+# unique.
+#
+# essential functionality - basics of working with Series
+# and DataFrames.
+#
+# reindexing
+#
+obj = pd.Series([4.5,7.2,-5.3,1.6], index=['d','b','a','c'])
+obj
+#[Out]# d    4.5
+#[Out]# b    7.2
+#[Out]# a   -5.3
+#[Out]# c    1.6
+#[Out]# dtype: float64
+# reindex moves data around and adds missing values when needed, 
+# NaN is the missing value.
+#
+obj2 = obj.reindex(['a','b','c','d','e'])
+obj2
+#[Out]# a   -5.3
+#[Out]# b    7.2
+#[Out]# c    1.6
+#[Out]# d    4.5
+#[Out]# e    NaN
+#[Out]# dtype: float64
+#
+# can use ffill or forward fill to estimate missing data. 
+# this is useful for time series data.
+#
+obj3 = pd.Series(['blue','purple','yellow'], index=[0,2,4])
+obj3
+#[Out]# 0      blue
+#[Out]# 2    purple
+#[Out]# 4    yellow
+#[Out]# dtype: object
+obj3.reindex(range(6), method='ffill')
+#[Out]# 0      blue
+#[Out]# 1      blue
+#[Out]# 2    purple
+#[Out]# 3    purple
+#[Out]# 4    yellow
+#[Out]# 5    yellow
+#[Out]# dtype: object
+obj3
+#[Out]# 0      blue
+#[Out]# 2    purple
+#[Out]# 4    yellow
+#[Out]# dtype: object
+#
+# reindex also applies to DataFrame
+#
+frame = 
+frame = pd.DataFrame(np.arange(9).reshape((3,3)),
+index=['a','b','d'], columns=['Ohio','Texas','California'])
+frame
+#[Out]#    Ohio  Texas  California
+#[Out]# a     0      1           2
+#[Out]# b     3      4           5
+#[Out]# d     6      7           8
+frame2 = frame.reindex(['a','b','c','d'])
+frame2
+#[Out]#    Ohio  Texas  California
+#[Out]# a   0.0    1.0         2.0
+#[Out]# b   3.0    4.0         5.0
+#[Out]# c   NaN    NaN         NaN
+#[Out]# d   6.0    7.0         8.0
+states = ['Texas','Utah','California']
+frame.reindex(columns=states)
+#[Out]#    Texas  Utah  California
+#[Out]# a      1   NaN           2
+#[Out]# b      4   NaN           5
+#[Out]# d      7   NaN           8
+#
+# another way to reindex is to use loc.
+#
+frame.loc[['a','b','c','d'], states]
+frame.loc[['a','b','c','d'], states]
+frame
+#[Out]#    Ohio  Texas  California
+#[Out]# a     0      1           2
+#[Out]# b     3      4           5
+#[Out]# d     6      7           8
+frame.loc[['a','b','d'], states]
+frame.loc(['a','b','c','d'], states)
+get_ipython().run_line_magic('pinfo', 'frame.loc')
+frame.loc(['a','b','c','d']]
+frame.loc[['a','b','c','d']]
+frame.loc[['a','b','d']]
+#[Out]#    Ohio  Texas  California
+#[Out]# a     0      1           2
+#[Out]# b     3      4           5
+#[Out]# d     6      7           8
+frame[['a','b','d']]
+frame[['a','b','d'],:]
+#
+# reindex function arguments
+#
+# index, method (fill, ffill,bfill), fill_value, limit,
+# tolerance, level, copy
+#
+#
+# dropping entries from an axis
+#
+obj = pd.Series(np.arange(5.), index=['a','b','c','d'])
+obj = pd.Series(np.arange(5.), index=['a','b','c','d'.'e'])
+obj = pd.Series(np.arange(5.), index=['a','b','c','d','e'])
+obj
+#[Out]# a    0.0
+#[Out]# b    1.0
+#[Out]# c    2.0
+#[Out]# d    3.0
+#[Out]# e    4.0
+#[Out]# dtype: float64
+new_obj = obj.drop('c')
+new_obj
+#[Out]# a    0.0
+#[Out]# b    1.0
+#[Out]# d    3.0
+#[Out]# e    4.0
+#[Out]# dtype: float64
+obj.drop(['d','c'])
+#[Out]# a    0.0
+#[Out]# b    1.0
+#[Out]# e    4.0
+#[Out]# dtype: float64
+#
+# how to remove columns or rows
+#
+data = pd.DataFrame(np.arange(16).reshape(4,4),
+index=['Ohio','Colorado','Utah','New York'],
+columns=['one','two','three','four'])
+data
+#[Out]#           one  two  three  four
+#[Out]# Ohio        0    1      2     3
+#[Out]# Colorado    4    5      6     7
+#[Out]# Utah        8    9     10    11
+#[Out]# New York   12   13     14    15
+data.drop(['Colorado','Ohio'])
+#[Out]#           one  two  three  four
+#[Out]# Utah        8    9     10    11
+#[Out]# New York   12   13     14    15
+data.drop('two',axis=1)
+#[Out]#           one  three  four
+#[Out]# Ohio        0      2     3
+#[Out]# Colorado    4      6     7
+#[Out]# Utah        8     10    11
+#[Out]# New York   12     14    15
+data.drop('two',axis='columns')
+#[Out]#           one  three  four
+#[Out]# Ohio        0      2     3
+#[Out]# Colorado    4      6     7
+#[Out]# Utah        8     10    11
+#[Out]# New York   12     14    15
+data.drop(['two','four'],axis='columns')
+#[Out]#           one  three
+#[Out]# Ohio        0      2
+#[Out]# Colorado    4      6
+#[Out]# Utah        8     10
+#[Out]# New York   12     14
+data.drop(['two','four'],axis='columns', inplace=True)
+data
+#[Out]#           one  three
+#[Out]# Ohio        0      2
+#[Out]# Colorado    4      6
+#[Out]# Utah        8     10
+#[Out]# New York   12     14
+#
+# indexing, selection and filtering
+#
+obj = pd.Series(np.arange(4.), index=['a','b','c','d'])
+obj
+#[Out]# a    0.0
+#[Out]# b    1.0
+#[Out]# c    2.0
+#[Out]# d    3.0
+#[Out]# dtype: float64
+obj['b']
+#[Out]# 1.0
+obj[1]
+#[Out]# 1.0
+obj[2:4]
+#[Out]# c    2.0
+#[Out]# d    3.0
+#[Out]# dtype: float64
+obj[('b','a','d')]
+obj[['b','a','d']]
+#[Out]# b    1.0
+#[Out]# a    0.0
+#[Out]# d    3.0
+#[Out]# dtype: float64
+obj[obj<2]
+#[Out]# a    0.0
+#[Out]# b    1.0
+#[Out]# dtype: float64
+obj
+#[Out]# a    0.0
+#[Out]# b    1.0
+#[Out]# c    2.0
+#[Out]# d    3.0
+#[Out]# dtype: float64
+#
+# slicing with Series is different from normal Python slicing
+# since the endpoint is inclusive [a,b] instead of [a,b)
+#
+obj['b':'c']
+#[Out]# b    1.0
+#[Out]# c    2.0
+#[Out]# dtype: float64
+obj['b':'c'] = 5
+obj
+#[Out]# a    0.0
+#[Out]# b    5.0
+#[Out]# c    5.0
+#[Out]# d    3.0
+#[Out]# dtype: float64
+data = pd.DataFrame(np.arange(16).reshape(4,4),
+index=['Ohio','Colorado','Utah','New York'],
+columns=['one','two','three','four'])
+data
+#[Out]#           one  two  three  four
+#[Out]# Ohio        0    1      2     3
+#[Out]# Colorado    4    5      6     7
+#[Out]# Utah        8    9     10    11
+#[Out]# New York   12   13     14    15
+data['two']
+#[Out]# Ohio         1
+#[Out]# Colorado     5
+#[Out]# Utah         9
+#[Out]# New York    13
+#[Out]# Name: two, dtype: int64
+data[data['three'] > 5]
+#[Out]#           one  two  three  four
+#[Out]# Colorado    4    5      6     7
+#[Out]# Utah        8    9     10    11
+#[Out]# New York   12   13     14    15
+data[['three','one']]
+#[Out]#           three  one
+#[Out]# Ohio          2    0
+#[Out]# Colorado      6    4
+#[Out]# Utah         10    8
+#[Out]# New York     14   12
+data < 5
+#[Out]#             one    two  three   four
+#[Out]# Ohio       True   True   True   True
+#[Out]# Colorado   True  False  False  False
+#[Out]# Utah      False  False  False  False
+#[Out]# New York  False  False  False  False
+#
+# if not specific column is given, he 
+# then the test is against all the data
+#
+data[data['one']>5]
+#[Out]#           one  two  three  four
+#[Out]# Utah        8    9     10    11
+#[Out]# New York   12   13     14    15
+data > 5
+#[Out]#             one    two  three   four
+#[Out]# Ohio      False  False  False  False
+#[Out]# Colorado  False  False   True   True
+#[Out]# Utah       True   True   True   True
+#[Out]# New York   True   True   True   True
+#
+# and it returns all the results as bools.
+#
+data[data<5] = 0
+data
+#[Out]#           one  two  three  four
+#[Out]# Ohio        0    0      0     0
+#[Out]# Colorado    0    5      6     7
+#[Out]# Utah        8    9     10    11
+#[Out]# New York   12   13     14    15
+data
+#[Out]#           one  two  three  four
+#[Out]# Ohio        0    0      0     0
+#[Out]# Colorado    0    5      6     7
+#[Out]# Utah        8    9     10    11
+#[Out]# New York   12   13     14    15
+data[data==5] = 'eat me'
+data
+#[Out]#           one     two  three  four
+#[Out]# Ohio        0       0      0     0
+#[Out]# Colorado    0  eat me      6     7
+#[Out]# Utah        8       9     10    11
+#[Out]# New York   12      13     14    15
+data[data==5] = 0
+data[data==5]
+#[Out]#           one  two  three  four
+#[Out]# Ohio      NaN  NaN    NaN   NaN
+#[Out]# Colorado  NaN  NaN    NaN   NaN
+#[Out]# Utah      NaN  NaN    NaN   NaN
+#[Out]# New York  NaN  NaN    NaN   NaN
+data
+#[Out]#           one     two  three  four
+#[Out]# Ohio        0       0      0     0
+#[Out]# Colorado    0  eat me      6     7
+#[Out]# Utah        8       9     10    11
+#[Out]# New York   12      13     14    15
+data['Colorao','two']
+data['Colorado','two']
+data['Colorado','two']
+data[['Colorado'],['two']]
+data.loc[['Colorado'],['two']]
+#[Out]#              two
+#[Out]# Colorado  eat me
+data.loc[['Colorado'],['two']] = 0
+data.loc[['Colorado'],['two']]
+#[Out]#          two
+#[Out]# Colorado   0
+data.iloc[1,[2,3]]
+#[Out]# three    6
+#[Out]# four     7
+#[Out]# Name: Colorado, dtype: object
+#
+# can use slicing
+#
+data.loc[:'Utah','two']
+#[Out]# Ohio        0
+#[Out]# Colorado    0
+#[Out]# Utah        9
+#[Out]# Name: two, dtype: object
+data.iloc[:,:3]
+#[Out]#           one two  three
+#[Out]# Ohio        0   0      0
+#[Out]# Colorado    0   0      6
+#[Out]# Utah        8   9     10
+#[Out]# New York   12  13     14
+data.iloc[:,:3][data.three>5]
+#[Out]#           one two  three
+#[Out]# Colorado    0   0      6
+#[Out]# Utah        8   9     10
+#[Out]# New York   12  13     14
+#
+# indexing methods for DataFrame
+#
+df[val]
+#
+# df[val]
+# df.loc[:,va;]
+# df.loc[val1,val2]
+# df.tloc[where]
+# df.iloc[:,where]
+# df.iloc[where_i,where_j] i,j = integers
+# df.at[label_1,label_2]
+# at.iat[i,j]
+# reindex
+# get_value, set_vaue
+#
+#
+# arithmetic and data alignment
+#
+s1 = pd.Series([7.3,-2.5,3.4,1.5],index=['a','b','c','d'])
+s2 = pd.Series([-1.1,3.6,-1.5,4,3.1],index=['a','c','e','f','g'])
+s
+s1
+#[Out]# a    7.3
+#[Out]# b   -2.5
+#[Out]# c    3.4
+#[Out]# d    1.5
+#[Out]# dtype: float64
+s2
+#[Out]# a   -1.1
+#[Out]# c    3.6
+#[Out]# e   -1.5
+#[Out]# f    4.0
+#[Out]# g    3.1
+#[Out]# dtype: float64
+s1+s2
+#[Out]# a    6.2
+#[Out]# b    NaN
+#[Out]# c    7.0
+#[Out]# d    NaN
+#[Out]# e    NaN
+#[Out]# f    NaN
+#[Out]# g    NaN
+#[Out]# dtype: float64
+s1 = pd.Series([7.3,-2.5,3.4,1.5],index=['a','c','d','e'])
+s1+s2
+#[Out]# a    6.2
+#[Out]# c    1.1
+#[Out]# d    NaN
+#[Out]# e    0.0
+#[Out]# f    NaN
+#[Out]# g    NaN
+#[Out]# dtype: float64
+#
+# data frames are aligned by index and columns when operations
+# are applied.
+#
+df1 = pd.DataFrame(np.arange(9,).reshape((3,3,)), columns=list('bcd'),index=['Utah','Ohio','Texas','Oregon'])
+df1 = pd.DataFrame(np.arange(9,).reshape((3,3,)), columns=list('bcd'),index=['Ohio','Texas','Oregon'])
+df2 = pd.DataFrame(np.arange(12,).reshape((4,3,)), columns=list('bde'),index=['Utah','Ohio','Texas','Oregon'])
+df1
+#[Out]#         b  c  d
+#[Out]# Ohio    0  1  2
+#[Out]# Texas   3  4  5
+#[Out]# Oregon  6  7  8
+df2
+#[Out]#         b   d   e
+#[Out]# Utah    0   1   2
+#[Out]# Ohio    3   4   5
+#[Out]# Texas   6   7   8
+#[Out]# Oregon  9  10  11
+#
+# adding returns a union of col and row names
+#
+df1+df2
+#[Out]#            b   c     d   e
+#[Out]# Ohio     3.0 NaN   6.0 NaN
+#[Out]# Oregon  15.0 NaN  18.0 NaN
+#[Out]# Texas    9.0 NaN  12.0 NaN
+#[Out]# Utah     NaN NaN   NaN NaN
+@#
+#
+# if you add df
+#
+# if you add dataframes with no row or col names in common,
+# then the result all nulls.
+#
+df1 = pd.DataFrame({'A': [1,2]})
+df2 = pd.DataFrame({'B': [3,4]})
+df1
+#[Out]#    A
+#[Out]# 0  1
+#[Out]# 1  2
+df2
+#[Out]#    B
+#[Out]# 0  3
+#[Out]# 1  4
+df1 + df2
+#[Out]#     A   B
+#[Out]# 0 NaN NaN
+#[Out]# 1 NaN NaN
+# nothing in common, so just NaNs
+#
+# arithmetic with fill values
+#
+df1 = pd.DataFrame(np.arange(12.).reshape((3,4)),
+columns=list('abcd'))
+df1
+#[Out]#      a    b     c     d
+#[Out]# 0  0.0  1.0   2.0   3.0
+#[Out]# 1  4.0  5.0   6.0   7.0
+#[Out]# 2  8.0  9.0  10.0  11.0
+df1 = pd.DataFrame(np.arange(20.).reshape((4,5)),
+columns=list('abcde'))
+df1 = pd.DataFrame(np.arange(12.).reshape((3,4)),
+columns=list('abcd'))
+df2 = pd.DataFrame(np.arange(20.).reshape((4,5)),
+columns=list('abcde'))
+df2
+#[Out]#       a     b     c     d     e
+#[Out]# 0   0.0   1.0   2.0   3.0   4.0
+#[Out]# 1   5.0   6.0   7.0   8.0   9.0
+#[Out]# 2  10.0  11.0  12.0  13.0  14.0
+#[Out]# 3  15.0  16.0  17.0  18.0  19.0
+df1
+#[Out]#      a    b     c     d
+#[Out]# 0  0.0  1.0   2.0   3.0
+#[Out]# 1  4.0  5.0   6.0   7.0
+#[Out]# 2  8.0  9.0  10.0  11.0
+df1 + df2
+#[Out]#       a     b     c     d   e
+#[Out]# 0   0.0   2.0   4.0   6.0 NaN
+#[Out]# 1   9.0  11.0  13.0  15.0 NaN
+#[Out]# 2  18.0  20.0  22.0  24.0 NaN
+#[Out]# 3   NaN   NaN   NaN   NaN NaN
+#
+# or use a fill
+#
+df1.add(df2, fill_value=0)
+#[Out]#       a     b     c     d     e
+#[Out]# 0   0.0   2.0   4.0   6.0   4.0
+#[Out]# 1   9.0  11.0  13.0  15.0   9.0
+#[Out]# 2  18.0  20.0  22.0  24.0  14.0
+#[Out]# 3  15.0  16.0  17.0  18.0  19.0
+1/df1
+#[Out]#        a         b         c         d
+#[Out]# 0    inf  1.000000  0.500000  0.333333
+#[Out]# 1  0.250  0.200000  0.166667  0.142857
+#[Out]# 2  0.125  0.111111  0.100000  0.090909
+df1.rdiv(1)
+#[Out]#        a         b         c         d
+#[Out]# 0    inf  1.000000  0.500000  0.333333
+#[Out]# 1  0.250  0.200000  0.166667  0.142857
+#[Out]# 2  0.125  0.111111  0.100000  0.090909
+#
+# reindex and use a different fill
+#
+df1
+#[Out]#      a    b     c     d
+#[Out]# 0  0.0  1.0   2.0   3.0
+#[Out]# 1  4.0  5.0   6.0   7.0
+#[Out]# 2  8.0  9.0  10.0  11.0
+df1.reindex(columns=df2.columns, fill_value=0)
+#[Out]#      a    b     c     d  e
+#[Out]# 0  0.0  1.0   2.0   3.0  0
+#[Out]# 1  4.0  5.0   6.0   7.0  0
+#[Out]# 2  8.0  9.0  10.0  11.0  0
+#
+# flexible arithemetic methods
+#
+# add, radd, sub, rsub, div, rdiv, floordiv, rfloordiv,
+# mul, rmul, pow, rpow.
+#
+# operations between Series and DataFrames
+#
+arr = np.arange(12.).reshape((3,4))
+arr
+#[Out]# array([[ 0.,  1.,  2.,  3.],
+#[Out]#        [ 4.,  5.,  6.,  7.],
+#[Out]#        [ 8.,  9., 10., 11.]])
+arr[0]
+#[Out]# array([0., 1., 2., 3.])
+arr - arr[0]
+#[Out]# array([[0., 0., 0., 0.],
+#[Out]#        [4., 4., 4., 4.],
+#[Out]#        [8., 8., 8., 8.]])
+frame= pd.DataFrame(np.arange(12.).reshape((4,3)),
+columns=list('bde'),
+index=['Utah','Ohio','Texas','Oregon'])
+frame
+#[Out]#           b     d     e
+#[Out]# Utah    0.0   1.0   2.0
+#[Out]# Ohio    3.0   4.0   5.0
+#[Out]# Texas   6.0   7.0   8.0
+#[Out]# Oregon  9.0  10.0  11.0
+seies
+series
+frame= pd.DataFrame(np.arange(12.).reshape((4,3)),
+columns=list('bde'),
+index=['Utah','Ohio','Texas','Oregon'])
+series = frame.iloc[0]
+series
+#[Out]# b    0.0
+#[Out]# d    1.0
+#[Out]# e    2.0
+#[Out]# Name: Utah, dtype: float64
+frame - series
+#[Out]#           b    d    e
+#[Out]# Utah    0.0  0.0  0.0
+#[Out]# Ohio    3.0  3.0  3.0
+#[Out]# Texas   6.0  6.0  6.0
+#[Out]# Oregon  9.0  9.0  9.0
+series2 = pd.Series(range(3), index=['b','e','f'])
+frame + series2
+#[Out]#           b   d     e   f
+#[Out]# Utah    0.0 NaN   3.0 NaN
+#[Out]# Ohio    3.0 NaN   6.0 NaN
+#[Out]# Texas   6.0 NaN   9.0 NaN
+#[Out]# Oregon  9.0 NaN  12.0 NaN
+series3 = frame['d']
+series3
+#[Out]# Utah       1.0
+#[Out]# Ohio       4.0
+#[Out]# Texas      7.0
+#[Out]# Oregon    10.0
+#[Out]# Name: d, dtype: float64
+frame.sub(series3, axis='index')
+#[Out]#           b    d    e
+#[Out]# Utah   -1.0  0.0  1.0
+#[Out]# Ohio   -1.0  0.0  1.0
+#[Out]# Texas  -1.0  0.0  1.0
+#[Out]# Oregon -1.0  0.0  1.0
+#
+# function application and mapping
+#
+frame = pd.DataFrame(np.random.randn(4,3), columns=list('bde'),
+index=['Utah','Ohio','Texas','Oregon'])
+frame
+#[Out]#                b         d         e
+#[Out]# Utah   -2.443859  0.291446  1.108803
+#[Out]# Ohio    1.672541 -1.388673 -2.294584
+#[Out]# Texas  -0.964576  0.050949  0.619731
+#[Out]# Oregon  1.630420 -0.045675 -0.471704
+bp.abs(frame)
+np.abs(frame)
+#[Out]#                b         d         e
+#[Out]# Utah    2.443859  0.291446  1.108803
+#[Out]# Ohio    1.672541  1.388673  2.294584
+#[Out]# Texas   0.964576  0.050949  0.619731
+#[Out]# Oregon  1.630420  0.045675  0.471704
+f = lambda x: x.max() - x.min()
+frame.apply(f)
+#[Out]# b    4.116400
+#[Out]# d    1.680119
+#[Out]# e    3.403386
+#[Out]# dtype: float64
+frame.apply(f,axis=1)
+#[Out]# Utah      3.552662
+#[Out]# Ohio      3.967125
+#[Out]# Texas     1.584306
+#[Out]# Oregon    2.102124
+#[Out]# dtype: float64
+frame.apply(f,axis=0)
+#[Out]# b    4.116400
+#[Out]# d    1.680119
+#[Out]# e    3.403386
+#[Out]# dtype: float64
+frame
+#[Out]#                b         d         e
+#[Out]# Utah   -2.443859  0.291446  1.108803
+#[Out]# Ohio    1.672541 -1.388673 -2.294584
+#[Out]# Texas  -0.964576  0.050949  0.619731
+#[Out]# Oregon  1.630420 -0.045675 -0.471704
+frame.apply(f,axis=0)
+#[Out]# b    4.116400
+#[Out]# d    1.680119
+#[Out]# e    3.403386
+#[Out]# dtype: float64
+frame.apply(f,axis=1)
+#[Out]# Utah      3.552662
+#[Out]# Ohio      3.967125
+#[Out]# Texas     1.584306
+#[Out]# Oregon    2.102124
+#[Out]# dtype: float64
+#
+# can also return a Series or ...
+#
+def f(x):
+    return pd.Series([x.min(),x.max()], index=['min','max'])
+    
+frame.apply(f)
+#[Out]#             b         d         e
+#[Out]# min -2.443859 -1.388673 -2.294584
+#[Out]# max  1.672541  0.291446  1.108803
+frame.apply(f,axis=1)
+#[Out]#              min       max
+#[Out]# Utah   -2.443859  1.108803
+#[Out]# Ohio   -2.294584  1.672541
+#[Out]# Texas  -0.964576  0.619731
+#[Out]# Oregon -0.471704  1.630420
+#
+# for applying to elements use applymap
+#
+format = lambda x: '%.2f' % x
+#
+frame.applymap(format)
+#[Out]#             b      d      e
+#[Out]# Utah    -2.44   0.29   1.11
+#[Out]# Ohio     1.67  -1.39  -2.29
+#[Out]# Texas   -0.96   0.05   0.62
+#[Out]# Oregon   1.63  -0.05  -0.47
+frame['e'].map(format)
+#[Out]# Utah       1.11
+#[Out]# Ohio      -2.29
+#[Out]# Texas      0.62
+#[Out]# Oregon    -0.47
+#[Out]# Name: e, dtype: object
+#
+# sorting and ranking
+#
+obj = pd.Series(range(4), index=['d','a','b','c'])
+obj.sort_imdex()
+obj.sort_index()
+#[Out]# a    1
+#[Out]# b    2
+#[Out]# c    3
+#[Out]# d    0
+#[Out]# dtype: int64
+#
+# you can sort by index or either axis
+#
+frame = pd.DataFrame(np.arange(8).reshape((2,4)),
+index = ['three','one'],
+columns = list('dabc'))
+frame
+#[Out]#        d  a  b  c
+#[Out]# three  0  1  2  3
+#[Out]# one    4  5  6  7
+frame.sort_index()
+#[Out]#        d  a  b  c
+#[Out]# one    4  5  6  7
+#[Out]# three  0  1  2  3
+frame
+#[Out]#        d  a  b  c
+#[Out]# three  0  1  2  3
+#[Out]# one    4  5  6  7
+frame.sort_index(axis=1)
+#[Out]#        a  b  c  d
+#[Out]# three  1  2  3  0
+#[Out]# one    5  6  7  4
+frame.sort_index(axis=1,ascending=False)
+#[Out]#        d  c  b  a
+#[Out]# three  0  3  2  1
+#[Out]# one    4  7  6  5
+#
+# to sort by values, use sort_values
+#
+obj = pd.Series[(4, np.nan, 3, np.nan, -3, 2])
+obj = pd.Series([4, np.nan, 3, np.nan, -3, 2])
+pbj
+obj
+#[Out]# 0    4.0
+#[Out]# 1    NaN
+#[Out]# 2    3.0
+#[Out]# 3    NaN
+#[Out]# 4   -3.0
+#[Out]# 5    2.0
+#[Out]# dtype: float64
+obj.sort_values()
+#[Out]# 4   -3.0
+#[Out]# 5    2.0
+#[Out]# 2    3.0
+#[Out]# 0    4.0
+#[Out]# 1    NaN
+#[Out]# 3    NaN
+#[Out]# dtype: float64
+#
+# can sort by more than one column
+#
+frame = pd.DataFrame({'b': [4,7,-3,2], 'a':[0,1,0,1]})
+frame
+#[Out]#    b  a
+#[Out]# 0  4  0
+#[Out]# 1  7  1
+#[Out]# 2 -3  0
+#[Out]# 3  2  1
+frame.sort_values(by=['a','b'])
+#[Out]#    b  a
+#[Out]# 2 -3  0
+#[Out]# 0  4  0
+#[Out]# 3  2  1
+#[Out]# 1  7  1
+frame = pd.DataFrame({'b': [4,-3,-3,2], 'a':[0,1,0,1]})
+frame.sort_values(by=['a','b'])
+#[Out]#    b  a
+#[Out]# 2 -3  0
+#[Out]# 0  4  0
+#[Out]# 1 -3  1
+#[Out]# 3  2  1
+frame.sort_values(by=['b','a'])
+#[Out]#    b  a
+#[Out]# 2 -3  0
+#[Out]# 1 -3  1
+#[Out]# 3  2  1
+#[Out]# 0  4  0
+#
+# rankinhg
+#
+obj pd.Series([7,-5,7,4,2,0,4])
+obj = pd.Series([7,-5,7,4,2,0,4])
+obj
+#[Out]# 0    7
+#[Out]# 1   -5
+#[Out]# 2    7
+#[Out]# 3    4
+#[Out]# 4    2
+#[Out]# 5    0
+#[Out]# 6    4
+#[Out]# dtype: int64
+obj.rank()
+#[Out]# 0    6.5
+#[Out]# 1    1.0
+#[Out]# 2    6.5
+#[Out]# 3    4.5
+#[Out]# 4    3.0
+#[Out]# 5    2.0
+#[Out]# 6    4.5
+#[Out]# dtype: float64
+obj.rank(method='first')
+#[Out]# 0    6.0
+#[Out]# 1    1.0
+#[Out]# 2    7.0
+#[Out]# 3    4.0
+#[Out]# 4    3.0
+#[Out]# 5    2.0
+#[Out]# 6    5.0
+#[Out]# dtype: float64
+obj.rank(ascending=False, method='max')
+#[Out]# 0    2.0
+#[Out]# 1    7.0
+#[Out]# 2    2.0
+#[Out]# 3    4.0
+#[Out]# 4    5.0
+#[Out]# 5    6.0
+#[Out]# 6    4.0
+#[Out]# dtype: float64
+#
+# breaking-ties methods with rank
+#
+# 'average', 'min', 'max', 'first
+# ', dense
+#
+#
+# axes indexes with duplicate labels
+#
+# unique indices are not required,
+#
+obj = pd.Series(range(5), index=list('aabbc'))
+obj
+#[Out]# a    0
+#[Out]# a    1
+#[Out]# b    2
+#[Out]# b    3
+#[Out]# c    4
+#[Out]# dtype: int64
+obj.index.is_unique
+#[Out]# False
+#
+# index is not unique 
+#
+obj.index
+#[Out]# Index(['a', 'a', 'b', 'b', 'c'], dtype='object')
+#
+# data selection behaves differently for duplicates.
+#
+obj
+#[Out]# a    0
+#[Out]# a    1
+#[Out]# b    2
+#[Out]# b    3
+#[Out]# c    4
+#[Out]# dtype: int64
+obj['a']
+#[Out]# a    0
+#[Out]# a    1
+#[Out]# dtype: int64
+# returned a series.
+#
+# returned a series
+obj['c']
+#[Out]# 4
+# returned a scalar.
+#
+# same applies to data frames
+#
+df = pd.DataFrame(np.random.randn(4,3), index=list('aabb'))
+df
+#[Out]#           0         1         2
+#[Out]# a -0.557364 -0.602213  2.300534
+#[Out]# a  1.186894  0.048392 -0.072533
+#[Out]# b -0.279719  0.137257  0.602677
+#[Out]# b -0.553272  0.828195 -0.120461
+df.loc['b]
+df.loc['b']
+#[Out]#           0         1         2
+#[Out]# b -0.279719  0.137257  0.602677
+#[Out]# b -0.553272  0.828195 -0.120461
+#
+# summarizing and computing descriptive statistics
+#
+#
+df = pd.DataFrame([[1.4,np.nan],[7.1,-4.5],[np.nan,np.nan],[0.75,-1.3]], index=list('abcd'), columns=['one','two'])
+df
+#[Out]#     one  two
+#[Out]# a  1.40  NaN
+#[Out]# b  7.10 -4.5
+#[Out]# c   NaN  NaN
+#[Out]# d  0.75 -1.3
+df.sum()
+#[Out]# one    9.25
+#[Out]# two   -5.80
+#[Out]# dtype: float64
+df.sum(axis='columns')
+#[Out]# a    1.40
+#[Out]# b    2.60
+#[Out]# c    0.00
+#[Out]# d   -0.55
+#[Out]# dtype: float64
+df.sum(axis='columns',skipna=False)
+#[Out]# a     NaN
+#[Out]# b    2.60
+#[Out]# c     NaN
+#[Out]# d   -0.55
+#[Out]# dtype: float64
+#
+# options for reduction methods
+#
+# axis, skipna, level
+#
+df.idxmax()
+#[Out]# one    b
+#[Out]# two    d
+#[Out]# dtype: object
+df.idxmin()
+#[Out]# one    d
+#[Out]# two    b
+#[Out]# dtype: object
+df.describe()
+#[Out]#             one       two
+#[Out]# count  3.000000  2.000000
+#[Out]# mean   3.083333 -2.900000
+#[Out]# std    3.493685  2.262742
+#[Out]# min    0.750000 -4.500000
+#[Out]# 25%    1.075000 -3.700000
+#[Out]# 50%    1.400000 -2.900000
+#[Out]# 75%    4.250000 -2.100000
+#[Out]# max    7.100000 -1.300000
+# ths above is for numerics data
+#
+obj = pd.Series(list('aabc')*4)
+obj
+#[Out]# 0     a
+#[Out]# 1     a
+#[Out]# 2     b
+#[Out]# 3     c
+#[Out]# 4     a
+#[Out]# 5     a
+#[Out]# 6     b
+#[Out]# 7     c
+#[Out]# 8     a
+#[Out]# 9     a
+#[Out]# 10    b
+#[Out]# 11    c
+#[Out]# 12    a
+#[Out]# 13    a
+#[Out]# 14    b
+#[Out]# 15    c
+#[Out]# dtype: object
+#
+# descriptive and summary stats
+#
+# count, describe, min, max, argmin, argmax,
+# idxmin. idzmax, quantile, sum, mean, medium, mad
+#
+# prod, var, sd, kurt, cumsum, cummin, cummax,
+# cumprod. diff, pct_change
+#
+#
+# correlation and covariance
+#
+# use data fro Yahoo
+#
+exit()
+import pandas.datareader.data as web
+import pandas as pd
+import numpy as np
+import pandas.datareader.data as web
+import pandas_datareader.data as web
+all_data = (ticker: web.get_data_yahoo(ticker) for ticker in ['AAPL','IBM','MSFT','GOOG'])
+all_data = {ticker: web.get_data_yahoo(ticker) for ticker in ['AAPL','IBM','MSFT','GOOG']}
+all_data
+#[Out]# {'AAPL':                   High         Low  ...      Volume   Adj Close
+#[Out]#  Date                                ...                        
+#[Out]#  2015-04-10  127.209999  125.260002  ...  40188000.0  116.964989
+#[Out]#  2015-04-13  128.570007  126.610001  ...  36365100.0  116.734917
+#[Out]#  2015-04-14  127.290001  125.910004  ...  25524600.0  116.228790
+#[Out]#  2015-04-15  127.129997  126.010002  ...  28970400.0  116.670502
+#[Out]#  2015-04-16  127.099998  126.110001  ...  28369000.0  116.109131
+#[Out]#  ...                ...         ...  ...         ...         ...
+#[Out]#  2020-04-02  245.149994  236.899994  ...  41483500.0  244.929993
+#[Out]#  2020-04-03  245.699997  238.970001  ...  32470000.0  241.410004
+#[Out]#  2020-04-06  263.109985  249.380005  ...  50455100.0  262.470001
+#[Out]#  2020-04-07  271.700012  259.000000  ...  50646300.0  259.429993
+#[Out]#  2020-04-08  265.739502  261.230011  ...  19424541.0  265.225189
+#[Out]#  
+#[Out]#  [1259 rows x 6 columns],
+#[Out]#  'IBM':                   High         Low  ...     Volume   Adj Close
+#[Out]#  Date                                ...                       
+#[Out]#  2015-04-10  163.330002  161.250000  ...  2515700.0  130.790588
+#[Out]#  2015-04-13  164.000000  162.360001  ...  3868900.0  130.405136
+#[Out]#  2015-04-14  162.740005  160.789993  ...  2719300.0  130.340881
+#[Out]#  2015-04-15  164.960007  162.500000  ...  3498800.0  131.810547
+#[Out]#  2015-04-16  163.979996  162.539993  ...  3136900.0  131.007416
+#[Out]#  ...                ...         ...  ...        ...         ...
+#[Out]#  2020-04-02  110.320000  105.139999  ...  6328700.0  110.000000
+#[Out]#  2020-04-03  110.070000  104.919998  ...  4538800.0  106.339996
+#[Out]#  2020-04-06  115.629997  110.129997  ...  7034200.0  114.820000
+#[Out]#  2020-04-07  119.570000  114.870003  ...  5592700.0  114.940002
+#[Out]#  2020-04-08  118.139603  115.074203  ...  2144360.0  117.709999
+#[Out]#  
+#[Out]#  [1259 rows x 6 columns],
+#[Out]#  'MSFT':                   High         Low  ...      Volume   Adj Close
+#[Out]#  Date                                ...                        
+#[Out]#  2015-04-10   41.950001   41.410000  ...  28022000.0   37.618282
+#[Out]#  2015-04-13   42.060001   41.389999  ...  30276700.0   37.654354
+#[Out]#  2015-04-14   42.029999   41.389999  ...  24244400.0   37.555172
+#[Out]#  2015-04-15   42.459999   41.680000  ...  27343600.0   38.105190
+#[Out]#  2015-04-16   42.340000   41.820000  ...  22509700.0   38.015030
+#[Out]#  ...                ...         ...  ...         ...         ...
+#[Out]#  2020-04-02  155.479996  150.360001  ...  49630700.0  155.259995
+#[Out]#  2020-04-03  157.380005  152.190002  ...  41243300.0  153.830002
+#[Out]#  2020-04-06  166.500000  157.580002  ...  67111700.0  165.270004
+#[Out]#  2020-04-07  170.000000  163.259995  ...  62705900.0  163.490005
+#[Out]#  2020-04-08  166.669998  163.710007  ...  22316339.0  165.585007
+#[Out]#  
+#[Out]#  [1259 rows x 6 columns],
+#[Out]#  'GOOG':                    High          Low  ...     Volume    Adj Close
+#[Out]#  Date                                  ...                        
+#[Out]#  2015-04-10   540.805237   535.838867  ...  1409400.0   538.531433
+#[Out]#  2015-04-13   542.570374   535.838867  ...  1645300.0   537.693787
+#[Out]#  2015-04-14   536.098145   526.646118  ...  2604100.0   528.937805
+#[Out]#  2015-04-15   533.265930   521.787415  ...  2318800.0   531.071960
+#[Out]#  2015-04-16   534.123535   528.159912  ...  1299800.0   532.338440
+#[Out]#  ...                 ...          ...  ...        ...          ...
+#[Out]#  2020-04-02  1126.859985  1096.400024  ...  1964900.0  1120.839966
+#[Out]#  2020-04-03  1123.540039  1079.810059  ...  2313400.0  1097.880005
+#[Out]#  2020-04-06  1194.660034  1130.939941  ...  2664700.0  1186.920044
+#[Out]#  2020-04-07  1225.000000  1182.229980  ...  2383000.0  1186.510010
+#[Out]#  2020-04-08  1211.439941  1188.160034  ...   804195.0  1208.435059
+#[Out]#  
+#[Out]#  [1259 rows x 6 columns]}
+price = pd.DataFrame([ticker: data['Adj Close'] for ticker, data in all_data.items()})
+price = pd.DataFrame({ticker: data['Adj Close'] for ticker, data in all_data.items()})
+price
+#[Out]#                   AAPL         IBM        MSFT         GOOG
+#[Out]# Date                                                       
+#[Out]# 2015-04-10  116.964989  130.790588   37.618282   538.531433
+#[Out]# 2015-04-13  116.734917  130.405136   37.654354   537.693787
+#[Out]# 2015-04-14  116.228790  130.340881   37.555172   528.937805
+#[Out]# 2015-04-15  116.670502  131.810547   38.105190   531.071960
+#[Out]# 2015-04-16  116.109131  131.007416   38.015030   532.338440
+#[Out]# ...                ...         ...         ...          ...
+#[Out]# 2020-04-02  244.929993  110.000000  155.259995  1120.839966
+#[Out]# 2020-04-03  241.410004  106.339996  153.830002  1097.880005
+#[Out]# 2020-04-06  262.470001  114.820000  165.270004  1186.920044
+#[Out]# 2020-04-07  259.429993  114.940002  163.490005  1186.510010
+#[Out]# 2020-04-08  265.225189  117.709999  165.585007  1208.435059
+#[Out]# 
+#[Out]# [1259 rows x 4 columns]
+volume = pd.DataFrame({ticker: data['Volume'] for ticker, data in all_data.items()})
+volume
+#[Out]#                   AAPL        IBM        MSFT       GOOG
+#[Out]# Date                                                    
+#[Out]# 2015-04-10  40188000.0  2515700.0  28022000.0  1409400.0
+#[Out]# 2015-04-13  36365100.0  3868900.0  30276700.0  1645300.0
+#[Out]# 2015-04-14  25524600.0  2719300.0  24244400.0  2604100.0
+#[Out]# 2015-04-15  28970400.0  3498800.0  27343600.0  2318800.0
+#[Out]# 2015-04-16  28369000.0  3136900.0  22509700.0  1299800.0
+#[Out]# ...                ...        ...         ...        ...
+#[Out]# 2020-04-02  41483500.0  6328700.0  49630700.0  1964900.0
+#[Out]# 2020-04-03  32470000.0  4538800.0  41243300.0  2313400.0
+#[Out]# 2020-04-06  50455100.0  7034200.0  67111700.0  2664700.0
+#[Out]# 2020-04-07  50646300.0  5592700.0  62705900.0  2383000.0
+#[Out]# 2020-04-08  19424541.0  2144360.0  22316339.0   804195.0
+#[Out]# 
+#[Out]# [1259 rows x 4 columns]
+#
+# percent change as a time series
+#
+returns = price.pct_change()
+returns.tail()
+#[Out]#                 AAPL       IBM      MSFT      GOOG
+#[Out]# Date                                              
+#[Out]# 2020-04-02  0.016687  0.046224  0.020709  0.013766
+#[Out]# 2020-04-03 -0.014371 -0.033273 -0.009210 -0.020485
+#[Out]# 2020-04-06  0.087237  0.079744  0.074368  0.081102
+#[Out]# 2020-04-07 -0.011582  0.001045 -0.010770 -0.000345
+#[Out]# 2020-04-08  0.022338  0.024100  0.012814  0.018479
+returns['MSFT'].corr(returns['IBM'])
+#[Out]# 0.5976220232763895
+returns['MSFT'].cov(returns['IBM'])
+#[Out]# 0.00015994088745776265
+#
+#  another way ...
+#
+returns.MSFT.corr(returns.IBM)
+#[Out]# 0.5976220232763895
+returns.corr()
+#[Out]#           AAPL       IBM      MSFT      GOOG
+#[Out]# AAPL  1.000000  0.535875  0.695438  0.638848
+#[Out]# IBM   0.535875  1.000000  0.597622  0.530012
+#[Out]# MSFT  0.695438  0.597622  1.000000  0.744376
+#[Out]# GOOG  0.638848  0.530012  0.744376  1.000000
+returns.cov()
+#[Out]#           AAPL       IBM      MSFT      GOOG
+#[Out]# AAPL  0.000324  0.000149  0.000216  0.000194
+#[Out]# IBM   0.000149  0.000240  0.000160  0.000138
+#[Out]# MSFT  0.000216  0.000160  0.000298  0.000216
+#[Out]# GOOG  0.000194  0.000138  0.000216  0.000284
+returns.corrwith(returns.IBM)
+#[Out]# AAPL    0.535875
+#[Out]# IBM     1.000000
+#[Out]# MSFT    0.597622
+#[Out]# GOOG    0.530012
+#[Out]# dtype: float64
+returns.corrwith(volume)
+#[Out]# AAPL   -0.142410
+#[Out]# IBM    -0.099287
+#[Out]# MSFT   -0.037458
+#[Out]# GOOG   -0.044084
+#[Out]# dtype: float64
+#
+# unique values, value counts, and membership
+#
+obj = pd.Series(list('cadaabbcc'))
+uniques= obj.unique()
+uniques
+#[Out]# array(['c', 'a', 'd', 'b'], dtype=object)
+obj.value_counts()
+#[Out]# c    3
+#[Out]# a    3
+#[Out]# b    2
+#[Out]# d    1
+#[Out]# dtype: int64
+pd.value_counts(obj.values, sort=False)
+#[Out]# a    3
+#[Out]# b    2
+#[Out]# d    1
+#[Out]# c    3
+#[Out]# dtype: int64
+obj
+#[Out]# 0    c
+#[Out]# 1    a
+#[Out]# 2    d
+#[Out]# 3    a
+#[Out]# 4    a
+#[Out]# 5    b
+#[Out]# 6    b
+#[Out]# 7    c
+#[Out]# 8    c
+#[Out]# dtype: object
+mask obj.isin(list('bc'))
+mask = obj.isin(list('bc'))
+mask
+#[Out]# 0     True
+#[Out]# 1    False
+#[Out]# 2    False
+#[Out]# 3    False
+#[Out]# 4    False
+#[Out]# 5     True
+#[Out]# 6     True
+#[Out]# 7     True
+#[Out]# 8     True
+#[Out]# dtype: bool
+obj[mask]
+#[Out]# 0    c
+#[Out]# 5    b
+#[Out]# 6    b
+#[Out]# 7    c
+#[Out]# 8    c
+#[Out]# dtype: object
+#
+# isin is the Index.get_indexer methodf
+#
+to_match = pd.Series(list('cabbca'))
+unique_vals = pd.Series(list(
+cba'))
+unique_vals = pd.Series(list(
+'cba'))
+pd.Index(unique_vals).get_indexer(to_match)
+#[Out]# array([0, 2, 1, 1, 0, 2])
+#
+# other functions
+#
+isin, match, umique, value_counts
+#
+# isin, match, umique, value_counts
+#
+# computing a histgram
+#
+data = pd.DataFrame('Qu1': [1,3,4,3,4],
+'Qu2': [2,3,1,2,3],
+'Qu3': [1,5,2,4,4])
+data = pd.DataFrame({'Qu1': [1,3,4,3,4],
+'Qu2': [2,3,1,2,3],
+'Qu3': [1,5,2,4,4]})
+
+data
+#[Out]#    Qu1  Qu2  Qu3
+#[Out]# 0    1    2    1
+#[Out]# 1    3    3    5
+#[Out]# 2    4    1    2
+#[Out]# 3    3    2    4
+#[Out]# 4    4    3    4
+result .data.apply(pd.va;ue_coutns).fillna(0)
+result .data.apply(pd.value_coutns).fillna(0)
+result = data.apply(pd.value_coutns).fillna(0)
+result = data.apply(pd.value_counts).fillna(0)
+results
+result
+#[Out]#    Qu1  Qu2  Qu3
+#[Out]# 1  1.0  1.0  1.0
+#[Out]# 2  0.0  2.0  1.0
+#[Out]# 3  2.0  2.0  0.0
+#[Out]# 4  2.0  0.0  2.0
+#[Out]# 5  0.0  0.0  1.0
+exit()

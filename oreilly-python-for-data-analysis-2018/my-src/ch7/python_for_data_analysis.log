@@ -1,0 +1,1882 @@
+# chapter 7
+# detecting null or NA values
+#
+# dropna, fillna, isnull, notnull
+#
+import numpy as np
+import pandas as pd
+from numpy import nan as NA
+data = pd.Series([1,NA,3.5,NA,7])
+data
+#[Out]# 0    1.0
+#[Out]# 1    NaN
+#[Out]# 2    3.5
+#[Out]# 3    NaN
+#[Out]# 4    7.0
+#[Out]# dtype: float64
+data.dropna()
+#[Out]# 0    1.0
+#[Out]# 2    3.5
+#[Out]# 4    7.0
+#[Out]# dtype: float64
+data
+#[Out]# 0    1.0
+#[Out]# 1    NaN
+#[Out]# 2    3.5
+#[Out]# 3    NaN
+#[Out]# 4    7.0
+#[Out]# dtype: float64
+data[data.isnull()]
+#[Out]# 1   NaN
+#[Out]# 3   NaN
+#[Out]# dtype: float64
+data[data.notnull()]
+#[Out]# 0    1.0
+#[Out]# 2    3.5
+#[Out]# 4    7.0
+#[Out]# dtype: float64
+data = pd.DataFrame([[1.,6.5,3.],[1,NA,NA], [NA,NA,NA], [NA,6.5,1.]])
+data
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  3.0
+#[Out]# 1  1.0  NaN  NaN
+#[Out]# 2  NaN  NaN  NaN
+#[Out]# 3  NaN  6.5  1.0
+cleaned = data.dropna()
+cleaned
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  3.0
+data.dropna(how='all')
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  3.0
+#[Out]# 1  1.0  NaN  NaN
+#[Out]# 3  NaN  6.5  1.0
+data.dropna(how='all',axis=1)
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  3.0
+#[Out]# 1  1.0  NaN  NaN
+#[Out]# 2  NaN  NaN  NaN
+#[Out]# 3  NaN  6.5  1.0
+data
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  3.0
+#[Out]# 1  1.0  NaN  NaN
+#[Out]# 2  NaN  NaN  NaN
+#[Out]# 3  NaN  6.5  1.0
+data[4]=NA
+data
+#[Out]#      0    1    2   4
+#[Out]# 0  1.0  6.5  3.0 NaN
+#[Out]# 1  1.0  NaN  NaN NaN
+#[Out]# 2  NaN  NaN  NaN NaN
+#[Out]# 3  NaN  6.5  1.0 NaN
+data.dropna(how='all',axis=1)
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  3.0
+#[Out]# 1  1.0  NaN  NaN
+#[Out]# 2  NaN  NaN  NaN
+#[Out]# 3  NaN  6.5  1.0
+df = pd.DataFrame(np.random.randn(7,3))
+df
+#[Out]#           0         1         2
+#[Out]# 0 -0.180391  0.303758 -1.697920
+#[Out]# 1 -0.704636 -0.291411 -0.464920
+#[Out]# 2  0.669161  0.119610 -0.236664
+#[Out]# 3 -0.220635 -1.254427 -0.923140
+#[Out]# 4  0.703476 -0.364226  0.902587
+#[Out]# 5  0.223083  1.382495  0.841769
+#[Out]# 6 -0.446029  0.047326  2.196638
+df.iloc[:4,1] = NA
+df.iloc[:2,2] = NA
+df
+#[Out]#           0         1         2
+#[Out]# 0 -0.180391       NaN       NaN
+#[Out]# 1 -0.704636       NaN       NaN
+#[Out]# 2  0.669161       NaN -0.236664
+#[Out]# 3 -0.220635       NaN -0.923140
+#[Out]# 4  0.703476 -0.364226  0.902587
+#[Out]# 5  0.223083  1.382495  0.841769
+#[Out]# 6 -0.446029  0.047326  2.196638
+df.dropna()
+#[Out]#           0         1         2
+#[Out]# 4  0.703476 -0.364226  0.902587
+#[Out]# 5  0.223083  1.382495  0.841769
+#[Out]# 6 -0.446029  0.047326  2.196638
+df.dropna(thresh=2)
+#[Out]#           0         1         2
+#[Out]# 2  0.669161       NaN -0.236664
+#[Out]# 3 -0.220635       NaN -0.923140
+#[Out]# 4  0.703476 -0.364226  0.902587
+#[Out]# 5  0.223083  1.382495  0.841769
+#[Out]# 6 -0.446029  0.047326  2.196638
+#
+# filling in missing data
+#
+df
+#[Out]#           0         1         2
+#[Out]# 0 -0.180391       NaN       NaN
+#[Out]# 1 -0.704636       NaN       NaN
+#[Out]# 2  0.669161       NaN -0.236664
+#[Out]# 3 -0.220635       NaN -0.923140
+#[Out]# 4  0.703476 -0.364226  0.902587
+#[Out]# 5  0.223083  1.382495  0.841769
+#[Out]# 6 -0.446029  0.047326  2.196638
+df.fillna(0)
+#[Out]#           0         1         2
+#[Out]# 0 -0.180391  0.000000  0.000000
+#[Out]# 1 -0.704636  0.000000  0.000000
+#[Out]# 2  0.669161  0.000000 -0.236664
+#[Out]# 3 -0.220635  0.000000 -0.923140
+#[Out]# 4  0.703476 -0.364226  0.902587
+#[Out]# 5  0.223083  1.382495  0.841769
+#[Out]# 6 -0.446029  0.047326  2.196638
+df.fillna({1:0.5, 2: 0})
+#[Out]#           0         1         2
+#[Out]# 0 -0.180391  0.500000  0.000000
+#[Out]# 1 -0.704636  0.500000  0.000000
+#[Out]# 2  0.669161  0.500000 -0.236664
+#[Out]# 3 -0.220635  0.500000 -0.923140
+#[Out]# 4  0.703476 -0.364226  0.902587
+#[Out]# 5  0.223083  1.382495  0.841769
+#[Out]# 6 -0.446029  0.047326  2.196638
+# can fill different columns with different values for NAs
+#
+# can modify in place also
+#
+_ = df.fillna(0, inplace=True)
+_
+df
+#[Out]#           0         1         2
+#[Out]# 0 -0.180391  0.000000  0.000000
+#[Out]# 1 -0.704636  0.000000  0.000000
+#[Out]# 2  0.669161  0.000000 -0.236664
+#[Out]# 3 -0.220635  0.000000 -0.923140
+#[Out]# 4  0.703476 -0.364226  0.902587
+#[Out]# 5  0.223083  1.382495  0.841769
+#[Out]# 6 -0.446029  0.047326  2.196638
+# interpolation can also be used to fill in NAs
+#
+df = pd.DataFrame(np.random.randn(6,3))
+df.iloc[2:,1]=NA
+df.iloc[4:,2]=NA
+df
+#[Out]#           0         1         2
+#[Out]# 0  0.117263 -1.081857  1.937026
+#[Out]# 1 -0.361461  0.391254  0.217562
+#[Out]# 2  0.193755       NaN  0.088383
+#[Out]# 3  0.834146       NaN -0.368653
+#[Out]# 4 -0.054581       NaN       NaN
+#[Out]# 5 -0.374420       NaN       NaN
+df.fillna(method='ffill')
+#[Out]#           0         1         2
+#[Out]# 0  0.117263 -1.081857  1.937026
+#[Out]# 1 -0.361461  0.391254  0.217562
+#[Out]# 2  0.193755  0.391254  0.088383
+#[Out]# 3  0.834146  0.391254 -0.368653
+#[Out]# 4 -0.054581  0.391254 -0.368653
+#[Out]# 5 -0.374420  0.391254 -0.368653
+df.fillna(method='ffill', limit=2)
+#[Out]#           0         1         2
+#[Out]# 0  0.117263 -1.081857  1.937026
+#[Out]# 1 -0.361461  0.391254  0.217562
+#[Out]# 2  0.193755  0.391254  0.088383
+#[Out]# 3  0.834146  0.391254 -0.368653
+#[Out]# 4 -0.054581       NaN -0.368653
+#[Out]# 5 -0.374420       NaN -0.368653
+# you can use a mean
+#
+data = pd.Series([1.,NA,3.5,NA,7])
+data.fillna(data.mean())
+#[Out]# 0    1.000000
+#[Out]# 1    3.833333
+#[Out]# 2    3.500000
+#[Out]# 3    3.833333
+#[Out]# 4    7.000000
+#[Out]# dtype: float64
+# fillna function arguments
+#
+# value, method, axis, inplace, limit
+#
+#
+# data transformations - section 7.2
+$
+#
+# removing duplicates
+#
+data = pd.DataFrame({'k1':['one','two']*3 + [;two'],
+'k2': [1,1,2,3,3,4,4]})
+data = pd.DataFrame({'k1':['one','two']*3 + ['two'],
+'k2': [1,1,2,3,3,4,4]})
+data
+#[Out]#     k1  k2
+#[Out]# 0  one   1
+#[Out]# 1  two   1
+#[Out]# 2  one   2
+#[Out]# 3  two   3
+#[Out]# 4  one   3
+#[Out]# 5  two   4
+#[Out]# 6  two   4
+data.duplicated()
+#[Out]# 0    False
+#[Out]# 1    False
+#[Out]# 2    False
+#[Out]# 3    False
+#[Out]# 4    False
+#[Out]# 5    False
+#[Out]# 6     True
+#[Out]# dtype: bool
+data.drop_duplcates()
+data.drop_duplicates()
+#[Out]#     k1  k2
+#[Out]# 0  one   1
+#[Out]# 1  two   1
+#[Out]# 2  one   2
+#[Out]# 3  two   3
+#[Out]# 4  one   3
+#[Out]# 5  two   4
+# drop duplicates and keep last instead of first dupe.
+#
+data.drop_duplicates(['k1','k2'], keep='last')
+#[Out]#     k1  k2
+#[Out]# 0  one   1
+#[Out]# 1  two   1
+#[Out]# 2  one   2
+#[Out]# 3  two   3
+#[Out]# 4  one   3
+#[Out]# 6  two   4
+# transforming data using a function or mapping
+#
+data = pd.DataFrame({'food':['bacon','pulled pork','bacon','Pastrami', 'corned beef','Bacon','pastrami','honey ham','nova lox'],
+'ounces':[4,3,12,6,7.5,8,3,5,6]})
+data
+#[Out]#           food  ounces
+#[Out]# 0        bacon     4.0
+#[Out]# 1  pulled pork     3.0
+#[Out]# 2        bacon    12.0
+#[Out]# 3     Pastrami     6.0
+#[Out]# 4  corned beef     7.5
+#[Out]# 5        Bacon     8.0
+#[Out]# 6     pastrami     3.0
+#[Out]# 7    honey ham     5.0
+#[Out]# 8     nova lox     6.0
+# suppose you want to add type of anumial for each food.
+#
+meat_to_animal = {
+'bacon': 'pig',
+'pulled pork': 'pig',
+'pastrami':'cow',
+'corned beef': 'cow',
+'honey ham': 'pig',
+'nova lox': 'salmon' }
+data = pd.DataFrame({'food':['bacon','pulled pork','bacon','pastrami', 'corned beef','bacon','pastrami','honey ham','nova lox'],
+'ounces':[4,3,12,6,7.5,8,3,5,6]})
+data = pd.DataFrame({'food':['bacon','pulled pork','bacon','Pastrami', 'corned beef','Bacon','pastrami','honey ham','nova lox'],
+'ounces':[4,3,12,6,7.5,8,3,5,6]})
+lowercased = data['food'].str.lower()
+lowercased
+#[Out]# 0          bacon
+#[Out]# 1    pulled pork
+#[Out]# 2          bacon
+#[Out]# 3       pastrami
+#[Out]# 4    corned beef
+#[Out]# 5          bacon
+#[Out]# 6       pastrami
+#[Out]# 7      honey ham
+#[Out]# 8       nova lox
+#[Out]# Name: food, dtype: object
+data['animal'] = lowercased.map(meat_to_animal)
+data
+#[Out]#           food  ounces  animal
+#[Out]# 0        bacon     4.0     pig
+#[Out]# 1  pulled pork     3.0     pig
+#[Out]# 2        bacon    12.0     pig
+#[Out]# 3     Pastrami     6.0     cow
+#[Out]# 4  corned beef     7.5     cow
+#[Out]# 5        Bacon     8.0     pig
+#[Out]# 6     pastrami     3.0     cow
+#[Out]# 7    honey ham     5.0     pig
+#[Out]# 8     nova lox     6.0  salmon
+#
+# another way to do it
+#
+data['food2]
+data['food2'].map(lambda x: meat_to_animal[x.lower()])
+data['food'].map(lambda x: meat_to_animal[x.lower()])
+#[Out]# 0       pig
+#[Out]# 1       pig
+#[Out]# 2       pig
+#[Out]# 3       cow
+#[Out]# 4       cow
+#[Out]# 5       pig
+#[Out]# 6       cow
+#[Out]# 7       pig
+#[Out]# 8    salmon
+#[Out]# Name: food, dtype: object
+#
+# replace values
+#
+data = pd.Series([1.,-999.,2.,-999.,-1000,,-3.])
+data = pd.Series([1.,-999.,2.,-999.,-1000.,-3.])
+data
+#[Out]# 0       1.0
+#[Out]# 1    -999.0
+#[Out]# 2       2.0
+#[Out]# 3    -999.0
+#[Out]# 4   -1000.0
+#[Out]# 5      -3.0
+#[Out]# dtype: float64
+# -999 is a sentinel can be replaced with NA.
+#
+data.replace(-999,np.nan)
+#[Out]# 0       1.0
+#[Out]# 1       NaN
+#[Out]# 2       2.0
+#[Out]# 3       NaN
+#[Out]# 4   -1000.0
+#[Out]# 5      -3.0
+#[Out]# dtype: float64
+daa
+data
+#[Out]# 0       1.0
+#[Out]# 1    -999.0
+#[Out]# 2       2.0
+#[Out]# 3    -999.0
+#[Out]# 4   -1000.0
+#[Out]# 5      -3.0
+#[Out]# dtype: float64
+data2 = data.copy()
+data2.replace(-999,np.nan,inplace=True)
+data2
+#[Out]# 0       1.0
+#[Out]# 1       NaN
+#[Out]# 2       2.0
+#[Out]# 3       NaN
+#[Out]# 4   -1000.0
+#[Out]# 5      -3.0
+#[Out]# dtype: float64
+#
+# can use two values to replace.#
+#
+data.replace([-999,-1000],[np.nan,0])
+#[Out]# 0    1.0
+#[Out]# 1    NaN
+#[Out]# 2    2.0
+#[Out]# 3    NaN
+#[Out]# 4    0.0
+#[Out]# 5   -3.0
+#[Out]# dtype: float64
+#
+# or use a map
+#
+data.replace({-999: np.nan, -1000: 0 } )
+#[Out]# 0    1.0
+#[Out]# 1    NaN
+#[Out]# 2    2.0
+#[Out]# 3    NaN
+#[Out]# 4    0.0
+#[Out]# 5   -3.0
+#[Out]# dtype: float64
+#
+# renaming axis indexes
+#
+data = pd.DataFrame(np.arange(12).reshape((3,4)),
+index = ['Ohio','Colorado','New York'],
+columns= ['one','two','three','four'])
+transform = lambda x: [:4].upper()
+transform = lambda x: x[:4].upper()
+data.index.map(transform)
+#[Out]# Index(['OHIO', 'COLO', 'NEW '], dtype='object')
+data.index = data.index.map(transform)
+data.index
+#[Out]# Index(['OHIO', 'COLO', 'NEW '], dtype='object')
+str
+#[Out]# str
+data.rename(index=str.title, columns=str.upper)
+#[Out]#       ONE  TWO  THREE  FOUR
+#[Out]# Ohio    0    1      2     3
+#[Out]# Colo    4    5      6     7
+#[Out]# New     8    9     10    11
+data.rename(index={'OHIO':'INDIANA'},columns={'three':'peekaboo'})
+#[Out]#          one  two  peekaboo  four
+#[Out]# INDIANA    0    1         2     3
+#[Out]# COLO       4    5         6     7
+#[Out]# NEW        8    9        10    11
+data.rename(index={'OHIO':'INDIANA'},columns={'three':'peekaboo'}, inplace=True)
+data
+#[Out]#          one  two  peekaboo  four
+#[Out]# INDIANA    0    1         2     3
+#[Out]# COLO       4    5         6     7
+#[Out]# NEW        8    9        10    11
+#
+# discretizing and binning
+#
+get_ipython().run_line_magic('pinfo', 'np.random.randu')
+get_ipython().run_line_magic('pinfo', 'np.random.rand')
+np.random.rand
+#[Out]# <function RandomState.rand>
+np.random.?
+get_ipython().run_line_magic('pinfo', 'np.random')
+get_ipython().run_line_magic('pinfo', 'np.random.randint')
+np.random.randint(low=20,high=70,size=100)
+#[Out]# array([27, 61, 48, 24, 35, 59, 23, 32, 48, 44, 68, 23, 54, 68, 61, 51, 41,
+#[Out]#        52, 39, 69, 58, 31, 38, 21, 37, 39, 23, 41, 36, 57, 63, 59, 33, 59,
+#[Out]#        53, 51, 45, 22, 64, 25, 22, 67, 59, 47, 37, 22, 67, 56, 33, 62, 57,
+#[Out]#        66, 60, 25, 36, 26, 20, 64, 29, 58, 68, 47, 42, 28, 58, 45, 41, 35,
+#[Out]#        27, 60, 21, 47, 65, 43, 41, 30, 43, 46, 27, 21, 43, 36, 58, 26, 35,
+#[Out]#        59, 34, 67, 35, 29, 56, 26, 45, 30, 32, 53, 52, 35, 58, 58])
+ages = np.random.randint(low=20,high=70,size=100)
+bins = [18,25,35,60,100]
+cats = pd.cut(ages, bins)
+cats
+#[Out]# [(35, 60], (25, 35], (35, 60], (35, 60], (60, 100], ..., (60, 100], (25, 35], (25, 35], (35, 60], (60, 100]]
+#[Out]# Length: 100
+#[Out]# Categories (4, interval[int64]): [(18, 25] < (25, 35] < (35, 60] < (60, 100]]
+cats.codes
+#[Out]# array([2, 1, 2, 2, 3, 3, 2, 1, 3, 3, 2, 2, 1, 2, 1, 3, 2, 2, 2, 2, 1, 2,
+#[Out]#        2, 2, 0, 2, 2, 0, 3, 1, 2, 2, 2, 2, 3, 2, 1, 1, 2, 1, 0, 3, 2, 1,
+#[Out]#        3, 2, 2, 2, 0, 1, 1, 2, 3, 0, 2, 1, 2, 3, 2, 0, 2, 1, 2, 1, 3, 3,
+#[Out]#        2, 0, 2, 2, 1, 1, 2, 3, 2, 1, 1, 0, 1, 2, 3, 3, 2, 3, 0, 1, 2, 2,
+#[Out]#        0, 1, 3, 1, 2, 3, 0, 3, 1, 1, 2, 3], dtype=int8)
+cats.categories
+#[Out]# IntervalIndex([(18, 25], (25, 35], (35, 60], (60, 100]],
+#[Out]#               closed='right',
+#[Out]#               dtype='interval[int64]')
+pd.value_counts(cats)
+#[Out]# (35, 60]     43
+#[Out]# (25, 35]     25
+#[Out]# (60, 100]    21
+#[Out]# (18, 25]     11
+#[Out]# dtype: int64
+# bin counts for the given ages and bins.
+#
+# can change the bins to [a,b) if you want as follows
+#
+pd.cut(ages,bins,right=False)
+#[Out]# [[35, 60), [25, 35), [35, 60), [35, 60), [60, 100), ..., [60, 100), [25, 35), [25, 35), [35, 60), [60, 100)]
+#[Out]# Length: 100
+#[Out]# Categories (4, interval[int64]): [[18, 25) < [25, 35) < [35, 60) < [60, 100)]
+#
+group_names = ['youth','young adult','middle ages','senior']
+pd.cut(ages,bins,right=False, labels=group_names)
+#[Out]# [middle ages, young adult, middle ages, middle ages, senior, ..., senior, young adult, young adult, middle ages, senior]
+#[Out]# Length: 100
+#[Out]# Categories (4, object): [youth < young adult < middle ages < senior]
+cats = pd.cut(ages,bins,right=False, labels=group_names)
+cats
+#[Out]# [middle ages, young adult, middle ages, middle ages, senior, ..., senior, young adult, young adult, middle ages, senior]
+#[Out]# Length: 100
+#[Out]# Categories (4, object): [youth < young adult < middle ages < senior]
+pd.value_counts(cas)
+pd.value_counts(cats)
+#[Out]# middle ages    43
+#[Out]# young adult    24
+#[Out]# senior         23
+#[Out]# youth          10
+#[Out]# dtype: int64
+#
+# you can pass in number of bins instead of bin boundaries
+#
+data = np.random.rand(20)
+pd.cut(data,4,precision=2)
+#[Out]# [(0.74, 0.98], (0.74, 0.98], (0.51, 0.74], (0.74, 0.98], (0.27, 0.51], ..., (0.74, 0.98], (0.036, 0.27], (0.036, 0.27], (0.036, 0.27], (0.036, 0.27]]
+#[Out]# Length: 20
+#[Out]# Categories (4, interval[float64]): [(0.036, 0.27] < (0.27, 0.51] < (0.51, 0.74] < (0.74, 0.98]]
+data = np.random.randn(1000)
+pd.qcut(data,4)
+#[Out]# [(0.722, 2.744], (-3.717, -0.643], (-0.643, -0.00464], (0.722, 2.744], (-0.643, -0.00464], ..., (0.722, 2.744], (0.722, 2.744], (-0.643, -0.00464], (0.722, 2.744], (-3.717, -0.643]]
+#[Out]# Length: 1000
+#[Out]# Categories (4, interval[float64]): [(-3.717, -0.643] < (-0.643, -0.00464] < (-0.00464, 0.722] <
+#[Out]#                                     (0.722, 2.744]]
+# quartile cuts ...
+#
+cats = pd.qcut(data,4)
+pd.value_counts(cats)
+#[Out]# (0.722, 2.744]        250
+#[Out]# (-0.00464, 0.722]     250
+#[Out]# (-0.643, -0.00464]    250
+#[Out]# (-3.717, -0.643]      250
+#[Out]# dtype: int64
+pd.qcut(data,[0,0.1,0.5,0.9,1.])
+#[Out]# [(-0.00464, 1.339], (-1.289, -0.00464], (-1.289, -0.00464], (-0.00464, 1.339], (-1.289, -0.00464], ..., (-0.00464, 1.339], (1.339, 2.744], (-1.289, -0.00464], (1.339, 2.744], (-1.289, -0.00464]]
+#[Out]# Length: 1000
+#[Out]# Categories (4, interval[float64]): [(-3.717, -1.289] < (-1.289, -0.00464] < (-0.00464, 1.339] <
+#[Out]#                                     (1.339, 2.744]]
+#
+# detecting and filtering outliers
+#
+data = pd.DataFrame(np.random.randn(1000,4))
+data
+#[Out]#             0         1         2         3
+#[Out]# 0   -0.221481  1.103380 -0.086242  0.346979
+#[Out]# 1    0.132828  0.795965  2.339297 -1.494178
+#[Out]# 2    1.058870 -0.598575 -0.105895  0.120943
+#[Out]# 3    0.924173 -0.054228 -0.255644 -0.049769
+#[Out]# 4    0.678175 -1.117252 -0.406280  0.178102
+#[Out]# ..        ...       ...       ...       ...
+#[Out]# 995 -0.385631  0.080060 -1.729922 -1.358432
+#[Out]# 996  1.384156  0.072260 -0.616527 -0.840140
+#[Out]# 997 -0.046145 -0.214841 -0.449603  1.813065
+#[Out]# 998 -0.131505  0.910139 -0.554028 -1.617835
+#[Out]# 999 -1.278149  0.776326 -0.317188 -2.430048
+#[Out]# 
+#[Out]# [1000 rows x 4 columns]
+# array of 1000x4
+#
+cold = data[2]
+col [np.abs(col) > 3]
+col[np.abs(col) > 3]
+col = data[2]
+col[np.abs(col) > 3]
+#[Out]# 176   -3.023782
+#[Out]# 305   -3.170856
+#[Out]# 352    3.574731
+#[Out]# 874    3.191775
+#[Out]# Name: 2, dtype: float64
+# for a value exceeding abs(x) > 3 in any row or column
+#
+data[(np.abs(data)>3).any(1)]
+#[Out]#             0         1         2         3
+#[Out]# 164  0.196427 -1.572753 -0.256045  3.229594
+#[Out]# 176 -0.780760  0.440338 -3.023782 -0.643396
+#[Out]# 305  0.818753 -1.358999 -3.170856 -0.805083
+#[Out]# 344 -0.246209 -3.099960  0.373477 -1.040016
+#[Out]# 352  0.511272 -0.041640  3.574731 -1.708484
+#[Out]# 449  3.149674  0.629289  0.169521 -0.277125
+#[Out]# 478 -1.966430  3.246944 -0.257646 -0.355636
+#[Out]# 593 -1.011694  0.948783  1.604249  3.159944
+#[Out]# 609  3.203413 -1.306591 -0.565902  0.043994
+#[Out]# 626 -0.538128 -3.036028 -0.045272 -0.291996
+#[Out]# 648  1.733530  3.217553  0.278467 -0.474562
+#[Out]# 874  0.792204  1.265604  3.191775 -1.482383
+#[Out]# 980  1.260947 -3.100186 -0.181164 -1.828804
+data[(np.abs(data)>3).any(2)]
+data[(np.abs(data)>3).any(0)]
+data[(np.abs(data)>3).any()]
+data[(np.abs(data)>3).any(1)]
+#[Out]#             0         1         2         3
+#[Out]# 164  0.196427 -1.572753 -0.256045  3.229594
+#[Out]# 176 -0.780760  0.440338 -3.023782 -0.643396
+#[Out]# 305  0.818753 -1.358999 -3.170856 -0.805083
+#[Out]# 344 -0.246209 -3.099960  0.373477 -1.040016
+#[Out]# 352  0.511272 -0.041640  3.574731 -1.708484
+#[Out]# 449  3.149674  0.629289  0.169521 -0.277125
+#[Out]# 478 -1.966430  3.246944 -0.257646 -0.355636
+#[Out]# 593 -1.011694  0.948783  1.604249  3.159944
+#[Out]# 609  3.203413 -1.306591 -0.565902  0.043994
+#[Out]# 626 -0.538128 -3.036028 -0.045272 -0.291996
+#[Out]# 648  1.733530  3.217553  0.278467 -0.474562
+#[Out]# 874  0.792204  1.265604  3.191775 -1.482383
+#[Out]# 980  1.260947 -3.100186 -0.181164 -1.828804
+# reset outliers to -3 or 3
+#
+data[np.abs(data) > 3] = np.sign(data) * 3
+data.describe()
+#[Out]#                  0            1            2            3
+#[Out]# count  1000.000000  1000.000000  1000.000000  1000.000000
+#[Out]# mean      0.027598    -0.023068    -0.032206     0.100847
+#[Out]# std       0.987575     1.012780     0.984178     1.017738
+#[Out]# min      -2.963121    -3.000000    -3.000000    -2.920317
+#[Out]# 25%      -0.660365    -0.722630    -0.746326    -0.625560
+#[Out]# 50%       0.030857    -0.031816    -0.050365     0.117515
+#[Out]# 75%       0.709324     0.663369     0.619029     0.777016
+#[Out]# max       3.000000     3.000000     3.000000     3.000000
+np.signs(data).head()
+np.sign(data).head()
+#[Out]#      0    1    2    3
+#[Out]# 0 -1.0  1.0 -1.0  1.0
+#[Out]# 1  1.0  1.0  1.0 -1.0
+#[Out]# 2  1.0 -1.0 -1.0  1.0
+#[Out]# 3  1.0 -1.0 -1.0 -1.0
+#[Out]# 4  1.0 -1.0 -1.0  1.0
+#
+# permutation and random sampling
+#
+# permuting the indices along an axis ...
+#
+df = pd.DataFrame(np.arange(5*4).shape((5,4)))
+df = pd.DataFrame(np.arange(5*4).shape((5,4)))
+df = pd.DataFrame(np.arange(5*4).reshape((5,4)))
+sampler = np.random.permutations(5)
+sampler = np.random.permutation(5)
+sampler
+#[Out]# array([4, 3, 1, 2, 0])
+df
+#[Out]#     0   1   2   3
+#[Out]# 0   0   1   2   3
+#[Out]# 1   4   5   6   7
+#[Out]# 2   8   9  10  11
+#[Out]# 3  12  13  14  15
+#[Out]# 4  16  17  18  19
+df.take(sampler)
+#[Out]#     0   1   2   3
+#[Out]# 4  16  17  18  19
+#[Out]# 3  12  13  14  15
+#[Out]# 1   4   5   6   7
+#[Out]# 2   8   9  10  11
+#[Out]# 0   0   1   2   3
+df.sample(n=3)
+#[Out]#     0   1   2   3
+#[Out]# 4  16  17  18  19
+#[Out]# 1   4   5   6   7
+#[Out]# 0   0   1   2   3
+choices = pd.Series([5,7,-1,6,4])
+draws = choices.sample(n=10,replace=True)
+draws
+#[Out]# 3    6
+#[Out]# 2   -1
+#[Out]# 1    7
+#[Out]# 1    7
+#[Out]# 2   -1
+#[Out]# 4    4
+#[Out]# 0    5
+#[Out]# 4    4
+#[Out]# 4    4
+#[Out]# 4    4
+#[Out]# dtype: int64
+#
+# computing indicator/dummy variables
+3
+#[Out]# 3
+#
+df = pd.DataFrame({'key':['b','b','a','c','a','b'],
+'data1': range(6)})
+df
+#[Out]#   key  data1
+#[Out]# 0   b      0
+#[Out]# 1   b      1
+#[Out]# 2   a      2
+#[Out]# 3   c      3
+#[Out]# 4   a      4
+#[Out]# 5   b      5
+pd.get_dummies(df['key'])
+#[Out]#    a  b  c
+#[Out]# 0  0  1  0
+#[Out]# 1  0  1  0
+#[Out]# 2  1  0  0
+#[Out]# 3  0  0  1
+#[Out]# 4  1  0  0
+#[Out]# 5  0  1  0
+dummies = pd.get_dummies(df['key'],prefix='key')
+dummies
+#[Out]#    key_a  key_b  key_c
+#[Out]# 0      0      1      0
+#[Out]# 1      0      1      0
+#[Out]# 2      1      0      0
+#[Out]# 3      0      0      1
+#[Out]# 4      1      0      0
+#[Out]# 5      0      1      0
+df_with_dummy = df[['data1']].join(dummies)
+df_with_dummy
+#[Out]#    data1  key_a  key_b  key_c
+#[Out]# 0      0      0      1      0
+#[Out]# 1      1      0      1      0
+#[Out]# 2      2      1      0      0
+#[Out]# 3      3      0      0      1
+#[Out]# 4      4      1      0      0
+#[Out]# 5      5      0      1      0
+df['data1']
+#[Out]# 0    0
+#[Out]# 1    1
+#[Out]# 2    2
+#[Out]# 3    3
+#[Out]# 4    4
+#[Out]# 5    5
+#[Out]# Name: data1, dtype: int64
+df
+#[Out]#   key  data1
+#[Out]# 0   b      0
+#[Out]# 1   b      1
+#[Out]# 2   a      2
+#[Out]# 3   c      3
+#[Out]# 4   a      4
+#[Out]# 5   b      5
+df[['data1']]
+#[Out]#    data1
+#[Out]# 0      0
+#[Out]# 1      1
+#[Out]# 2      2
+#[Out]# 3      3
+#[Out]# 4      4
+#[Out]# 5      5
+xx_with_dummy = df['data1'].join(dummies)
+x = [[1]]
+x
+#[Out]# [[1]]
+str(x)
+#[Out]# '[[1]]'
+type(x)
+#[Out]# list
+x=[[[x]]]
+x
+#[Out]# [[[[[1]]]]]
+x=None
+x
+get_ipython().run_line_magic('ls', '()')
+get_ipython().run_line_magic('ls', '')
+[[1]].join([2])
+#
+# read in movies data
+#
+mnames = ['movie_id','title','genres']
+movies = pd.read_table('../datasets/movielens/movies.dat',sep='::',header=None, names=mnames)
+movies
+#[Out]#       movie_id  ...                        genres
+#[Out]# 0            1  ...   Animation|Children's|Comedy
+#[Out]# 1            2  ...  Adventure|Children's|Fantasy
+#[Out]# 2            3  ...                Comedy|Romance
+#[Out]# 3            4  ...                  Comedy|Drama
+#[Out]# 4            5  ...                        Comedy
+#[Out]# ...        ...  ...                           ...
+#[Out]# 3878      3948  ...                        Comedy
+#[Out]# 3879      3949  ...                         Drama
+#[Out]# 3880      3950  ...                         Drama
+#[Out]# 3881      3951  ...                         Drama
+#[Out]# 3882      3952  ...                Drama|Thriller
+#[Out]# 
+#[Out]# [3883 rows x 3 columns]
+all_genres = []
+for x in movies.genres:
+    all_genres.extend(x.split('|'))
+    
+all_genres
+#[Out]# ['Animation',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Fantasy',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Crime',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Action',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Horror',
+#[Out]#  'Animation',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Adventure',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Adventure',
+#[Out]#  'Romance',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Documentary',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'War',
+#[Out]#  'Action',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Crime',
+#[Out]#  'Thriller',
+#[Out]#  'Animation',
+#[Out]#  "Children's",
+#[Out]#  'Musical',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Crime',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Fantasy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Mystery',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Fantasy',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Crime',
+#[Out]#  'Horror',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Musical',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Thriller',
+#[Out]#  'Documentary',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Adventure',
+#[Out]#  'Drama',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Thriller',
+#[Out]#  'Documentary',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Musical',
+#[Out]#  'Documentary',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'War',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Mystery',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Documentary',
+#[Out]#  'Crime',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Mystery',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Fantasy',
+#[Out]#  'Drama',
+#[Out]#  'Documentary',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Documentary',
+#[Out]#  'Comedy',
+#[Out]#  'Documentary',
+#[Out]#  'Documentary',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'War',
+#[Out]#  'Horror',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Comedy',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'War',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'War',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Mystery',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'War',
+#[Out]#  'Documentary',
+#[Out]#  'Action',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Crime',
+#[Out]#  'Film-Noir',
+#[Out]#  'Mystery',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Crime',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Horror',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Horror',
+#[Out]#  'Comedy',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Documentary',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Horror',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Crime',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Drama',
+#[Out]#  'Musical',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Documentary',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Drama',
+#[Out]#  'Western',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Horror',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Animation',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Musical',
+#[Out]#  'Comedy',
+#[Out]#  'Animation',
+#[Out]#  "Children's",
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Documentary',
+#[Out]#  'Drama',
+#[Out]#  'Fantasy',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Horror',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Mystery',
+#[Out]#  'Thriller',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Fantasy',
+#[Out]#  'Romance',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Fantasy',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Drama',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'War',
+#[Out]#  'Western',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Horror',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Horror',
+#[Out]#  'Action',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Action',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Western',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Horror',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Animation',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Sci-Fi',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Fantasy',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Film-Noir',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Musical',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Horror',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Comedy',
+#[Out]#  'Horror',
+#[Out]#  'Drama',
+#[Out]#  'Horror',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Mystery',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'War',
+#[Out]#  'Drama',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Adventure',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Musical',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Mystery',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'War',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Romance',
+#[Out]#  'Documentary',
+#[Out]#  'Animation',
+#[Out]#  "Children's",
+#[Out]#  'Musical',
+#[Out]#  'Drama',
+#[Out]#  'Horror',
+#[Out]#  'Comedy',
+#[Out]#  'Crime',
+#[Out]#  'Fantasy',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Western',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Action',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Horror',
+#[Out]#  'Western',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'War',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Action',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Horror',
+#[Out]#  'Documentary',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Documentary',
+#[Out]#  'Action',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Drama',
+#[Out]#  'Horror',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Thriller',
+#[Out]#  'Western',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Horror',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Thriller',
+#[Out]#  'Mystery',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Western',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Crime',
+#[Out]#  'Comedy',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Documentary',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Mystery',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Western',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Crime',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'War',
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'War',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'War',
+#[Out]#  'Action',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Action',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Action',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Western',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Mystery',
+#[Out]#  'Action',
+#[Out]#  'Crime',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'Horror',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Comedy',
+#[Out]#  'Mystery',
+#[Out]#  'Romance',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'War',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'Mystery',
+#[Out]#  'Comedy',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Crime',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'War',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Crime',
+#[Out]#  'Horror',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Film-Noir',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Sci-Fi',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Documentary',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Musical',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Comedy',
+#[Out]#  'Western',
+#[Out]#  'Thriller',
+#[Out]#  'Action',
+#[Out]#  'Crime',
+#[Out]#  'Romance',
+#[Out]#  'Documentary',
+#[Out]#  'Drama',
+#[Out]#  'Action',
+#[Out]#  'Adventure',
+#[Out]#  'Animation',
+#[Out]#  "Children's",
+#[Out]#  'Fantasy',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Thriller',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Horror',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Adventure',
+#[Out]#  "Children's",
+#[Out]#  'Drama',
+#[Out]#  'Mystery',
+#[Out]#  'Thriller',
+#[Out]#  'Drama',
+#[Out]#  'Documentary',
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Drama',
+#[Out]#  'Drama',
+#[Out]#  'Comedy',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Comedy',
+#[Out]#  'Romance',
+#[Out]#  'Thriller',
+#[Out]#  'Animation',
+#[Out]#  "Children's",
+#[Out]#  'Comedy',
+#[Out]#  'Musical',
+#[Out]#  'Action',
+#[Out]#  'Sci-Fi',
+#[Out]#  'Thriller',
+#[Out]#  'Adventure',
+#[Out]#  ...]
+genres = pd.unique(genres)
+genres = pd.unique(all_genres)
+genres
+#[Out]# array(['Animation', "Children's", 'Comedy', 'Adventure', 'Fantasy',
+#[Out]#        'Romance', 'Drama', 'Action', 'Crime', 'Thriller', 'Horror',
+#[Out]#        'Sci-Fi', 'Documentary', 'War', 'Musical', 'Mystery', 'Film-Noir',
+#[Out]#        'Western'], dtype=object)
+# build indicator dataframe
+#
+zero_matrix = np.zeros((len(movies),len(genres)))
+dummies = pd.DataFrame(zero_matrix, columns=genres)
+dummies
+#[Out]#       Animation  Children's  Comedy  ...  Mystery  Film-Noir  Western
+#[Out]# 0           0.0         0.0     0.0  ...      0.0        0.0      0.0
+#[Out]# 1           0.0         0.0     0.0  ...      0.0        0.0      0.0
+#[Out]# 2           0.0         0.0     0.0  ...      0.0        0.0      0.0
+#[Out]# 3           0.0         0.0     0.0  ...      0.0        0.0      0.0
+#[Out]# 4           0.0         0.0     0.0  ...      0.0        0.0      0.0
+#[Out]# ...         ...         ...     ...  ...      ...        ...      ...
+#[Out]# 3878        0.0         0.0     0.0  ...      0.0        0.0      0.0
+#[Out]# 3879        0.0         0.0     0.0  ...      0.0        0.0      0.0
+#[Out]# 3880        0.0         0.0     0.0  ...      0.0        0.0      0.0
+#[Out]# 3881        0.0         0.0     0.0  ...      0.0        0.0      0.0
+#[Out]# 3882        0.0         0.0     0.0  ...      0.0        0.0      0.0
+#[Out]# 
+#[Out]# [3883 rows x 18 columns]
+gen = movies.genres[0]
+gen.split('|')
+#[Out]# ['Animation', "Children's", 'Comedy']
+dummies.columns.get_indexer(gen.split('|'))
+#[Out]# array([0, 1, 2])
+for i, gen in enumerate(movies.genres):
+    indices = dummies.columns.get_indexer(gen.splt\it('|'))
+for i, gen in enumerate(movies.genres):
+    indices = dummies.columns.get_indexer(gen.spltit('|'))
+    dummies.iloc[i,indices]=1
+    
+for i, gen in enumerate(movies.genres):
+    indices = dummies.columns.get_indexer(gen.splt('|'))
+    dummies.iloc[i,indices]=1
+    
+for i, gen in enumerate(movies.genres):
+    indices = dummies.columns.get_indexer(gen.split('|'))
+    dummies.iloc[i,indices]=1
+    
+movies_windtc = movies.join(dummies.add_prefix('Genre_'))
+movies_windtc
+#[Out]#       movie_id  ... Genre_Western
+#[Out]# 0            1  ...           0.0
+#[Out]# 1            2  ...           0.0
+#[Out]# 2            3  ...           0.0
+#[Out]# 3            4  ...           0.0
+#[Out]# 4            5  ...           0.0
+#[Out]# ...        ...  ...           ...
+#[Out]# 3878      3948  ...           0.0
+#[Out]# 3879      3949  ...           0.0
+#[Out]# 3880      3950  ...           0.0
+#[Out]# 3881      3951  ...           0.0
+#[Out]# 3882      3952  ...           0.0
+#[Out]# 
+#[Out]# [3883 rows x 21 columns]
+movies_windtc.iloc[0]
+#[Out]# movie_id                                       1
+#[Out]# title                           Toy Story (1995)
+#[Out]# genres               Animation|Children's|Comedy
+#[Out]# Genre_Animation                                1
+#[Out]# Genre_Children's                               1
+#[Out]# Genre_Comedy                                   1
+#[Out]# Genre_Adventure                                0
+#[Out]# Genre_Fantasy                                  0
+#[Out]# Genre_Romance                                  0
+#[Out]# Genre_Drama                                    0
+#[Out]# Genre_Action                                   0
+#[Out]# Genre_Crime                                    0
+#[Out]# Genre_Thriller                                 0
+#[Out]# Genre_Horror                                   0
+#[Out]# Genre_Sci-Fi                                   0
+#[Out]# Genre_Documentary                              0
+#[Out]# Genre_War                                      0
+#[Out]# Genre_Musical                                  0
+#[Out]# Genre_Mystery                                  0
+#[Out]# Genre_Film-Noir                                0
+#[Out]# Genre_Western                                  0
+#[Out]# Name: 0, dtype: object
+movies_windtc.iloc[0:1]
+#[Out]#    movie_id             title  ... Genre_Film-Noir  Genre_Western
+#[Out]# 0         1  Toy Story (1995)  ...             0.0            0.0
+#[Out]# 
+#[Out]# [1 rows x 21 columns]
+movies_windtc.iloc[1]
+#[Out]# movie_id                                        2
+#[Out]# title                              Jumanji (1995)
+#[Out]# genres               Adventure|Children's|Fantasy
+#[Out]# Genre_Animation                                 0
+#[Out]# Genre_Children's                                1
+#[Out]# Genre_Comedy                                    0
+#[Out]# Genre_Adventure                                 1
+#[Out]# Genre_Fantasy                                   1
+#[Out]# Genre_Romance                                   0
+#[Out]# Genre_Drama                                     0
+#[Out]# Genre_Action                                    0
+#[Out]# Genre_Crime                                     0
+#[Out]# Genre_Thriller                                  0
+#[Out]# Genre_Horror                                    0
+#[Out]# Genre_Sci-Fi                                    0
+#[Out]# Genre_Documentary                               0
+#[Out]# Genre_War                                       0
+#[Out]# Genre_Musical                                   0
+#[Out]# Genre_Mystery                                   0
+#[Out]# Genre_Film-Noir                                 0
+#[Out]# Genre_Western                                   0
+#[Out]# Name: 1, dtype: object
+#
+# combine get_dummies with cut
+#
+np.random.seed(12345)
+values = np.random.rand(10)
+values
+#[Out]# array([0.92961609, 0.31637555, 0.18391881, 0.20456028, 0.56772503,
+#[Out]#        0.5955447 , 0.96451452, 0.6531771 , 0.74890664, 0.65356987])
+bins = [0,0.2,0,4,0.6,0.8,1]
+pd.get_dummies(pd.cut(values, bins))
+bins = [0,0.2,0.4,0.6,0.8,1]
+pd.get_dummies(pd.cut(values, bins))
+#[Out]#    (0.0, 0.2]  (0.2, 0.4]  (0.4, 0.6]  (0.6, 0.8]  (0.8, 1.0]
+#[Out]# 0           0           0           0           0           1
+#[Out]# 1           0           1           0           0           0
+#[Out]# 2           1           0           0           0           0
+#[Out]# 3           0           1           0           0           0
+#[Out]# 4           0           0           1           0           0
+#[Out]# 5           0           0           1           0           0
+#[Out]# 6           0           0           0           0           1
+#[Out]# 7           0           0           0           1           0
+#[Out]# 8           0           0           0           1           0
+#[Out]# 9           0           0           0           1           0
+#
+# string manipulatiom - section 7.3
+@#
+#
+exit()
