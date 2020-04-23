@@ -1880,3 +1880,1335 @@ pd.get_dummies(pd.cut(values, bins))
 @#
 #
 exit()
+dir({})
+#[Out]# ['__class__',
+#[Out]#  '__contains__',
+#[Out]#  '__delattr__',
+#[Out]#  '__delitem__',
+#[Out]#  '__dir__',
+#[Out]#  '__doc__',
+#[Out]#  '__eq__',
+#[Out]#  '__format__',
+#[Out]#  '__ge__',
+#[Out]#  '__getattribute__',
+#[Out]#  '__getitem__',
+#[Out]#  '__gt__',
+#[Out]#  '__hash__',
+#[Out]#  '__init__',
+#[Out]#  '__init_subclass__',
+#[Out]#  '__iter__',
+#[Out]#  '__le__',
+#[Out]#  '__len__',
+#[Out]#  '__lt__',
+#[Out]#  '__ne__',
+#[Out]#  '__new__',
+#[Out]#  '__reduce__',
+#[Out]#  '__reduce_ex__',
+#[Out]#  '__repr__',
+#[Out]#  '__setattr__',
+#[Out]#  '__setitem__',
+#[Out]#  '__sizeof__',
+#[Out]#  '__str__',
+#[Out]#  '__subclasshook__',
+#[Out]#  'clear',
+#[Out]#  'copy',
+#[Out]#  'fromkeys',
+#[Out]#  'get',
+#[Out]#  'items',
+#[Out]#  'keys',
+#[Out]#  'pop',
+#[Out]#  'popitem',
+#[Out]#  'setdefault',
+#[Out]#  'update',
+#[Out]#  'values']
+get_ipython().run_line_magic('history', '(100)')
+get_ipython().run_line_magic('hist', '')
+get_ipython().run_line_magic('hist', '(100)')
+get_ipython().run_line_magic('pinfo', 'hist')
+get_ipython().run_line_magic('history', '')
+get_ipython().run_line_magic('pinfo', '%history')
+get_ipython().run_line_magic('history', '-l 40')
+df
+df = pd.DataFrame(data=[[1,2,3,4],[5,6,7,8]], columns=['a','b','c','d'])
+import numpy as np
+import pandas as pd
+df = pd.DataFrame(data=[[1,2,3,4],[5,6,7,8]], columns=['a','b','c','d'])
+df
+#[Out]#    a  b  c  d
+#[Out]# 0  1  2  3  4
+#[Out]# 1  5  6  7  8
+get_ipython().run_line_magic('pwd', '')
+#[Out]# '/mnt/d/sandbox/ml/oreilly-python-for-data-analysis-2018/my-src/ch7'
+get_ipython().run_line_magic('history', '-l 100')
+import sqlalchemy as sqla
+string_data = pd.Series(['aardvark','artichoke',np.nan,'avocado'])
+string_data
+#[Out]# 0     aardvark
+#[Out]# 1    artichoke
+#[Out]# 2          NaN
+#[Out]# 3      avocado
+#[Out]# dtype: object
+string_data.isnull()
+#[Out]# 0    False
+#[Out]# 1    False
+#[Out]# 2     True
+#[Out]# 3    False
+#[Out]# dtype: bool
+string_data[5] = None
+string_data.isnull()
+#[Out]# 0    False
+#[Out]# 1    False
+#[Out]# 2     True
+#[Out]# 3    False
+#[Out]# 5     True
+#[Out]# dtype: bool
+#
+# handling NAs
+# dropna, fillna, isnull, notnull
+string_data.notnull()
+#[Out]# 0     True
+#[Out]# 1     True
+#[Out]# 2    False
+#[Out]# 3     True
+#[Out]# 5    False
+#[Out]# dtype: bool
+from numpy import nan as NA
+data = pd.Series([1,NA,3.5,NA,7])
+data.dropna()
+#[Out]# 0    1.0
+#[Out]# 2    3.5
+#[Out]# 4    7.0
+#[Out]# dtype: float64
+data
+#[Out]# 0    1.0
+#[Out]# 1    NaN
+#[Out]# 2    3.5
+#[Out]# 3    NaN
+#[Out]# 4    7.0
+#[Out]# dtype: float64
+data[data.notnull()]
+#[Out]# 0    1.0
+#[Out]# 2    3.5
+#[Out]# 4    7.0
+#[Out]# dtype: float64
+data[data.isnull()]
+#[Out]# 1   NaN
+#[Out]# 3   NaN
+#[Out]# dtype: float64
+data[!data.isnull()]
+data[ not data.isnull()]
+data.isnull()
+#[Out]# 0    False
+#[Out]# 1     True
+#[Out]# 2    False
+#[Out]# 3     True
+#[Out]# 4    False
+#[Out]# dtype: bool
+data.isnull()
+#[Out]# 0    False
+#[Out]# 1     True
+#[Out]# 2    False
+#[Out]# 3     True
+#[Out]# 4    False
+#[Out]# dtype: bool
+not true
+not True
+#[Out]# False
+not False
+#[Out]# True
+data[(not data.isnull())]
+data[data.isnull() != True]
+#[Out]# 0    1.0
+#[Out]# 2    3.5
+#[Out]# 4    7.0
+#[Out]# dtype: float64
+data[data.isnull() != False]
+#[Out]# 1   NaN
+#[Out]# 3   NaN
+#[Out]# dtype: float64
+data = pd.DataFrame([[1.,6.5,2.],[1.,NA,NA],[NA,NA,NA],[NA,6.5,3.]])
+data
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  2.0
+#[Out]# 1  1.0  NaN  NaN
+#[Out]# 2  NaN  NaN  NaN
+#[Out]# 3  NaN  6.5  3.0
+cleaned = data.dropna()
+cleaned
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  2.0
+cleaned = data.dropna(how='all')
+cleaned
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  2.0
+#[Out]# 1  1.0  NaN  NaN
+#[Out]# 3  NaN  6.5  3.0
+cleaned = data.dropna(how='all',axis=1)
+cleaned
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  2.0
+#[Out]# 1  1.0  NaN  NaN
+#[Out]# 2  NaN  NaN  NaN
+#[Out]# 3  NaN  6.5  3.0
+data[4]=NA
+cleaned = data.dropna(how='all',axis=1)
+cleaned
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  2.0
+#[Out]# 1  1.0  NaN  NaN
+#[Out]# 2  NaN  NaN  NaN
+#[Out]# 3  NaN  6.5  3.0
+data[4]=NA
+data
+#[Out]#      0    1    2   4
+#[Out]# 0  1.0  6.5  2.0 NaN
+#[Out]# 1  1.0  NaN  NaN NaN
+#[Out]# 2  NaN  NaN  NaN NaN
+#[Out]# 3  NaN  6.5  3.0 NaN
+cleaned = data.dropna(how='all',axis=1)
+cleaned
+#[Out]#      0    1    2
+#[Out]# 0  1.0  6.5  2.0
+#[Out]# 1  1.0  NaN  NaN
+#[Out]# 2  NaN  NaN  NaN
+#[Out]# 3  NaN  6.5  3.0
+df = pd.DataFrame(np.random.randn(7,3))
+df.iloc[:4,1]=NA
+df.iloc[:2,2]=NA
+df
+#[Out]#           0         1         2
+#[Out]# 0  1.403788       NaN       NaN
+#[Out]# 1 -0.717897       NaN       NaN
+#[Out]# 2 -0.137116       NaN  0.613297
+#[Out]# 3  1.442639       NaN -0.013758
+#[Out]# 4 -0.209224  0.951518  0.080573
+#[Out]# 5  0.198948  0.455212  0.359070
+#[Out]# 6 -1.016079 -0.459662 -1.072314
+df.dropna()
+#[Out]#           0         1         2
+#[Out]# 4 -0.209224  0.951518  0.080573
+#[Out]# 5  0.198948  0.455212  0.359070
+#[Out]# 6 -1.016079 -0.459662 -1.072314
+df.dropna(thresh=2)
+#[Out]#           0         1         2
+#[Out]# 2 -0.137116       NaN  0.613297
+#[Out]# 3  1.442639       NaN -0.013758
+#[Out]# 4 -0.209224  0.951518  0.080573
+#[Out]# 5  0.198948  0.455212  0.359070
+#[Out]# 6 -1.016079 -0.459662 -1.072314
+df2 = df
+df2.fillna(0)
+#[Out]#           0         1         2
+#[Out]# 0  1.403788  0.000000  0.000000
+#[Out]# 1 -0.717897  0.000000  0.000000
+#[Out]# 2 -0.137116  0.000000  0.613297
+#[Out]# 3  1.442639  0.000000 -0.013758
+#[Out]# 4 -0.209224  0.951518  0.080573
+#[Out]# 5  0.198948  0.455212  0.359070
+#[Out]# 6 -1.016079 -0.459662 -1.072314
+df2
+#[Out]#           0         1         2
+#[Out]# 0  1.403788       NaN       NaN
+#[Out]# 1 -0.717897       NaN       NaN
+#[Out]# 2 -0.137116       NaN  0.613297
+#[Out]# 3  1.442639       NaN -0.013758
+#[Out]# 4 -0.209224  0.951518  0.080573
+#[Out]# 5  0.198948  0.455212  0.359070
+#[Out]# 6 -1.016079 -0.459662 -1.072314
+df.fillna(0)
+#[Out]#           0         1         2
+#[Out]# 0  1.403788  0.000000  0.000000
+#[Out]# 1 -0.717897  0.000000  0.000000
+#[Out]# 2 -0.137116  0.000000  0.613297
+#[Out]# 3  1.442639  0.000000 -0.013758
+#[Out]# 4 -0.209224  0.951518  0.080573
+#[Out]# 5  0.198948  0.455212  0.359070
+#[Out]# 6 -1.016079 -0.459662 -1.072314
+df.fillna({1:0.5,2:0})
+#[Out]#           0         1         2
+#[Out]# 0  1.403788  0.500000  0.000000
+#[Out]# 1 -0.717897  0.500000  0.000000
+#[Out]# 2 -0.137116  0.500000  0.613297
+#[Out]# 3  1.442639  0.500000 -0.013758
+#[Out]# 4 -0.209224  0.951518  0.080573
+#[Out]# 5  0.198948  0.455212  0.359070
+#[Out]# 6 -1.016079 -0.459662 -1.072314
+df.fillna({1:0.5,2:0},inplace=True)
+df
+#[Out]#           0         1         2
+#[Out]# 0  1.403788  0.500000  0.000000
+#[Out]# 1 -0.717897  0.500000  0.000000
+#[Out]# 2 -0.137116  0.500000  0.613297
+#[Out]# 3  1.442639  0.500000 -0.013758
+#[Out]# 4 -0.209224  0.951518  0.080573
+#[Out]# 5  0.198948  0.455212  0.359070
+#[Out]# 6 -1.016079 -0.459662 -1.072314
+df = pd.DataFrame(np.andom.randn(6,3))
+df = pd.DataFrame(np.random.randn(6,3))
+df/iloc[2:,1]=NA
+df.iloc[2:,1]=NA
+df.iloc[4:,2]=NA
+df
+#[Out]#           0         1         2
+#[Out]# 0 -0.148887 -1.464362 -0.172625
+#[Out]# 1 -1.030339 -0.818963 -0.158394
+#[Out]# 2 -0.836291       NaN -0.810567
+#[Out]# 3  0.531017       NaN -1.792125
+#[Out]# 4  0.259185       NaN       NaN
+#[Out]# 5 -0.357956       NaN       NaN
+df
+#[Out]#           0         1         2
+#[Out]# 0 -0.148887 -1.464362 -0.172625
+#[Out]# 1 -1.030339 -0.818963 -0.158394
+#[Out]# 2 -0.836291       NaN -0.810567
+#[Out]# 3  0.531017       NaN -1.792125
+#[Out]# 4  0.259185       NaN       NaN
+#[Out]# 5 -0.357956       NaN       NaN
+df.fillna(method='ffill')
+#[Out]#           0         1         2
+#[Out]# 0 -0.148887 -1.464362 -0.172625
+#[Out]# 1 -1.030339 -0.818963 -0.158394
+#[Out]# 2 -0.836291 -0.818963 -0.810567
+#[Out]# 3  0.531017 -0.818963 -1.792125
+#[Out]# 4  0.259185 -0.818963 -1.792125
+#[Out]# 5 -0.357956 -0.818963 -1.792125
+df.fillna(method='ffill',limit=2)
+#[Out]#           0         1         2
+#[Out]# 0 -0.148887 -1.464362 -0.172625
+#[Out]# 1 -1.030339 -0.818963 -0.158394
+#[Out]# 2 -0.836291 -0.818963 -0.810567
+#[Out]# 3  0.531017 -0.818963 -1.792125
+#[Out]# 4  0.259185       NaN -1.792125
+#[Out]# 5 -0.357956       NaN -1.792125
+data = pd.Series([1.,NA,3.5,NA,7.])
+data.fillna(data.mean())
+#[Out]# 0    1.000000
+#[Out]# 1    3.833333
+#[Out]# 2    3.500000
+#[Out]# 3    3.833333
+#[Out]# 4    7.000000
+#[Out]# dtype: float64
+#
+# options for fillna are:
+# value, method, axis, inplace, limit
+#
+#
+# section 7.2 - data transformations
+#
+# removing duplicates
+#
+data = pd.DataFrame({'k1':['one','two']*3+['two'], 'k2':[1,1,2,3,3,4,4]})
+data
+#[Out]#     k1  k2
+#[Out]# 0  one   1
+#[Out]# 1  two   1
+#[Out]# 2  one   2
+#[Out]# 3  two   3
+#[Out]# 4  one   3
+#[Out]# 5  two   4
+#[Out]# 6  two   4
+data.duplicated()
+#[Out]# 0    False
+#[Out]# 1    False
+#[Out]# 2    False
+#[Out]# 3    False
+#[Out]# 4    False
+#[Out]# 5    False
+#[Out]# 6     True
+#[Out]# dtype: bool
+data.drop_duplicatesd()
+data.drop_duplicates()
+#[Out]#     k1  k2
+#[Out]# 0  one   1
+#[Out]# 1  two   1
+#[Out]# 2  one   2
+#[Out]# 3  two   3
+#[Out]# 4  one   3
+#[Out]# 5  two   4
+data['v1']=range(7)
+data.drop_duplicates(['k1'])
+#[Out]#     k1  k2  v1
+#[Out]# 0  one   1   0
+#[Out]# 1  two   1   1
+data.drop_duplicates(['k1']. keep='last')
+data.drop_duplicates(['k1'],  keep='last')
+#[Out]#     k1  k2  v1
+#[Out]# 4  one   3   4
+#[Out]# 6  two   4   6
+# transform data using a function ot mapping
+#
+data - pd.DataFrame({'food':['bacon','pulled pork','bacon','Pastrami','corned beef','bacon','pastrami','honey ham','nova lox'], 'ounces':[4,3,12,6,7.5,8,3,5,6]})
+#[Out]#   food   k1  k2  ounces  v1
+#[Out]# 0  NaN  NaN NaN     NaN NaN
+#[Out]# 1  NaN  NaN NaN     NaN NaN
+#[Out]# 2  NaN  NaN NaN     NaN NaN
+#[Out]# 3  NaN  NaN NaN     NaN NaN
+#[Out]# 4  NaN  NaN NaN     NaN NaN
+#[Out]# 5  NaN  NaN NaN     NaN NaN
+#[Out]# 6  NaN  NaN NaN     NaN NaN
+#[Out]# 7  NaN  NaN NaN     NaN NaN
+#[Out]# 8  NaN  NaN NaN     NaN NaN
+data = pd.DataFrame({'food':['bacon','pulled pork','bacon','Pastrami','corned beef','bacon','pastrami','honey ham','nova lox'], 'ounces':[4,3,12,6,7.5,8,3,5,6]})
+
+data
+#[Out]#           food  ounces
+#[Out]# 0        bacon     4.0
+#[Out]# 1  pulled pork     3.0
+#[Out]# 2        bacon    12.0
+#[Out]# 3     Pastrami     6.0
+#[Out]# 4  corned beef     7.5
+#[Out]# 5        bacon     8.0
+#[Out]# 6     pastrami     3.0
+#[Out]# 7    honey ham     5.0
+#[Out]# 8     nova lox     6.0
+meat_to_animal = {
+'bacon': 'pig',
+'pulled pork': 'pig',
+'pastrami':'cow',
+'corned beef': 'cow',
+'honey ham': 'pig',
+'nova lox': 'salmon' }
+lowercased
+lowercased = data['food'].str.lower()
+lowercased
+#[Out]# 0          bacon
+#[Out]# 1    pulled pork
+#[Out]# 2          bacon
+#[Out]# 3       pastrami
+#[Out]# 4    corned beef
+#[Out]# 5          bacon
+#[Out]# 6       pastrami
+#[Out]# 7      honey ham
+#[Out]# 8       nova lox
+#[Out]# Name: food, dtype: object
+data['animal'] = lowercased.map(meat_to_animals)
+data['animal'] = lowercased.map(meat_to_animal)
+data
+#[Out]#           food  ounces  animal
+#[Out]# 0        bacon     4.0     pig
+#[Out]# 1  pulled pork     3.0     pig
+#[Out]# 2        bacon    12.0     pig
+#[Out]# 3     Pastrami     6.0     cow
+#[Out]# 4  corned beef     7.5     cow
+#[Out]# 5        bacon     8.0     pig
+#[Out]# 6     pastrami     3.0     cow
+#[Out]# 7    honey ham     5.0     pig
+#[Out]# 8     nova lox     6.0  salmon
+data['food'].map(lambda x: meat_to_animal[x.lower()])
+#[Out]# 0       pig
+#[Out]# 1       pig
+#[Out]# 2       pig
+#[Out]# 3       cow
+#[Out]# 4       cow
+#[Out]# 5       pig
+#[Out]# 6       cow
+#[Out]# 7       pig
+#[Out]# 8    salmon
+#[Out]# Name: food, dtype: object
+# replacing values
+#
+data = pd.DataSeries([1.,-999.,2.,-999,,-1000.,3.])
+
+data = pd.DataSeries([1.,-999.,2.,-999,-1000.,3.])
+
+
+data = pd.DataSeries([1.,-999.,2.,-999,-1000.,3.])
+
+
+data = pd.Series([1.,-999.,2.,-999,-1000.,3.])
+
+
+
+data.replace(-999,np.nan)
+#[Out]# 0       1.0
+#[Out]# 1       NaN
+#[Out]# 2       2.0
+#[Out]# 3       NaN
+#[Out]# 4   -1000.0
+#[Out]# 5       3.0
+#[Out]# dtype: float64
+data.replace([-999,-1000],np.nan)
+#[Out]# 0    1.0
+#[Out]# 1    NaN
+#[Out]# 2    2.0
+#[Out]# 3    NaN
+#[Out]# 4    NaN
+#[Out]# 5    3.0
+#[Out]# dtype: float64
+data.replace([-999,-1000],[np.nan,0])
+#[Out]# 0    1.0
+#[Out]# 1    NaN
+#[Out]# 2    2.0
+#[Out]# 3    NaN
+#[Out]# 4    0.0
+#[Out]# 5    3.0
+#[Out]# dtype: float64
+data.replace({-999:np.nan,-1000:0})
+#[Out]# 0    1.0
+#[Out]# 1    NaN
+#[Out]# 2    2.0
+#[Out]# 3    NaN
+#[Out]# 4    0.0
+#[Out]# 5    3.0
+#[Out]# dtype: float64
+# renaming axis indexes
+#
+data = pd.DataFrame(np.arange(12).reshape(3,4),
+index=['Ohio','Colorado','New York'],
+columns=['one','tw','three','four'])
+transform = lambda x: x[:4].upper()
+data.index.map(transform)
+#[Out]# Index(['OHIO', 'COLO', 'NEW '], dtype='object')
+dir(data)
+#[Out]# ['T',
+#[Out]#  '_AXIS_ALIASES',
+#[Out]#  '_AXIS_IALIASES',
+#[Out]#  '_AXIS_LEN',
+#[Out]#  '_AXIS_NAMES',
+#[Out]#  '_AXIS_NUMBERS',
+#[Out]#  '_AXIS_ORDERS',
+#[Out]#  '_AXIS_REVERSED',
+#[Out]#  '__abs__',
+#[Out]#  '__add__',
+#[Out]#  '__and__',
+#[Out]#  '__annotations__',
+#[Out]#  '__array__',
+#[Out]#  '__array_priority__',
+#[Out]#  '__array_wrap__',
+#[Out]#  '__bool__',
+#[Out]#  '__class__',
+#[Out]#  '__contains__',
+#[Out]#  '__copy__',
+#[Out]#  '__deepcopy__',
+#[Out]#  '__delattr__',
+#[Out]#  '__delitem__',
+#[Out]#  '__dict__',
+#[Out]#  '__dir__',
+#[Out]#  '__div__',
+#[Out]#  '__doc__',
+#[Out]#  '__eq__',
+#[Out]#  '__finalize__',
+#[Out]#  '__floordiv__',
+#[Out]#  '__format__',
+#[Out]#  '__ge__',
+#[Out]#  '__getattr__',
+#[Out]#  '__getattribute__',
+#[Out]#  '__getitem__',
+#[Out]#  '__getstate__',
+#[Out]#  '__gt__',
+#[Out]#  '__hash__',
+#[Out]#  '__iadd__',
+#[Out]#  '__iand__',
+#[Out]#  '__ifloordiv__',
+#[Out]#  '__imod__',
+#[Out]#  '__imul__',
+#[Out]#  '__init__',
+#[Out]#  '__init_subclass__',
+#[Out]#  '__invert__',
+#[Out]#  '__ior__',
+#[Out]#  '__ipow__',
+#[Out]#  '__isub__',
+#[Out]#  '__iter__',
+#[Out]#  '__itruediv__',
+#[Out]#  '__ixor__',
+#[Out]#  '__le__',
+#[Out]#  '__len__',
+#[Out]#  '__lt__',
+#[Out]#  '__matmul__',
+#[Out]#  '__mod__',
+#[Out]#  '__module__',
+#[Out]#  '__mul__',
+#[Out]#  '__ne__',
+#[Out]#  '__neg__',
+#[Out]#  '__new__',
+#[Out]#  '__nonzero__',
+#[Out]#  '__or__',
+#[Out]#  '__pos__',
+#[Out]#  '__pow__',
+#[Out]#  '__radd__',
+#[Out]#  '__rand__',
+#[Out]#  '__rdiv__',
+#[Out]#  '__reduce__',
+#[Out]#  '__reduce_ex__',
+#[Out]#  '__repr__',
+#[Out]#  '__rfloordiv__',
+#[Out]#  '__rmatmul__',
+#[Out]#  '__rmod__',
+#[Out]#  '__rmul__',
+#[Out]#  '__ror__',
+#[Out]#  '__round__',
+#[Out]#  '__rpow__',
+#[Out]#  '__rsub__',
+#[Out]#  '__rtruediv__',
+#[Out]#  '__rxor__',
+#[Out]#  '__setattr__',
+#[Out]#  '__setitem__',
+#[Out]#  '__setstate__',
+#[Out]#  '__sizeof__',
+#[Out]#  '__str__',
+#[Out]#  '__sub__',
+#[Out]#  '__subclasshook__',
+#[Out]#  '__truediv__',
+#[Out]#  '__weakref__',
+#[Out]#  '__xor__',
+#[Out]#  '_accessors',
+#[Out]#  '_add_numeric_operations',
+#[Out]#  '_add_series_or_dataframe_operations',
+#[Out]#  '_agg_by_level',
+#[Out]#  '_agg_examples_doc',
+#[Out]#  '_agg_summary_and_see_also_doc',
+#[Out]#  '_aggregate',
+#[Out]#  '_aggregate_multiple_funcs',
+#[Out]#  '_align_frame',
+#[Out]#  '_align_series',
+#[Out]#  '_box_col_values',
+#[Out]#  '_box_item_values',
+#[Out]#  '_builtin_table',
+#[Out]#  '_check_inplace_setting',
+#[Out]#  '_check_is_chained_assignment_possible',
+#[Out]#  '_check_label_or_level_ambiguity',
+#[Out]#  '_check_setitem_copy',
+#[Out]#  '_clear_item_cache',
+#[Out]#  '_clip_with_one_bound',
+#[Out]#  '_clip_with_scalar',
+#[Out]#  '_combine_frame',
+#[Out]#  '_combine_match_index',
+#[Out]#  '_consolidate',
+#[Out]#  '_consolidate_inplace',
+#[Out]#  '_construct_axes_dict',
+#[Out]#  '_construct_axes_dict_from',
+#[Out]#  '_construct_axes_from_arguments',
+#[Out]#  '_construct_result',
+#[Out]#  '_constructor',
+#[Out]#  '_constructor_expanddim',
+#[Out]#  '_constructor_sliced',
+#[Out]#  '_convert',
+#[Out]#  '_count_level',
+#[Out]#  '_create_indexer',
+#[Out]#  '_cython_table',
+#[Out]#  '_deprecations',
+#[Out]#  '_dir_additions',
+#[Out]#  '_dir_deletions',
+#[Out]#  '_drop_axis',
+#[Out]#  '_drop_labels_or_levels',
+#[Out]#  '_ensure_type',
+#[Out]#  '_ensure_valid_index',
+#[Out]#  '_find_valid_index',
+#[Out]#  '_from_arrays',
+#[Out]#  '_from_axes',
+#[Out]#  '_get_agg_axis',
+#[Out]#  '_get_axis',
+#[Out]#  '_get_axis_name',
+#[Out]#  '_get_axis_number',
+#[Out]#  '_get_axis_resolvers',
+#[Out]#  '_get_block_manager_axis',
+#[Out]#  '_get_bool_data',
+#[Out]#  '_get_cacher',
+#[Out]#  '_get_cleaned_column_resolvers',
+#[Out]#  '_get_cython_func',
+#[Out]#  '_get_index_resolvers',
+#[Out]#  '_get_item_cache',
+#[Out]#  '_get_label_or_level_values',
+#[Out]#  '_get_numeric_data',
+#[Out]#  '_get_value',
+#[Out]#  '_get_values',
+#[Out]#  '_getitem_bool_array',
+#[Out]#  '_getitem_multilevel',
+#[Out]#  '_gotitem',
+#[Out]#  '_iget_item_cache',
+#[Out]#  '_indexed_same',
+#[Out]#  '_info_axis',
+#[Out]#  '_info_axis_name',
+#[Out]#  '_info_axis_number',
+#[Out]#  '_info_repr',
+#[Out]#  '_init_mgr',
+#[Out]#  '_internal_get_values',
+#[Out]#  '_internal_names',
+#[Out]#  '_internal_names_set',
+#[Out]#  '_is_builtin_func',
+#[Out]#  '_is_cached',
+#[Out]#  '_is_copy',
+#[Out]#  '_is_datelike_mixed_type',
+#[Out]#  '_is_homogeneous_type',
+#[Out]#  '_is_label_or_level_reference',
+#[Out]#  '_is_label_reference',
+#[Out]#  '_is_level_reference',
+#[Out]#  '_is_mixed_type',
+#[Out]#  '_is_numeric_mixed_type',
+#[Out]#  '_is_view',
+#[Out]#  '_ix',
+#[Out]#  '_ixs',
+#[Out]#  '_join_compat',
+#[Out]#  '_maybe_cache_changed',
+#[Out]#  '_maybe_update_cacher',
+#[Out]#  '_metadata',
+#[Out]#  '_needs_reindex_multi',
+#[Out]#  '_obj_with_exclusions',
+#[Out]#  '_protect_consolidate',
+#[Out]#  '_reduce',
+#[Out]#  '_reindex_axes',
+#[Out]#  '_reindex_columns',
+#[Out]#  '_reindex_index',
+#[Out]#  '_reindex_multi',
+#[Out]#  '_reindex_with_indexers',
+#[Out]#  '_repr_data_resource_',
+#[Out]#  '_repr_fits_horizontal_',
+#[Out]#  '_repr_fits_vertical_',
+#[Out]#  '_repr_html_',
+#[Out]#  '_repr_latex_',
+#[Out]#  '_reset_cache',
+#[Out]#  '_reset_cacher',
+#[Out]#  '_sanitize_column',
+#[Out]#  '_selected_obj',
+#[Out]#  '_selection',
+#[Out]#  '_selection_list',
+#[Out]#  '_selection_name',
+#[Out]#  '_series',
+#[Out]#  '_set_as_cached',
+#[Out]#  '_set_axis',
+#[Out]#  '_set_axis_name',
+#[Out]#  '_set_is_copy',
+#[Out]#  '_set_item',
+#[Out]#  '_set_value',
+#[Out]#  '_setitem_array',
+#[Out]#  '_setitem_frame',
+#[Out]#  '_setitem_slice',
+#[Out]#  '_setup_axes',
+#[Out]#  '_slice',
+#[Out]#  '_stat_axis',
+#[Out]#  '_stat_axis_name',
+#[Out]#  '_stat_axis_number',
+#[Out]#  '_take_with_is_copy',
+#[Out]#  '_to_dict_of_blocks',
+#[Out]#  '_try_aggregate_string_function',
+#[Out]#  '_typ',
+#[Out]#  '_update_inplace',
+#[Out]#  '_validate_dtype',
+#[Out]#  '_values',
+#[Out]#  '_where',
+#[Out]#  '_xs',
+#[Out]#  'abs',
+#[Out]#  'add',
+#[Out]#  'add_prefix',
+#[Out]#  'add_suffix',
+#[Out]#  'agg',
+#[Out]#  'aggregate',
+#[Out]#  'align',
+#[Out]#  'all',
+#[Out]#  'any',
+#[Out]#  'append',
+#[Out]#  'apply',
+#[Out]#  'applymap',
+#[Out]#  'asfreq',
+#[Out]#  'asof',
+#[Out]#  'assign',
+#[Out]#  'astype',
+#[Out]#  'at',
+#[Out]#  'at_time',
+#[Out]#  'attrs',
+#[Out]#  'axes',
+#[Out]#  'between_time',
+#[Out]#  'bfill',
+#[Out]#  'bool',
+#[Out]#  'boxplot',
+#[Out]#  'clip',
+#[Out]#  'columns',
+#[Out]#  'combine',
+#[Out]#  'combine_first',
+#[Out]#  'convert_dtypes',
+#[Out]#  'copy',
+#[Out]#  'corr',
+#[Out]#  'corrwith',
+#[Out]#  'count',
+#[Out]#  'cov',
+#[Out]#  'cummax',
+#[Out]#  'cummin',
+#[Out]#  'cumprod',
+#[Out]#  'cumsum',
+#[Out]#  'describe',
+#[Out]#  'diff',
+#[Out]#  'div',
+#[Out]#  'divide',
+#[Out]#  'dot',
+#[Out]#  'drop',
+#[Out]#  'drop_duplicates',
+#[Out]#  'droplevel',
+#[Out]#  'dropna',
+#[Out]#  'dtypes',
+#[Out]#  'duplicated',
+#[Out]#  'empty',
+#[Out]#  'eq',
+#[Out]#  'equals',
+#[Out]#  'eval',
+#[Out]#  'ewm',
+#[Out]#  'expanding',
+#[Out]#  'explode',
+#[Out]#  'ffill',
+#[Out]#  'fillna',
+#[Out]#  'filter',
+#[Out]#  'first',
+#[Out]#  'first_valid_index',
+#[Out]#  'floordiv',
+#[Out]#  'four',
+#[Out]#  'from_dict',
+#[Out]#  'from_records',
+#[Out]#  'ge',
+#[Out]#  'get',
+#[Out]#  'groupby',
+#[Out]#  'gt',
+#[Out]#  'head',
+#[Out]#  'hist',
+#[Out]#  'iat',
+#[Out]#  'idxmax',
+#[Out]#  'idxmin',
+#[Out]#  'iloc',
+#[Out]#  'index',
+#[Out]#  'infer_objects',
+#[Out]#  'info',
+#[Out]#  'insert',
+#[Out]#  'interpolate',
+#[Out]#  'isin',
+#[Out]#  'isna',
+#[Out]#  'isnull',
+#[Out]#  'items',
+#[Out]#  'iteritems',
+#[Out]#  'iterrows',
+#[Out]#  'itertuples',
+#[Out]#  'join',
+#[Out]#  'keys',
+#[Out]#  'kurt',
+#[Out]#  'kurtosis',
+#[Out]#  'last',
+#[Out]#  'last_valid_index',
+#[Out]#  'le',
+#[Out]#  'loc',
+#[Out]#  'lookup',
+#[Out]#  'lt',
+#[Out]#  'mad',
+#[Out]#  'mask',
+#[Out]#  'max',
+#[Out]#  'mean',
+#[Out]#  'median',
+#[Out]#  'melt',
+#[Out]#  'memory_usage',
+#[Out]#  'merge',
+#[Out]#  'min',
+#[Out]#  'mod',
+#[Out]#  'mode',
+#[Out]#  'mul',
+#[Out]#  'multiply',
+#[Out]#  'ndim',
+#[Out]#  'ne',
+#[Out]#  'nlargest',
+#[Out]#  'notna',
+#[Out]#  'notnull',
+#[Out]#  'nsmallest',
+#[Out]#  'nunique',
+#[Out]#  'one',
+#[Out]#  'pct_change',
+#[Out]#  'pipe',
+#[Out]#  'pivot',
+#[Out]#  'pivot_table',
+#[Out]#  'plot',
+#[Out]#  'pop',
+#[Out]#  'pow',
+#[Out]#  'prod',
+#[Out]#  'product',
+#[Out]#  'quantile',
+#[Out]#  'query',
+#[Out]#  'radd',
+#[Out]#  'rank',
+#[Out]#  'rdiv',
+#[Out]#  'reindex',
+#[Out]#  'reindex_like',
+#[Out]#  'rename',
+#[Out]#  'rename_axis',
+#[Out]#  'reorder_levels',
+#[Out]#  'replace',
+#[Out]#  'resample',
+#[Out]#  'reset_index',
+#[Out]#  'rfloordiv',
+#[Out]#  'rmod',
+#[Out]#  'rmul',
+#[Out]#  'rolling',
+#[Out]#  'round',
+#[Out]#  'rpow',
+#[Out]#  'rsub',
+#[Out]#  'rtruediv',
+#[Out]#  'sample',
+#[Out]#  'select_dtypes',
+#[Out]#  'sem',
+#[Out]#  'set_axis',
+#[Out]#  'set_index',
+#[Out]#  'shape',
+#[Out]#  'shift',
+#[Out]#  'size',
+#[Out]#  'skew',
+#[Out]#  'slice_shift',
+#[Out]#  'sort_index',
+#[Out]#  'sort_values',
+#[Out]#  'squeeze',
+#[Out]#  'stack',
+#[Out]#  'std',
+#[Out]#  'style',
+#[Out]#  'sub',
+#[Out]#  'subtract',
+#[Out]#  'sum',
+#[Out]#  'swapaxes',
+#[Out]#  'swaplevel',
+#[Out]#  'tail',
+#[Out]#  'take',
+#[Out]#  'three',
+#[Out]#  'to_clipboard',
+#[Out]#  'to_csv',
+#[Out]#  'to_dict',
+#[Out]#  'to_excel',
+#[Out]#  'to_feather',
+#[Out]#  'to_gbq',
+#[Out]#  'to_hdf',
+#[Out]#  'to_html',
+#[Out]#  'to_json',
+#[Out]#  'to_latex',
+#[Out]#  'to_markdown',
+#[Out]#  'to_numpy',
+#[Out]#  'to_parquet',
+#[Out]#  'to_period',
+#[Out]#  'to_pickle',
+#[Out]#  'to_records',
+#[Out]#  'to_sql',
+#[Out]#  'to_stata',
+#[Out]#  'to_string',
+#[Out]#  'to_timestamp',
+#[Out]#  'to_xarray',
+#[Out]#  'transform',
+#[Out]#  'transpose',
+#[Out]#  'truediv',
+#[Out]#  'truncate',
+#[Out]#  'tshift',
+#[Out]#  'tw',
+#[Out]#  'tz_convert',
+#[Out]#  'tz_localize',
+#[Out]#  'unstack',
+#[Out]#  'update',
+#[Out]#  'values',
+#[Out]#  'var',
+#[Out]#  'where',
+#[Out]#  'xs']
+data.index
+#[Out]# Index(['Ohio', 'Colorado', 'New York'], dtype='object')
+data.index = data.index.map(transform)
+data
+#[Out]#       one  tw  three  four
+#[Out]# OHIO    0   1      2     3
+#[Out]# COLO    4   5      6     7
+#[Out]# NEW     8   9     10    11
+data.rename(index=str.title, columns=str.upper)
+#[Out]#       ONE  TW  THREE  FOUR
+#[Out]# Ohio    0   1      2     3
+#[Out]# Colo    4   5      6     7
+#[Out]# New     8   9     10    11
+data.rename(index=['OHIO','INDIANA'],columns=['three','peekaboo'])
+data.rename(index={'OHIO':'INDIANA'},columns={'three':'peekaboo'})
+#[Out]#          one  tw  peekaboo  four
+#[Out]# INDIANA    0   1         2     3
+#[Out]# COLO       4   5         6     7
+#[Out]# NEW        8   9        10    11
+#
+# discretiizing and binning
+#
+ages = [29,22,25,27,21,23,37,31,61,45,41,32]
+bins = [18,25,35,60,100
+]
+cats = pd.cut(ages,bins)
+cats
+#[Out]# [(25, 35], (18, 25], (18, 25], (25, 35], (18, 25], ..., (25, 35], (60, 100], (35, 60], (35, 60], (25, 35]]
+#[Out]# Length: 12
+#[Out]# Categories (4, interval[int64]): [(18, 25] < (25, 35] < (35, 60] < (60, 100]]
+cats.codes
+#[Out]# array([1, 0, 0, 1, 0, 0, 2, 1, 3, 2, 2, 1], dtype=int8)
+cats.categories
+#[Out]# IntervalIndex([(18, 25], (25, 35], (35, 60], (60, 100]],
+#[Out]#               closed='right',
+#[Out]#               dtype='interval[int64]')
+pd.value_counts(cats)
+#[Out]# (25, 35]     4
+#[Out]# (18, 25]     4
+#[Out]# (35, 60]     3
+#[Out]# (60, 100]    1
+#[Out]# dtype: int64
+cats = pd.cut(ages,bins, right=False)
+pd.value_counts(cats)
+#[Out]# [25, 35)     5
+#[Out]# [35, 60)     3
+#[Out]# [18, 25)     3
+#[Out]# [60, 100)    1
+#[Out]# dtype: int64
+group_names = ['youth','young adult','middle ages','senior']
+cats = pd.cut(ages,bins,labels=group_names)
+cats
+#[Out]# [young adult, youth, youth, young adult, youth, ..., young adult, senior, middle ages, middle ages, young adult]
+#[Out]# Length: 12
+#[Out]# Categories (4, object): [youth < young adult < middle ages < senior]
+data = np.random.rand(20)
+pd.cut(data,4,precision=2)
+#[Out]# [(0.5, 0.71], (0.71, 0.93], (0.28, 0.5], (0.28, 0.5], (0.71, 0.93], ..., (0.5, 0.71], (0.28, 0.5], (0.71, 0.93], (0.71, 0.93], (0.71, 0.93]]
+#[Out]# Length: 20
+#[Out]# Categories (4, interval[float64]): [(0.069, 0.28] < (0.28, 0.5] < (0.5, 0.71] < (0.71, 0.93]]
+data = np.random.randn(1000)
+cats = pd.qcut(data, 4)
+cats
+#[Out]# [(0.715, 3.282], (-0.622, 0.0302], (-3.8449999999999998, -0.622], (-3.8449999999999998, -0.622], (0.0302, 0.715], ..., (-3.8449999999999998, -0.622], (-0.622, 0.0302], (0.715, 3.282], (0.715, 3.282], (0.0302, 0.715]]
+#[Out]# Length: 1000
+#[Out]# Categories (4, interval[float64]): [(-3.8449999999999998, -0.622] < (-0.622, 0.0302] < (0.0302, 0.715] <
+#[Out]#                                     (0.715, 3.282]]
+pd.value_counts(cats)
+#[Out]# (0.715, 3.282]                   250
+#[Out]# (0.0302, 0.715]                  250
+#[Out]# (-0.622, 0.0302]                 250
+#[Out]# (-3.8449999999999998, -0.622]    250
+#[Out]# dtype: int64
+cats = pd.qcut(data, [0,0.1,0.5,0.9,1.0])
+cats
+#[Out]# [(0.0302, 1.279], (-1.216, 0.0302], (-3.8449999999999998, -1.216], (-1.216, 0.0302], (0.0302, 1.279], ..., (-1.216, 0.0302], (-1.216, 0.0302], (1.279, 3.282], (0.0302, 1.279], (0.0302, 1.279]]
+#[Out]# Length: 1000
+#[Out]# Categories (4, interval[float64]): [(-3.8449999999999998, -1.216] < (-1.216, 0.0302] < (0.0302, 1.279] <
+#[Out]#                                     (1.279, 3.282]]
+get_ipython().run_line_magic('pwd', '')
+#[Out]# '/mnt/d/sandbox/ml/oreilly-python-for-data-analysis-2018/my-src/ch7'
+# 
+# detecting and filtering outliers
+#
+data = pd.DataFrams(np.random.randn(1000,4))
+data = pd.DataFrame(np.random.randn(1000,4))
+data
+#[Out]#             0         1         2         3
+#[Out]# 0    1.013298 -1.173396 -1.185234  0.299774
+#[Out]# 1    1.224280 -1.410803 -0.292313  1.110068
+#[Out]# 2   -1.786854 -0.818809  0.231244  0.934585
+#[Out]# 3    0.163792 -0.177865 -0.576161  1.099433
+#[Out]# 4    0.253483 -1.988366  0.755786 -0.620981
+#[Out]# ..        ...       ...       ...       ...
+#[Out]# 995  0.597813  0.909028  0.060142 -0.603945
+#[Out]# 996  0.070384  1.028378  0.591483 -0.408415
+#[Out]# 997 -0.596338 -0.423788  0.219536  0.027891
+#[Out]# 998 -0.608055  0.855372 -1.658841  0.542705
+#[Out]# 999  0.409877  1.002202  0.414495 -0.436892
+#[Out]# 
+#[Out]# [1000 rows x 4 columns]
+col = data[2]
+col
+#[Out]# 0     -1.185234
+#[Out]# 1     -0.292313
+#[Out]# 2      0.231244
+#[Out]# 3     -0.576161
+#[Out]# 4      0.755786
+#[Out]#          ...   
+#[Out]# 995    0.060142
+#[Out]# 996    0.591483
+#[Out]# 997    0.219536
+#[Out]# 998   -1.658841
+#[Out]# 999    0.414495
+#[Out]# Name: 2, Length: 1000, dtype: float64
+col[np.abs(col)> 3]
+#[Out]# 58     3.331298
+#[Out]# 501    3.620652
+#[Out]# 631   -3.271460
+#[Out]# 768    3.295856
+#[Out]# 802    3.740814
+#[Out]# 870    3.194134
+#[Out]# 940   -3.738986
+#[Out]# 982   -3.008124
+#[Out]# Name: 2, dtype: float64
+col[(np.abs(col) > 3).any(1)]
+data[(np.abs(col) > 3).any(1)]
+data[(np.abs(col) > 3).any(1)]
+data[(np.abs(data) > 3).any(1)]
+#[Out]#             0         1         2         3
+#[Out]# 58  -1.448847 -1.705249  3.331298 -0.057873
+#[Out]# 232 -0.483885  1.358964 -0.021056  3.991666
+#[Out]# 274  0.642058  3.106155 -0.257224 -0.810237
+#[Out]# 295 -3.139129  1.981570  1.180154  1.531774
+#[Out]# 493 -0.138996 -0.166436 -0.448162 -3.494681
+#[Out]# 501 -1.566246 -3.010307  3.620652 -0.458904
+#[Out]# 518  0.753342  3.468203 -1.847219  2.083508
+#[Out]# 631 -1.382818  0.911527 -3.271460 -1.233648
+#[Out]# 768  1.722285  0.389587  3.295856 -1.266107
+#[Out]# 802 -0.985374  0.478089  3.740814  0.444653
+#[Out]# 825 -0.195924  0.344167  0.183153 -3.173990
+#[Out]# 870 -1.307348  0.618328  3.194134 -0.731161
+#[Out]# 903 -1.123297 -0.739300 -0.812012  3.100966
+#[Out]# 940 -1.583208  1.696333 -3.738986 -2.592033
+#[Out]# 971 -0.912670  3.391304 -0.200879  0.099851
+#[Out]# 982 -0.188091 -0.853531 -3.008124  0.844295
+data[(np.abs(data) > 3)]
+#[Out]#       0   1   2   3
+#[Out]# 0   NaN NaN NaN NaN
+#[Out]# 1   NaN NaN NaN NaN
+#[Out]# 2   NaN NaN NaN NaN
+#[Out]# 3   NaN NaN NaN NaN
+#[Out]# 4   NaN NaN NaN NaN
+#[Out]# ..   ..  ..  ..  ..
+#[Out]# 995 NaN NaN NaN NaN
+#[Out]# 996 NaN NaN NaN NaN
+#[Out]# 997 NaN NaN NaN NaN
+#[Out]# 998 NaN NaN NaN NaN
+#[Out]# 999 NaN NaN NaN NaN
+#[Out]# 
+#[Out]# [1000 rows x 4 columns]
+data[np.abs(data) > 3]
+#[Out]#       0   1   2   3
+#[Out]# 0   NaN NaN NaN NaN
+#[Out]# 1   NaN NaN NaN NaN
+#[Out]# 2   NaN NaN NaN NaN
+#[Out]# 3   NaN NaN NaN NaN
+#[Out]# 4   NaN NaN NaN NaN
+#[Out]# ..   ..  ..  ..  ..
+#[Out]# 995 NaN NaN NaN NaN
+#[Out]# 996 NaN NaN NaN NaN
+#[Out]# 997 NaN NaN NaN NaN
+#[Out]# 998 NaN NaN NaN NaN
+#[Out]# 999 NaN NaN NaN NaN
+#[Out]# 
+#[Out]# [1000 rows x 4 columns]
+data = pd.DataFrame(np.random.randn(1000,4))
+data[np.abs(data) > 3]
+#[Out]#       0   1   2   3
+#[Out]# 0   NaN NaN NaN NaN
+#[Out]# 1   NaN NaN NaN NaN
+#[Out]# 2   NaN NaN NaN NaN
+#[Out]# 3   NaN NaN NaN NaN
+#[Out]# 4   NaN NaN NaN NaN
+#[Out]# ..   ..  ..  ..  ..
+#[Out]# 995 NaN NaN NaN NaN
+#[Out]# 996 NaN NaN NaN NaN
+#[Out]# 997 NaN NaN NaN NaN
+#[Out]# 998 NaN NaN NaN NaN
+#[Out]# 999 NaN NaN NaN NaN
+#[Out]# 
+#[Out]# [1000 rows x 4 columns]
+data = pd.DataFrame(np.random.randn(1000,4))
+data = pd.DataFrame(np.random.randn(1000,4))
+data
+#[Out]#             0         1         2         3
+#[Out]# 0   -0.822024 -0.828513  0.043039 -1.370649
+#[Out]# 1   -1.289571  0.276758 -0.490704  1.875184
+#[Out]# 2    0.794156  0.934103 -0.993704 -0.420885
+#[Out]# 3   -1.358783 -0.887907 -0.055030 -0.382101
+#[Out]# 4   -0.953929 -0.127480 -0.357027 -0.436455
+#[Out]# ..        ...       ...       ...       ...
+#[Out]# 995  1.526396 -1.064199 -1.140970 -0.083503
+#[Out]# 996 -0.319640  1.003776 -1.938333 -0.268346
+#[Out]# 997 -0.704557  1.128556  1.139736  0.987932
+#[Out]# 998 -1.022636  1.397134  0.702700 -0.664049
+#[Out]# 999 -0.152716  1.190657  0.108784  1.873392
+#[Out]# 
+#[Out]# [1000 rows x 4 columns]
+data[np.abs(data) > 3]
+#[Out]#       0   1   2   3
+#[Out]# 0   NaN NaN NaN NaN
+#[Out]# 1   NaN NaN NaN NaN
+#[Out]# 2   NaN NaN NaN NaN
+#[Out]# 3   NaN NaN NaN NaN
+#[Out]# 4   NaN NaN NaN NaN
+#[Out]# ..   ..  ..  ..  ..
+#[Out]# 995 NaN NaN NaN NaN
+#[Out]# 996 NaN NaN NaN NaN
+#[Out]# 997 NaN NaN NaN NaN
+#[Out]# 998 NaN NaN NaN NaN
+#[Out]# 999 NaN NaN NaN NaN
+#[Out]# 
+#[Out]# [1000 rows x 4 columns]
+data[np.abs(data) > 1]
+#[Out]#             0         1         2         3
+#[Out]# 0         NaN       NaN       NaN -1.370649
+#[Out]# 1   -1.289571       NaN       NaN  1.875184
+#[Out]# 2         NaN       NaN       NaN       NaN
+#[Out]# 3   -1.358783       NaN       NaN       NaN
+#[Out]# 4         NaN       NaN       NaN       NaN
+#[Out]# ..        ...       ...       ...       ...
+#[Out]# 995  1.526396 -1.064199 -1.140970       NaN
+#[Out]# 996       NaN  1.003776 -1.938333       NaN
+#[Out]# 997       NaN  1.128556  1.139736       NaN
+#[Out]# 998 -1.022636  1.397134       NaN       NaN
+#[Out]# 999       NaN  1.190657       NaN  1.873392
+#[Out]# 
+#[Out]# [1000 rows x 4 columns]
+data = pd.DataFrame(np.random.randn(1000,4))
+data.describe()
+#[Out]#                  0            1            2            3
+#[Out]# count  1000.000000  1000.000000  1000.000000  1000.000000
+#[Out]# mean      0.003570     0.033360    -0.000115    -0.012502
+#[Out]# std       0.999869     0.985510     1.015954     1.040421
+#[Out]# min      -3.988511    -2.886774    -3.104067    -2.781346
+#[Out]# 25%      -0.641975    -0.625469    -0.681476    -0.696962
+#[Out]# 50%      -0.054121     0.033880     0.009611    -0.005296
+#[Out]# 75%       0.717529     0.730984     0.705146     0.673682
+#[Out]# max       2.707171     3.952479     3.298040     3.230651
+data[np.abs(data) > 3]
+#[Out]#       0   1   2   3
+#[Out]# 0   NaN NaN NaN NaN
+#[Out]# 1   NaN NaN NaN NaN
+#[Out]# 2   NaN NaN NaN NaN
+#[Out]# 3   NaN NaN NaN NaN
+#[Out]# 4   NaN NaN NaN NaN
+#[Out]# ..   ..  ..  ..  ..
+#[Out]# 995 NaN NaN NaN NaN
+#[Out]# 996 NaN NaN NaN NaN
+#[Out]# 997 NaN NaN NaN NaN
+#[Out]# 998 NaN NaN NaN NaN
+#[Out]# 999 NaN NaN NaN NaN
+#[Out]# 
+#[Out]# [1000 rows x 4 columns]
+data[np.abs(data) > 3] = np.sign(data)*3
+data.describe()
+#[Out]#                  0            1            2            3
+#[Out]# count  1000.000000  1000.000000  1000.000000  1000.000000
+#[Out]# mean      0.005718     0.031546    -0.000549    -0.012756
+#[Out]# std       0.992551     0.979374     1.013976     1.039658
+#[Out]# min      -3.000000    -2.886774    -3.000000    -2.781346
+#[Out]# 25%      -0.641975    -0.625469    -0.681476    -0.696962
+#[Out]# 50%      -0.054121     0.033880     0.009611    -0.005296
+#[Out]# 75%       0.717529     0.730984     0.705146     0.673682
+#[Out]# max       2.707171     3.000000     3.000000     3.000000
+#
+# permutation and random sampling
+#
+df = pd.DataFrame(np.arange(5*4).reshape((5,4))
+)
+sampler = np.random.permutation(5)
+sampler
+#[Out]# array([0, 2, 1, 3, 4])
+df
+#[Out]#     0   1   2   3
+#[Out]# 0   0   1   2   3
+#[Out]# 1   4   5   6   7
+#[Out]# 2   8   9  10  11
+#[Out]# 3  12  13  14  15
+#[Out]# 4  16  17  18  19
+df.take(sampler)
+#[Out]#     0   1   2   3
+#[Out]# 0   0   1   2   3
+#[Out]# 2   8   9  10  11
+#[Out]# 1   4   5   6   7
+#[Out]# 3  12  13  14  15
+#[Out]# 4  16  17  18  19
+df.iloc(sampler,:)
+df.iloc[sampler,:]
+#[Out]#     0   1   2   3
+#[Out]# 0   0   1   2   3
+#[Out]# 2   8   9  10  11
+#[Out]# 1   4   5   6   7
+#[Out]# 3  12  13  14  15
+#[Out]# 4  16  17  18  19
+df.iloc[sampler,sampler[0:3])
+df.iloc[sampler,sampler[0:3]]
+#[Out]#     0   2   1
+#[Out]# 0   0   2   1
+#[Out]# 2   8  10   9
+#[Out]# 1   4   6   5
+#[Out]# 3  12  14  13
+#[Out]# 4  16  18  17
+df.iloc[sampler,sampler[0:4]]
+#[Out]#     0   2   1   3
+#[Out]# 0   0   2   1   3
+#[Out]# 2   8  10   9  11
+#[Out]# 1   4   6   5   7
+#[Out]# 3  12  14  13  15
+#[Out]# 4  16  18  17  19
+df.sample()
+#[Out]#    0  1  2  3
+#[Out]# 0  0  1  2  3
+df.sample(n=10)
+df.sample(n=3)
+#[Out]#     0   1   2   3
+#[Out]# 3  12  13  14  15
+#[Out]# 0   0   1   2   3
+#[Out]# 2   8   9  10  11
+df.sample(n=10,replace=True)
+#[Out]#     0   1   2   3
+#[Out]# 2   8   9  10  11
+#[Out]# 1   4   5   6   7
+#[Out]# 2   8   9  10  11
+#[Out]# 0   0   1   2   3
+#[Out]# 3  12  13  14  15
+#[Out]# 3  12  13  14  15
+#[Out]# 1   4   5   6   7
+#[Out]# 4  16  17  18  19
+#[Out]# 1   4   5   6   7
+#[Out]# 3  12  13  14  15
+#
+# computing indicator/dummy variables
+#
+# convert categorical variable to indicator matrix
+#
+df = pd.DateFrame('key':['b','b','a','c','a','c'],
+'data1'=[range(6)])
+df = pd.DateFrame('key':['b','b','a','c','a','c'],
+'data1'=range(6))
+df = pd.DateFrame({'key':['b','b','a','c','a','c'],
+'data1'=range(6)})
+df = pd.DateFrame({'key':['b','b','a','c','a','c'],
+'data1':range(6)})
+df = pd.DataFrame({'key':['b','b','a','c','a','c'],
+'data1':range(6)})
+df
+#[Out]#   key  data1
+#[Out]# 0   b      0
+#[Out]# 1   b      1
+#[Out]# 2   a      2
+#[Out]# 3   c      3
+#[Out]# 4   a      4
+#[Out]# 5   c      5
+pd.get_dummies(df['key'])
+#[Out]#    a  b  c
+#[Out]# 0  0  1  0
+#[Out]# 1  0  1  0
+#[Out]# 2  1  0  0
+#[Out]# 3  0  0  1
+#[Out]# 4  1  0  0
+#[Out]# 5  0  0  1
+df['key']
+#[Out]# 0    b
+#[Out]# 1    b
+#[Out]# 2    a
+#[Out]# 3    c
+#[Out]# 4    a
+#[Out]# 5    c
+#[Out]# Name: key, dtype: object
+df
+#[Out]#   key  data1
+#[Out]# 0   b      0
+#[Out]# 1   b      1
+#[Out]# 2   a      2
+#[Out]# 3   c      3
+#[Out]# 4   a      4
+#[Out]# 5   c      5
+#
+# convert to one-hot-vector !!!
+#
+pd.get_dummies(df['key'])
+#[Out]#    a  b  c
+#[Out]# 0  0  1  0
+#[Out]# 1  0  1  0
+#[Out]# 2  1  0  0
+#[Out]# 3  0  0  1
+#[Out]# 4  1  0  0
+#[Out]# 5  0  0  1
+dummies = pd.get_dummies(df['key'],prefix='key')
+dummies
+#[Out]#    key_a  key_b  key_c
+#[Out]# 0      0      1      0
+#[Out]# 1      0      1      0
+#[Out]# 2      1      0      0
+#[Out]# 3      0      0      1
+#[Out]# 4      1      0      0
+#[Out]# 5      0      0      1
+df_with_dummy = df[['data1']].join(dummies)
+df_with_dummy
+#[Out]#    data1  key_a  key_b  key_c
+#[Out]# 0      0      0      1      0
+#[Out]# 1      1      0      1      0
+#[Out]# 2      2      1      0      0
+#[Out]# 3      3      0      0      1
+#[Out]# 4      4      1      0      0
+#[Out]# 5      5      0      0      1
