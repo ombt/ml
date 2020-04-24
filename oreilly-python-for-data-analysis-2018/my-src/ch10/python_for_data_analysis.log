@@ -1,0 +1,416 @@
+#
+# chapter 10 - data aggregation and group operations
+'#
+#
+# group-by mechanics
+#
+import pandas as pd
+import numpy as np
+get_ipython().run_line_magic('run', '-i ex1.py')
+dir()
+#[Out]# ['In',
+#[Out]#  'Out',
+#[Out]#  '_',
+#[Out]#  '__',
+#[Out]#  '___',
+#[Out]#  '__builtin__',
+#[Out]#  '__builtins__',
+#[Out]#  '__doc__',
+#[Out]#  '__file__',
+#[Out]#  '__loader__',
+#[Out]#  '__name__',
+#[Out]#  '__package__',
+#[Out]#  '__spec__',
+#[Out]#  '_dh',
+#[Out]#  '_i',
+#[Out]#  '_i1',
+#[Out]#  '_i10',
+#[Out]#  '_i2',
+#[Out]#  '_i3',
+#[Out]#  '_i4',
+#[Out]#  '_i5',
+#[Out]#  '_i6',
+#[Out]#  '_i7',
+#[Out]#  '_i8',
+#[Out]#  '_i9',
+#[Out]#  '_ih',
+#[Out]#  '_ii',
+#[Out]#  '_iii',
+#[Out]#  '_oh',
+#[Out]#  'df',
+#[Out]#  'exit',
+#[Out]#  'get_ipython',
+#[Out]#  'np',
+#[Out]#  'pd',
+#[Out]#  'quit']
+df
+#[Out]#   key1 key2     data1     data2
+#[Out]# 0    a  one -1.019010  0.547742
+#[Out]# 1    a  two  1.170861  0.160846
+#[Out]# 2    b  one -0.142133  0.812074
+#[Out]# 3    b  two -0.080016  0.551797
+#[Out]# 4    a  one -0.771767  1.095658
+grouped = df['data1'].groupby(df['key1'])
+grouped
+#[Out]# <pandas.core.groupby.generic.SeriesGroupBy object at 0x7f77ddcfe8d0>
+#
+# data is not collected yet. object has the data required to perform
+# the operation, but the operation is not performed until needed.
+#
+group.mean()
+grouped.mean()
+#[Out]# key1
+#[Out]# a   -0.206639
+#[Out]# b   -0.111074
+#[Out]# Name: data1, dtype: float64
+grouped.axes
+dir(grouped)
+#[Out]# ['__annotations__',
+#[Out]#  '__class__',
+#[Out]#  '__delattr__',
+#[Out]#  '__dict__',
+#[Out]#  '__dir__',
+#[Out]#  '__doc__',
+#[Out]#  '__eq__',
+#[Out]#  '__format__',
+#[Out]#  '__ge__',
+#[Out]#  '__getattr__',
+#[Out]#  '__getattribute__',
+#[Out]#  '__getitem__',
+#[Out]#  '__gt__',
+#[Out]#  '__hash__',
+#[Out]#  '__init__',
+#[Out]#  '__init_subclass__',
+#[Out]#  '__iter__',
+#[Out]#  '__le__',
+#[Out]#  '__len__',
+#[Out]#  '__lt__',
+#[Out]#  '__module__',
+#[Out]#  '__ne__',
+#[Out]#  '__new__',
+#[Out]#  '__reduce__',
+#[Out]#  '__reduce_ex__',
+#[Out]#  '__repr__',
+#[Out]#  '__setattr__',
+#[Out]#  '__sizeof__',
+#[Out]#  '__str__',
+#[Out]#  '__subclasshook__',
+#[Out]#  '__weakref__',
+#[Out]#  '_accessors',
+#[Out]#  '_add_numeric_operations',
+#[Out]#  '_agg_examples_doc',
+#[Out]#  '_agg_see_also_doc',
+#[Out]#  '_aggregate',
+#[Out]#  '_aggregate_multiple_funcs',
+#[Out]#  '_aggregate_named',
+#[Out]#  '_apply_filter',
+#[Out]#  '_apply_to_column_groupbys',
+#[Out]#  '_apply_whitelist',
+#[Out]#  '_assure_grouper',
+#[Out]#  '_bool_agg',
+#[Out]#  '_builtin_table',
+#[Out]#  '_concat_objects',
+#[Out]#  '_constructor',
+#[Out]#  '_cumcount_array',
+#[Out]#  '_cython_agg_general',
+#[Out]#  '_cython_table',
+#[Out]#  '_cython_transform',
+#[Out]#  '_deprecations',
+#[Out]#  '_dir_additions',
+#[Out]#  '_dir_deletions',
+#[Out]#  '_ensure_type',
+#[Out]#  '_fill',
+#[Out]#  '_get_cython_func',
+#[Out]#  '_get_cythonized_result',
+#[Out]#  '_get_index',
+#[Out]#  '_get_indices',
+#[Out]#  '_gotitem',
+#[Out]#  '_group_selection',
+#[Out]#  '_internal_names',
+#[Out]#  '_internal_names_set',
+#[Out]#  '_is_builtin_func',
+#[Out]#  '_iterate_slices',
+#[Out]#  '_make_wrapper',
+#[Out]#  '_obj_with_exclusions',
+#[Out]#  '_python_agg_general',
+#[Out]#  '_python_apply_general',
+#[Out]#  '_reindex_output',
+#[Out]#  '_reset_cache',
+#[Out]#  '_reset_group_selection',
+#[Out]#  '_selected_obj',
+#[Out]#  '_selection',
+#[Out]#  '_selection_list',
+#[Out]#  '_selection_name',
+#[Out]#  '_set_group_selection',
+#[Out]#  '_set_result_index_ordered',
+#[Out]#  '_transform_fast',
+#[Out]#  '_transform_general',
+#[Out]#  '_transform_should_cast',
+#[Out]#  '_try_aggregate_string_function',
+#[Out]#  '_try_cast',
+#[Out]#  '_wrap_aggregated_output',
+#[Out]#  '_wrap_applied_output',
+#[Out]#  '_wrap_series_output',
+#[Out]#  '_wrap_transformed_output',
+#[Out]#  'agg',
+#[Out]#  'aggregate',
+#[Out]#  'all',
+#[Out]#  'any',
+#[Out]#  'apply',
+#[Out]#  'backfill',
+#[Out]#  'bfill',
+#[Out]#  'corr',
+#[Out]#  'count',
+#[Out]#  'cov',
+#[Out]#  'cumcount',
+#[Out]#  'cummax',
+#[Out]#  'cummin',
+#[Out]#  'cumprod',
+#[Out]#  'cumsum',
+#[Out]#  'describe',
+#[Out]#  'diff',
+#[Out]#  'dtype',
+#[Out]#  'expanding',
+#[Out]#  'ffill',
+#[Out]#  'fillna',
+#[Out]#  'filter',
+#[Out]#  'first',
+#[Out]#  'get_group',
+#[Out]#  'groups',
+#[Out]#  'head',
+#[Out]#  'hist',
+#[Out]#  'idxmax',
+#[Out]#  'idxmin',
+#[Out]#  'indices',
+#[Out]#  'is_monotonic_decreasing',
+#[Out]#  'is_monotonic_increasing',
+#[Out]#  'last',
+#[Out]#  'mad',
+#[Out]#  'max',
+#[Out]#  'mean',
+#[Out]#  'median',
+#[Out]#  'min',
+#[Out]#  'ndim',
+#[Out]#  'ngroup',
+#[Out]#  'ngroups',
+#[Out]#  'nlargest',
+#[Out]#  'nsmallest',
+#[Out]#  'nth',
+#[Out]#  'nunique',
+#[Out]#  'ohlc',
+#[Out]#  'pad',
+#[Out]#  'pct_change',
+#[Out]#  'pipe',
+#[Out]#  'plot',
+#[Out]#  'prod',
+#[Out]#  'quantile',
+#[Out]#  'rank',
+#[Out]#  'resample',
+#[Out]#  'rolling',
+#[Out]#  'sem',
+#[Out]#  'shift',
+#[Out]#  'size',
+#[Out]#  'skew',
+#[Out]#  'std',
+#[Out]#  'sum',
+#[Out]#  'tail',
+#[Out]#  'take',
+#[Out]#  'transform',
+#[Out]#  'tshift',
+#[Out]#  'unique',
+#[Out]#  'value_counts',
+#[Out]#  'var']
+grouped.value_counts
+#[Out]# <bound method SeriesGroupBy.value_counts of <pandas.core.groupby.generic.SeriesGroupBy object at 0x7f77ddcfe8d0>>
+grouped.value_counts()
+#[Out]# key1  data1    
+#[Out]# a     -1.019010    1
+#[Out]#       -0.771767    1
+#[Out]#        1.170861    1
+#[Out]# b     -0.142133    1
+#[Out]#       -0.080016    1
+#[Out]# Name: data1, dtype: int64
+grouped.ndim()
+grouped.ndim
+#[Out]# 1
+grouped.ngroup
+#[Out]# <bound method GroupBy.ngroup of <pandas.core.groupby.generic.SeriesGroupBy object at 0x7f77ddcfe8d0>>
+grouped.ngroup()
+#[Out]# 0    0
+#[Out]# 1    0
+#[Out]# 2    1
+#[Out]# 3    1
+#[Out]# 4    0
+#[Out]# dtype: int64
+grouped.ngroups()
+grouped.ngroups
+#[Out]# 2
+grouped = df['data1'].groupby([df['key1'],df['key2']])
+grouped
+#[Out]# <pandas.core.groupby.generic.SeriesGroupBy object at 0x7f77ddb53410>
+means = df['data1'].groupby([df['key1'],df['key2']]).mean()
+means
+#[Out]# key1  key2
+#[Out]# a     one    -0.895389
+#[Out]#       two     1.170861
+#[Out]# b     one    -0.142133
+#[Out]#       two    -0.080016
+#[Out]# Name: data1, dtype: float64
+means.unstacked()
+means.unstack()
+#[Out]# key2       one       two
+#[Out]# key1                    
+#[Out]# a    -0.895389  1.170861
+#[Out]# b    -0.142133 -0.080016
+data1
+df
+#[Out]#   key1 key2     data1     data2
+#[Out]# 0    a  one -1.019010  0.547742
+#[Out]# 1    a  two  1.170861  0.160846
+#[Out]# 2    b  one -0.142133  0.812074
+#[Out]# 3    b  two -0.080016  0.551797
+#[Out]# 4    a  one -0.771767  1.095658
+states = np.array(['Ohio', 'California', 'California', 'Ohio', 'Ohio'])
+years = np.array([2005, 2005, 2006, 2005, 2006])
+df['data1'].groupby([states, years]).mean()
+#[Out]# California  2005    1.170861
+#[Out]#             2006   -0.142133
+#[Out]# Ohio        2005   -0.549513
+#[Out]#             2006   -0.771767
+#[Out]# Name: data1, dtype: float64
+df
+#[Out]#   key1 key2     data1     data2
+#[Out]# 0    a  one -1.019010  0.547742
+#[Out]# 1    a  two  1.170861  0.160846
+#[Out]# 2    b  one -0.142133  0.812074
+#[Out]# 3    b  two -0.080016  0.551797
+#[Out]# 4    a  one -0.771767  1.095658
+df['data1']
+#[Out]# 0   -1.019010
+#[Out]# 1    1.170861
+#[Out]# 2   -0.142133
+#[Out]# 3   -0.080016
+#[Out]# 4   -0.771767
+#[Out]# Name: data1, dtype: float64
+df.groupby(['key1','key2']).mean()
+#[Out]#               data1     data2
+#[Out]# key1 key2                    
+#[Out]# a    one  -0.895389  0.821700
+#[Out]#      two   1.170861  0.160846
+#[Out]# b    one  -0.142133  0.812074
+#[Out]#      two  -0.080016  0.551797
+df.groupby(['key1','key2']).size()
+#[Out]# key1  key2
+#[Out]# a     one     2
+#[Out]#       two     1
+#[Out]# b     one     1
+#[Out]#       two     1
+#[Out]# dtype: int64
+# missing values are not counted.
+#
+# iterating over groups
+#
+for name, group in df.groupby('key1'):
+    print(name, group)
+    
+for (k1,k2), group in df.groupby(['key1'.'key2']):
+    print(k1,k2, group)
+
+    
+for (k1,k2), group in df.groupby(['key1','key2']):
+    print(k1,k2, group)
+
+    
+#
+# create a dict from data
+#
+pieces = dict(list(df.groupby('key1')))
+pieces
+#[Out]# {'a':   key1 key2     data1     data2
+#[Out]#  0    a  one -1.019010  0.547742
+#[Out]#  1    a  two  1.170861  0.160846
+#[Out]#  4    a  one -0.771767  1.095658,
+#[Out]#  'b':   key1 key2     data1     data2
+#[Out]#  2    b  one -0.142133  0.812074
+#[Out]#  3    b  two -0.080016  0.551797}
+df.groupby('key1')
+#[Out]# <pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f77dd96d250>
+list(df.groupby('key1'))
+#[Out]# [('a',
+#[Out]#     key1 key2     data1     data2
+#[Out]#   0    a  one -1.019010  0.547742
+#[Out]#   1    a  two  1.170861  0.160846
+#[Out]#   4    a  one -0.771767  1.095658),
+#[Out]#  ('b',
+#[Out]#     key1 key2     data1     data2
+#[Out]#   2    b  one -0.142133  0.812074
+#[Out]#   3    b  two -0.080016  0.551797)]
+[df.groupby('key1')]
+#[Out]# [<pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f77ddab3310>]
+dict([df.groupby('key1')])
+dict(*[df.groupby('key1')])
+pieces = dict(list(df.groupby('key1')))
+pieces['b']
+#[Out]#   key1 key2     data1     data2
+#[Out]# 2    b  one -0.142133  0.812074
+#[Out]# 3    b  two -0.080016  0.551797
+pieces
+#[Out]# {'a':   key1 key2     data1     data2
+#[Out]#  0    a  one -1.019010  0.547742
+#[Out]#  1    a  two  1.170861  0.160846
+#[Out]#  4    a  one -0.771767  1.095658,
+#[Out]#  'b':   key1 key2     data1     data2
+#[Out]#  2    b  one -0.142133  0.812074
+#[Out]#  3    b  two -0.080016  0.551797}
+df.dtypes
+#[Out]# key1      object
+#[Out]# key2      object
+#[Out]# data1    float64
+#[Out]# data2    float64
+#[Out]# dtype: object
+for dtype, group in grouped:
+    print(dtype)
+    print(group)
+    
+#
+# select a columns or subset of columns
+#
+df
+#[Out]#   key1 key2     data1     data2
+#[Out]# 0    a  one -1.019010  0.547742
+#[Out]# 1    a  two  1.170861  0.160846
+#[Out]# 2    b  one -0.142133  0.812074
+#[Out]# 3    b  two -0.080016  0.551797
+#[Out]# 4    a  one -0.771767  1.095658
+df.groupby('key1')
+#[Out]# <pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f77f0170690>
+df.groupby('key1')['data1']
+#[Out]# <pandas.core.groupby.generic.SeriesGroupBy object at 0x7f77ddc671d0>
+df.groupby('key1')[['data1']]
+#[Out]# <pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f77ddcf7b90>
+df.groupby('key1')[['data2']]
+#[Out]# <pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f77dd926b90>
+df.groupby('key1')[['data2']].mean()
+#[Out]#          data2
+#[Out]# key1          
+#[Out]# a     0.601415
+#[Out]# b     0.681936
+df.groupby('key1')['data2'].mean()
+#[Out]# key1
+#[Out]# a    0.601415
+#[Out]# b    0.681936
+#[Out]# Name: data2, dtype: float64
+df.groupby('key1','key2')['data2'].mean()
+df.groupby(['key1','key2'])[['data2']].mean()
+
+
+#[Out]#               data2
+#[Out]# key1 key2          
+#[Out]# a    one   0.821700
+#[Out]#      two   0.160846
+#[Out]# b    one   0.812074
+#[Out]#      two   0.551797
+#
+# grouping by Dicts and Series
+#
+quit()

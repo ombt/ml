@@ -3212,3 +3212,306 @@ df_with_dummy
 #[Out]# 3      3      0      0      1
 #[Out]# 4      4      1      0      0
 #[Out]# 5      5      0      0      1
+mnames = ['movie_id','title','genres']
+movies = pd.read_table('../datasets/movielens/movies.dat', sep='::',
+header=None, names=mnames)
+movies
+#[Out]#       movie_id                               title                        genres
+#[Out]# 0            1                    Toy Story (1995)   Animation|Children's|Comedy
+#[Out]# 1            2                      Jumanji (1995)  Adventure|Children's|Fantasy
+#[Out]# 2            3             Grumpier Old Men (1995)                Comedy|Romance
+#[Out]# 3            4            Waiting to Exhale (1995)                  Comedy|Drama
+#[Out]# 4            5  Father of the Bride Part II (1995)                        Comedy
+#[Out]# ...        ...                                 ...                           ...
+#[Out]# 3878      3948             Meet the Parents (2000)                        Comedy
+#[Out]# 3879      3949          Requiem for a Dream (2000)                         Drama
+#[Out]# 3880      3950                    Tigerland (2000)                         Drama
+#[Out]# 3881      3951             Two Family House (2000)                         Drama
+#[Out]# 3882      3952               Contender, The (2000)                Drama|Thriller
+#[Out]# 
+#[Out]# [3883 rows x 3 columns]
+all_genres=[]
+foe x in movies.genres:
+    all_genres.extend(x.split('|'))
+for x in movies.genres:
+    all_genres.extend(x.split('|'))
+    
+genres = pd.unique(all_genres)
+genres
+#[Out]# array(['Animation', "Children's", 'Comedy', 'Adventure', 'Fantasy',
+#[Out]#        'Romance', 'Drama', 'Action', 'Crime', 'Thriller', 'Horror',
+#[Out]#        'Sci-Fi', 'Documentary', 'War', 'Musical', 'Mystery', 'Film-Noir',
+#[Out]#        'Western'], dtype=object)
+np.random.seed(12345)
+values = np.random.rand(10)
+balues
+values
+#[Out]# array([0.92961609, 0.31637555, 0.18391881, 0.20456028, 0.56772503,
+#[Out]#        0.5955447 , 0.96451452, 0.6531771 , 0.74890664, 0.65356987])
+bins = [0,0.2,0.4,0.6,0.8,1]
+pd.get_dummies(pd.cut(values,bins))
+#[Out]#    (0.0, 0.2]  (0.2, 0.4]  (0.4, 0.6]  (0.6, 0.8]  (0.8, 1.0]
+#[Out]# 0           0           0           0           0           1
+#[Out]# 1           0           1           0           0           0
+#[Out]# 2           1           0           0           0           0
+#[Out]# 3           0           1           0           0           0
+#[Out]# 4           0           0           1           0           0
+#[Out]# 5           0           0           1           0           0
+#[Out]# 6           0           0           0           0           1
+#[Out]# 7           0           0           0           1           0
+#[Out]# 8           0           0           0           1           0
+#[Out]# 9           0           0           0           1           0
+#
+# string manipulations
+#
+val = 'a,b,  quido'
+val.split(',')
+#[Out]# ['a', 'b', '  quido']
+val.split(',')
+#[Out]# ['a', 'b', '  quido']
+string.trim(val.split(','))
+str.trim(val.split(','))
+dir(str)
+#[Out]# ['__add__',
+#[Out]#  '__class__',
+#[Out]#  '__contains__',
+#[Out]#  '__delattr__',
+#[Out]#  '__dir__',
+#[Out]#  '__doc__',
+#[Out]#  '__eq__',
+#[Out]#  '__format__',
+#[Out]#  '__ge__',
+#[Out]#  '__getattribute__',
+#[Out]#  '__getitem__',
+#[Out]#  '__getnewargs__',
+#[Out]#  '__gt__',
+#[Out]#  '__hash__',
+#[Out]#  '__init__',
+#[Out]#  '__init_subclass__',
+#[Out]#  '__iter__',
+#[Out]#  '__le__',
+#[Out]#  '__len__',
+#[Out]#  '__lt__',
+#[Out]#  '__mod__',
+#[Out]#  '__mul__',
+#[Out]#  '__ne__',
+#[Out]#  '__new__',
+#[Out]#  '__reduce__',
+#[Out]#  '__reduce_ex__',
+#[Out]#  '__repr__',
+#[Out]#  '__rmod__',
+#[Out]#  '__rmul__',
+#[Out]#  '__setattr__',
+#[Out]#  '__sizeof__',
+#[Out]#  '__str__',
+#[Out]#  '__subclasshook__',
+#[Out]#  'capitalize',
+#[Out]#  'casefold',
+#[Out]#  'center',
+#[Out]#  'count',
+#[Out]#  'encode',
+#[Out]#  'endswith',
+#[Out]#  'expandtabs',
+#[Out]#  'find',
+#[Out]#  'format',
+#[Out]#  'format_map',
+#[Out]#  'index',
+#[Out]#  'isalnum',
+#[Out]#  'isalpha',
+#[Out]#  'isascii',
+#[Out]#  'isdecimal',
+#[Out]#  'isdigit',
+#[Out]#  'isidentifier',
+#[Out]#  'islower',
+#[Out]#  'isnumeric',
+#[Out]#  'isprintable',
+#[Out]#  'isspace',
+#[Out]#  'istitle',
+#[Out]#  'isupper',
+#[Out]#  'join',
+#[Out]#  'ljust',
+#[Out]#  'lower',
+#[Out]#  'lstrip',
+#[Out]#  'maketrans',
+#[Out]#  'partition',
+#[Out]#  'replace',
+#[Out]#  'rfind',
+#[Out]#  'rindex',
+#[Out]#  'rjust',
+#[Out]#  'rpartition',
+#[Out]#  'rsplit',
+#[Out]#  'rstrip',
+#[Out]#  'split',
+#[Out]#  'splitlines',
+#[Out]#  'startswith',
+#[Out]#  'strip',
+#[Out]#  'swapcase',
+#[Out]#  'title',
+#[Out]#  'translate',
+#[Out]#  'upper',
+#[Out]#  'zfill']
+pieces = [x.strip() for x in val.split(',')]
+pieces
+#[Out]# ['a', 'b', 'quido']
+'::'.join(pieces)
+#[Out]# 'a::b::quido'
+'guido' in val
+#[Out]# False
+val.index(',')
+#[Out]# 1
+val.index(':')
+val.find(':')
+#[Out]# -1
+val.count(',')
+#[Out]# 2
+val
+#[Out]# 'a,b,  quido'
+val.replace(',','<=>')
+#[Out]# 'a<=>b<=>  quido'
+val
+#[Out]# 'a,b,  quido'
+#
+# other string methods
+#
+# count, endswith, startswith, join, index, find, rfind,
+# replace, strip, rstrip, lstrip, split, lower, upper, 
+# casefold, ljust, rjust
+#
+import re
+#
+# regular expressions 
+#
+text = "foo     bar\t baz   \tqux"
+text
+#[Out]# 'foo     bar\t baz   \tqux'
+re.split('\s+', text)
+#[Out]# ['foo', 'bar', 'baz', 'qux']
+# split using white-space regular expression
+#
+# split using white-space regular expression
+re.split('\s+', text)
+#[Out]# ['foo', 'bar', 'baz', 'qux']
+text
+#[Out]# 'foo     bar\t baz   \tqux'
+re.split('\s+', text)
+#[Out]# ['foo', 'bar', 'baz', 'qux']
+regex = re.compile('\s+')
+regex.split(text)
+#[Out]# ['foo', 'bar', 'baz', 'qux']
+regex.findall(text)
+#[Out]# ['     ', '\t ', '   \t']
+#
+# match and pull out data
+#
+text = """Dave dave@google.com
+Steve steve@gmail.com
+Rob rob@gmail.com
+Ryan ryan@gmail.com
+"""
+pattern = r'[A-Za-z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z[2,4]'
+regex = re.compile(pattern, flags=re.IGNORECASE)
+regex
+#[Out]# re.compile(r'[A-Za-z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z[2,4]',
+#[Out]# re.IGNORECASE|re.UNICODE)
+regex.findall(text)
+#[Out]# ['dave@google.c', 'steve@gmail.c', 'rob@gmail.c', 'ryan@gmail.c']
+# pulled out all the emails
+#
+m = reges.search(text)
+m = regex.search(text)
+m
+#[Out]# <re.Match object; span=(5, 18), match='dave@google.c'>
+print(regex.sub('REDACTED', text))
+#
+# regex methods
+#
+# findall, finditer, match, search, split, sub, subn
+#
+# vectorized string functions in pandas
+#
+data = {'Dave': 'dave@google.com', 'Steve' : 'steve@gmail.com',
+'Rob' : 'rob@gmail.com', 'Wes': np.nan}
+data = pd.Series(data)
+data
+#[Out]# Dave     dave@google.com
+#[Out]# Steve    steve@gmail.com
+#[Out]# Rob        rob@gmail.com
+#[Out]# Wes                  NaN
+#[Out]# dtype: object
+data.isnull()
+#[Out]# Dave     False
+#[Out]# Steve    False
+#[Out]# Rob      False
+#[Out]# Wes       True
+#[Out]# dtype: bool
+data.str.contains('gmail')
+#[Out]# Dave     False
+#[Out]# Steve     True
+#[Out]# Rob       True
+#[Out]# Wes        NaN
+#[Out]# dtype: object
+pattern
+#[Out]# '[A-Za-z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z[2,4]'
+data.str.findall(patter, flags=re.IGNORECASE)
+data.str.findall(pattern, flags=re.IGNORECASE)
+#[Out]# Dave     [dave@google.c]
+#[Out]# Steve    [steve@gmail.c]
+#[Out]# Rob        [rob@gmail.c]
+#[Out]# Wes                  NaN
+#[Out]# dtype: object
+pattern = r'([A-Za-z0-9._%+-]+)@([A-Z0-9.-]+)\.([A-Z[2,4])'
+data.str.findall(pattern, flags=re.IGNORECASE)
+#[Out]# Dave     [(dave, google, c)]
+#[Out]# Steve    [(steve, gmail, c)]
+#[Out]# Rob        [(rob, gmail, c)]
+#[Out]# Wes                      NaN
+#[Out]# dtype: object
+pattern = r'([A-Za-z0-9._%+-]+)@([A-Z0-9.-]+)\\.([A-Z[2,4])'
+data.str.findall(pattern, flags=re.IGNORECASE)
+#[Out]# Dave      []
+#[Out]# Steve     []
+#[Out]# Rob       []
+#[Out]# Wes      NaN
+#[Out]# dtype: object
+pattern = r'([A-Za-z0-9._%+-]+)@([A-Z0-9.-]+)\\.([A-Z]{2,4})'
+data.str.findall(pattern, flags=re.IGNORECASE)
+#[Out]# Dave      []
+#[Out]# Steve     []
+#[Out]# Rob       []
+#[Out]# Wes      NaN
+#[Out]# dtype: object
+pattern = r'([A-Za-z0-9._%+-]+)@([A-Z0-9.-]+)\.([A-Z]{2,4})'
+data.str.findall(pattern, flags=re.IGNORECASE)
+#[Out]# Dave     [(dave, google, com)]
+#[Out]# Steve    [(steve, gmail, com)]
+#[Out]# Rob        [(rob, gmail, com)]
+#[Out]# Wes                        NaN
+#[Out]# dtype: object
+matches = data.str.match(pattern, flags=re.IGNORECASE)
+matches
+#[Out]# Dave     True
+#[Out]# Steve    True
+#[Out]# Rob      True
+#[Out]# Wes       NaN
+#[Out]# dtype: object
+matches.str.get(1)
+matches
+#[Out]# Dave     True
+#[Out]# Steve    True
+#[Out]# Rob      True
+#[Out]# Wes       NaN
+#[Out]# dtype: object
+matches.str[0]
+#
+# list of vectorized string functions
+#
+# cat, contains, count, extract, endswith, startswith, findall,
+# get, isalnum, isalpha, isdecimal, isdigit, isnumeric, isupper,
+# join, len, lower, upper
+#
+# more functions ...
+#
+# match, pad, center, repeat, replace, slice, split, strip, 
+# rstrip, lstrip
+#
+quit()

@@ -1,0 +1,2175 @@
+import pandas as pd
+import numpy as np
+#
+# chapter 8 - join, combine and reshape
+#
+data = ps.Series[np.random.randn(9),
+index=[['a','a','a','b','b','c','c','d','d'],
+[1,2,3,1,3,1,2,2,3]])
+data = ps.Series(np.random.randn(9),
+index=[['a','a','a','b','b','c','c','d','d'],
+[1,2,3,1,3,1,2,2,3]])
+data = pd.Series(np.random.randn(9),
+index=[['a','a','a','b','b','c','c','d','d'],
+[1,2,3,1,3,1,2,2,3]])
+data
+#[Out]# a  1   -0.957106
+#[Out]#    2    0.011133
+#[Out]#    3   -0.567361
+#[Out]# b  1    0.460852
+#[Out]#    3    0.604767
+#[Out]# c  1   -1.976609
+#[Out]#    2   -0.205053
+#[Out]# d  2    2.664616
+#[Out]#    3    1.543823
+#[Out]# dtype: float64
+data.index
+#[Out]# MultiIndex([('a', 1),
+#[Out]#             ('a', 2),
+#[Out]#             ('a', 3),
+#[Out]#             ('b', 1),
+#[Out]#             ('b', 3),
+#[Out]#             ('c', 1),
+#[Out]#             ('c', 2),
+#[Out]#             ('d', 2),
+#[Out]#             ('d', 3)],
+#[Out]#            )
+data['b']
+#[Out]# 1    0.460852
+#[Out]# 3    0.604767
+#[Out]# dtype: float64
+data['b':'c']
+#[Out]# b  1    0.460852
+#[Out]#    3    0.604767
+#[Out]# c  1   -1.976609
+#[Out]#    2   -0.205053
+#[Out]# dtype: float64
+data[['b','d']]
+#[Out]# b  1    0.460852
+#[Out]#    3    0.604767
+#[Out]# d  2    2.664616
+#[Out]#    3    1.543823
+#[Out]# dtype: float64
+data[:,2]
+#[Out]# a    0.011133
+#[Out]# c   -0.205053
+#[Out]# d    2.664616
+#[Out]# dtype: float64
+data.unstack()
+#[Out]#           1         2         3
+#[Out]# a -0.957106  0.011133 -0.567361
+#[Out]# b  0.460852       NaN  0.604767
+#[Out]# c -1.976609 -0.205053       NaN
+#[Out]# d       NaN  2.664616  1.543823
+data.stack()
+data.unstack().stack()
+#[Out]# a  1   -0.957106
+#[Out]#    2    0.011133
+#[Out]#    3   -0.567361
+#[Out]# b  1    0.460852
+#[Out]#    3    0.604767
+#[Out]# c  1   -1.976609
+#[Out]#    2   -0.205053
+#[Out]# d  2    2.664616
+#[Out]#    3    1.543823
+#[Out]# dtype: float64
+data['a']
+#[Out]# 1   -0.957106
+#[Out]# 2    0.011133
+#[Out]# 3   -0.567361
+#[Out]# dtype: float64
+data['a',1;2]
+data['a',1:2]
+data['a']
+#[Out]# 1   -0.957106
+#[Out]# 2    0.011133
+#[Out]# 3   -0.567361
+#[Out]# dtype: float64
+data['a',1]
+#[Out]# -0.9571063860092466
+data['a',range(1,3)]
+data['a'][range(1,3)]
+data['a']
+#[Out]# 1   -0.957106
+#[Out]# 2    0.011133
+#[Out]# 3   -0.567361
+#[Out]# dtype: float64
+data.loc['a',range(1,3)]
+data.loc['a']
+#[Out]# 1   -0.957106
+#[Out]# 2    0.011133
+#[Out]# 3   -0.567361
+#[Out]# dtype: float64
+data.loc['a',0]
+data.iloc['a',0]
+data.loc[:,2]
+#[Out]# a    0.011133
+#[Out]# c   -0.205053
+#[Out]# d    2.664616
+#[Out]# dtype: float64
+data.loc[:,1]
+#[Out]# a   -0.957106
+#[Out]# b    0.460852
+#[Out]# c   -1.976609
+#[Out]# dtype: float64
+data.loc[:,1:2]
+#[Out]# a  1   -0.957106
+#[Out]#    2    0.011133
+#[Out]# b  1    0.460852
+#[Out]# c  1   -1.976609
+#[Out]#    2   -0.205053
+#[Out]# d  2    2.664616
+#[Out]# dtype: float64
+data.loc['a',1:2]
+#[Out]# a  1   -0.957106
+#[Out]#    2    0.011133
+#[Out]# dtype: float64
+data.loc['a',0]
+data.loc['a',1]
+#[Out]# -0.9571063860092466
+data.loc['a',1:3]
+#[Out]# a  1   -0.957106
+#[Out]#    2    0.011133
+#[Out]#    3   -0.567361
+#[Out]# dtype: float64
+# the above expression is not columns, but a two-level index !!!
+#
+frame = pd.DataFrame(np.arange(12).reshapte((4,3)),
+index = [['a','a','b','b'],[1,2,1,2]].
+columns= [['ohio','ohio','colorado'],
+['green','red','green']])
+frame = pd.DataFrame(np.arange(12).reshapte((4,3)),
+index = [['a','a','b','b'],[1,2,1,2]].
+columns= [['ohio','ohio','colorado'],
+['green','red','green']])
+frame = pd.DataFrame(np.arange(12).reshapte((4,3)),
+index = [['a','a','b','b'],[1,2,1,2]].
+columns=[['ohio','ohio','colorado'],
+['green','red','green']])
+frame = pd.DataFrame(np.arange(12).reshapte((4,3)),
+index = [['a','a','b','b'],[1,2,1,2]],
+columns=[['ohio','ohio','colorado'],
+['green','red','green']])
+frame = pd.DataFrame(np.arange(12).reshape((4,3)),
+index = [['a','a','b','b'],[1,2,1,2]],
+columns=[['ohio','ohio','colorado'],
+['green','red','green']])
+frame
+#[Out]#      ohio     colorado
+#[Out]#     green red    green
+#[Out]# a 1     0   1        2
+#[Out]#   2     3   4        5
+#[Out]# b 1     6   7        8
+#[Out]#   2     9  10       11
+frame.index.names = ['key1','key2']
+frame.coulmns.names = ['state','color']
+frame.columns.names = ['state','color']
+data
+#[Out]# a  1   -0.957106
+#[Out]#    2    0.011133
+#[Out]#    3   -0.567361
+#[Out]# b  1    0.460852
+#[Out]#    3    0.604767
+#[Out]# c  1   -1.976609
+#[Out]#    2   -0.205053
+#[Out]# d  2    2.664616
+#[Out]#    3    1.543823
+#[Out]# dtype: float64
+frame
+#[Out]# state      ohio     colorado
+#[Out]# color     green red    green
+#[Out]# key1 key2                   
+#[Out]# a    1        0   1        2
+#[Out]#      2        3   4        5
+#[Out]# b    1        6   7        8
+#[Out]#      2        9  10       11
+frame['ohio']
+#[Out]# color      green  red
+#[Out]# key1 key2            
+#[Out]# a    1         0    1
+#[Out]#      2         3    4
+#[Out]# b    1         6    7
+#[Out]#      2         9   10
+frame['ohio','green']
+#[Out]# key1  key2
+#[Out]# a     1       0
+#[Out]#       2       3
+#[Out]# b     1       6
+#[Out]#       2       9
+#[Out]# Name: (ohio, green), dtype: int64
+frame['key1','ohio','green']
+frame['ohio','green']
+#[Out]# key1  key2
+#[Out]# a     1       0
+#[Out]#       2       3
+#[Out]# b     1       6
+#[Out]#       2       9
+#[Out]# Name: (ohio, green), dtype: int64
+frame['key1']['ohio','green']
+frame['ohio','green']
+#[Out]# key1  key2
+#[Out]# a     1       0
+#[Out]#       2       3
+#[Out]# b     1       6
+#[Out]#       2       9
+#[Out]# Name: (ohio, green), dtype: int64
+frame['key1']
+frame['ohio']
+#[Out]# color      green  red
+#[Out]# key1 key2            
+#[Out]# a    1         0    1
+#[Out]#      2         3    4
+#[Out]# b    1         6    7
+#[Out]#      2         9   10
+frame.swaplevel('key1','key2')
+#[Out]# state      ohio     colorado
+#[Out]# color     green red    green
+#[Out]# key2 key1                   
+#[Out]# 1    a        0   1        2
+#[Out]# 2    a        3   4        5
+#[Out]# 1    b        6   7        8
+#[Out]# 2    b        9  10       11
+frame
+#[Out]# state      ohio     colorado
+#[Out]# color     green red    green
+#[Out]# key1 key2                   
+#[Out]# a    1        0   1        2
+#[Out]#      2        3   4        5
+#[Out]# b    1        6   7        8
+#[Out]#      2        9  10       11
+frame.sort_index(level=1)
+#[Out]# state      ohio     colorado
+#[Out]# color     green red    green
+#[Out]# key1 key2                   
+#[Out]# a    1        0   1        2
+#[Out]# b    1        6   7        8
+#[Out]# a    2        3   4        5
+#[Out]# b    2        9  10       11
+frame.sort_index(level=2)
+frame.sort_index(level=0)
+#[Out]# state      ohio     colorado
+#[Out]# color     green red    green
+#[Out]# key1 key2                   
+#[Out]# a    1        0   1        2
+#[Out]#      2        3   4        5
+#[Out]# b    1        6   7        8
+#[Out]#      2        9  10       11
+frame.swaplevel(0,1).sort_index(level=0)
+#[Out]# state      ohio     colorado
+#[Out]# color     green red    green
+#[Out]# key2 key1                   
+#[Out]# 1    a        0   1        2
+#[Out]#      b        6   7        8
+#[Out]# 2    a        3   4        5
+#[Out]#      b        9  10       11
+frame.swaplevel(1,0).sort_index(level=0)
+#[Out]# state      ohio     colorado
+#[Out]# color     green red    green
+#[Out]# key2 key1                   
+#[Out]# 1    a        0   1        2
+#[Out]#      b        6   7        8
+#[Out]# 2    a        3   4        5
+#[Out]#      b        9  10       11
+frame.sort_index(level=0)
+#[Out]# state      ohio     colorado
+#[Out]# color     green red    green
+#[Out]# key1 key2                   
+#[Out]# a    1        0   1        2
+#[Out]#      2        3   4        5
+#[Out]# b    1        6   7        8
+#[Out]#      2        9  10       11
+#
+# summary statistics by level
+#
+frame.sum(level='color', axis=1)
+#[Out]# color      green  red
+#[Out]# key1 key2            
+#[Out]# a    1         2    1
+#[Out]#      2         8    4
+#[Out]# b    1        14    7
+#[Out]#      2        20   10
+#
+# indexing with a data.frame's columns
+#
+# wawn to use one or more columns as indexes
+#
+fram = pd.DataFrame({'a':range(7), 'b':range(7,0,-1).
+'c':['one','one','one','two','two','two','two'],
+'d': [0,1,2,0,1,2,3]})
+fram = pd.DataFrame({'a':range(7), 'b':range(7,0,-1).
+'c':['one','one','one','two','two','two','two'],
+'d': [0,1,2,0,1,2,3]})
+frame = pd.DataFrame({'a':range(7), 
+                      'b':range(7,0,-1).
+                      'c':['one','one','one','two','two','two','two'],
+                      'd': [0,1,2,0,1,2,3]})
+frame = pd.DataFrame({'a':range(7), 
+                      'b':range(7,0,-1),
+                      'c':['one','one','one','two','two','two','two'],
+                      'd': [0,1,2,0,1,2,3]})
+frame
+#[Out]#    a  b    c  d
+#[Out]# 0  0  7  one  0
+#[Out]# 1  1  6  one  1
+#[Out]# 2  2  5  one  2
+#[Out]# 3  3  4  two  0
+#[Out]# 4  4  3  two  1
+#[Out]# 5  5  2  two  2
+#[Out]# 6  6  1  two  3
+frame2 = frame.set_index(['c','d'])
+frame2
+#[Out]#        a  b
+#[Out]# c   d      
+#[Out]# one 0  0  7
+#[Out]#     1  1  6
+#[Out]#     2  2  5
+#[Out]# two 0  3  4
+#[Out]#     1  4  3
+#[Out]#     2  5  2
+#[Out]#     3  6  1
+frame2 = frame.set_index(['c','d'], drop=False)
+frame2
+#[Out]#        a  b    c  d
+#[Out]# c   d              
+#[Out]# one 0  0  7  one  0
+#[Out]#     1  1  6  one  1
+#[Out]#     2  2  5  one  2
+#[Out]# two 0  3  4  two  0
+#[Out]#     1  4  3  two  1
+#[Out]#     2  5  2  two  2
+#[Out]#     3  6  1  two  3
+# don't drop columns which are used in the index
+#
+frame2 = frame.set_index(['c','d'], drop=False)
+frame2
+#[Out]#        a  b    c  d
+#[Out]# c   d              
+#[Out]# one 0  0  7  one  0
+#[Out]#     1  1  6  one  1
+#[Out]#     2  2  5  one  2
+#[Out]# two 0  3  4  two  0
+#[Out]#     1  4  3  two  1
+#[Out]#     2  5  2  two  2
+#[Out]#     3  6  1  two  3
+#move index values into columns
+#
+frame2.reset_index()
+frame2 = frame.set_index(['c','d'])
+frame2.reset_index()
+#[Out]#      c  d  a  b
+#[Out]# 0  one  0  0  7
+#[Out]# 1  one  1  1  6
+#[Out]# 2  one  2  2  5
+#[Out]# 3  two  0  3  4
+#[Out]# 4  two  1  4  3
+#[Out]# 5  two  2  5  2
+#[Out]# 6  two  3  6  1
+frame2
+#[Out]#        a  b
+#[Out]# c   d      
+#[Out]# one 0  0  7
+#[Out]#     1  1  6
+#[Out]#     2  2  5
+#[Out]# two 0  3  4
+#[Out]#     1  4  3
+#[Out]#     2  5  2
+#[Out]#     3  6  1
+#
+# combining and merging datasets
+#
+# section 8.2 -  combining and merging datasets
+# very important !!!
+#
+# database-style data frame joins
+#
+get_ipython().run_line_magic('run', 'ex1.py')
+get_ipython().run_line_magic('run', 'ex1.py')
+dir
+#[Out]# <function dir>
+dir()
+#[Out]# ['In',
+#[Out]#  'Out',
+#[Out]#  '_',
+#[Out]#  '_10',
+#[Out]#  '_104',
+#[Out]#  '_11',
+#[Out]#  '_12',
+#[Out]#  '_13',
+#[Out]#  '_14',
+#[Out]#  '_15',
+#[Out]#  '_17',
+#[Out]#  '_18',
+#[Out]#  '_21',
+#[Out]#  '_22',
+#[Out]#  '_25',
+#[Out]#  '_27',
+#[Out]#  '_30',
+#[Out]#  '_31',
+#[Out]#  '_32',
+#[Out]#  '_33',
+#[Out]#  '_35',
+#[Out]#  '_36',
+#[Out]#  '_44',
+#[Out]#  '_48',
+#[Out]#  '_49',
+#[Out]#  '_50',
+#[Out]#  '_51',
+#[Out]#  '_53',
+#[Out]#  '_55',
+#[Out]#  '_57',
+#[Out]#  '_58',
+#[Out]#  '_59',
+#[Out]#  '_60',
+#[Out]#  '_62',
+#[Out]#  '_63',
+#[Out]#  '_64',
+#[Out]#  '_65',
+#[Out]#  '_69',
+#[Out]#  '_79',
+#[Out]#  '_81',
+#[Out]#  '_83',
+#[Out]#  '_87',
+#[Out]#  '_9',
+#[Out]#  '_92',
+#[Out]#  '_93',
+#[Out]#  '__',
+#[Out]#  '___',
+#[Out]#  '__builtin__',
+#[Out]#  '__builtins__',
+#[Out]#  '__doc__',
+#[Out]#  '__loader__',
+#[Out]#  '__name__',
+#[Out]#  '__nonzero__',
+#[Out]#  '__package__',
+#[Out]#  '__spec__',
+#[Out]#  '_dh',
+#[Out]#  '_i',
+#[Out]#  '_i1',
+#[Out]#  '_i10',
+#[Out]#  '_i100',
+#[Out]#  '_i101',
+#[Out]#  '_i102',
+#[Out]#  '_i103',
+#[Out]#  '_i104',
+#[Out]#  '_i105',
+#[Out]#  '_i11',
+#[Out]#  '_i12',
+#[Out]#  '_i13',
+#[Out]#  '_i14',
+#[Out]#  '_i15',
+#[Out]#  '_i16',
+#[Out]#  '_i17',
+#[Out]#  '_i18',
+#[Out]#  '_i19',
+#[Out]#  '_i2',
+#[Out]#  '_i20',
+#[Out]#  '_i21',
+#[Out]#  '_i22',
+#[Out]#  '_i23',
+#[Out]#  '_i24',
+#[Out]#  '_i25',
+#[Out]#  '_i26',
+#[Out]#  '_i27',
+#[Out]#  '_i28',
+#[Out]#  '_i29',
+#[Out]#  '_i3',
+#[Out]#  '_i30',
+#[Out]#  '_i31',
+#[Out]#  '_i32',
+#[Out]#  '_i33',
+#[Out]#  '_i34',
+#[Out]#  '_i35',
+#[Out]#  '_i36',
+#[Out]#  '_i37',
+#[Out]#  '_i38',
+#[Out]#  '_i39',
+#[Out]#  '_i4',
+#[Out]#  '_i40',
+#[Out]#  '_i41',
+#[Out]#  '_i42',
+#[Out]#  '_i43',
+#[Out]#  '_i44',
+#[Out]#  '_i45',
+#[Out]#  '_i46',
+#[Out]#  '_i47',
+#[Out]#  '_i48',
+#[Out]#  '_i49',
+#[Out]#  '_i5',
+#[Out]#  '_i50',
+#[Out]#  '_i51',
+#[Out]#  '_i52',
+#[Out]#  '_i53',
+#[Out]#  '_i54',
+#[Out]#  '_i55',
+#[Out]#  '_i56',
+#[Out]#  '_i57',
+#[Out]#  '_i58',
+#[Out]#  '_i59',
+#[Out]#  '_i6',
+#[Out]#  '_i60',
+#[Out]#  '_i61',
+#[Out]#  '_i62',
+#[Out]#  '_i63',
+#[Out]#  '_i64',
+#[Out]#  '_i65',
+#[Out]#  '_i66',
+#[Out]#  '_i67',
+#[Out]#  '_i68',
+#[Out]#  '_i69',
+#[Out]#  '_i7',
+#[Out]#  '_i70',
+#[Out]#  '_i71',
+#[Out]#  '_i72',
+#[Out]#  '_i73',
+#[Out]#  '_i74',
+#[Out]#  '_i75',
+#[Out]#  '_i76',
+#[Out]#  '_i77',
+#[Out]#  '_i78',
+#[Out]#  '_i79',
+#[Out]#  '_i8',
+#[Out]#  '_i80',
+#[Out]#  '_i81',
+#[Out]#  '_i82',
+#[Out]#  '_i83',
+#[Out]#  '_i84',
+#[Out]#  '_i85',
+#[Out]#  '_i86',
+#[Out]#  '_i87',
+#[Out]#  '_i88',
+#[Out]#  '_i89',
+#[Out]#  '_i9',
+#[Out]#  '_i90',
+#[Out]#  '_i91',
+#[Out]#  '_i92',
+#[Out]#  '_i93',
+#[Out]#  '_i94',
+#[Out]#  '_i95',
+#[Out]#  '_i96',
+#[Out]#  '_i97',
+#[Out]#  '_i98',
+#[Out]#  '_i99',
+#[Out]#  '_ih',
+#[Out]#  '_ii',
+#[Out]#  '_iii',
+#[Out]#  '_oh',
+#[Out]#  'data',
+#[Out]#  'df1',
+#[Out]#  'df2',
+#[Out]#  'exit',
+#[Out]#  'frame',
+#[Out]#  'frame2',
+#[Out]#  'get_ipython',
+#[Out]#  'np',
+#[Out]#  'pd',
+#[Out]#  'quit']
+df1
+#[Out]#   key  data1
+#[Out]# 0   b      0
+#[Out]# 1   b      1
+#[Out]# 2   a      2
+#[Out]# 3   c      3
+#[Out]# 4   a      4
+#[Out]# 5   a      5
+#[Out]# 6   b      6
+df2
+#[Out]#   key  data2
+#[Out]# 0   a      0
+#[Out]# 1   b      1
+#[Out]# 2   d      2
+get_ipython().run_line_magic('run', 'ex1.py')
+get_ipython().run_line_magic('pinfo', 'run')
+get_ipython().run_line_magic('pinfo', 'run')
+get_ipython().run_line_magic('pinfo', '%run')
+get_ipython().run_line_magic('pinfo', 'run')
+pd.merge(df1,df2)
+#[Out]#   key  data1  data2
+#[Out]# 0   b      0      1
+#[Out]# 1   b      1      1
+#[Out]# 2   b      6      1
+#[Out]# 3   a      2      0
+#[Out]# 4   a      4      0
+#[Out]# 5   a      5      0
+# joins on common column
+#
+# similar
+#
+pd.merge(df1,df2, on='key')
+#[Out]#   key  data1  data2
+#[Out]# 0   b      0      1
+#[Out]# 1   b      1      1
+#[Out]# 2   b      6      1
+#[Out]# 3   a      2      0
+#[Out]# 4   a      4      0
+#[Out]# 5   a      5      0
+get_ipython().run_line_magic('run', '-i ex1.py')
+df3
+#[Out]#   key  data1
+#[Out]# 0   b      0
+#[Out]# 1   b      1
+#[Out]# 2   a      2
+#[Out]# 3   c      3
+#[Out]# 4   a      4
+#[Out]# 5   a      5
+#[Out]# 6   b      6
+df4
+#[Out]#   key  data2
+#[Out]# 0   a      0
+#[Out]# 1   b      1
+#[Out]# 2   d      2
+get_ipython().run_line_magic('run', '-i ex1.py')
+df3
+#[Out]#   lkey  data1
+#[Out]# 0    b      0
+#[Out]# 1    b      1
+#[Out]# 2    a      2
+#[Out]# 3    c      3
+#[Out]# 4    a      4
+#[Out]# 5    a      5
+#[Out]# 6    b      6
+df4
+#[Out]#   rkey  data2
+#[Out]# 0    a      0
+#[Out]# 1    b      1
+#[Out]# 2    d      2
+# key field name changed to lkey and rkey
+#
+pd.merge(df3, df4, left_on='lkey', right_on='rkey')
+#[Out]#   lkey  data1 rkey  data2
+#[Out]# 0    b      0    b      1
+#[Out]# 1    b      1    b      1
+#[Out]# 2    b      6    b      1
+#[Out]# 3    a      2    a      0
+#[Out]# 4    a      4    a      0
+#[Out]# 5    a      5    a      0
+pd.merge(df3, df4, left_on='lkey', right_on='rkey', how='outer')
+#[Out]#   lkey  data1 rkey  data2
+#[Out]# 0    b    0.0    b    1.0
+#[Out]# 1    b    1.0    b    1.0
+#[Out]# 2    b    6.0    b    1.0
+#[Out]# 3    a    2.0    a    0.0
+#[Out]# 4    a    4.0    a    0.0
+#[Out]# 5    a    5.0    a    0.0
+#[Out]# 6    c    3.0  NaN    NaN
+#[Out]# 7  NaN    NaN    d    2.0
+pd.merge(df1, df2, , how='outer')
+pd.merge(df1, df2, how='outer')
+#[Out]#   key  data1  data2
+#[Out]# 0   b    0.0    1.0
+#[Out]# 1   b    1.0    1.0
+#[Out]# 2   b    6.0    1.0
+#[Out]# 3   a    2.0    0.0
+#[Out]# 4   a    4.0    0.0
+#[Out]# 5   a    5.0    0.0
+#[Out]# 6   c    3.0    NaN
+#[Out]# 7   d    NaN    2.0
+#
+# different types of joins
+#
+# inner, left, right, outer
+#
+get_ipython().run_line_magic('run', '-i ex1.py')
+df1
+#[Out]#   key  data1
+#[Out]# 0   b      0
+#[Out]# 1   b      1
+#[Out]# 2   a      2
+#[Out]# 3   c      3
+#[Out]# 4   a      4
+#[Out]# 5   b      5
+df2
+#[Out]#   key  data2
+#[Out]# 0   a      0
+#[Out]# 1   b      1
+#[Out]# 2   a      2
+#[Out]# 3   b      3
+#[Out]# 4   d      4
+pd.merge(df1, df2, on='key', how='left')
+#[Out]#    key  data1  data2
+#[Out]# 0    b      0    1.0
+#[Out]# 1    b      0    3.0
+#[Out]# 2    b      1    1.0
+#[Out]# 3    b      1    3.0
+#[Out]# 4    a      2    0.0
+#[Out]# 5    a      2    2.0
+#[Out]# 6    c      3    NaN
+#[Out]# 7    a      4    0.0
+#[Out]# 8    a      4    2.0
+#[Out]# 9    b      5    1.0
+#[Out]# 10   b      5    3.0
+# left join
+#
+pd.merge(df1, df2, on='key', how='inner')
+#[Out]#   key  data1  data2
+#[Out]# 0   b      0      1
+#[Out]# 1   b      0      3
+#[Out]# 2   b      1      1
+#[Out]# 3   b      1      3
+#[Out]# 4   b      5      1
+#[Out]# 5   b      5      3
+#[Out]# 6   a      2      0
+#[Out]# 7   a      2      2
+#[Out]# 8   a      4      0
+#[Out]# 9   a      4      2
+# inner join
+#
+pd.merge(df1, df2, on='key', how='inner')
+#[Out]#   key  data1  data2
+#[Out]# 0   b      0      1
+#[Out]# 1   b      0      3
+#[Out]# 2   b      1      1
+#[Out]# 3   b      1      3
+#[Out]# 4   b      5      1
+#[Out]# 5   b      5      3
+#[Out]# 6   a      2      0
+#[Out]# 7   a      2      2
+#[Out]# 8   a      4      0
+#[Out]# 9   a      4      2
+#
+get_ipython().run_line_magic('run', 'ex1.py')
+get_ipython().run_line_magic('run', '-i ex1.py')
+left
+#[Out]#   key1 key2  lval
+#[Out]# 0  foo  one     1
+#[Out]# 1  foo  two     2
+#[Out]# 2  bar  one     3
+right
+#[Out]#   key1 key2  rval
+#[Out]# 0  foo  one     4
+#[Out]# 1  foo  one     5
+#[Out]# 2  bar  one     6
+#[Out]# 3  bar  two     7
+pd.merge(left, right, on=['key1','key2'], how='outer')
+#[Out]#   key1 key2  lval  rval
+#[Out]# 0  foo  one   1.0   4.0
+#[Out]# 1  foo  one   1.0   5.0
+#[Out]# 2  foo  two   2.0   NaN
+#[Out]# 3  bar  one   3.0   6.0
+#[Out]# 4  bar  two   NaN   7.0
+pd.merge(left, right, on='key1')
+#[Out]#   key1 key2_x  lval key2_y  rval
+#[Out]# 0  foo    one     1    one     4
+#[Out]# 1  foo    one     1    one     5
+#[Out]# 2  foo    two     2    one     4
+#[Out]# 3  foo    two     2    one     5
+#[Out]# 4  bar    one     3    one     6
+#[Out]# 5  bar    one     3    two     7
+pd.merge(left, right, on='key1', suffixes=('_left','_right')
+)
+#[Out]#   key1 key2_left  lval key2_right  rval
+#[Out]# 0  foo       one     1        one     4
+#[Out]# 1  foo       one     1        one     5
+#[Out]# 2  foo       two     2        one     4
+#[Out]# 3  foo       two     2        one     5
+#[Out]# 4  bar       one     3        one     6
+#[Out]# 5  bar       one     3        two     7
+#
+# other merge function arguments
+#
+3 left, right, how, on, left_on, right_on, left_index, right_index,
+#
+# left, right, how, on, left_on, right_on, left_index, right_index,
+# sort, suffixes, copy, indicator
+#
+# mergin on an index
+#
+get_ipython().run_line_magic('run', '-i ex1.py')
+left1
+#[Out]#   key  value
+#[Out]# 0   a      0
+#[Out]# 1   b      1
+#[Out]# 2   a      2
+#[Out]# 3   a      3
+#[Out]# 4   b      4
+#[Out]# 5   c      5
+right1
+#[Out]#    group_val
+#[Out]# a        3.5
+#[Out]# b        7.0
+# merge on a column and an index
+#
+pd.merge(left1, right1, left_on='key1', right_index=True, how='outer')
+pd.merge(left1, right1, left_on='key', right_index=True, how='outer')
+#[Out]#   key  value  group_val
+#[Out]# 0   a      0        3.5
+#[Out]# 2   a      2        3.5
+#[Out]# 3   a      3        3.5
+#[Out]# 1   b      1        7.0
+#[Out]# 4   b      4        7.0
+#[Out]# 5   c      5        NaN
+lefth
+get_ipython().run_line_magic('run', '-i ex1.py')
+lefth
+#[Out]#      key1  key2  data
+#[Out]# 0    Ohio  2000   0.0
+#[Out]# 1    Ohio  2001   1.0
+#[Out]# 2    Ohio  2002   2.0
+#[Out]# 3  Nevada  2001   3.0
+#[Out]# 4  Nevada  2002   4.0
+leftr
+righth
+#[Out]#              event1  event2
+#[Out]# Nevada 2001       0       1
+#[Out]#        2000       2       3
+#[Out]# Ohio   2000       4       5
+#[Out]#        2000       6       7
+#[Out]#        2001       8       9
+#[Out]#        2002      10      11
+# must state which columns to use in the merge.
+#
+pd.merge(lefth, righth, left_on=['key1','key2'], right_index=True)
+#[Out]#      key1  key2  data  event1  event2
+#[Out]# 0    Ohio  2000   0.0       4       5
+#[Out]# 0    Ohio  2000   0.0       6       7
+#[Out]# 1    Ohio  2001   1.0       8       9
+#[Out]# 2    Ohio  2002   2.0      10      11
+#[Out]# 3  Nevada  2001   3.0       0       1
+get_ipython().run_line_magic('run', '-i ex1.py')
+left2
+#[Out]#    Ohio  Nevada
+#[Out]# a   1.0     2.0
+#[Out]# c   3.0     4.0
+#[Out]# e   5.0     6.0
+right2
+#[Out]#    Missouri  Alabama
+#[Out]# b       7.0      8.0
+#[Out]# c       9.0     10.0
+#[Out]# d      11.0     12.0
+#[Out]# e      13.0     14.0
+pd.merge(left2,right2,how='outer',left_index=True,right_index=True)
+#[Out]#    Ohio  Nevada  Missouri  Alabama
+#[Out]# a   1.0     2.0       NaN      NaN
+#[Out]# b   NaN     NaN       7.0      8.0
+#[Out]# c   3.0     4.0       9.0     10.0
+#[Out]# d   NaN     NaN      11.0     12.0
+#[Out]# e   5.0     6.0      13.0     14.0
+@
+# 
+# can also use an index ...
+#@
+left2.join(right2,how='outer')
+#[Out]#    Ohio  Nevada  Missouri  Alabama
+#[Out]# a   1.0     2.0       NaN      NaN
+#[Out]# b   NaN     NaN       7.0      8.0
+#[Out]# c   3.0     4.0       9.0     10.0
+#[Out]# d   NaN     NaN      11.0     12.0
+#[Out]# e   5.0     6.0      13.0     14.0
+left1
+#[Out]#   key  value
+#[Out]# 0   a      0
+#[Out]# 1   b      1
+#[Out]# 2   a      2
+#[Out]# 3   a      3
+#[Out]# 4   b      4
+#[Out]# 5   c      5
+right1
+#[Out]#    group_val
+#[Out]# a        3.5
+#[Out]# b        7.0
+left1.join(right1,on='key')
+#[Out]#   key  value  group_val
+#[Out]# 0   a      0        3.5
+#[Out]# 1   b      1        7.0
+#[Out]# 2   a      2        3.5
+#[Out]# 3   a      3        3.5
+#[Out]# 4   b      4        7.0
+#[Out]# 5   c      5        NaN
+kkk
+get_ipython().run_line_magic('run', '-i ex1.py')
+another
+#[Out]#    New York  Oregon
+#[Out]# a       7.0     8.0
+#[Out]# c       9.0    10.0
+#[Out]# e      11.0    12.0
+#[Out]# f      16.0    17.0
+left2.join([right2,another])
+#[Out]#    Ohio  Nevada  Missouri  Alabama  New York  Oregon
+#[Out]# a   1.0     2.0       NaN      NaN       7.0     8.0
+#[Out]# c   3.0     4.0       9.0     10.0       9.0    10.0
+#[Out]# e   5.0     6.0      13.0     14.0      11.0    12.0
+#
+# join using a list of data frames.
+#
+left2.join([right2,another])
+#[Out]#    Ohio  Nevada  Missouri  Alabama  New York  Oregon
+#[Out]# a   1.0     2.0       NaN      NaN       7.0     8.0
+#[Out]# c   3.0     4.0       9.0     10.0       9.0    10.0
+#[Out]# e   5.0     6.0      13.0     14.0      11.0    12.0
+left2.join([right2,another], how='outer')
+#[Out]#    Ohio  Nevada  Missouri  Alabama  New York  Oregon
+#[Out]# a   1.0     2.0       NaN      NaN       7.0     8.0
+#[Out]# c   3.0     4.0       9.0     10.0       9.0    10.0
+#[Out]# e   5.0     6.0      13.0     14.0      11.0    12.0
+#[Out]# b   NaN     NaN       7.0      8.0       NaN     NaN
+#[Out]# d   NaN     NaN      11.0     12.0       NaN     NaN
+#[Out]# f   NaN     NaN       NaN      NaN      16.0    17.0
+#
+# concatenating along an axist
+#
+arr - np.arange(12).reshape((3,4))
+arr = np.arange(12).reshape((3,4))
+arr
+#[Out]# array([[ 0,  1,  2,  3],
+#[Out]#        [ 4,  5,  6,  7],
+#[Out]#        [ 8,  9, 10, 11]])
+np.concatenate([arr,arr],axis=1)
+#[Out]# array([[ 0,  1,  2,  3,  0,  1,  2,  3],
+#[Out]#        [ 4,  5,  6,  7,  4,  5,  6,  7],
+#[Out]#        [ 8,  9, 10, 11,  8,  9, 10, 11]])
+np.concat([arr,arr],axis=1)
+np.concat([arr,arr],axis=1)
+s1 = pd.Series([0,1], index=['a','b'])
+get_ipython().run_line_magic('run', '-i ex1.py')
+s1
+#[Out]# a    0
+#[Out]# b    1
+#[Out]# dtype: int64
+s2
+#[Out]# c    2
+#[Out]# d    3
+#[Out]# e    4
+#[Out]# dtype: int64
+s3
+#[Out]# f    5
+#[Out]# g    6
+#[Out]# dtype: int64
+pd.concat([s1,s2,s3])
+#[Out]# a    0
+#[Out]# b    1
+#[Out]# c    2
+#[Out]# d    3
+#[Out]# e    4
+#[Out]# f    5
+#[Out]# g    6
+#[Out]# dtype: int64
+# above uses pandas concat function and not numpy concatenate.
+#
+pd.concat([s1,s2,s3])
+#[Out]# a    0
+#[Out]# b    1
+#[Out]# c    2
+#[Out]# d    3
+#[Out]# e    4
+#[Out]# f    5
+#[Out]# g    6
+#[Out]# dtype: int64
+np.concat([arr,arr],axis=1)
+np.concatenate([arr,arr],axis=1)
+#[Out]# array([[ 0,  1,  2,  3,  0,  1,  2,  3],
+#[Out]#        [ 4,  5,  6,  7,  4,  5,  6,  7],
+#[Out]#        [ 8,  9, 10, 11,  8,  9, 10, 11]])
+pd.concat([s1,s2,s3],axis=0)
+#[Out]# a    0
+#[Out]# b    1
+#[Out]# c    2
+#[Out]# d    3
+#[Out]# e    4
+#[Out]# f    5
+#[Out]# g    6
+#[Out]# dtype: int64
+pd.concat([s1,s2,s3],axis=1)
+#[Out]#      0    1    2
+#[Out]# a  0.0  NaN  NaN
+#[Out]# b  1.0  NaN  NaN
+#[Out]# c  NaN  2.0  NaN
+#[Out]# d  NaN  3.0  NaN
+#[Out]# e  NaN  4.0  NaN
+#[Out]# f  NaN  NaN  5.0
+#[Out]# g  NaN  NaN  6.0
+# use inner pr outer joins
+#
+s4 = pd.concat([s1,s3])
+s4
+#[Out]# a    0
+#[Out]# b    1
+#[Out]# f    5
+#[Out]# g    6
+#[Out]# dtype: int64
+s4 = pd.concat([s1,s4], axis=1)
+s4 = pd.concat([s1,s3])
+pd.concat([s1,s4], axis=1)
+#[Out]#      0  1
+#[Out]# a  0.0  0
+#[Out]# b  1.0  1
+#[Out]# f  NaN  5
+#[Out]# g  NaN  6
+pd.concat([s1,s4], axis=1, join='inner')
+#[Out]#    0  1
+#[Out]# a  0  0
+#[Out]# b  1  1
+#
+# use hierarchical index
+result = pd.concat([s1, s1, s3], keys=['one', 'two', 'three'])
+result
+#[Out]# one    a    0
+#[Out]#        b    1
+#[Out]# two    a    0
+#[Out]#        b    1
+#[Out]# three  f    5
+#[Out]#        g    6
+#[Out]# dtype: int64
+result.unstack()
+#[Out]#          a    b    f    g
+#[Out]# one    0.0  1.0  NaN  NaN
+#[Out]# two    0.0  1.0  NaN  NaN
+#[Out]# three  NaN  NaN  5.0  6.0
+result.unstack()
+#[Out]#          a    b    f    g
+#[Out]# one    0.0  1.0  NaN  NaN
+#[Out]# two    0.0  1.0  NaN  NaN
+#[Out]# three  NaN  NaN  5.0  6.0
+pd.concat([s1, s2, s3], axis=1, keys=['one', 'two', 'three'])
+#[Out]#    one  two  three
+#[Out]# a  0.0  NaN    NaN
+#[Out]# b  1.0  NaN    NaN
+#[Out]# c  NaN  2.0    NaN
+#[Out]# d  NaN  3.0    NaN
+#[Out]# e  NaN  4.0    NaN
+#[Out]# f  NaN  NaN    5.0
+#[Out]# g  NaN  NaN    6.0
+get_ipython().run_line_magic('run', '-i ex1.py')
+fun myrun(fname):
+    run -i fname
+def myrun(fname):
+    run -i fname
+def myrun(fname):
+    run -i fname
+get_ipython().run_line_magic('run', '-i "ex1.py"')
+def myrun(fname):
+    run -i str(fname)
+def myrun(fname):
+    get_ipython().run_line_magic('run', '-i fname')
+    
+myrun(ex1.py)
+myrun("ex1.py")
+df1
+#[Out]#    one  two
+#[Out]# a    0    1
+#[Out]# b    2    3
+#[Out]# c    4    5
+df2
+#[Out]#    three  four
+#[Out]# a      5     6
+#[Out]# c      7     8
+pd.concat([df1,df2], axis=1, keys=['level1],.'level2'])
+pd.concat([df1,df2], axis=1, keys=['level1],'level2'])
+pd.concat([df1,df2], axis=1, keys=['level1','level2'])
+#[Out]#   level1     level2     
+#[Out]#      one two  three four
+#[Out]# a      0   1    5.0  6.0
+#[Out]# b      2   3    NaN  NaN
+#[Out]# c      4   5    7.0  8.0
+# can pass a dictionary 
+#
+pd.concat({'level1': df1, 'level2': df2}, axis=1)
+#[Out]#   level1     level2     
+#[Out]#      one two  three four
+#[Out]# a      0   1    5.0  6.0
+#[Out]# b      2   3    NaN  NaN
+#[Out]# c      4   5    7.0  8.0
+# concat function options
+#
+# objs, axis, jobs, join_axes, levels, names, verify_integrity, ignore_index
+#
+#
+# section 8.3 - reshaping and pivoting
+#
+# stack pivots columns into rows
+# unstal pivots rows into columns
+#
+get_ipython().run_line_magic('run', '-i ex1.py')
+data
+#[Out]# number    one  two  three
+#[Out]# state                    
+#[Out]# Ohio        0    1      2
+#[Out]# Colorado    3    4      5
+result = data.stack()
+result
+#[Out]# state     number
+#[Out]# Ohio      one       0
+#[Out]#           two       1
+#[Out]#           three     2
+#[Out]# Colorado  one       3
+#[Out]#           two       4
+#[Out]#           three     5
+#[Out]# dtype: int64
+result.unstack()
+#[Out]# number    one  two  three
+#[Out]# state                    
+#[Out]# Ohio        0    1      2
+#[Out]# Colorado    3    4      5
+# can unstack or stack different columns and rows
+#
+result.unstack(0)
+#[Out]# state   Ohio  Colorado
+#[Out]# number                
+#[Out]# one        0         3
+#[Out]# two        1         4
+#[Out]# three      2         5
+result.unstack('state')
+#[Out]# state   Ohio  Colorado
+#[Out]# number                
+#[Out]# one        0         3
+#[Out]# two        1         4
+#[Out]# three      2         5
+#
+# unstacking can introduce NAN if data is not found
+#
+s1 = pd.Series([0, 1, 2, 3], index=['a', 'b', 'c', 'd'])
+s2 = pd.Series([4, 5, 6], index=['c', 'd', 'e'])
+data2 = pd.concat([s1, s2], keys=['one', 'two'])
+data2
+#[Out]# one  a    0
+#[Out]#      b    1
+#[Out]#      c    2
+#[Out]#      d    3
+#[Out]# two  c    4
+#[Out]#      d    5
+#[Out]#      e    6
+#[Out]# dtype: int64
+data2.unstack()
+#[Out]#        a    b    c    d    e
+#[Out]# one  0.0  1.0  2.0  3.0  NaN
+#[Out]# two  NaN  NaN  4.0  5.0  6.0
+# two is missing values a, b, so pivoting introduces NaNs.
+#
+data2
+#[Out]# one  a    0
+#[Out]#      b    1
+#[Out]#      c    2
+#[Out]#      d    3
+#[Out]# two  c    4
+#[Out]#      d    5
+#[Out]#      e    6
+#[Out]# dtype: int64
+data2.unstack()
+#[Out]#        a    b    c    d    e
+#[Out]# one  0.0  1.0  2.0  3.0  NaN
+#[Out]# two  NaN  NaN  4.0  5.0  6.0
+# stacking filters out missing data.
+#
+data2.unstack()
+#[Out]#        a    b    c    d    e
+#[Out]# one  0.0  1.0  2.0  3.0  NaN
+#[Out]# two  NaN  NaN  4.0  5.0  6.0
+data2.unstack().stack()
+#[Out]# one  a    0.0
+#[Out]#      b    1.0
+#[Out]#      c    2.0
+#[Out]#      d    3.0
+#[Out]# two  c    4.0
+#[Out]#      d    5.0
+#[Out]#      e    6.0
+#[Out]# dtype: float64
+data2.unstack().stack(dropna=False)
+#[Out]# one  a    0.0
+#[Out]#      b    1.0
+#[Out]#      c    2.0
+#[Out]#      d    3.0
+#[Out]#      e    NaN
+#[Out]# two  a    NaN
+#[Out]#      b    NaN
+#[Out]#      c    4.0
+#[Out]#      d    5.0
+#[Out]#      e    6.0
+#[Out]# dtype: float64
+# turn off dropping missing data and you get ...
+#
+data2.unstack().stack(dropna=False)
+#[Out]# one  a    0.0
+#[Out]#      b    1.0
+#[Out]#      c    2.0
+#[Out]#      d    3.0
+#[Out]#      e    NaN
+#[Out]# two  a    NaN
+#[Out]#      b    NaN
+#[Out]#      c    4.0
+#[Out]#      d    5.0
+#[Out]#      e    6.0
+#[Out]# dtype: float64
+# you get nans
+df = pd.DataFrame({'left': result, 'right': result + 5},
+columns=pd.Index(['left', 'right'], name='side'))
+df
+#[Out]# side             left  right
+#[Out]# state    number             
+#[Out]# Ohio     one        0      5
+#[Out]#          two        1      6
+#[Out]#          three      2      7
+#[Out]# Colorado one        3      8
+#[Out]#          two        4      9
+#[Out]#          three      5     10
+df.unstack('state')
+#[Out]# side   left          right         
+#[Out]# state  Ohio Colorado  Ohio Colorado
+#[Out]# number                             
+#[Out]# one       0        3     5        8
+#[Out]# two       1        4     6        9
+#[Out]# three     2        5     7       10
+df.unstack('state').stack('side')
+#[Out]# state         Colorado  Ohio
+#[Out]# number side                 
+#[Out]# one    left          3     0
+#[Out]#        right         8     5
+#[Out]# two    left          4     1
+#[Out]#        right         9     6
+#[Out]# three  left          5     2
+#[Out]#        right        10     7
+#
+# pivotng data
+3
+#[Out]# 3
+#
+data = pd.read_csv("../examples/mcrodata.csv")
+data = pd.read_csv("../examples/macrodata.csv")
+data.head()
+#[Out]#      year  quarter   realgdp  realcons  ...  unemp      pop  infl  realint
+#[Out]# 0  1959.0      1.0  2710.349    1707.4  ...    5.8  177.146  0.00     0.00
+#[Out]# 1  1959.0      2.0  2778.801    1733.7  ...    5.1  177.830  2.34     0.74
+#[Out]# 2  1959.0      3.0  2775.488    1751.8  ...    5.3  178.657  2.74     1.09
+#[Out]# 3  1959.0      4.0  2785.204    1753.7  ...    5.6  179.386  0.27     4.06
+#[Out]# 4  1960.0      1.0  2847.699    1770.5  ...    5.2  180.007  2.31     1.19
+#[Out]# 
+#[Out]# [5 rows x 14 columns]
+data.rows
+dir(data)
+#[Out]# ['T',
+#[Out]#  '_AXIS_ALIASES',
+#[Out]#  '_AXIS_IALIASES',
+#[Out]#  '_AXIS_LEN',
+#[Out]#  '_AXIS_NAMES',
+#[Out]#  '_AXIS_NUMBERS',
+#[Out]#  '_AXIS_ORDERS',
+#[Out]#  '_AXIS_REVERSED',
+#[Out]#  '__abs__',
+#[Out]#  '__add__',
+#[Out]#  '__and__',
+#[Out]#  '__annotations__',
+#[Out]#  '__array__',
+#[Out]#  '__array_priority__',
+#[Out]#  '__array_wrap__',
+#[Out]#  '__bool__',
+#[Out]#  '__class__',
+#[Out]#  '__contains__',
+#[Out]#  '__copy__',
+#[Out]#  '__deepcopy__',
+#[Out]#  '__delattr__',
+#[Out]#  '__delitem__',
+#[Out]#  '__dict__',
+#[Out]#  '__dir__',
+#[Out]#  '__div__',
+#[Out]#  '__doc__',
+#[Out]#  '__eq__',
+#[Out]#  '__finalize__',
+#[Out]#  '__floordiv__',
+#[Out]#  '__format__',
+#[Out]#  '__ge__',
+#[Out]#  '__getattr__',
+#[Out]#  '__getattribute__',
+#[Out]#  '__getitem__',
+#[Out]#  '__getstate__',
+#[Out]#  '__gt__',
+#[Out]#  '__hash__',
+#[Out]#  '__iadd__',
+#[Out]#  '__iand__',
+#[Out]#  '__ifloordiv__',
+#[Out]#  '__imod__',
+#[Out]#  '__imul__',
+#[Out]#  '__init__',
+#[Out]#  '__init_subclass__',
+#[Out]#  '__invert__',
+#[Out]#  '__ior__',
+#[Out]#  '__ipow__',
+#[Out]#  '__isub__',
+#[Out]#  '__iter__',
+#[Out]#  '__itruediv__',
+#[Out]#  '__ixor__',
+#[Out]#  '__le__',
+#[Out]#  '__len__',
+#[Out]#  '__lt__',
+#[Out]#  '__matmul__',
+#[Out]#  '__mod__',
+#[Out]#  '__module__',
+#[Out]#  '__mul__',
+#[Out]#  '__ne__',
+#[Out]#  '__neg__',
+#[Out]#  '__new__',
+#[Out]#  '__nonzero__',
+#[Out]#  '__or__',
+#[Out]#  '__pos__',
+#[Out]#  '__pow__',
+#[Out]#  '__radd__',
+#[Out]#  '__rand__',
+#[Out]#  '__rdiv__',
+#[Out]#  '__reduce__',
+#[Out]#  '__reduce_ex__',
+#[Out]#  '__repr__',
+#[Out]#  '__rfloordiv__',
+#[Out]#  '__rmatmul__',
+#[Out]#  '__rmod__',
+#[Out]#  '__rmul__',
+#[Out]#  '__ror__',
+#[Out]#  '__round__',
+#[Out]#  '__rpow__',
+#[Out]#  '__rsub__',
+#[Out]#  '__rtruediv__',
+#[Out]#  '__rxor__',
+#[Out]#  '__setattr__',
+#[Out]#  '__setitem__',
+#[Out]#  '__setstate__',
+#[Out]#  '__sizeof__',
+#[Out]#  '__str__',
+#[Out]#  '__sub__',
+#[Out]#  '__subclasshook__',
+#[Out]#  '__truediv__',
+#[Out]#  '__weakref__',
+#[Out]#  '__xor__',
+#[Out]#  '_accessors',
+#[Out]#  '_add_numeric_operations',
+#[Out]#  '_add_series_or_dataframe_operations',
+#[Out]#  '_agg_by_level',
+#[Out]#  '_agg_examples_doc',
+#[Out]#  '_agg_summary_and_see_also_doc',
+#[Out]#  '_aggregate',
+#[Out]#  '_aggregate_multiple_funcs',
+#[Out]#  '_align_frame',
+#[Out]#  '_align_series',
+#[Out]#  '_box_col_values',
+#[Out]#  '_box_item_values',
+#[Out]#  '_builtin_table',
+#[Out]#  '_check_inplace_setting',
+#[Out]#  '_check_is_chained_assignment_possible',
+#[Out]#  '_check_label_or_level_ambiguity',
+#[Out]#  '_check_setitem_copy',
+#[Out]#  '_clear_item_cache',
+#[Out]#  '_clip_with_one_bound',
+#[Out]#  '_clip_with_scalar',
+#[Out]#  '_combine_frame',
+#[Out]#  '_combine_match_index',
+#[Out]#  '_consolidate',
+#[Out]#  '_consolidate_inplace',
+#[Out]#  '_construct_axes_dict',
+#[Out]#  '_construct_axes_dict_from',
+#[Out]#  '_construct_axes_from_arguments',
+#[Out]#  '_construct_result',
+#[Out]#  '_constructor',
+#[Out]#  '_constructor_expanddim',
+#[Out]#  '_constructor_sliced',
+#[Out]#  '_convert',
+#[Out]#  '_count_level',
+#[Out]#  '_create_indexer',
+#[Out]#  '_cython_table',
+#[Out]#  '_deprecations',
+#[Out]#  '_dir_additions',
+#[Out]#  '_dir_deletions',
+#[Out]#  '_drop_axis',
+#[Out]#  '_drop_labels_or_levels',
+#[Out]#  '_ensure_type',
+#[Out]#  '_ensure_valid_index',
+#[Out]#  '_find_valid_index',
+#[Out]#  '_from_arrays',
+#[Out]#  '_from_axes',
+#[Out]#  '_get_agg_axis',
+#[Out]#  '_get_axis',
+#[Out]#  '_get_axis_name',
+#[Out]#  '_get_axis_number',
+#[Out]#  '_get_axis_resolvers',
+#[Out]#  '_get_block_manager_axis',
+#[Out]#  '_get_bool_data',
+#[Out]#  '_get_cacher',
+#[Out]#  '_get_cleaned_column_resolvers',
+#[Out]#  '_get_cython_func',
+#[Out]#  '_get_index_resolvers',
+#[Out]#  '_get_item_cache',
+#[Out]#  '_get_label_or_level_values',
+#[Out]#  '_get_numeric_data',
+#[Out]#  '_get_value',
+#[Out]#  '_get_values',
+#[Out]#  '_getitem_bool_array',
+#[Out]#  '_getitem_multilevel',
+#[Out]#  '_gotitem',
+#[Out]#  '_iget_item_cache',
+#[Out]#  '_indexed_same',
+#[Out]#  '_info_axis',
+#[Out]#  '_info_axis_name',
+#[Out]#  '_info_axis_number',
+#[Out]#  '_info_repr',
+#[Out]#  '_init_mgr',
+#[Out]#  '_internal_get_values',
+#[Out]#  '_internal_names',
+#[Out]#  '_internal_names_set',
+#[Out]#  '_is_builtin_func',
+#[Out]#  '_is_cached',
+#[Out]#  '_is_copy',
+#[Out]#  '_is_datelike_mixed_type',
+#[Out]#  '_is_homogeneous_type',
+#[Out]#  '_is_label_or_level_reference',
+#[Out]#  '_is_label_reference',
+#[Out]#  '_is_level_reference',
+#[Out]#  '_is_mixed_type',
+#[Out]#  '_is_numeric_mixed_type',
+#[Out]#  '_is_view',
+#[Out]#  '_ix',
+#[Out]#  '_ixs',
+#[Out]#  '_join_compat',
+#[Out]#  '_maybe_cache_changed',
+#[Out]#  '_maybe_update_cacher',
+#[Out]#  '_metadata',
+#[Out]#  '_needs_reindex_multi',
+#[Out]#  '_obj_with_exclusions',
+#[Out]#  '_protect_consolidate',
+#[Out]#  '_reduce',
+#[Out]#  '_reindex_axes',
+#[Out]#  '_reindex_columns',
+#[Out]#  '_reindex_index',
+#[Out]#  '_reindex_multi',
+#[Out]#  '_reindex_with_indexers',
+#[Out]#  '_repr_data_resource_',
+#[Out]#  '_repr_fits_horizontal_',
+#[Out]#  '_repr_fits_vertical_',
+#[Out]#  '_repr_html_',
+#[Out]#  '_repr_latex_',
+#[Out]#  '_reset_cache',
+#[Out]#  '_reset_cacher',
+#[Out]#  '_sanitize_column',
+#[Out]#  '_selected_obj',
+#[Out]#  '_selection',
+#[Out]#  '_selection_list',
+#[Out]#  '_selection_name',
+#[Out]#  '_series',
+#[Out]#  '_set_as_cached',
+#[Out]#  '_set_axis',
+#[Out]#  '_set_axis_name',
+#[Out]#  '_set_is_copy',
+#[Out]#  '_set_item',
+#[Out]#  '_set_value',
+#[Out]#  '_setitem_array',
+#[Out]#  '_setitem_frame',
+#[Out]#  '_setitem_slice',
+#[Out]#  '_setup_axes',
+#[Out]#  '_slice',
+#[Out]#  '_stat_axis',
+#[Out]#  '_stat_axis_name',
+#[Out]#  '_stat_axis_number',
+#[Out]#  '_take_with_is_copy',
+#[Out]#  '_to_dict_of_blocks',
+#[Out]#  '_try_aggregate_string_function',
+#[Out]#  '_typ',
+#[Out]#  '_update_inplace',
+#[Out]#  '_validate_dtype',
+#[Out]#  '_values',
+#[Out]#  '_where',
+#[Out]#  '_xs',
+#[Out]#  'abs',
+#[Out]#  'add',
+#[Out]#  'add_prefix',
+#[Out]#  'add_suffix',
+#[Out]#  'agg',
+#[Out]#  'aggregate',
+#[Out]#  'align',
+#[Out]#  'all',
+#[Out]#  'any',
+#[Out]#  'append',
+#[Out]#  'apply',
+#[Out]#  'applymap',
+#[Out]#  'asfreq',
+#[Out]#  'asof',
+#[Out]#  'assign',
+#[Out]#  'astype',
+#[Out]#  'at',
+#[Out]#  'at_time',
+#[Out]#  'attrs',
+#[Out]#  'axes',
+#[Out]#  'between_time',
+#[Out]#  'bfill',
+#[Out]#  'bool',
+#[Out]#  'boxplot',
+#[Out]#  'clip',
+#[Out]#  'columns',
+#[Out]#  'combine',
+#[Out]#  'combine_first',
+#[Out]#  'convert_dtypes',
+#[Out]#  'copy',
+#[Out]#  'corr',
+#[Out]#  'corrwith',
+#[Out]#  'count',
+#[Out]#  'cov',
+#[Out]#  'cpi',
+#[Out]#  'cummax',
+#[Out]#  'cummin',
+#[Out]#  'cumprod',
+#[Out]#  'cumsum',
+#[Out]#  'describe',
+#[Out]#  'diff',
+#[Out]#  'div',
+#[Out]#  'divide',
+#[Out]#  'dot',
+#[Out]#  'drop',
+#[Out]#  'drop_duplicates',
+#[Out]#  'droplevel',
+#[Out]#  'dropna',
+#[Out]#  'dtypes',
+#[Out]#  'duplicated',
+#[Out]#  'empty',
+#[Out]#  'eq',
+#[Out]#  'equals',
+#[Out]#  'eval',
+#[Out]#  'ewm',
+#[Out]#  'expanding',
+#[Out]#  'explode',
+#[Out]#  'ffill',
+#[Out]#  'fillna',
+#[Out]#  'filter',
+#[Out]#  'first',
+#[Out]#  'first_valid_index',
+#[Out]#  'floordiv',
+#[Out]#  'from_dict',
+#[Out]#  'from_records',
+#[Out]#  'ge',
+#[Out]#  'get',
+#[Out]#  'groupby',
+#[Out]#  'gt',
+#[Out]#  'head',
+#[Out]#  'hist',
+#[Out]#  'iat',
+#[Out]#  'idxmax',
+#[Out]#  'idxmin',
+#[Out]#  'iloc',
+#[Out]#  'index',
+#[Out]#  'infer_objects',
+#[Out]#  'infl',
+#[Out]#  'info',
+#[Out]#  'insert',
+#[Out]#  'interpolate',
+#[Out]#  'isin',
+#[Out]#  'isna',
+#[Out]#  'isnull',
+#[Out]#  'items',
+#[Out]#  'iteritems',
+#[Out]#  'iterrows',
+#[Out]#  'itertuples',
+#[Out]#  'join',
+#[Out]#  'keys',
+#[Out]#  'kurt',
+#[Out]#  'kurtosis',
+#[Out]#  'last',
+#[Out]#  'last_valid_index',
+#[Out]#  'le',
+#[Out]#  'loc',
+#[Out]#  'lookup',
+#[Out]#  'lt',
+#[Out]#  'm1',
+#[Out]#  'mad',
+#[Out]#  'mask',
+#[Out]#  'max',
+#[Out]#  'mean',
+#[Out]#  'median',
+#[Out]#  'melt',
+#[Out]#  'memory_usage',
+#[Out]#  'merge',
+#[Out]#  'min',
+#[Out]#  'mod',
+#[Out]#  'mode',
+#[Out]#  'mul',
+#[Out]#  'multiply',
+#[Out]#  'ndim',
+#[Out]#  'ne',
+#[Out]#  'nlargest',
+#[Out]#  'notna',
+#[Out]#  'notnull',
+#[Out]#  'nsmallest',
+#[Out]#  'nunique',
+#[Out]#  'pct_change',
+#[Out]#  'pipe',
+#[Out]#  'pivot',
+#[Out]#  'pivot_table',
+#[Out]#  'plot',
+#[Out]#  'pop',
+#[Out]#  'pow',
+#[Out]#  'prod',
+#[Out]#  'product',
+#[Out]#  'quantile',
+#[Out]#  'quarter',
+#[Out]#  'query',
+#[Out]#  'radd',
+#[Out]#  'rank',
+#[Out]#  'rdiv',
+#[Out]#  'realcons',
+#[Out]#  'realdpi',
+#[Out]#  'realgdp',
+#[Out]#  'realgovt',
+#[Out]#  'realint',
+#[Out]#  'realinv',
+#[Out]#  'reindex',
+#[Out]#  'reindex_like',
+#[Out]#  'rename',
+#[Out]#  'rename_axis',
+#[Out]#  'reorder_levels',
+#[Out]#  'replace',
+#[Out]#  'resample',
+#[Out]#  'reset_index',
+#[Out]#  'rfloordiv',
+#[Out]#  'rmod',
+#[Out]#  'rmul',
+#[Out]#  'rolling',
+#[Out]#  'round',
+#[Out]#  'rpow',
+#[Out]#  'rsub',
+#[Out]#  'rtruediv',
+#[Out]#  'sample',
+#[Out]#  'select_dtypes',
+#[Out]#  'sem',
+#[Out]#  'set_axis',
+#[Out]#  'set_index',
+#[Out]#  'shape',
+#[Out]#  'shift',
+#[Out]#  'size',
+#[Out]#  'skew',
+#[Out]#  'slice_shift',
+#[Out]#  'sort_index',
+#[Out]#  'sort_values',
+#[Out]#  'squeeze',
+#[Out]#  'stack',
+#[Out]#  'std',
+#[Out]#  'style',
+#[Out]#  'sub',
+#[Out]#  'subtract',
+#[Out]#  'sum',
+#[Out]#  'swapaxes',
+#[Out]#  'swaplevel',
+#[Out]#  'tail',
+#[Out]#  'take',
+#[Out]#  'tbilrate',
+#[Out]#  'to_clipboard',
+#[Out]#  'to_csv',
+#[Out]#  'to_dict',
+#[Out]#  'to_excel',
+#[Out]#  'to_feather',
+#[Out]#  'to_gbq',
+#[Out]#  'to_hdf',
+#[Out]#  'to_html',
+#[Out]#  'to_json',
+#[Out]#  'to_latex',
+#[Out]#  'to_markdown',
+#[Out]#  'to_numpy',
+#[Out]#  'to_parquet',
+#[Out]#  'to_period',
+#[Out]#  'to_pickle',
+#[Out]#  'to_records',
+#[Out]#  'to_sql',
+#[Out]#  'to_stata',
+#[Out]#  'to_string',
+#[Out]#  'to_timestamp',
+#[Out]#  'to_xarray',
+#[Out]#  'transform',
+#[Out]#  'transpose',
+#[Out]#  'truediv',
+#[Out]#  'truncate',
+#[Out]#  'tshift',
+#[Out]#  'tz_convert',
+#[Out]#  'tz_localize',
+#[Out]#  'unemp',
+#[Out]#  'unstack',
+#[Out]#  'update',
+#[Out]#  'values',
+#[Out]#  'var',
+#[Out]#  'where',
+#[Out]#  'xs',
+#[Out]#  'year']
+data.axes()
+data.axes
+#[Out]# [RangeIndex(start=0, stop=203, step=1),
+#[Out]#  Index(['year', 'quarter', 'realgdp', 'realcons', 'realinv', 'realgovt',
+#[Out]#         'realdpi', 'cpi', 'm1', 'tbilrate', 'unemp', 'pop', 'infl', 'realint'],
+#[Out]#        dtype='object')]
+data.rows
+data.row
+dir(data)
+#[Out]# ['T',
+#[Out]#  '_AXIS_ALIASES',
+#[Out]#  '_AXIS_IALIASES',
+#[Out]#  '_AXIS_LEN',
+#[Out]#  '_AXIS_NAMES',
+#[Out]#  '_AXIS_NUMBERS',
+#[Out]#  '_AXIS_ORDERS',
+#[Out]#  '_AXIS_REVERSED',
+#[Out]#  '__abs__',
+#[Out]#  '__add__',
+#[Out]#  '__and__',
+#[Out]#  '__annotations__',
+#[Out]#  '__array__',
+#[Out]#  '__array_priority__',
+#[Out]#  '__array_wrap__',
+#[Out]#  '__bool__',
+#[Out]#  '__class__',
+#[Out]#  '__contains__',
+#[Out]#  '__copy__',
+#[Out]#  '__deepcopy__',
+#[Out]#  '__delattr__',
+#[Out]#  '__delitem__',
+#[Out]#  '__dict__',
+#[Out]#  '__dir__',
+#[Out]#  '__div__',
+#[Out]#  '__doc__',
+#[Out]#  '__eq__',
+#[Out]#  '__finalize__',
+#[Out]#  '__floordiv__',
+#[Out]#  '__format__',
+#[Out]#  '__ge__',
+#[Out]#  '__getattr__',
+#[Out]#  '__getattribute__',
+#[Out]#  '__getitem__',
+#[Out]#  '__getstate__',
+#[Out]#  '__gt__',
+#[Out]#  '__hash__',
+#[Out]#  '__iadd__',
+#[Out]#  '__iand__',
+#[Out]#  '__ifloordiv__',
+#[Out]#  '__imod__',
+#[Out]#  '__imul__',
+#[Out]#  '__init__',
+#[Out]#  '__init_subclass__',
+#[Out]#  '__invert__',
+#[Out]#  '__ior__',
+#[Out]#  '__ipow__',
+#[Out]#  '__isub__',
+#[Out]#  '__iter__',
+#[Out]#  '__itruediv__',
+#[Out]#  '__ixor__',
+#[Out]#  '__le__',
+#[Out]#  '__len__',
+#[Out]#  '__lt__',
+#[Out]#  '__matmul__',
+#[Out]#  '__mod__',
+#[Out]#  '__module__',
+#[Out]#  '__mul__',
+#[Out]#  '__ne__',
+#[Out]#  '__neg__',
+#[Out]#  '__new__',
+#[Out]#  '__nonzero__',
+#[Out]#  '__or__',
+#[Out]#  '__pos__',
+#[Out]#  '__pow__',
+#[Out]#  '__radd__',
+#[Out]#  '__rand__',
+#[Out]#  '__rdiv__',
+#[Out]#  '__reduce__',
+#[Out]#  '__reduce_ex__',
+#[Out]#  '__repr__',
+#[Out]#  '__rfloordiv__',
+#[Out]#  '__rmatmul__',
+#[Out]#  '__rmod__',
+#[Out]#  '__rmul__',
+#[Out]#  '__ror__',
+#[Out]#  '__round__',
+#[Out]#  '__rpow__',
+#[Out]#  '__rsub__',
+#[Out]#  '__rtruediv__',
+#[Out]#  '__rxor__',
+#[Out]#  '__setattr__',
+#[Out]#  '__setitem__',
+#[Out]#  '__setstate__',
+#[Out]#  '__sizeof__',
+#[Out]#  '__str__',
+#[Out]#  '__sub__',
+#[Out]#  '__subclasshook__',
+#[Out]#  '__truediv__',
+#[Out]#  '__weakref__',
+#[Out]#  '__xor__',
+#[Out]#  '_accessors',
+#[Out]#  '_add_numeric_operations',
+#[Out]#  '_add_series_or_dataframe_operations',
+#[Out]#  '_agg_by_level',
+#[Out]#  '_agg_examples_doc',
+#[Out]#  '_agg_summary_and_see_also_doc',
+#[Out]#  '_aggregate',
+#[Out]#  '_aggregate_multiple_funcs',
+#[Out]#  '_align_frame',
+#[Out]#  '_align_series',
+#[Out]#  '_box_col_values',
+#[Out]#  '_box_item_values',
+#[Out]#  '_builtin_table',
+#[Out]#  '_check_inplace_setting',
+#[Out]#  '_check_is_chained_assignment_possible',
+#[Out]#  '_check_label_or_level_ambiguity',
+#[Out]#  '_check_setitem_copy',
+#[Out]#  '_clear_item_cache',
+#[Out]#  '_clip_with_one_bound',
+#[Out]#  '_clip_with_scalar',
+#[Out]#  '_combine_frame',
+#[Out]#  '_combine_match_index',
+#[Out]#  '_consolidate',
+#[Out]#  '_consolidate_inplace',
+#[Out]#  '_construct_axes_dict',
+#[Out]#  '_construct_axes_dict_from',
+#[Out]#  '_construct_axes_from_arguments',
+#[Out]#  '_construct_result',
+#[Out]#  '_constructor',
+#[Out]#  '_constructor_expanddim',
+#[Out]#  '_constructor_sliced',
+#[Out]#  '_convert',
+#[Out]#  '_count_level',
+#[Out]#  '_create_indexer',
+#[Out]#  '_cython_table',
+#[Out]#  '_deprecations',
+#[Out]#  '_dir_additions',
+#[Out]#  '_dir_deletions',
+#[Out]#  '_drop_axis',
+#[Out]#  '_drop_labels_or_levels',
+#[Out]#  '_ensure_type',
+#[Out]#  '_ensure_valid_index',
+#[Out]#  '_find_valid_index',
+#[Out]#  '_from_arrays',
+#[Out]#  '_from_axes',
+#[Out]#  '_get_agg_axis',
+#[Out]#  '_get_axis',
+#[Out]#  '_get_axis_name',
+#[Out]#  '_get_axis_number',
+#[Out]#  '_get_axis_resolvers',
+#[Out]#  '_get_block_manager_axis',
+#[Out]#  '_get_bool_data',
+#[Out]#  '_get_cacher',
+#[Out]#  '_get_cleaned_column_resolvers',
+#[Out]#  '_get_cython_func',
+#[Out]#  '_get_index_resolvers',
+#[Out]#  '_get_item_cache',
+#[Out]#  '_get_label_or_level_values',
+#[Out]#  '_get_numeric_data',
+#[Out]#  '_get_value',
+#[Out]#  '_get_values',
+#[Out]#  '_getitem_bool_array',
+#[Out]#  '_getitem_multilevel',
+#[Out]#  '_gotitem',
+#[Out]#  '_iget_item_cache',
+#[Out]#  '_indexed_same',
+#[Out]#  '_info_axis',
+#[Out]#  '_info_axis_name',
+#[Out]#  '_info_axis_number',
+#[Out]#  '_info_repr',
+#[Out]#  '_init_mgr',
+#[Out]#  '_internal_get_values',
+#[Out]#  '_internal_names',
+#[Out]#  '_internal_names_set',
+#[Out]#  '_is_builtin_func',
+#[Out]#  '_is_cached',
+#[Out]#  '_is_copy',
+#[Out]#  '_is_datelike_mixed_type',
+#[Out]#  '_is_homogeneous_type',
+#[Out]#  '_is_label_or_level_reference',
+#[Out]#  '_is_label_reference',
+#[Out]#  '_is_level_reference',
+#[Out]#  '_is_mixed_type',
+#[Out]#  '_is_numeric_mixed_type',
+#[Out]#  '_is_view',
+#[Out]#  '_ix',
+#[Out]#  '_ixs',
+#[Out]#  '_join_compat',
+#[Out]#  '_maybe_cache_changed',
+#[Out]#  '_maybe_update_cacher',
+#[Out]#  '_metadata',
+#[Out]#  '_needs_reindex_multi',
+#[Out]#  '_obj_with_exclusions',
+#[Out]#  '_protect_consolidate',
+#[Out]#  '_reduce',
+#[Out]#  '_reindex_axes',
+#[Out]#  '_reindex_columns',
+#[Out]#  '_reindex_index',
+#[Out]#  '_reindex_multi',
+#[Out]#  '_reindex_with_indexers',
+#[Out]#  '_repr_data_resource_',
+#[Out]#  '_repr_fits_horizontal_',
+#[Out]#  '_repr_fits_vertical_',
+#[Out]#  '_repr_html_',
+#[Out]#  '_repr_latex_',
+#[Out]#  '_reset_cache',
+#[Out]#  '_reset_cacher',
+#[Out]#  '_sanitize_column',
+#[Out]#  '_selected_obj',
+#[Out]#  '_selection',
+#[Out]#  '_selection_list',
+#[Out]#  '_selection_name',
+#[Out]#  '_series',
+#[Out]#  '_set_as_cached',
+#[Out]#  '_set_axis',
+#[Out]#  '_set_axis_name',
+#[Out]#  '_set_is_copy',
+#[Out]#  '_set_item',
+#[Out]#  '_set_value',
+#[Out]#  '_setitem_array',
+#[Out]#  '_setitem_frame',
+#[Out]#  '_setitem_slice',
+#[Out]#  '_setup_axes',
+#[Out]#  '_slice',
+#[Out]#  '_stat_axis',
+#[Out]#  '_stat_axis_name',
+#[Out]#  '_stat_axis_number',
+#[Out]#  '_take_with_is_copy',
+#[Out]#  '_to_dict_of_blocks',
+#[Out]#  '_try_aggregate_string_function',
+#[Out]#  '_typ',
+#[Out]#  '_update_inplace',
+#[Out]#  '_validate_dtype',
+#[Out]#  '_values',
+#[Out]#  '_where',
+#[Out]#  '_xs',
+#[Out]#  'abs',
+#[Out]#  'add',
+#[Out]#  'add_prefix',
+#[Out]#  'add_suffix',
+#[Out]#  'agg',
+#[Out]#  'aggregate',
+#[Out]#  'align',
+#[Out]#  'all',
+#[Out]#  'any',
+#[Out]#  'append',
+#[Out]#  'apply',
+#[Out]#  'applymap',
+#[Out]#  'asfreq',
+#[Out]#  'asof',
+#[Out]#  'assign',
+#[Out]#  'astype',
+#[Out]#  'at',
+#[Out]#  'at_time',
+#[Out]#  'attrs',
+#[Out]#  'axes',
+#[Out]#  'between_time',
+#[Out]#  'bfill',
+#[Out]#  'bool',
+#[Out]#  'boxplot',
+#[Out]#  'clip',
+#[Out]#  'columns',
+#[Out]#  'combine',
+#[Out]#  'combine_first',
+#[Out]#  'convert_dtypes',
+#[Out]#  'copy',
+#[Out]#  'corr',
+#[Out]#  'corrwith',
+#[Out]#  'count',
+#[Out]#  'cov',
+#[Out]#  'cpi',
+#[Out]#  'cummax',
+#[Out]#  'cummin',
+#[Out]#  'cumprod',
+#[Out]#  'cumsum',
+#[Out]#  'describe',
+#[Out]#  'diff',
+#[Out]#  'div',
+#[Out]#  'divide',
+#[Out]#  'dot',
+#[Out]#  'drop',
+#[Out]#  'drop_duplicates',
+#[Out]#  'droplevel',
+#[Out]#  'dropna',
+#[Out]#  'dtypes',
+#[Out]#  'duplicated',
+#[Out]#  'empty',
+#[Out]#  'eq',
+#[Out]#  'equals',
+#[Out]#  'eval',
+#[Out]#  'ewm',
+#[Out]#  'expanding',
+#[Out]#  'explode',
+#[Out]#  'ffill',
+#[Out]#  'fillna',
+#[Out]#  'filter',
+#[Out]#  'first',
+#[Out]#  'first_valid_index',
+#[Out]#  'floordiv',
+#[Out]#  'from_dict',
+#[Out]#  'from_records',
+#[Out]#  'ge',
+#[Out]#  'get',
+#[Out]#  'groupby',
+#[Out]#  'gt',
+#[Out]#  'head',
+#[Out]#  'hist',
+#[Out]#  'iat',
+#[Out]#  'idxmax',
+#[Out]#  'idxmin',
+#[Out]#  'iloc',
+#[Out]#  'index',
+#[Out]#  'infer_objects',
+#[Out]#  'infl',
+#[Out]#  'info',
+#[Out]#  'insert',
+#[Out]#  'interpolate',
+#[Out]#  'isin',
+#[Out]#  'isna',
+#[Out]#  'isnull',
+#[Out]#  'items',
+#[Out]#  'iteritems',
+#[Out]#  'iterrows',
+#[Out]#  'itertuples',
+#[Out]#  'join',
+#[Out]#  'keys',
+#[Out]#  'kurt',
+#[Out]#  'kurtosis',
+#[Out]#  'last',
+#[Out]#  'last_valid_index',
+#[Out]#  'le',
+#[Out]#  'loc',
+#[Out]#  'lookup',
+#[Out]#  'lt',
+#[Out]#  'm1',
+#[Out]#  'mad',
+#[Out]#  'mask',
+#[Out]#  'max',
+#[Out]#  'mean',
+#[Out]#  'median',
+#[Out]#  'melt',
+#[Out]#  'memory_usage',
+#[Out]#  'merge',
+#[Out]#  'min',
+#[Out]#  'mod',
+#[Out]#  'mode',
+#[Out]#  'mul',
+#[Out]#  'multiply',
+#[Out]#  'ndim',
+#[Out]#  'ne',
+#[Out]#  'nlargest',
+#[Out]#  'notna',
+#[Out]#  'notnull',
+#[Out]#  'nsmallest',
+#[Out]#  'nunique',
+#[Out]#  'pct_change',
+#[Out]#  'pipe',
+#[Out]#  'pivot',
+#[Out]#  'pivot_table',
+#[Out]#  'plot',
+#[Out]#  'pop',
+#[Out]#  'pow',
+#[Out]#  'prod',
+#[Out]#  'product',
+#[Out]#  'quantile',
+#[Out]#  'quarter',
+#[Out]#  'query',
+#[Out]#  'radd',
+#[Out]#  'rank',
+#[Out]#  'rdiv',
+#[Out]#  'realcons',
+#[Out]#  'realdpi',
+#[Out]#  'realgdp',
+#[Out]#  'realgovt',
+#[Out]#  'realint',
+#[Out]#  'realinv',
+#[Out]#  'reindex',
+#[Out]#  'reindex_like',
+#[Out]#  'rename',
+#[Out]#  'rename_axis',
+#[Out]#  'reorder_levels',
+#[Out]#  'replace',
+#[Out]#  'resample',
+#[Out]#  'reset_index',
+#[Out]#  'rfloordiv',
+#[Out]#  'rmod',
+#[Out]#  'rmul',
+#[Out]#  'rolling',
+#[Out]#  'round',
+#[Out]#  'rpow',
+#[Out]#  'rsub',
+#[Out]#  'rtruediv',
+#[Out]#  'sample',
+#[Out]#  'select_dtypes',
+#[Out]#  'sem',
+#[Out]#  'set_axis',
+#[Out]#  'set_index',
+#[Out]#  'shape',
+#[Out]#  'shift',
+#[Out]#  'size',
+#[Out]#  'skew',
+#[Out]#  'slice_shift',
+#[Out]#  'sort_index',
+#[Out]#  'sort_values',
+#[Out]#  'squeeze',
+#[Out]#  'stack',
+#[Out]#  'std',
+#[Out]#  'style',
+#[Out]#  'sub',
+#[Out]#  'subtract',
+#[Out]#  'sum',
+#[Out]#  'swapaxes',
+#[Out]#  'swaplevel',
+#[Out]#  'tail',
+#[Out]#  'take',
+#[Out]#  'tbilrate',
+#[Out]#  'to_clipboard',
+#[Out]#  'to_csv',
+#[Out]#  'to_dict',
+#[Out]#  'to_excel',
+#[Out]#  'to_feather',
+#[Out]#  'to_gbq',
+#[Out]#  'to_hdf',
+#[Out]#  'to_html',
+#[Out]#  'to_json',
+#[Out]#  'to_latex',
+#[Out]#  'to_markdown',
+#[Out]#  'to_numpy',
+#[Out]#  'to_parquet',
+#[Out]#  'to_period',
+#[Out]#  'to_pickle',
+#[Out]#  'to_records',
+#[Out]#  'to_sql',
+#[Out]#  'to_stata',
+#[Out]#  'to_string',
+#[Out]#  'to_timestamp',
+#[Out]#  'to_xarray',
+#[Out]#  'transform',
+#[Out]#  'transpose',
+#[Out]#  'truediv',
+#[Out]#  'truncate',
+#[Out]#  'tshift',
+#[Out]#  'tz_convert',
+#[Out]#  'tz_localize',
+#[Out]#  'unemp',
+#[Out]#  'unstack',
+#[Out]#  'update',
+#[Out]#  'values',
+#[Out]#  'var',
+#[Out]#  'where',
+#[Out]#  'xs',
+#[Out]#  'year']
+data.attrs
+#[Out]# {}
+data.attrs()
+data.attrs
+#[Out]# {}
+data.values()
+data.values
+#[Out]# array([[ 1.9590000e+03,  1.0000000e+00,  2.7103490e+03, ...,
+#[Out]#          1.7714600e+02,  0.0000000e+00,  0.0000000e+00],
+#[Out]#        [ 1.9590000e+03,  2.0000000e+00,  2.7788010e+03, ...,
+#[Out]#          1.7783000e+02,  2.3400000e+00,  7.4000000e-01],
+#[Out]#        [ 1.9590000e+03,  3.0000000e+00,  2.7754880e+03, ...,
+#[Out]#          1.7865700e+02,  2.7400000e+00,  1.0900000e+00],
+#[Out]#        ...,
+#[Out]#        [ 2.0090000e+03,  1.0000000e+00,  1.2925410e+04, ...,
+#[Out]#          3.0654700e+02,  9.4000000e-01, -7.1000000e-01],
+#[Out]#        [ 2.0090000e+03,  2.0000000e+00,  1.2901504e+04, ...,
+#[Out]#          3.0722600e+02,  3.3700000e+00, -3.1900000e+00],
+#[Out]#        [ 2.0090000e+03,  3.0000000e+00,  1.2990341e+04, ...,
+#[Out]#          3.0801300e+02,  3.5600000e+00, -3.4400000e+00]])
+data.axes
+#[Out]# [RangeIndex(start=0, stop=203, step=1),
+#[Out]#  Index(['year', 'quarter', 'realgdp', 'realcons', 'realinv', 'realgovt',
+#[Out]#         'realdpi', 'cpi', 'm1', 'tbilrate', 'unemp', 'pop', 'infl', 'realint'],
+#[Out]#        dtype='object')]
+periods - pd.PeriodIndex(year=data.year, quarter=data.quarter,name='date')
+periods = pd.PeriodIndex(year=data.year, quarter=data.quarter,name='date')
+columns = pd.Index(['realgdp','infl','unemp'],name='item')
+columns
+#[Out]# Index(['realgdp', 'infl', 'unemp'], dtype='object', name='item')
+data.index = periods.to_timestamp('D','end')
+ldata = data.stack().reset_index().rename(columns={0: 'value'})
+ldata[:10]
+#[Out]#                            date   level_1     value
+#[Out]# 0 1959-03-31 23:59:59.999999999      year  1959.000
+#[Out]# 1 1959-03-31 23:59:59.999999999   quarter     1.000
+#[Out]# 2 1959-03-31 23:59:59.999999999   realgdp  2710.349
+#[Out]# 3 1959-03-31 23:59:59.999999999  realcons  1707.400
+#[Out]# 4 1959-03-31 23:59:59.999999999   realinv   286.898
+#[Out]# 5 1959-03-31 23:59:59.999999999  realgovt   470.045
+#[Out]# 6 1959-03-31 23:59:59.999999999   realdpi  1886.900
+#[Out]# 7 1959-03-31 23:59:59.999999999       cpi    28.980
+#[Out]# 8 1959-03-31 23:59:59.999999999        m1   139.700
+#[Out]# 9 1959-03-31 23:59:59.999999999  tbilrate     2.820
+quit()
